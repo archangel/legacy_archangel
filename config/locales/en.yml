@@ -5,6 +5,8 @@ en:
     languages:
       en: English
     no_resources: No %{resource} found.
+    placeholder_users: Name or username contains
+    placeholder_pages: Title or body contains
     roles:
       admin: Administrator
       manager: Manager

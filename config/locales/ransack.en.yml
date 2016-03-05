@@ -9,9 +9,3 @@ en:
       end: ends with
       gt: greater than
       lt: less than
-
-    attributes:
-      archangel/user:
-        email: Email
-        name: Name
-        username: Usernamess
