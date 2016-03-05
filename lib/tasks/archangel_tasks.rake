@@ -1,4 +1,6 @@
-# desc "Explaining what the task does"
-# task :archangel do
-#   # Task goes here
-# end
+namespace :archangel do
+  desc "Current Archangel version"
+  task :version do
+    puts Archangel::VERSION
+  end
+end
