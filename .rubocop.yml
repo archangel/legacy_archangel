@@ -1,0 +1,26 @@
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+  Exclude:
+    - "bin/**/*"
+    - "db/migrate/**/*"
+    - "spec/dummy/**/*"
+
+LineLength:
+  Max: 80
+
+ModuleLength:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+DotPosition:
+  EnforcedStyle: leading
+
+StringLiterals:
+  EnforcedStyle: double_quotes
+
+StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
