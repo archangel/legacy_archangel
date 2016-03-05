@@ -1,5 +1,40 @@
+require "bootstrap-sass"
+require "carrierwave"
+require "coffee-rails"
+require "date_validator"
+require "devise"
+require "devise_invitable"
+require "file_validators"
+require "friendly_id"
+require "jquery-rails"
+require "kaminari"
+require "local_time"
+require "mini_magick"
+require "paranoia"
+require "pundit"
+require "ransack"
+require "responders"
+require "sass-rails"
+require "simple_form"
+require "validates"
+require "uglifier"
+
 require "archangel/engine"
+require "archangel/configuration"
+require "archangel/i18n"
+require "archangel/roles"
 require "archangel/version"
 
 module Archangel
+  class << self
+    attr_accessor :configuration
+
+    def configure
+      yield configuration
+    end
+
+    def configuration
+      @configuration ||= Configuration.new
+    end
+  end
 end

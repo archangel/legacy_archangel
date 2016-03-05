@@ -1,0 +1,17 @@
+en:
+  ransack:
+    asc: ascending
+    desc: descending
+    predicates:
+      cont: contains
+      not_cont: not contains
+      start: starts with
+      end: ends with
+      gt: greater than
+      lt: less than
+
+    attributes:
+      archangel/user:
+        email: Email
+        name: Name
+        username: Usernamess

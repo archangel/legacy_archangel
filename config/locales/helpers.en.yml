@@ -1,0 +1,7 @@
+en:
+  helpers:
+    submit:
+      profile:
+        update: "Update Profile"
+      settings:
+        update: "Update Settings"

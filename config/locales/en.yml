@@ -1,0 +1,12 @@
+en:
+  archangel:
+    are_you_sure: Are you sure?
+    archangel: Archangel
+    languages:
+      en: English
+    no_resources: No %{resource} found.
+    roles:
+      admin: Administrator
+      manager: Manager
+      user: User
+    search: Search

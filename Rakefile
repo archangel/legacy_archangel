@@ -14,3 +14,10 @@ require "rspec/core/rake_task"
 RSpec::Core::RakeTask.new
 
 task default: :spec
+
+desc "Generates a dummy app for testing"
+task :dummy_app do
+  ENV["LIB_NAME"] = "archangel"
+
+  Rake::Task["dummy:generate"].invoke
+end

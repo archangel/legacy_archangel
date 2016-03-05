@@ -1,0 +1,14 @@
+en:
+  flash:
+    actions:
+      create:
+        success: "%{resource_name} was successfully created."
+      update:
+        success: "%{resource_name} was successfully updated."
+      destroy:
+        success: "%{resource_name} was successfully destroyed."
+        error: "%{resource_name} could not be destroyed."
+    archangel:
+      users:
+        create:
+          success: An email will be sent to the new user to help them set up their account.

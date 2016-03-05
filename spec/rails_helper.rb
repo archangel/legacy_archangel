@@ -1,6 +1,11 @@
 ENV["RAILS_ENV"] ||= "test"
 
-require File.expand_path("../dummy/config/environment", __FILE__)
+begin
+  require File.expand_path("../dummy/config/environment", __FILE__)
+rescue LoadError
+  puts "Could not load test application. Run `bundle exec rake dummy_app` first"
+  exit
+end
 
 if Rails.env.production?
   abort("The Rails environment is running in production mode!")
@@ -13,7 +18,10 @@ require "pry"
 require "byebug"
 require "launchy"
 
+# For local support files only
 Dir[Rails.root.join("../support/**/*.rb")].each { |f| require f }
+
+require "archangel/testing_support/support"
 
 RSpec.configure do |config|
   config.color = true

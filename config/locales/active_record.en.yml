@@ -1,0 +1,24 @@
+en:
+  activerecord:
+    models:
+      archangel/setting:
+        one: Settings
+        other: Settings
+      archangel/user:
+        one: User
+        other: Users
+
+    attributes:
+      archangel/setting:
+        logo: Logo
+        per_page: Per Page
+        remove_logo: Remove Logo
+        title: Title
+      archangel/user:
+        avatar: Avatar
+        email: Email
+        name: Name
+        password: Password
+        password_confirmation: Confirm Password
+        role: Role
+        username: Username

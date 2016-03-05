@@ -1,0 +1,35 @@
+<%= render "search" %>
+
+<% if @pages.any? %>
+  <table class="table table-responsive table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Path</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pages.each do |page| %>
+        <tr>
+          <td><%= page.title %></td>
+          <td><%= page.path %></td>
+          <td>
+            <%= link_to "Show", admin_page_path(page) %>
+            <%= link_to "Edit", edit_admin_page_path(page) %>
+            <%= link_to "Destroy", admin_page_path(page), method: :delete, data: { confirm: Archangel.t(:are_you_sure) } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @pages %>
+<% else %>
+  <p>
+    <%= Archangel.t(:no_resources, resource: "Pages") %>
+  </p>
+<% end %>
+
+<%= link_to "New Page", new_admin_page_path %>

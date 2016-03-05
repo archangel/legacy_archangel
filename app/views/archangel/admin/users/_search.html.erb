@@ -1,0 +1,9 @@
+<%= search_form_for [:admin, @q], builder: SimpleForm::FormBuilder do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name_or_username_cont %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, Archangel.t(:search) %>
+  </div>
+<% end %>
