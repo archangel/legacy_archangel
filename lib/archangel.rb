@@ -22,6 +22,8 @@ require "uglifier"
 require "archangel/engine"
 require "archangel/configuration"
 require "archangel/i18n"
+require "archangel/object/null_object"
+require "archangel/object/null_user"
 require "archangel/roles"
 require "archangel/version"
 

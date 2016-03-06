@@ -5,6 +5,13 @@
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :path %>
+
+    <% if @page.new_record? %>
+      <%= f.input :author_id, as: :hidden, input_html: { value: current_user.id } %>
+    <% else %>
+      <%= f.association :author, as: :select %>
+    <% end %>
+
     <%= f.input :content, as: :text %>
     <%= f.input :meta_keywords %>
     <%= f.input :meta_description %>

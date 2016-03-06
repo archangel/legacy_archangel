@@ -8,9 +8,13 @@ module Archangel
     before_validation :parameterize_path
 
     # Validation
+    validates :author_id, presence: true
     validates :content, presence: true, allow_blank: true
     validates :path, presence: true, allow_blank: true, uniqueness: true
     validates :title, presence: true
+
+    # Associations
+    belongs_to :author, class_name: Archangel::User
 
     # Default scope
     default_scope { order(title: :asc, slug: :asc) }
