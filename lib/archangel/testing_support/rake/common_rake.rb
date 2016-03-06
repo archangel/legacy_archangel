@@ -9,7 +9,7 @@ namespace :common do
   task :test_app do
     lib = ENV["LIB_NAME"]
 
-    require lib
+    require lib unless defined?("#{lib.camelize}".constantize)
 
     ENV["RAILS_ENV"] = "test"
 
