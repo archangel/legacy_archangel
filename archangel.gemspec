@@ -3,6 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "archangel/version"
 
 Gem::Specification.new do |s|
+  s.platform    = Gem::Platform::RUBY
   s.name        = "archangel"
   s.version     = Archangel::VERSION
   s.authors     = ["David Freerksen"]
