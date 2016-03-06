@@ -12,8 +12,8 @@
 //
 //= require_self
 //
-//= require jquery
+//= require jquery2
 //= require jquery_ujs
 //= require local_time
-
+//
 //= require bootstrap-sprockets
