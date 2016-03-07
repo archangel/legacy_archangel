@@ -2,6 +2,10 @@ en:
   archangel:
     are_you_sure: Are you sure?
     archangel: Archangel
+    date_picker_format: "%Y-%m-%d"
+    date_picker_format_js: YYYY-MM-DD
+    date_time_picker_format: "%Y-%m-%d %H:%M"
+    date_time_picker_format_js: YYYY-MM-DD HH:mm
     languages:
       en: English
     no_resources: No %{resource} found.

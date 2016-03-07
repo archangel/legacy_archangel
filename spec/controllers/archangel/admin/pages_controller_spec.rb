@@ -49,7 +49,9 @@ module Archangel
             {
               title: "New Page",
               path: "new-page",
-              content: "Page content"
+              content: "Page content",
+              author_id: create(:user),
+              published_at: Time.current
             }
           end
 

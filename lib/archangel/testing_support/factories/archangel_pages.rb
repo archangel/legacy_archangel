@@ -3,6 +3,8 @@ FactoryGirl.define do
     title "Page Title"
     content "Content of the page"
     sequence(:path) { |n| "page#{n}" }
+    author
+    published_at { Time.current }
 
     trait :homepage do
       path ""

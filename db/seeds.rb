@@ -21,4 +21,5 @@ end
 Archangel::Page.find_or_create_by(slug: "") do |item|
   item.title = "Welcome"
   item.content = "Welcome to your new site."
+  item.author_id = Archangel::User.first
 end

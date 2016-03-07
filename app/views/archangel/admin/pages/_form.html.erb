@@ -15,6 +15,7 @@
     <%= f.input :content, as: :text %>
     <%= f.input :meta_keywords %>
     <%= f.input :meta_description %>
+    <%= f.input :published_at, as: :date_time_picker, input_html: { value: datetimepicker_field_value(f.object.published_at, true) } %>
   </div>
 
   <div class="form-actions">

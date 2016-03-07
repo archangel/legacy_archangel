@@ -17,3 +17,7 @@
 //= require local_time
 //
 //= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
+//
+//= require archangel/shared/date_picker

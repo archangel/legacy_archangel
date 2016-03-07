@@ -53,7 +53,7 @@ module Archangel
 
       def permitted_attributes
         [
-          :author_id, :content, :path, :title
+          :author_id, :content, :path, :published_at, :title
         ]
       end
 

@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_dependency "uglifier", ">= 2.7"
 
   s.add_dependency "bootstrap-sass", "~> 3.3"
+  s.add_dependency "bootstrap3-datetimepicker-rails", "~> 4.17"
   s.add_dependency "carrierwave", "~> 0.10"
   s.add_dependency "date_validator", "~> 0.9"
   s.add_dependency "devise", "~> 3.5"
@@ -38,6 +39,7 @@ Gem::Specification.new do |s|
   s.add_dependency "kaminari", "~> 0.16"
   s.add_dependency "local_time", "~> 1.0"
   s.add_dependency "mini_magick", "~> 4.4"
+  s.add_dependency "momentjs-rails", "~> 2.9"
   s.add_dependency "paranoia", "~> 2.1"
   s.add_dependency "pundit", "~> 1.1"
   s.add_dependency "ransack", "~> 1.7"

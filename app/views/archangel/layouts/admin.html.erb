@@ -18,6 +18,8 @@
 
   <%= stylesheet_link_tag "archangel/admin", media: "all" %>
   <%= yield(:stylesheet) if content_for?(:stylesheet) %>
+
+  <%= render "archangel/layouts/admin/shared/translations" %>
 </head>
 <body>
 
