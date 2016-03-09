@@ -8,18 +8,19 @@ unless Archangel::User.first
   name = ask("Name:  ") { |q| q.default = "Admin" }
   password = ask("Password:  ") { |q| q.echo = "*" }
 
-  Archangel::User.create(email: email,
-                         username: username,
-                         name: name,
-                         password: password,
-                         password_confirmation: password,
-                         role: "admin",
-                         confirmed_at: Time.current)
+  Archangel::User.create!(email: email,
+                          username: username,
+                          name: name,
+                          password: password,
+                          password_confirmation: password,
+                          role: "admin",
+                          confirmed_at: Time.current)
 end
 
 # Pages
-Archangel::Page.find_or_create_by(slug: "") do |item|
+Archangel::Page.find_or_create_by!(path: "") do |item|
   item.title = "Welcome"
   item.content = "Welcome to your new site."
-  item.author_id = Archangel::User.first
+  item.author_id = Archangel::User.first.id
+  item.published_at = Time.current
 end
