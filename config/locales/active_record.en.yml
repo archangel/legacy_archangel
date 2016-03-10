@@ -9,9 +9,8 @@ en:
         other: Users
 
     attributes:
-      archangel/setting:
+      archangel/site:
         logo: Logo
-        per_page: Per Page
         remove_logo: Remove Logo
         title: Title
       archangel/user:

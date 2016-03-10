@@ -11,7 +11,7 @@ module Archangel
     protected
 
     def per_page
-      params[:limit] || settings.per_page
+      params[:limit] || Kaminari.config.default_per_page
     end
 
     def render_401(exception)

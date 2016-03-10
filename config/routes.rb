@@ -22,7 +22,7 @@ Archangel::Engine.routes.draw do
     resources :users, concerns: [:paginatable]
 
     resource :profile, except: [:new, :create]
-    resource :settings, only: [:show, :edit, :update]
+    resource :site, only: [:show, :edit, :update]
 
     root to: "dashboards#show"
   end

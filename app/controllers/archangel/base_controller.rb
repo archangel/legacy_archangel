@@ -9,10 +9,10 @@ module Archangel
     respond_to :html, :json
     responders :flash, :http_cache
 
-    helper_method :settings
+    helper_method :current_site
 
-    def settings
-      @settings ||= Archangel::Setting.settings
+    def current_site
+      @site ||= Archangel::Site.current
     end
 
     protected

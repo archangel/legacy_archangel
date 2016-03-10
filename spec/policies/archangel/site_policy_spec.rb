@@ -1,8 +1,8 @@
 require "rails_helper"
 
 module Archangel
-  RSpec.describe SettingPolicy, type: :policy do
-    subject { SettingPolicy.new(user, record) }
+  RSpec.describe SitePolicy, type: :policy do
+    subject { SitePolicy.new(user, record) }
 
     let(:user) { create(:user) }
     let(:record) { create(:user) }

@@ -1,6 +1,6 @@
 module Archangel
   module Admin
-    module SettingsHelper
+    module SitesHelper
     end
   end
 end

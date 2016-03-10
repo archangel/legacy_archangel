@@ -2,7 +2,7 @@ require "rails_helper"
 
 module Archangel
   module Admin
-    RSpec.describe SettingsHelper, type: :helper do
+    RSpec.describe SitesHelper, type: :helper do
     end
   end
 end
