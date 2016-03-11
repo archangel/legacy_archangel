@@ -8,8 +8,8 @@ module Archangel
 
     # Scope
     def self.current
-      first_or_create do |setting|
-        setting.title = Archangel.t(:archangel)
+      first_or_create do |site|
+        site.title = Archangel.t(:archangel)
       end
     end
   end

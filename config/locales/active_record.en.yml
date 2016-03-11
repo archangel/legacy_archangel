@@ -1,9 +1,9 @@
 en:
   activerecord:
     models:
-      archangel/setting:
-        one: Settings
-        other: Settings
+      archangel/site:
+        one: Site
+        other: Site
       archangel/user:
         one: User
         other: Users

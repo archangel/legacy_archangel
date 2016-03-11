@@ -3,5 +3,5 @@ en:
     submit:
       profile:
         update: "Update Profile"
-      settings:
-        update: "Update Settings"
+      site:
+        update: "Update Site"
