@@ -30,6 +30,6 @@ class DatePickerInput < SimpleForm::Inputs::Base
   end
 
   def icon_calendar
-    "<i class='glyphicon glyphicon-th'></i>".html_safe
+    "<i class='glyphicon glyphicon-calendar'></i>".html_safe
   end
 end
