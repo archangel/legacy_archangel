@@ -6,6 +6,6 @@ RSpec.describe "Role custom input for simple_form", type: :input do
   end
 
   it "does not includes blank" do
-    assert_select "option[value=]", count: Archangel::ROLES.count
+    assert_select "option", count: Archangel::ROLES.count
   end
 end
