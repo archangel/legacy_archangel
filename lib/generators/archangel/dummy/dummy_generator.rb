@@ -15,8 +15,6 @@ module Archangel
         :pretend, :force, :skip
       ].freeze
 
-      # source_root File.expand_path("../templates", __FILE__)
-
       def self.source_paths
         paths = superclass.source_paths
         paths << File.expand_path("../templates", __FILE__)
@@ -34,6 +32,7 @@ module Archangel
         opts[:force] = true
         opts[:skip_bundle] = true
         opts[:old_style_hash] = false
+        opts[:skip_turbolinks] = true
 
         puts "Generating dummy Rails application..."
 
