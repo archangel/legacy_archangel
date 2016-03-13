@@ -5,9 +5,9 @@ class ParentPageInput < SimpleForm::Inputs::CollectionSelectInput
 
   def input_options
     super.tap do |options|
-      options[:include_blank] = true
+      options[:include_blank] = false
       options[:prompt] = Archangel.t(:top_level)
-      options[:disabled] = [object.id] if object.persisted?
+      options[:disabled] = [object.id] if object && object.persisted?
     end
   end
 
