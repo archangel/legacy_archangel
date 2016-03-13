@@ -19,6 +19,7 @@ namespace :dummy do
       "--skip-migrate",
       "--skip-sample",
       "--skip-seed",
+      "--skip-turbolinks",
       "--route-path=archangel",
       "--quiet"
     ]
@@ -40,11 +41,12 @@ namespace :dummy do
             "--migrate",
             "--skip-sample",
             "--skip-seed",
+            "--skip-turbolinks",
             "--route-path=archangel",
             "--quiet"
           ])
       rescue LoadError
-        puts "Skipping extension instal. No generator to run..."
+        puts "Skipping extension install. No generator to run..."
       end
     end
 
