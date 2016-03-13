@@ -14,21 +14,23 @@ module Archangel
       end
 
       def datepicker_field_value(date, now = false)
-        date_field_value(date, Archangel.t(:date_picker_format), now)
+        date_field_value(date,
+                         Archangel.t(:format, scope: :datetimepicker),
+                         now)
       end
 
       def datetimepicker_field_value(date, now = false)
-        date_field_value(date, Archangel.t(:date_time_picker_format), now)
+        date_field_value(date,
+                         Archangel.t(:time_format, scope: :datetimepicker),
+                         now)
       end
 
       def date_field_value(date, format, now = false)
         date ||= Time.current if now
 
-        unless date.blank?
-          l(date, format: format)
-        else
-          nil
-        end
+        return nil if date.blank?
+
+        l(date, format: format)
       end
     end
   end

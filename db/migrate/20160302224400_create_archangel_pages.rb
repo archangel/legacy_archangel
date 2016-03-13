@@ -12,6 +12,5 @@ class CreateArchangelPages < ActiveRecord::Migration
     end
 
     add_index :archangel_pages, :path, unique: true
-    add_index :archangel_pages, :slug, unique: true
   end
 end

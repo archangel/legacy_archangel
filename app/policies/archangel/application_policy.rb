@@ -57,5 +57,9 @@ module Archangel
     def management_role?
       user.manager? || user.admin?
     end
+
+    def administive_role?
+      user.admin?
+    end
   end
 end

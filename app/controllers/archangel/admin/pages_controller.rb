@@ -4,11 +4,7 @@ module Archangel
       before_action :set_page, only: [:show, :new, :edit, :update, :destroy]
 
       def index
-        @q = Archangel::Page.ransack(params[:q].try(:merge, m: "or"))
-
-        @pages = @q.result(distinct: true)
-                   .page(params[:page])
-                   .per(per_page)
+        @pages = Archangel::Page.all
 
         authorize @pages
 
@@ -53,7 +49,8 @@ module Archangel
 
       def permitted_attributes
         [
-          :author_id, :content, :path, :published_at, :title
+          :author_id, :content, :parent_id, :path, :position, :published_at,
+          :slug, :title
         ]
       end
 
@@ -61,7 +58,7 @@ module Archangel
         if action_name.to_sym == :new
           @page = Archangel::Page.new
         else
-          @page = Archangel::Page.friendly.find(params[:id])
+          @page = Archangel::Page.friendly.find_by(id: params[:id])
         end
 
         authorize @page

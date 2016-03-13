@@ -1,5 +1,3 @@
-<%= render "search" %>
-
 <% if @pages.any? %>
   <table class="table table-responsive table-striped">
     <thead>
@@ -26,8 +24,6 @@
       <% end %>
     </tbody>
   </table>
-
-  <%= paginate @pages %>
 <% else %>
   <p>
     <%= Archangel.t(:no_resources, resource: "Pages") %>

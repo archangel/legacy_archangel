@@ -18,7 +18,7 @@ unless Archangel::User.first
 end
 
 # Pages
-Archangel::Page.find_or_create_by!(path: "") do |item|
+Archangel::Page.find_or_create_by!(path: "home", slug: "home") do |item|
   item.title = "Welcome"
   item.content = "Welcome to your new site."
   item.author_id = Archangel::User.first.id

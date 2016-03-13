@@ -19,6 +19,9 @@
   <%= stylesheet_link_tag "archangel/admin", media: "all" %>
   <%= yield(:stylesheet) if content_for?(:stylesheet) %>
 
+  <%= javascript_include_tag "archangel/admin" %>
+  <%= yield(:javascript) if content_for?(:javascript) %>
+
   <%= render "archangel/layouts/admin/shared/translations" %>
 </head>
 <body>
@@ -48,9 +51,6 @@
   </div>
 
   <div id="footer"></div>
-
-  <%= javascript_include_tag "archangel/admin" %>
-  <%= yield(:javascript) if content_for?(:javascript) %>
 
 </body>
 </html>

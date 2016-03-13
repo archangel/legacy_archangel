@@ -7,7 +7,7 @@ FactoryGirl.define do
     published_at { Time.current }
 
     trait :homepage do
-      path ""
+      path "home"
     end
   end
 end

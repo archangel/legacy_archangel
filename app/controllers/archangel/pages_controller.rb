@@ -3,13 +3,13 @@ module Archangel
     before_action :set_page
 
     def show
-      respond_with @page
+      respond_with @page if stale?(etag: @page, last_modified: @page.created_at)
     end
 
     protected
 
     def set_page
-      @page = Archangel::Page.find_by!(path: params[:path] ||= "")
+      @page = Archangel::Page.find_by!(path: params[:path] ||= "home")
     end
   end
 end

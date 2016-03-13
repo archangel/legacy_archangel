@@ -4,19 +4,19 @@ module Archangel
   RSpec.describe PagesController, type: :controller do
     describe "GET #show" do
       it "uses correct layout" do
-        create(:page, :homepage)
+        page = create(:page, :homepage)
 
-        archangel_get :show
+        archangel_get :show, path: page.path
 
         expect(response).to(
           render_template(layout: "archangel/layouts/application")
         )
       end
 
-      xit "assigns the requested page as @page" do
+      it "assigns the requested page as @page" do
         page = create(:page)
 
-        archangel_get :show, path: page
+        archangel_get :show, path: page.path
 
         expect(assigns(:page)).to eq(page)
       end

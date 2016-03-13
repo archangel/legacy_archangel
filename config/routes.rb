@@ -27,7 +27,7 @@ Archangel::Engine.routes.draw do
     root to: "dashboards#show"
   end
 
-  get "pages/*path", to: "pages#show", as: :page
+  get "*path", to: "pages#show", as: :page
 
   root to: "pages#show"
 end
