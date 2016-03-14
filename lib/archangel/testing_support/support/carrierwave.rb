@@ -7,3 +7,7 @@ RSpec.configure do |config|
     FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads"])
   end
 end
+
+def uploader_test_file
+  Archangel::Engine.root + "spec/support/uploads/image.gif"
+end

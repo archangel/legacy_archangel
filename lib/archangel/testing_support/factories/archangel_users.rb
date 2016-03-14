@@ -9,6 +9,10 @@ FactoryGirl.define do
     confirmation_sent_at { Time.current }
     role "user"
 
+    trait :avatar do
+      avatar { File.new(uploader_test_file) }
+    end
+
     trait :admin do
       role "admin"
     end

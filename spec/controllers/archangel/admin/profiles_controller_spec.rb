@@ -4,7 +4,7 @@ module Archangel
   module Admin
     RSpec.describe ProfilesController, type: :controller do
       let!(:profile) do
-        profile = create(:user)
+        profile = create(:user, :admin)
 
         stub_authorization!(profile)
 
