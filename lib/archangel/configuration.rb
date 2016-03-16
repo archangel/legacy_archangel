@@ -2,10 +2,11 @@ module Archangel
   class Configuration
     DEFAULT_VALUE = nil
 
-    attr_accessor :application, :attachment_maximum_file_size,
+    attr_accessor :admin_path, :application, :attachment_maximum_file_size,
                   :attachment_white_list
 
     def initialize
+      @admin_path = "admin"
       @application = "archangel"
       @attachment_maximum_file_size = 2.megabytes
       @attachment_white_list = %w(jpg jpeg gif png pdf)

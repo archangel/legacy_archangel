@@ -17,7 +17,7 @@ Archangel::Engine.routes.draw do
                unlock: "unlock"
              }
 
-  namespace :admin do
+  namespace :admin, path: Archangel.configuration.admin_path do
     resources :pages, concerns: [:paginatable]
     resources :users, concerns: [:paginatable]
 
