@@ -9,7 +9,15 @@ module Archangel
     protected
 
     def set_page
-      @page = Archangel::Page.find_by!(path: params[:path] ||= "home")
+      # TODO: This assumes the home page is a Page and its slug is `home`.
+      # Make this configurable to set any view as the home page
+      if params[:path] == "home"
+        redirect_to root_path, status: :moved_permanently
+      end
+
+      path = params[:path] ||= "home"
+
+      @page = Archangel::Page.find_by!(path: path)
     end
   end
 end
