@@ -1,7 +1,7 @@
 Archangel.configure do |config|
   # Admin path.
   # Default is "admin"
-  # config.application = "admin"
+  # config.admin_path = "admin"
 
   # Application.
   # Default is "archangel"
