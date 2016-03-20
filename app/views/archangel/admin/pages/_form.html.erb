@@ -7,7 +7,7 @@
     <%= f.input :slug %>
     <%= f.input :parent_id, as: :parent_page %>
 
-    <% if @page.new_record? %>
+    <% if f.object.new_record? %>
       <%= f.input :author_id, as: :hidden, input_html: { value: current_user.id } %>
     <% else %>
       <%= f.association :author, as: :select %>

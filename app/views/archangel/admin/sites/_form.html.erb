@@ -7,14 +7,17 @@
   <div class="form-inputs">
     <%= f.input :title %>
 
-    <%= image_tag(@site.logo.thumb.url) %>
+    <%= image_tag(f.object.logo.thumb.url) %>
 
     <%= f.input :logo, as: :file %>
     <%= f.input :logo_cache, as: :hidden %>
 
     <%= f.input :remove_logo, as: :boolean,
                               checked_value: true,
-                              unchecked_value: false if @site.logo? %>
+                              unchecked_value: false if f.object.logo? %>
+
+    <%= f.input :meta_keywords %>
+    <%= f.input :meta_description %>
   </div>
 
   <div class="form-actions">

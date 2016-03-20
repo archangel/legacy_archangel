@@ -21,7 +21,7 @@ module Archangel
 
       def permitted_attributes
         [
-          :title, :logo, :remove_logo
+          :title, :logo, :meta_keywords, :meta_description, :remove_logo
         ]
       end
 
