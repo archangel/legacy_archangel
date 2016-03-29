@@ -1,8 +1,36 @@
 Archangel::Engine.routes.draw do
+  # Pagination
   concern :paginatable do
     get "(page/:page)", action: :index, on: :collection, as: ""
   end
 
+  # GET /login
+  # POST /login
+  # DELETE /logout
+  # POST /password
+  # GET /password/new
+  # GET /password/edit
+  # PATCH /password
+  # PUT /password
+  # GET /cancel
+  # POST /
+  # GET /register
+  # GET /edit
+  # PATCH /
+  # PUT /
+  # DELETE /
+  # POST /verification
+  # GET /verification/new
+  # GET /verification
+  # POST /unlock
+  # GET /unlock/new
+  # GET /unlock
+  # GET /invitation/accept
+  # GET /invitation/remove
+  # POST /invitation
+  # GET /invitation/new
+  # PATCH /invitation
+  # PUT /invitation
   devise_for :users,
              module: :devise,
              class_name: "Archangel::User",
@@ -18,16 +46,50 @@ Archangel::Engine.routes.draw do
              }
 
   namespace :admin, path: Archangel.configuration.admin_path do
+    # GET /admin/pages
+    # GET /admin/pages/page/[PAGE]
+    # GET /admin/pages
+    # POST /admin/pages
+    # GET /admin/pages/new
+    # GET /admin/pages/[ID]/edit
+    # GET /admin/pages/[ID]
+    # PATCH /admin/pages/[ID]
+    # PUT /admin/pages/[ID]
+    # DELETE /admin/pages/[ID]
     resources :pages, concerns: [:paginatable]
+
+    # GET /admin/users
+    # GET /admin/users/page/[PAGE]
+    # GET /admin/users
+    # POST /admin/users
+    # GET /admin/users/new
+    # GET /admin/users/[ID]/edit
+    # GET /admin/users/[ID]
+    # PATCH /admin/users/[ID]
+    # PUT /admin/users/[ID]
+    # DELETE /admin/users/[ID]
     resources :users, concerns: [:paginatable]
 
+    # GET    /admin/profile/edit
+    # GET    /admin/profile
+    # PATCH  /admin/profile
+    # PUT    /admin/profile
+    # DELETE /admin/profile
     resource :profile, except: [:new, :create]
+
+    # GET /admin/site/edit
+    # GET /admin/site
+    # PATCH /admin/site
+    # PUT /admin/site
     resource :site, only: [:show, :edit, :update]
 
+    # GET /admin
     root to: "dashboards#show"
   end
 
+  # GET /[PATH]
   get "*path", to: "pages#show", as: :page
 
+  # GET /
   root to: "pages#show"
 end

@@ -4,7 +4,7 @@ module Archangel
   RSpec.describe PagesController, type: :controller do
     describe "GET #show" do
       it "uses correct layout" do
-        page = create(:page, :homepage)
+        page = create(:page)
 
         archangel_get :show, path: page.path
 
