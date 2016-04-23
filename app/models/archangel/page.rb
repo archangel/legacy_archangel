@@ -3,11 +3,13 @@ module Archangel
     extend ActsAsTree::TreeView
 
     acts_as_list top_of_list: 0, scope: :parent
+    acts_as_paranoid
     acts_as_tree order: :position
 
     # Callbacks
     before_validation :parameterize_slug
     before_save :build_path_before_save
+    after_destroy :column_reset
 
     # Validation
     validates :author_id, presence: true
@@ -38,6 +40,11 @@ module Archangel
       parent_path = parent.nil? ? nil : parent.path
 
       self.path = [parent_path, slug].compact.join("/")
+    end
+
+    def column_reset
+      self.slug = "#{Time.current.to_i}_#{slug}"
+      self.save
     end
 
     private
