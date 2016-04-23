@@ -4,12 +4,9 @@ module Archangel
       before_action :set_user, only: [:show, :new, :edit, :update, :destroy]
 
       def index
-        @q = Archangel::User.ransack(params[:q].try(:merge, m: "or"))
-
-        @users = @q.result(distinct: true)
-                   .where.not(id: current_user.id)
-                   .page(params[:page])
-                   .per(per_page)
+        @users = Archangel::User.where.not(id: current_user.id)
+                                .page(params[:page])
+                                .per(per_page)
 
         authorize @users
 
