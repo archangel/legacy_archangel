@@ -17,10 +17,6 @@ FactoryGirl.define do
       role "admin"
     end
 
-    trait :manager do
-      role "manager"
-    end
-
     trait :unconfirmed do
       confirmation_token nil
       confirmed_at nil
@@ -44,6 +40,10 @@ FactoryGirl.define do
       last_sign_in_at { 1.day.ago.to_date }
       current_sign_in_ip "127.0.0.1"
       last_sign_in_ip "127.0.0.1"
+    end
+
+    trait :deleted do
+      deleted_at { Time.current }
     end
   end
 end

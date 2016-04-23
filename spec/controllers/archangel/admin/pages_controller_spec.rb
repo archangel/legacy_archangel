@@ -48,7 +48,7 @@ module Archangel
           let(:params) do
             {
               title: "New Page",
-              path: "new-page",
+              slug: "new-page",
               content: "Page content",
               author_id: create(:user),
               published_at: Time.current

@@ -6,38 +6,27 @@ module Archangel
     class InstallGenerator < Rails::Generators::Base
       source_root File.expand_path("../templates", __FILE__)
 
-      class_option :auto_accept, type: :boolean, default: true
       class_option :quiet, type: :boolean, default: false
       class_option :migrate, type: :boolean, default: true
       class_option :route_path, type: :string, default: ""
-      class_option :sample, type: :boolean, default: true
-      class_option :seed, type: :boolean, default: true
+      class_option :seed, type: :boolean, default: false
 
       def add_env_file
-        return unless options[:sample]
-
         say_quietly "Copying sample .env file..."
 
-        copy_file(".env.sample", ".env.sample")
+        copy_file ".env.sample"
       end
 
       def add_archangel_initializer
         say_quietly "Copying Archangel initializer..."
 
-        copy_file("config/initializers/archangel.rb",
-                  "config/initializers/archangel.rb")
+        copy_file "config/initializers/archangel.rb"
       end
 
       def add_devise_initializer
-        return if File.exist?(File.join(destination_root,
-                                        "config",
-                                        "initializers",
-                                        "devise.rb"))
-
         say_quietly "Copying Devise initializer..."
 
-        template("config/initializers/devise.rb",
-                 "config/initializers/devise.rb")
+        template "config/initializers/devise.rb"
       end
 
       def create_local_seeds_file
@@ -84,8 +73,8 @@ Archangel::Engine.load_seed
 
           silence_warnings { rake "db:migrate" }
         else
-          say_quietly "Skipping migrations. "\
-                      "Be sure to run `rake db:migrate` yourself."
+          say_quietly "Skipping migrations. Be sure to run `rake db:migrate` " \
+                      "yourself."
         end
       end
 

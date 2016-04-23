@@ -60,9 +60,8 @@ module Archangel
         if action_name.to_sym == :new
           @user = Archangel::User.new
         else
-          @user = Archangel::User.friendly
-                                 .where.not(id: current_user.id)
-                                 .find(params[:id])
+          @user = Archangel::User.where.not(id: current_user.id)
+                                 .find_by(username: params[:id])
         end
 
         authorize @user

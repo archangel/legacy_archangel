@@ -1,9 +1,5 @@
 module Archangel
   class User < ActiveRecord::Base
-    extend FriendlyId
-
-    friendly_id :username
-
     acts_as_paranoid
 
     # Callbacks
@@ -20,26 +16,23 @@ module Archangel
 
     # Validation
     validates :email, presence: true, uniqueness: true, email: true
-    validates :name, presence: true, allow_blank: true
+    validates :name, presence: true
     validates :password, presence: true,
-                         length: { minimum: 5, maximum: 120 },
+                         length: { minimum: 8, maximum: 72 },
                          on: :create
     validates :password, allow_blank: true,
-                         length: { minimum: 5, maximum: 120 },
+                         length: { minimum: 8, maximum: 72 },
                          on: :update
     validates :role, presence: true, inclusion: { in: Archangel::ROLES }
     validates :username, presence: true, uniqueness: true
 
-    # Default scope
-    default_scope { order(name: :asc, username: :asc, email: :asc) }
+    def to_param
+      username
+    end
 
     # Methods
     def self.user?
       role?(:user) || !Archangel::ROLES.include?(role.downcase)
-    end
-
-    def self.manager?
-      role? :manager
     end
 
     def self.admin?
@@ -57,8 +50,9 @@ module Archangel
     end
 
     def column_reset
-      update_attributes(email: "#{Time.current.to_i}_#{email}",
-                        username: "#{Time.current.to_i}_#{username}")
+      self.email = "#{Time.current.to_i}_#{email}"
+      self.username = "#{Time.current.to_i}_#{username}"
+      self.save
     end
   end
 end

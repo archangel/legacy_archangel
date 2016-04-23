@@ -49,8 +49,8 @@ module Archangel
 
       def permitted_attributes
         [
-          :author_id, :content, :parent_id, :path, :position, :published_at,
-          :slug, :title
+          :author_id, :content, :meta_description, :meta_keywords, :parent_id,
+          :position, :published_at, :slug, :title
         ]
       end
 
@@ -58,7 +58,7 @@ module Archangel
         if action_name.to_sym == :new
           @page = Archangel::Page.new
         else
-          @page = Archangel::Page.friendly.find_by(id: params[:id])
+          @page = Archangel::Page.find_by(id: params[:id])
         end
 
         authorize @page

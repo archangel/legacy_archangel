@@ -1,3 +1,3 @@
 module Archangel
-  ROLES = %w(admin manager user).freeze
+  ROLES = %w(admin user).freeze
 end

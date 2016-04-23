@@ -36,7 +36,6 @@ Gem::Specification.new do |s|
   s.add_dependency "devise", "~> 3.5"
   s.add_dependency "devise_invitable", "~> 1.5"
   s.add_dependency "file_validators", "~> 2.0"
-  s.add_dependency "friendly_id", "~> 5.1"
   s.add_dependency "highline", "~> 1.7"
   s.add_dependency "kaminari", "~> 0.16"
   s.add_dependency "local_time", "~> 1.0"

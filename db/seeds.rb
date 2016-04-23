@@ -4,8 +4,8 @@ require "highline/import"
 
 unless Archangel::User.first
   email = ask("Email address:  ") { |q| q.default = "me@example.com" }
-  username = ask("Username:  ") { |q| q.default = "admin" }
-  name = ask("Name:  ") { |q| q.default = "Admin" }
+  username = ask("Username:  ") { |q| q.default = "archangel" }
+  name = ask("Name:  ") { |q| q.default = "Archangel" }
   password = ask("Password:  ") { |q| q.echo = "*" }
 
   Archangel::User.create!(email: email,

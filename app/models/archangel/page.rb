@@ -1,9 +1,6 @@
 module Archangel
   class Page < ActiveRecord::Base
     extend ActsAsTree::TreeView
-    extend FriendlyId
-
-    friendly_id :slug_candidates, use: :scoped, scope: :parent_id
 
     acts_as_list top_of_list: 0, scope: :parent
     acts_as_tree order: :position
@@ -24,18 +21,6 @@ module Archangel
 
     # Associations
     belongs_to :author, class_name: Archangel::User
-
-    def slug_candidates
-      [
-        :slug,
-        [:slug, :title],
-        [:slug, :title, :id]
-      ]
-    end
-
-    def to_param
-      id
-    end
 
     protected
 
