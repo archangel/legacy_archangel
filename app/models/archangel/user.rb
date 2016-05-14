@@ -14,6 +14,9 @@ module Archangel
     # Uploader
     mount_uploader :avatar, Archangel::AvatarUploader
 
+    # Token
+    has_secure_token :api_key
+
     # Validation
     validates :email, presence: true, uniqueness: true, email: true
     validates :name, presence: true

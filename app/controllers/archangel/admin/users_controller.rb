@@ -1,7 +1,7 @@
 module Archangel
   module Admin
     class UsersController < AdminController
-      before_action :set_user, only: [:show, :new, :edit, :update, :destroy]
+      before_action :set_user, only: [:retoken, :show, :new, :edit, :update, :destroy]
 
       def index
         @users = Archangel::User.where.not(id: current_user.id)
@@ -41,6 +41,12 @@ module Archangel
 
       def destroy
         @user.destroy
+
+        respond_with @user, location: -> { admin_users_path }
+      end
+
+      def retoken
+        @user.regenerate_api_key
 
         respond_with @user, location: -> { admin_users_path }
       end

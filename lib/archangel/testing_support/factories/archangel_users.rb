@@ -10,7 +10,7 @@ FactoryGirl.define do
     role "user"
 
     trait :avatar do
-      avatar { File.new(uploader_test_file) }
+      avatar { File.new(uploader_test_image) }
     end
 
     trait :admin do

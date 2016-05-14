@@ -8,6 +8,6 @@ RSpec.configure do |config|
   end
 end
 
-def uploader_test_file
-  Archangel::Engine.root + "spec/support/uploads/image.gif"
+def uploader_test_image
+  Archangel::Engine.root + "spec/support/fixtures/image.gif"
 end

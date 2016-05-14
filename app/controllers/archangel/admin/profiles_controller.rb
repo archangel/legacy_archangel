@@ -32,6 +32,12 @@ module Archangel
         respond_with @profile, location: -> { admin_root_path }
       end
 
+      def retoken
+        @profile.regenerate_api_key
+
+        respond_with @profile, location: -> { admin_profile_path }
+      end
+
       protected
 
       def permitted_attributes
