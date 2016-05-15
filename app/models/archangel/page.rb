@@ -28,7 +28,7 @@ module Archangel
 
     def unique_slug_per_level
       unless unique_slug_per_level?
-        errors.add(:slug, "can't have the same slug for this level")
+        errors.add(:slug, Archangel.t("errors.duplicate_slug"))
       end
     end
 
