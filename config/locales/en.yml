@@ -21,6 +21,8 @@ en:
       time_format: "%Y-%m-%d %H:%M"
       time_format_js: YYYY-MM-DD HH:mm
       today: Go to today
+    errors:
+      duplicate_slug: "can't have the same slug for this level"
     languages:
       en: English
     no_resources: No %{resource} found.
