@@ -12,6 +12,6 @@
 //
 //= require_self
 //
-//= require archangel/common
-//
-//= require bootstrap-sprockets
+//= require jquery2
+//= require jquery_ujs
+//= require local_time

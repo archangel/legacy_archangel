@@ -139,14 +139,24 @@ module Archangel
           user = create(:user)
 
           expect do
-            delete :destroy, id: user.to_param
+            archangel_delete :destroy, id: user.to_param
           end.to change(User, :count).by(-1)
         end
 
         it "redirects to the users list" do
           user = create(:user)
 
-          delete :destroy, id: user.to_param
+          archangel_delete :destroy, id: user.to_param
+
+          expect(response).to redirect_to(admin_users_path)
+        end
+      end
+
+      describe "POST #retoken" do
+        it "regenerates `api_key` for the requested user" do
+          user = create(:user)
+
+          archangel_post :retoken, id: user.to_param
 
           expect(response).to redirect_to(admin_users_path)
         end

@@ -80,14 +80,22 @@ module Archangel
       describe "DELETE #destroy" do
         it "destroys the current user" do
           expect do
-            delete :destroy
+            archangel_delete :destroy
           end.to change(User, :count).by(-1)
         end
 
         it "redirects to the root" do
-          delete :destroy
+          archangel_delete :destroy
 
           expect(response).to redirect_to(admin_root_url)
+        end
+      end
+
+      describe "POST #retoken" do
+        it "regenerates `api_key` for the requested user" do
+          archangel_post :retoken
+
+          expect(response).to redirect_to(admin_profile_path)
         end
       end
     end

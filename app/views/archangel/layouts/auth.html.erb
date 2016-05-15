@@ -21,18 +21,20 @@
 </head>
 <body>
 
-  <div id="header"></div>
+<div id="wrapper">
+  <%= render "archangel/layouts/auth/shared/header" %>
 
-  <div id="page" class="container">
+  <main id="content" class="container">
     <%= render "archangel/shared/flash_messages" %>
 
     <%= yield %>
-  </div>
+  </main>
 
-  <div id="footer"></div>
+  <%= render "archangel/layouts/auth/shared/footer" %>
+</div>
 
-  <%= javascript_include_tag "archangel/auth" %>
-  <%= yield(:javascript) if content_for?(:javascript) %>
+<%= javascript_include_tag "archangel/auth" %>
+<%= yield(:javascript) if content_for?(:javascript) %>
 
 </body>
 </html>
