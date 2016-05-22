@@ -1,37 +1,50 @@
-<p>
-  <strong>Title:</strong>
-  <%= @page.title %>
-</p>
+<div class="row wrapper border-bottom page-heading">
+  <div class="col-lg-12">
+    <h2>Page</h2>
 
-<p>
-  <strong>Path:</strong>
-  <%= @page.path %>
-</p>
+    <%= render "archangel/admin/pages/buttons" %>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @page.slug %>
-</p>
+    <%= render "archangel/admin/shared/breadcrumbs" %>
+  </div>
+</div>
 
-<p>
-  <strong>Author:</strong>
-  <%= author_link(@page.author) %>
-</p>
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <p>
+        <strong>Title:</strong>
+        <%= @page.title %>
+      </p>
 
-<p>
-  <strong>META Keywords:</strong>
-  <%= @page.meta_keywords %>
-</p>
+      <p>
+        <strong>Path:</strong>
+        <%= @page.path %>
+      </p>
 
-<p>
-  <strong>META Description:</strong>
-  <%= @page.meta_description %>
-</p>
+      <p>
+        <strong>Slug:</strong>
+        <%= @page.slug %>
+      </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @page.content %>
-</p>
+      <p>
+        <strong>Author:</strong>
+        <%= author_link(@page.author) %>
+      </p>
 
-<%= link_to "Edit", edit_admin_page_path(@page) %> |
-<%= link_to "Back", admin_pages_path %>
+      <p>
+        <strong>META Keywords:</strong>
+        <%= @page.meta_keywords %>
+      </p>
+
+      <p>
+        <strong>META Description:</strong>
+        <%= @page.meta_description %>
+      </p>
+
+      <p>
+        <strong>Content:</strong>
+        <%= @page.content %>
+      </p>
+    </div>
+  </div>
+</div>

@@ -2,9 +2,11 @@ require "archangel/application_responder"
 
 module Archangel
   class BaseController < ActionController::Base
+    include Archangel::ActionableConcern
+
     protect_from_forgery with: :exception
 
-    layout :set_layout
+    layout :theme_resolver
 
     respond_to :html, :json
     responders :flash, :http_cache
@@ -17,7 +19,7 @@ module Archangel
 
     protected
 
-    def set_layout
+    def theme_resolver
       "archangel/layouts/application"
     end
   end

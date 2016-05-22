@@ -1,0 +1,15 @@
+<header id="header" class="row border-bottom">
+  <nav class="navbar navbar-static-top" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
+        <span class="hamburger"></span>
+      </a>
+    </div>
+
+    <ul class="nav navbar-top-links navbar-right">
+      <li><%= Archangel.t(:welcome, site: current_site.title) %></li>
+      <li><%= link_to(current_user.name, admin_profile_path) %></li>
+      <li><%= link_to(Archangel.t(:logout), destroy_user_session_path, method: :delete) %></li>
+    </ul>
+  </nav>
+</header>

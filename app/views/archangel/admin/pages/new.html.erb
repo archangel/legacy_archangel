@@ -1,3 +1,17 @@
-<%= render "form" %>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-12">
+    <h2>New Page</h2>
 
-<%= link_to "Back", admin_pages_path %>
+    <%= render "archangel/admin/pages/buttons" %>
+
+    <%= render "archangel/admin/shared/breadcrumbs" %>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <%= render "form" %>
+    </div>
+  </div>
+</div>

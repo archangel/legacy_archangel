@@ -2,6 +2,7 @@ module Archangel
   module Admin
     class UsersController < AdminController
       before_action :set_user, only: [:retoken, :show, :new, :edit, :update, :destroy]
+      before_action :set_breadcrumbs
 
       def index
         @users = Archangel::User.where.not(id: current_user.id)
@@ -72,6 +73,32 @@ module Archangel
 
       def user_params
         params.require(:user).permit(permitted_attributes)
+      end
+
+      def set_breadcrumbs
+        add_breadcrumb Archangel.t(:dashboard, scope: :menu), admin_root_path
+        add_breadcrumb Archangel.t(:users, scope: :menu), admin_users_path
+
+        action = action_name.to_sym
+        section_name = @user.class.name.split("::").last.humanize.titleize
+        section_title = @user.name if [:show, :edit].include?(action)
+
+        if action == :show
+          add_breadcrumb(
+            Archangel.t(:show_section, section: section_title, scope: :titles),
+            admin_user_path(@user)
+          )
+        elsif action == :new
+          add_breadcrumb(
+            Archangel.t(:new_section, section: section_name, scope: :titles),
+            new_admin_user_path
+          )
+        elsif action == :edit
+          add_breadcrumb(
+            Archangel.t(:edit_section, section: section_title, scope: :titles),
+            edit_admin_user_path(@user)
+          )
+        end
       end
     end
   end

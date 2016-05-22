@@ -2,8 +2,8 @@ module Archangel
   class AdminController < ApplicationController
     include Pundit
 
-    before_action :authenticate_user!
-    after_action :verify_authorized
+    include Archangel::AuthenticatableConcern
+    include Archangel::AuthorizableConcern
 
     unless Rails.application.config.consider_all_requests_local
       rescue_from Pundit::NotAuthorizedError, with: :render_401
@@ -11,7 +11,7 @@ module Archangel
 
     protected
 
-    def set_layout
+    def theme_resolver
       "archangel/layouts/admin"
     end
   end

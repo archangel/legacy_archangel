@@ -2,7 +2,7 @@ module Archangel
   class AuthController < BaseController
     protected
 
-    def set_layout
+    def theme_resolver
       "archangel/layouts/auth"
     end
   end

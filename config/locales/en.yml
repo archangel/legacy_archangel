@@ -2,6 +2,7 @@ en:
   archangel:
     are_you_sure: Are you sure?
     archangel: Archangel
+    built_with: Built with love using
     datetimepicker:
       clear: Clear selection
       close: Close the picker
@@ -25,6 +26,14 @@ en:
       duplicate_slug: "can't have the same slug for this level"
     languages:
       en: English
+    login: Log In
+    logout: Log out
+    menu:
+      dashboard: Dashboard
+      pages: Pages
+      profile: Profile
+      site: Site
+      users: Users
     no_resources: No %{resource} found.
     placeholder_users: Name or username contains
     placeholder_pages: Title or body contains
@@ -33,5 +42,11 @@ en:
       manager: Manager
       user: User
     search: Search
+    titles:
+      list_section: "%{section}"
+      show_section: "%{section}"
+      new_section: New %{section}
+      edit_section: "%{section}"
     top_level: Top Level
     unknown: Unknown
+    welcome: Welcome to %{site}

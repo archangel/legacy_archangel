@@ -2,6 +2,7 @@ module Archangel
   module Admin
     class ProfilesController < AdminController
       before_action :set_profile
+      before_action :set_breadcrumbs
       after_action :skip_authorization
 
       def show
@@ -63,9 +64,24 @@ module Archangel
         params[:password].present?
       end
 
+      protected
+
       def reauth_current_user(successful)
-        if successful && @profile == current_user
-          sign_in(@profile, bypass: true)
+        sign_in @profile, bypass: true if successful && @profile == current_user
+      end
+
+      def set_breadcrumbs
+        add_breadcrumb Archangel.t(:dashboard, scope: :menu), admin_root_path
+        add_breadcrumb Archangel.t(:profile, scope: :menu), admin_profile_path
+
+        action = action_name.to_sym
+        section_title = @profile.name if [:edit].include?(action)
+
+        if action == :edit
+          add_breadcrumb(
+            Archangel.t(:edit_section, section: section_title, scope: :titles),
+            edit_admin_profile_path
+          )
         end
       end
     end

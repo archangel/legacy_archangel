@@ -29,6 +29,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "acts_as_list", "~> 0.7"
   s.add_dependency "acts_as_tree", "~> 2.4"
+  s.add_dependency "animate-rails", "~> 1.0"
+  s.add_dependency "breadcrumbs_on_rails", "~> 2.3"
   s.add_dependency "bootstrap-sass", "~> 3.3"
   s.add_dependency "bootstrap3-datetimepicker-rails", "~> 4.17"
   s.add_dependency "carrierwave", "~> 0.10"
@@ -36,6 +38,7 @@ Gem::Specification.new do |s|
   s.add_dependency "devise", "~> 3.5"
   s.add_dependency "devise_invitable", "~> 1.5"
   s.add_dependency "file_validators", "~> 2.0"
+  s.add_dependency "font-awesome-rails", "~> 4.6"
   s.add_dependency "has_secure_token", "~> 1.0"
   s.add_dependency "highline", "~> 1.7"
   s.add_dependency "kaminari", "~> 0.16"
