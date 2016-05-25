@@ -4,6 +4,8 @@ module Archangel
       before_action :set_page, only: [:show, :new, :edit, :update, :destroy]
       before_action :set_breadcrumbs
 
+      helper Archangel::Admin::PagesHelper
+
       def index
         @pages = Archangel::Page.all
 

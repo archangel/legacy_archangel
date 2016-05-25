@@ -4,6 +4,8 @@ module Archangel
       before_action :set_site
       before_action :set_breadcrumbs
 
+      helper Archangel::Admin::SitesHelper
+
       def show
         respond_with @site
       end

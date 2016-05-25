@@ -5,6 +5,8 @@ module Archangel
       before_action :set_breadcrumbs
       after_action :skip_authorization
 
+      helper Archangel::Admin::ProfilesHelper
+
       def show
         respond_with @profile
       end

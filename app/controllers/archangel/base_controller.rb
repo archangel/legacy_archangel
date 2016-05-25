@@ -4,6 +4,9 @@ module Archangel
   class BaseController < ActionController::Base
     include Archangel::ActionableConcern
 
+    helper Archangel::BaseHelper
+    helper Archangel::FlashHelper
+
     protect_from_forgery with: :exception
 
     layout :theme_resolver

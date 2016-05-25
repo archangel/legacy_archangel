@@ -3,6 +3,8 @@ module Archangel
     class DashboardsController < AdminController
       after_action :skip_authorization
 
+      helper Archangel::Admin::DashboardsHelper
+
       def show
       end
     end

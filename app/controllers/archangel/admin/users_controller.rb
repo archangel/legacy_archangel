@@ -4,6 +4,8 @@ module Archangel
       before_action :set_user, only: [:retoken, :show, :new, :edit, :update, :destroy]
       before_action :set_breadcrumbs
 
+      helper Archangel::Admin::UsersHelper
+
       def index
         @users = Archangel::User.where.not(id: current_user.id)
                                 .page(params[:page])

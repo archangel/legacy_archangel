@@ -1,4 +1,4 @@
 module Archangel
-  module ApplicationHelper
+  module AuthHelper
   end
 end

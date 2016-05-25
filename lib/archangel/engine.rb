@@ -8,6 +8,8 @@ module Archangel
     config.time_zone = :utc
     config.active_record.default_timezone = :utc
 
+    config.action_controller.include_all_helpers = false
+
     config.responders.flash_keys = [:success, :error]
 
     config.generators do |g|
