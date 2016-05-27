@@ -1,0 +1,30 @@
+<div class="row wrapper border-bottom page-heading">
+  <div class="col-lg-12">
+    <h2>Tag</h2>
+
+    <%= render "archangel/admin/categories/buttons" %>
+
+    <%= render "archangel/admin/shared/breadcrumbs" %>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <p>
+        <strong>Name:</strong>
+        <%= @category.name %>
+      </p>
+
+      <p>
+        <strong>Slug:</strong>
+        <%= @category.slug %>
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <%= @category.description %>
+      </p>
+    </div>
+  </div>
+</div>

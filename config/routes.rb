@@ -46,6 +46,18 @@ Archangel::Engine.routes.draw do
              }
 
   namespace :admin, path: Archangel.configuration.admin_path do
+    # GET    /admin/categories
+    # GET    /admin/categories/page/[PAGE]
+    # GET    /admin/categories
+    # POST   /admin/categories
+    # GET    /admin/categories/new
+    # GET    /admin/categories/[ID]/edit
+    # GET    /admin/categories/[ID]
+    # PATCH  /admin/categories/[ID]
+    # PUT    /admin/categories/[ID]
+    # DELETE /admin/categories/[ID]
+    resources :categories
+
     # GET    /admin/pages
     # GET    /admin/pages/page/[PAGE]
     # GET    /admin/pages
@@ -104,7 +116,7 @@ Archangel::Engine.routes.draw do
     # PUT    /admin/tags/[ID]
     # DELETE /admin/tags/[ID]
     resources :tags, concerns: [:paginatable]
-  
+
     # GET /admin
     root to: "dashboards#show"
   end

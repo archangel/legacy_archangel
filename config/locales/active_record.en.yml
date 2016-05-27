@@ -1,6 +1,9 @@
 en:
   activerecord:
     models:
+      archangel/categories:
+        one: Category
+        other: Categories
       archangel/page:
         one: Page
         other: Pages
@@ -15,6 +18,10 @@ en:
         other: Users
 
     attributes:
+      archangel/category:
+        description: Description
+        name: Name
+        slug: Slug
       archangel/page:
         author: Author
         content: Content
@@ -31,9 +38,9 @@ en:
         remove_logo: Remove Logo
         title: Title
       archangel/tag:
+        description: Description
         name: Name
         slug: Slug
-        description: Description
       archangel/user:
         avatar: Avatar
         email: Email

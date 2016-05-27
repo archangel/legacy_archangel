@@ -30,6 +30,7 @@ en:
     logout: Log out
     menu:
       dashboard: Dashboard
+      categories: Categories
       pages: Pages
       profile: Profile
       site: Site
