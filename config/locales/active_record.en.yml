@@ -7,6 +7,9 @@ en:
       archangel/site:
         one: Site
         other: Site
+      archangel/tag:
+        one: Tag
+        other: Tags
       archangel/user:
         one: User
         other: Users
@@ -27,6 +30,10 @@ en:
         meta_keywords: META Keywords
         remove_logo: Remove Logo
         title: Title
+      archangel/tag:
+        name: Name
+        slug: Slug
+        description: Description
       archangel/user:
         avatar: Avatar
         email: Email

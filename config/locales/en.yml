@@ -33,13 +33,13 @@ en:
       pages: Pages
       profile: Profile
       site: Site
+      tags: Tags
       users: Users
     no_resources: No %{resource} found.
     placeholder_users: Name or username contains
     placeholder_pages: Title or body contains
     roles:
       admin: Administrator
-      manager: Manager
       user: User
     search: Search
     titles:

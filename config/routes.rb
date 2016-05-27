@@ -93,6 +93,18 @@ Archangel::Engine.routes.draw do
     # PUT   /admin/site
     resource :site, only: [:show, :edit, :update]
 
+    # GET    /admin/tags
+    # GET    /admin/tags/page/[PAGE]
+    # GET    /admin/tags
+    # POST   /admin/tags
+    # GET    /admin/tags/new
+    # GET    /admin/tags/[ID]/edit
+    # GET    /admin/tags/[ID]
+    # PATCH  /admin/tags/[ID]
+    # PUT    /admin/tags/[ID]
+    # DELETE /admin/tags/[ID]
+    resources :tags, concerns: [:paginatable]
+  
     # GET /admin
     root to: "dashboards#show"
   end

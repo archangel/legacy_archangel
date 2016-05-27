@@ -32,12 +32,12 @@
                 <td><%= user.name %></td>
                 <td><%= user.username %></td>
                 <td><%= user.role %></td>
-                <td class="text-right">
-                  <div class="btn-group">
-                    <%= link_to "Show", admin_user_path(user) %>
-                    <%= link_to "Edit", edit_admin_user_path(user) %>
-                    <%= link_to "Destroy", admin_user_path(user), method: :delete, data: { confirm: Archangel.t(:are_you_sure) } %>
-                  </div>
+                <td>
+                  <ul class="nav nav-pills navbar-right">
+                    <li><%= link_to "Show", admin_user_path(user) %></li>
+                    <li><%= link_to "Edit", edit_admin_user_path(user) %></li>
+                    <li><%= link_to "Destroy", admin_user_path(user), method: :delete, data: { confirm: Archangel.t(:are_you_sure) } %></li>
+                  </ul>
                 </td>
               </tr>
             <% end %>
