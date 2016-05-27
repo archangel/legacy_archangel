@@ -1,0 +1,9 @@
+language: ruby
+bundler_args: --without production --quiet
+install: ruby -S bundle install
+script:
+  - bundle exec rake dummy_app
+  - bundle exec rspec spec
+rvm:
+  - 2.2
+  - 2.3
