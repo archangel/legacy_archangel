@@ -1,4 +1,4 @@
-<ol class="buttons">
+<ul class="nav nav-pills">
   <% if member_action? %>
     <li><%= link_to("Back", admin_pages_path) %></li>
   <% end %>
@@ -10,4 +10,4 @@
   <% if show_action? %>
     <li><%= link_to("Edit", edit_admin_page_path(@page)) %></li>
   <% end %>
-</ol>
+</ul>
