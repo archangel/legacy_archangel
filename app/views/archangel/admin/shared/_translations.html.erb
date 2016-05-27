@@ -1,7 +1,6 @@
 <script>
-  var Archangel = new Object();
-
-  Archangel.translations = <%== {
+var Archangel = (function(object) {
+  object.translations = <%== {
     datetimepicker: {
       format: Archangel.t(:format_js, scope: :datetimepicker),
       time_format: Archangel.t(:time_format_js, scope: :datetimepicker),
@@ -21,4 +20,7 @@
       nextCentury: Archangel.t(:next_century, scope: :datetimepicker)
     }
   }.to_json %>;
+
+  return object;
+}(Archangel));
 </script>
