@@ -53,6 +53,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "byebug"
   s.add_development_dependency "capybara", "~> 2.6"
+  s.add_development_dependency "coveralls"
   s.add_development_dependency "database_cleaner", "~> 1.5"
   s.add_development_dependency "factory_girl_rails", "~> 4.6"
   s.add_development_dependency "launchy"
