@@ -47,8 +47,11 @@ module Archangel
         context "with valid params" do
           let(:params) do
             {
-              name: "Awesome Post",
-              slug: "awesome-post"
+              title: "Awesome Post",
+              slug: "awesome-post",
+              content: "Content of the post",
+              published_at: Time.now,
+              author_id: create(:author)
             }
           end
 
@@ -126,7 +129,7 @@ module Archangel
 
         context "with invalid params" do
           let(:params) do
-            { name: nil }
+            { title: nil }
           end
 
           it "assigns the post as @post" do
