@@ -1,6 +1,3 @@
-// Archangel.first();        // Output: This is a method I want to expose!
-// Archangel.second();       // Output: Inside a private method!
-
 var Archangel = (function() {
 //   var privateVariable = 10;
 //

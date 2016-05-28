@@ -7,6 +7,9 @@ en:
       archangel/page:
         one: Page
         other: Pages
+      archangel/post:
+        one: Post
+        other: Posts
       archangel/site:
         one: Site
         other: Site
@@ -28,6 +31,12 @@ en:
         meta_description: META Description
         meta_keywords: META Keywords
         parent: Parent
+        published_at: Published At
+        slug: Slug
+        title: Title
+      archangel/posts:
+        author: Author
+        content: Content
         published_at: Published At
         slug: Slug
         title: Title

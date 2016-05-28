@@ -70,22 +70,17 @@ Archangel::Engine.routes.draw do
     # DELETE /admin/pages/[ID]
     resources :pages, concerns: [:paginatable]
 
-    # GET    /admin/users
-    # GET    /admin/users/page/[PAGE]
-    # GET    /admin/users
-    # POST   /admin/users
-    # GET    /admin/users/new
-    # GET    /admin/users/[ID]/edit
-    # GET    /admin/users/[ID]
-    # PATCH  /admin/users/[ID]
-    # PUT    /admin/users/[ID]
-    # DELETE /admin/users/[ID]
-    # POST   /admin/users/[ID]/retoken
-    resources :users, concerns: [:paginatable] do
-      member do
-        post :retoken
-      end
-    end
+    # GET    /admin/posts
+    # GET    /admin/posts/page/[PAGE]
+    # GET    /admin/posts
+    # POST   /admin/posts
+    # GET    /admin/posts/new
+    # GET    /admin/posts/[ID]/edit
+    # GET    /admin/posts/[ID]
+    # PATCH  /admin/posts/[ID]
+    # PUT    /admin/posts/[ID]
+    # DELETE /admin/posts/[ID]
+    resources :posts
 
     # GET    /admin/profile/edit
     # GET    /admin/profile
@@ -116,6 +111,23 @@ Archangel::Engine.routes.draw do
     # PUT    /admin/tags/[ID]
     # DELETE /admin/tags/[ID]
     resources :tags, concerns: [:paginatable]
+
+    # GET    /admin/users
+    # GET    /admin/users/page/[PAGE]
+    # GET    /admin/users
+    # POST   /admin/users
+    # GET    /admin/users/new
+    # GET    /admin/users/[ID]/edit
+    # GET    /admin/users/[ID]
+    # PATCH  /admin/users/[ID]
+    # PUT    /admin/users/[ID]
+    # DELETE /admin/users/[ID]
+    # POST   /admin/users/[ID]/retoken
+    resources :users, concerns: [:paginatable] do
+      member do
+        post :retoken
+      end
+    end
 
     # GET /admin
     root to: "dashboards#show"

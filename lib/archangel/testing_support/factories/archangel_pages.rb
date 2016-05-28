@@ -3,7 +3,7 @@ FactoryGirl.define do
     sequence(:title) { |n| "Page #{n} Title" }
     content "Content of the page"
     author
-    sequence(:slug) { |n| "page#{n}" }
+    sequence(:slug) { |n| "page-#{n}" }
     meta_keywords "very, useful, keywords"
     meta_description "This is the default description of the site."
     published_at { Time.current }

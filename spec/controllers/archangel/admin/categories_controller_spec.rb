@@ -94,7 +94,7 @@ module Archangel
       describe "PUT #update" do
         context "with valid params" do
           let(:params) do
-            { title: "New category title" }
+            { name: "New category name" }
           end
 
           it "updates the requested category" do
@@ -126,7 +126,7 @@ module Archangel
 
         context "with invalid params" do
           let(:params) do
-            { title: nil }
+            { name: nil }
           end
 
           it "assigns the category as @category" do

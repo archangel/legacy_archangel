@@ -8,5 +8,8 @@ class CreateArchangelCategories < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :archangel_categories, :name
+    add_index :archangel_categories, :slug, unique: true
   end
 end

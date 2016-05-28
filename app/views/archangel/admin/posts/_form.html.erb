@@ -1,10 +1,9 @@
-<%= simple_form_for([:admin, @page], html: { class: "form-vertical" }) do |f| %>
+<%= simple_form_for([:admin, @post], html: { class: "form-vertical" }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :slug %>
-    <%= f.input :parent_id, as: :parent_page %>
 
     <% if f.object.new_record? %>
       <%= f.input :author_id, as: :hidden, input_html: { value: current_user.id } %>
@@ -13,8 +12,7 @@
     <% end %>
 
     <%= f.input :content, as: :text %>
-    <%= f.input :meta_keywords %>
-    <%= f.input :meta_description %>
+    <%= f.input :excerpt, as: :text %>
     <%= f.input :published_at, as: :date_time_picker, input_html: { value: datetimepicker_field_value(f.object.published_at, f.object.new_record?) } %>
   </div>
 

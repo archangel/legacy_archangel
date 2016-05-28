@@ -15,7 +15,7 @@
 
     <%= f.input :remove_avatar, as: :boolean,
                                 checked_value: true,
-                                unchecked_value: false if @profile.avatar? %>
+                                unchecked_value: false if f.object.avatar? %>
 
     <%= f.input :password, as: :password %>
     <%= f.input :password_confirmation, as: :password %>

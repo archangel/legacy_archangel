@@ -1,0 +1,13 @@
+<ul class="nav nav-pills">
+  <% if member_action? %>
+    <li><%= link_to("Back", admin_posts_path) %></li>
+  <% end %>
+
+  <% if collection_action? || show_action? || edit_action? %>
+    <li><%= link_to("New", new_admin_post_path) %></li>
+  <% end %>
+
+  <% if show_action? %>
+    <li><%= link_to("Edit", edit_admin_post_path(@post)) %></li>
+  <% end %>
+</ul>

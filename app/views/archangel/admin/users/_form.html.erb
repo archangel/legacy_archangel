@@ -9,7 +9,7 @@
 
     <%= image_tag(@user.avatar.thumb.url) %>
     <%= f.input :avatar_cache, as: :hidden %>
-    <%= f.input(:remove_avatar, as: :boolean, checked_value: true, unchecked_value: false) if @user.avatar? %>
+    <%= f.input(:remove_avatar, as: :boolean, checked_value: true, unchecked_value: false) if f.object.avatar? %>
   </div>
 
   <div class="form-actions">
