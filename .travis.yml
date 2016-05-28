@@ -5,5 +5,5 @@ script:
   - bundle exec rake dummy_app
   - bundle exec rspec spec
 rvm:
-  - 2.2
-  - 2.3
+  - 2.2.2
+  - 2.3.1
