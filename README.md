@@ -2,6 +2,10 @@
 
 **Archangel is currently under development. It is not ready for production use.**
 
+[![Travis CI](https://travis-ci.org/archangel/archangel.svg?branch=master)](https://travis-ci.org/archangel/archangel)
+[![Coverage Status](https://coveralls.io/repos/github/archangel/archangel/badge.svg?branch=master)](https://coveralls.io/github/archangel/archangel?branch=master)
+[![Code Climate](https://codeclimate.com/github/archangel/archangel/badges/gpa.svg)](https://codeclimate.com/github/archangel/archangel)
+
 This project rocks and uses MIT-LICENSE.
 
 ## Table of contents
