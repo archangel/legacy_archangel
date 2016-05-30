@@ -5,10 +5,18 @@
     <%= f.input :title %>
     <%= f.input :slug %>
 
+    <%= image_tag(f.object.banner.thumb.url) %>
+    <%= f.input :banner, as: :file %>
+    <%= f.input :banner_cache, as: :hidden %>
+
+    <%= f.input :remove_banner, as: :boolean,
+                                checked_value: true,
+                                unchecked_value: false if f.object.banner? %>
+
     <% if f.object.new_record? %>
       <%= f.input :author_id, as: :hidden, input_html: { value: current_user.id } %>
     <% else %>
-      <%= f.association :author, as: :select %>
+      <%= f.association :author, as: :select, include_blank: false %>
     <% end %>
 
     <%= f.input :content, as: :text %>

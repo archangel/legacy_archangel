@@ -1,0 +1,15 @@
+<div class="page-header">
+  <h1>Posts</h1>
+</div>
+
+<% if @posts.any? %>
+  <%= paginate @posts %>
+
+  <%= render @posts %>
+
+  <%= paginate @posts %>
+<% else %>
+  <p>
+    No posts found
+  </p>
+<% end %>

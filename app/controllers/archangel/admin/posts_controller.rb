@@ -7,7 +7,8 @@ module Archangel
       helper Archangel::Admin::PostsHelper
 
       def index
-        @posts = Archangel::Post.all
+        @posts = Archangel::Post.page(params[:page])
+                                .per(per_page)
 
         authorize @posts
 
@@ -52,7 +53,8 @@ module Archangel
 
       def permitted_attributes
         [
-          :author_id, :content, :excerpt, :published_at, :slug, :title
+          :author_id, :banner, :content, :excerpt, :published_at,
+          :remove_banner, :slug, :title
         ]
       end
 

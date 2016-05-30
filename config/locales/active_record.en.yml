@@ -36,6 +36,7 @@ en:
         title: Title
       archangel/posts:
         author: Author
+        banner: Banner
         content: Content
         published_at: Published At
         slug: Slug

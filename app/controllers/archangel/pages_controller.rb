@@ -2,6 +2,8 @@ module Archangel
   class PagesController < ApplicationController
     before_action :set_page
 
+    helper Archangel::PagesHelper
+
     def show
       respond_with @page if stale?(etag: @page, last_modified: @page.created_at)
     end

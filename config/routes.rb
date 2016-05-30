@@ -117,12 +117,12 @@ Archangel::Engine.routes.draw do
     # GET    /admin/users
     # POST   /admin/users
     # GET    /admin/users/new
-    # GET    /admin/users/[ID]/edit
-    # GET    /admin/users/[ID]
-    # PATCH  /admin/users/[ID]
-    # PUT    /admin/users/[ID]
-    # DELETE /admin/users/[ID]
-    # POST   /admin/users/[ID]/retoken
+    # GET    /admin/users/[USERNAME]/edit
+    # GET    /admin/users/[USERNAME]
+    # PATCH  /admin/users/[USERNAME]
+    # PUT    /admin/users/[USERNAME]
+    # DELETE /admin/users/[USERNAME]
+    # POST   /admin/users/[USERNAME]/retoken
     resources :users, concerns: [:paginatable] do
       member do
         post :retoken
@@ -131,6 +131,39 @@ Archangel::Engine.routes.draw do
 
     # GET /admin
     root to: "dashboards#show"
+  end
+
+  # GET    /posts
+  # GET    /posts/page/[PAGE]
+  # GET    /posts/[YEAR]
+  # GET    /posts/[YEAR]/page/[PAGE]
+  # GET    /posts/[YEAR]/[MONTH]
+  # GET    /posts/[YEAR]/[MONTH]/page/[PAGE]
+  # GET    /posts/[YEAR]/[MONTH]/[SLUG]
+  resources :posts, path: "posts",
+                    only: :index,
+                    param: :year,
+                    concerns: [:paginatable],
+                    constraints: { year: /\d{4}/ } do
+    resources :year, path: "",
+                     controller: :posts,
+                     only: :index,
+                     param: :month,
+                     concerns: [:paginatable],
+                     constraints: { month: /[01]?\d/ },
+                     as: :year do
+      resources :month, path: "",
+                        controller: :posts,
+                        only: :index,
+                        param: :id,
+                        concerns: [:paginatable],
+                        as: :month do
+        resource :post, path: "",
+                        controller: :posts,
+                        only: :show,
+                        param: :id
+      end
+    end
   end
 
   # GET /[PATH]

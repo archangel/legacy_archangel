@@ -57,6 +57,10 @@ module Archangel
         ]
       end
 
+      def page_params
+        params.require(:page).permit(permitted_attributes)
+      end
+
       def set_page
         if action_name.to_sym == :new
           @page = Archangel::Page.new
@@ -65,10 +69,6 @@ module Archangel
         end
 
         authorize @page
-      end
-
-      def page_params
-        params.require(:page).permit(permitted_attributes)
       end
 
       def set_breadcrumbs
