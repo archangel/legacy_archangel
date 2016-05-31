@@ -10,6 +10,15 @@ module Archangel
     validates :name, presence: true
     validates :slug, presence: true, uniqueness: true
 
+    # Associations
+    has_many :taggings
+    has_many :posts, through: :taggings,
+                     source: :taggable,
+                     source_type: "Archangel::Post"
+
+    # Default scope
+    default_scope { order(name: :asc) }
+
     def to_param
       slug
     end

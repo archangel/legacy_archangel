@@ -10,6 +10,15 @@ module Archangel
     validates :name, presence: true
     validates :slug, presence: true, length: { maximum: 24 }
 
+    # Associations
+    has_many :categorizations
+    has_many :posts, through: :categorizations,
+                     source: :categorizable,
+                     source_type: "Archangel::Post"
+
+    # Default scope
+    default_scope { order(name: :asc) }
+
     def to_param
       slug
     end

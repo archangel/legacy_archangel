@@ -21,6 +21,10 @@
 
     <%= f.input :content, as: :text %>
     <%= f.input :excerpt, as: :text %>
+
+    <%= f.association :categories, as: :select, collection: @categories, selected: f.object.categories.collect(&:id), input_html: { multiple: true } %>
+    <%= f.association :tags, as: :select, collection: @tags, selected: f.object.tags.collect(&:id), input_html: { multiple: true } %>
+
     <%= f.input :published_at, as: :date_time_picker, input_html: { value: datetimepicker_field_value(f.object.published_at, f.object.new_record?) } %>
   </div>
 

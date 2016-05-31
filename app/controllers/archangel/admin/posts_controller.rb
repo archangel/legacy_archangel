@@ -2,6 +2,7 @@ module Archangel
   module Admin
     class PostsController < AdminController
       before_action :set_post, only: [:show, :new, :edit, :update, :destroy]
+      before_action :set_associations, only: [:new, :edit, :create, :update]
       before_action :set_breadcrumbs
 
       helper Archangel::Admin::PostsHelper
@@ -54,7 +55,8 @@ module Archangel
       def permitted_attributes
         [
           :author_id, :banner, :content, :excerpt, :published_at,
-          :remove_banner, :slug, :title
+          :remove_banner, :slug, :title,
+          category_ids: [], tag_ids: []
         ]
       end
 
@@ -70,6 +72,11 @@ module Archangel
         end
 
         authorize @post
+      end
+
+      def set_associations
+        @categories = Archangel::Category.all.map { |c| [c.name, c.id] }
+        @tags = Archangel::Tag.all.map { |t| [t.name, t.id] }
       end
 
       def set_breadcrumbs
