@@ -72,7 +72,8 @@ module Archangel
 
       def set_breadcrumbs
         add_breadcrumb Archangel.t(:dashboard, scope: :menu), admin_root_path
-        add_breadcrumb Archangel.t(:categories, scope: :menu), admin_categories_path
+        add_breadcrumb Archangel.t(:categories, scope: :menu),
+                       admin_categories_path
 
         action = action_name.to_sym
         section_name = @category.class.name.split("::").last.humanize.titleize

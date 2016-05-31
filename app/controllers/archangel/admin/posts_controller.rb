@@ -8,8 +8,7 @@ module Archangel
       helper Archangel::Admin::PostsHelper
 
       def index
-        @posts = Archangel::Post.page(params[:page])
-                                .per(per_page)
+        @posts = Archangel::Post.page(params[:page]).per(per_page)
 
         authorize @posts
 

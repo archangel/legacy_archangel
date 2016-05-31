@@ -6,8 +6,8 @@ module Archangel
     #       Add Ransack search (optional)
     #       Support nested resources
     #       Custom prefix for engines (config?)
-    #       Option to return resource or resources in `location_after_create` and
-    #         `location_after_update`
+    #       Option to return resource or resources in `location_after_create`
+    #         and `location_after_update`
 
     included do
       attr_reader :resource_data
@@ -230,7 +230,7 @@ module Archangel
         ransack: false,
         authorize: false,
         page_param: :page,
-        per_page: 24,
+        per_page: 24
       }
     end
   end

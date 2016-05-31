@@ -5,7 +5,7 @@ module Archangel
         if RSpec.current_example.metadata[:js]
           within("table.table tbody tr:nth-child(#{num})", &block)
         else
-          within(:xpath, all("table.table tbody tr")[num-1].path, &block)
+          within(:xpath, all("table.table tbody tr")[num - 1].path, &block)
         end
       end
     end
