@@ -14,5 +14,15 @@ FactoryGirl.define do
     trait :future do
       published_at { Time.current + 1.week }
     end
+
+    trait :with_comments do
+      transient do
+        comment_count 3
+      end
+
+      after(:create) do |item, evaluator|
+        create_list(:comment, evaluator.comment_count, commentable: item)
+      end
+    end
   end
 end

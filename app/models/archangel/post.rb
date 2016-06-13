@@ -21,6 +21,7 @@ module Archangel
     belongs_to :author, class_name: Archangel::User
     has_many :categorizations, as: :categorizable
     has_many :categories, through: :categorizations
+    has_many :comments, as: :commentable
     has_many :taggings, as: :taggable
     has_many :tags, through: :taggings
 

@@ -31,6 +31,7 @@ en:
     menu:
       dashboard: Dashboard
       categories: Categories
+      comments: Comments
       pages: Pages
       posts: Posts
       profile: Profile
@@ -44,6 +45,9 @@ en:
       admin: Administrator
       user: User
     search: Search
+    sidebar:
+      comments: Comments
+      posts: Posts
     titles:
       list_section: "%{section}"
       show_section: "%{section}"

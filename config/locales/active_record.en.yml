@@ -4,6 +4,9 @@ en:
       archangel/categories:
         one: Category
         other: Categories
+      archangel/comments:
+        one: Comment
+        other: Comments
       archangel/page:
         one: Page
         other: Pages
@@ -25,12 +28,19 @@ en:
         description: Description
         name: Name
         slug: Slug
+      archangel/comment:
+        approved_at: Approved At
+        author: Author
+        content: Comment
+        email: Email
+        name: Name
+        parent_id: Parent
       archangel/page:
         author: Author
         content: Content
         meta_description: META Description
         meta_keywords: META Keywords
-        parent: Parent
+        parent_id: Parent
         published_at: Published At
         slug: Slug
         title: Title

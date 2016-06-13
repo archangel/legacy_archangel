@@ -1,0 +1,7 @@
+<ul class="nav nav-pills">
+  <li><%= link_to("Post", admin_post_path(@source)) %></li>
+
+  <% if member_action? %>
+    <li><%= link_to("Back", admin_post_comments_path(@source)) %></li>
+  <% end %>
+</ul>

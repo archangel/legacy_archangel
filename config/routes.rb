@@ -4,6 +4,18 @@ Archangel::Engine.routes.draw do
     get "(page/:page)", action: :index, on: :collection, as: ""
   end
 
+  # Backend comments
+  concern :admin_commentable do
+    resources :comments,
+              except: [:create, :new, :show],
+              concerns: [:paginatable]
+  end
+
+  # Frontend comments
+  concern :frontend_commentable do
+    resources :comments, except: [:delete, :show]
+  end
+
   # GET    /login
   # POST   /login
   # DELETE /logout
@@ -80,7 +92,13 @@ Archangel::Engine.routes.draw do
     # PATCH  /admin/posts/[ID]
     # PUT    /admin/posts/[ID]
     # DELETE /admin/posts/[ID]
-    resources :posts
+    # GET    /admin/posts/[POST_ID]/comments
+    # GET    /admin/posts/[POST_ID]/comments/pages/[PAGE]
+    # GET    /admin/posts/[POST_ID]/comments/[ID]/edit
+    # PATCH  /admin/posts/[POST_ID]/comments/[ID]
+    # PUT    /admin/posts/[POST_ID]/comments/[ID]
+    # DELETE /admin/posts/[POST_ID]/comments/[ID]
+    resources :posts, concerns: [:admin_commentable]
 
     # GET    /admin/profile/edit
     # GET    /admin/profile
@@ -140,6 +158,13 @@ Archangel::Engine.routes.draw do
   # GET    /posts/[YEAR]/[MONTH]
   # GET    /posts/[YEAR]/[MONTH]/page/[PAGE]
   # GET    /posts/[YEAR]/[MONTH]/[SLUG]
+  # GET    /posts/[YEAR]/[MONTH]/[SLUG]/comments
+  # POST   /posts/[YEAR]/[MONTH]/[SLUG]/comments
+  # GET    /posts/[YEAR]/[MONTH]/[SLUG]/comments/new
+  # GET    /posts/[YEAR]/[MONTH]/[SLUG]/comments/[ID]/edit
+  # PATCH  /posts/[YEAR]/[MONTH]/[SLUG]/comments/[ID]
+  # PUT    /posts/[YEAR]/[MONTH]/[SLUG]/comments/[ID]
+  # DELETE /posts/[YEAR]/[MONTH]/[SLUG]/comments/[ID]
   resources :posts, path: "posts",
                     only: :index,
                     param: :year,
@@ -161,6 +186,7 @@ Archangel::Engine.routes.draw do
         resource :post, path: "",
                         controller: :posts,
                         only: :show,
+                        concerns: [:frontend_commentable],
                         param: :id
       end
     end
