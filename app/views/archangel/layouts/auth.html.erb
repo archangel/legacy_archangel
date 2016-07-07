@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title><%= content_for?(:title) ? yield(:title) : Archangel.t(:archangel) %></title>
 
@@ -21,16 +21,18 @@
 </head>
 <body>
 
-<div id="wrapper">
-  <%= render "archangel/layouts/auth/shared/header" %>
+<div id="wrapper" class="middle-box loginscreen">
+  <div>
+    <%= render "archangel/shared/layouts/auth/header" %>
 
-  <main id="content" class="container">
-    <%= render "archangel/shared/flash_messages" %>
+    <main id="content" class="container">
+      <%= render "archangel/shared/flash_messages" %>
 
-    <%= yield %>
-  </main>
+      <%= yield %>
+    </main>
 
-  <%= render "archangel/layouts/auth/shared/footer" %>
+    <%= render "archangel/shared/layouts/auth/footer" %>
+  </div>
 </div>
 
 <%= javascript_include_tag "archangel/auth" %>

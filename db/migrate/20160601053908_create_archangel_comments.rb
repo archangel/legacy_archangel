@@ -1,4 +1,4 @@
-class CreateArchangelComments < ActiveRecord::Migration
+class CreateArchangelComments < ActiveRecord::Migration[5.0]
   def change
     create_table :archangel_comments do |t|
       t.string :name
@@ -7,11 +7,11 @@ class CreateArchangelComments < ActiveRecord::Migration
       t.integer :commentable_id
       t.string :commentable_type
       t.integer :parent_id
-      t.text :content
+      t.text :message
       t.datetime :approved_at
       t.datetime :deleted_at
 
-      t.timestamps null: false
+      t.timestamps
     end
 
     add_index :archangel_comments, :approved_at

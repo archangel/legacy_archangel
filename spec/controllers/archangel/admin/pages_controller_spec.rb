@@ -19,7 +19,7 @@ module Archangel
         it "assigns the requested page as @page" do
           page = create(:page)
 
-          archangel_get :show, id: page
+          archangel_get :show, params: { id: page }
 
           expect(assigns(:page)).to eq(page)
         end
@@ -37,7 +37,7 @@ module Archangel
         it "assigns the requested page as @page" do
           page = create(:page)
 
-          archangel_get :edit, id: page
+          archangel_get :edit, params: { id: page }
 
           expect(assigns(:page)).to eq(page)
         end
@@ -57,19 +57,19 @@ module Archangel
 
           it "creates a new Page" do
             expect do
-              archangel_post :create, page: params
+              archangel_post :create, params: { page: params }
             end.to change(Page, :count).by(1)
           end
 
           it "assigns a newly created page as @page" do
-            archangel_post :create, page: params
+            archangel_post :create, params: { page: params }
 
             expect(assigns(:page)).to be_a(Page)
             expect(assigns(:page)).to be_persisted
           end
 
           it "redirects to the created page" do
-            archangel_post :create, page: params
+            archangel_post :create, params: { page: params }
 
             expect(response).to redirect_to(admin_pages_path)
           end
@@ -81,13 +81,13 @@ module Archangel
           end
 
           it "assigns a newly created but unsaved page as @page" do
-            archangel_post :create, page: params
+            archangel_post :create, params: { page: params }
 
             expect(assigns(:page)).to be_a_new(Page)
           end
 
           it "re-renders the 'new' template" do
-            archangel_post :create, page: params
+            archangel_post :create, params: { page: params }
 
             expect(response).to render_template(:new)
           end
@@ -103,7 +103,7 @@ module Archangel
           it "updates the requested page" do
             page = create(:page)
 
-            archangel_put :update, id: page, page: params
+            archangel_put :update, params: { id: page, page: params }
 
             page.reload
 
@@ -113,7 +113,7 @@ module Archangel
           it "assigns the requested page as @page" do
             page = create(:page)
 
-            archangel_put :update, id: page, page: params
+            archangel_put :update, params: { id: page, page: params }
 
             expect(assigns(:page)).to eq(page)
           end
@@ -121,7 +121,7 @@ module Archangel
           it "redirects to the page" do
             page = create(:page)
 
-            archangel_put :update, id: page, page: params
+            archangel_put :update, params: { id: page, page: params }
 
             expect(response).to redirect_to(admin_pages_path)
           end
@@ -135,7 +135,7 @@ module Archangel
           it "assigns the page as @page" do
             page = create(:page)
 
-            archangel_put :update, id: page, page: params
+            archangel_put :update, params: { id: page, page: params }
 
             expect(assigns(:page)).to eq(page)
           end
@@ -143,7 +143,7 @@ module Archangel
           it "re-renders the 'edit' template" do
             page = create(:page)
 
-            archangel_put :update, id: page, page: params
+            archangel_put :update, params: { id: page, page: params }
 
             expect(response).to render_template(:edit)
           end
@@ -155,14 +155,14 @@ module Archangel
           page = create(:page)
 
           expect do
-            archangel_delete :destroy, id: page
+            archangel_delete :destroy, params: { id: page }
           end.to change(Page, :count).by(-1)
         end
 
         it "redirects to the pages list" do
           page = create(:page)
 
-          archangel_delete :destroy, id: page
+          archangel_delete :destroy, params: { id: page }
 
           expect(response).to redirect_to(admin_pages_path)
         end

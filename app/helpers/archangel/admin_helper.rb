@@ -1,13 +1,13 @@
 module Archangel
   module AdminHelper
     def author_link(author)
-      author ||= Archangel::NullUser.new
+      author ||= Archangel::User.new
 
-      return Archangel.t(:unknown) if author.nil?
+      return Archangel.t(:unknown) unless author.persisted?
 
-      link = admin_user_path(author)
+      link = archangel.admin_user_path(author)
 
-      link = admin_profile_path if author == current_user
+      link = archangel.admin_profile_path if author == current_user
 
       link_to(author.name, link)
     end

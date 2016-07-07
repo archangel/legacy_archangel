@@ -22,23 +22,23 @@
 <body>
 
 <div id="wrapper">
-  <%= render "archangel/admin/shared/sidebar" %>
+  <%= render "archangel/shared/layouts/admin/sidebar" %>
 
   <main id="page-wrapper">
-    <%= render "archangel/admin/shared/header" %>
+    <%= render "archangel/shared/layouts/admin/header" %>
 
     <%= render "archangel/shared/flash_messages" %>
 
     <%= yield %>
 
-    <%= render "archangel/admin/shared/footer" %>
+    <%= render "archangel/shared/layouts/admin/footer" %>
   </main>
 </div>
 
 <%= javascript_include_tag "archangel/admin" %>
 <%= yield(:javascript) if content_for?(:javascript) %>
 
-<%= render "archangel/admin/shared/translations" %>
+<%= render "archangel/shared/layouts/admin/translations" %>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 module Archangel
-  class User < ActiveRecord::Base
+  class User < ApplicationRecord
     acts_as_paranoid
 
     # Callbacks
@@ -14,9 +14,6 @@ module Archangel
     # Uploader
     mount_uploader :avatar, Archangel::AvatarUploader
 
-    # Token
-    has_secure_token :api_key
-
     # Validation
     validates :email, presence: true, uniqueness: true, email: true
     validates :name, presence: true
@@ -26,24 +23,10 @@ module Archangel
     validates :password, allow_blank: true,
                          length: { minimum: 8, maximum: 72 },
                          on: :update
-    validates :role, presence: true, inclusion: { in: Archangel::ROLES }
     validates :username, presence: true, uniqueness: true
 
     def to_param
       username
-    end
-
-    # Methods
-    def self.user?
-      role?(:user) || !Archangel::ROLES.include?(role.downcase)
-    end
-
-    def self.admin?
-      role? :admin
-    end
-
-    def self.role?(role_type)
-      role.downcase == role_type.to_s.downcase
     end
 
     protected

@@ -2,6 +2,6 @@ en:
   helpers:
     submit:
       profile:
-        update: "Update Profile"
+        update: Update Profile
       site:
-        update: "Update Site"
+        update: Update Site

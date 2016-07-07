@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :user, aliases: [:author], class: Archangel::User do
+  factory :user, aliases: [:author, :uploader], class: Archangel::User do
     sequence(:name) { |n| "User #{n}" }
     sequence(:username) { |n| "username#{n}" }
     sequence(:email) { |n| "user#{n}@example.com" }
@@ -7,14 +7,9 @@ FactoryGirl.define do
     sequence(:confirmation_token) { |n| "token-#{n}" }
     confirmed_at { Time.current }
     confirmation_sent_at { Time.current }
-    role "user"
 
     trait :avatar do
       avatar { File.new(uploader_test_image) }
-    end
-
-    trait :admin do
-      role "admin"
     end
 
     trait :unconfirmed do

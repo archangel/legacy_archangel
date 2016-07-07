@@ -1,10 +1,9 @@
 module Archangel
-  class Page < ActiveRecord::Base
+  class Page < ApplicationRecord
     extend ActsAsTree::TreeView
 
-    acts_as_list top_of_list: 0, scope: :parent
+    acts_as_tree order: :title
     acts_as_paranoid
-    acts_as_tree order: :position
 
     # Callbacks
     before_validation :parameterize_slug
@@ -14,23 +13,51 @@ module Archangel
     # Validation
     validates :author_id, presence: true
     validates :content, presence: true, allow_blank: true
-    validates :path, presence: true, allow_blank: true, uniqueness: true
+    validates :path, uniqueness: true
     validates :published_at, allow_blank: true, date: true
-    validates :slug, presence: true, length: { maximum: 24 }
+    validates :slug, presence: true
     validates :title, presence: true
-
-    validate :unique_slug_per_level
 
     # Associations
     belongs_to :author, class_name: Archangel::User
+    belongs_to :assetable, polymorphic: true
+
+    has_many :assets, as: :assetable
+    has_many :categorizations, as: :categorizable
+    has_many :categories, through: :categorizations
+    has_many :comments, as: :commentable
+    has_many :taggings, as: :taggable
+    has_many :tags, through: :taggings
+
+    # Default scope
+    default_scope { order(published_at: :desc) }
+
+    # Scope
+    scope :published, -> { where("published_at <= ?", Time.now) }
+
+    scope :unpublished, lambda {
+      where("published_at IS NULL OR published_at > ?", Time.now)
+    }
+
+    scope :in_year, lambda { |year|
+      unless year.nil?
+        where("cast(strftime('%Y', published_at) as int) = ?", year)
+      end
+    }
+
+    scope :in_month, lambda { |month|
+      unless month.nil?
+        where("cast(strftime('%m', published_at) as int) = ?", month)
+      end
+    }
+
+    scope :in_year_and_month, ->(year, month) { in_month(month).in_year(year) }
+
+    scope :published_this_month, lambda {
+      where(published_at: Time.now.beginning_of_month..Time.now)
+    }
 
     protected
-
-    def unique_slug_per_level
-      unless unique_slug_per_level?
-        errors.add(:slug, Archangel.t("errors.duplicate_slug"))
-      end
-    end
 
     def parameterize_slug
       self.slug = slug.to_s.downcase.parameterize
@@ -43,14 +70,9 @@ module Archangel
     end
 
     def column_reset
+      self.path = "#{Time.current.to_i}/#{path}"
       self.slug = "#{Time.current.to_i}_#{slug}"
       self.save
-    end
-
-    private
-
-    def unique_slug_per_level?
-      Page.where(parent_id: parent_id, slug: slug).where.not(id: id).empty?
     end
   end
 end

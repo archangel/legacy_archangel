@@ -2,13 +2,11 @@ module Archangel
   class ApplicationController < BaseController
     helper Archangel::ApplicationHelper
 
-    unless Rails.application.config.consider_all_requests_local
-      rescue_from ActionController::RoutingError, with: :render_401
-      rescue_from ActionController::UnknownController,
-                  AbstractController::ActionNotFound,
-                  ActionView::MissingTemplate,
-                  ActiveRecord::RecordNotFound, with: :render_404
-    end
+    rescue_from ActionController::RoutingError, with: :render_401
+    rescue_from ActionController::UnknownController,
+                AbstractController::ActionNotFound,
+                ActionView::MissingTemplate,
+                ActiveRecord::RecordNotFound, with: :render_404
 
     protected
 

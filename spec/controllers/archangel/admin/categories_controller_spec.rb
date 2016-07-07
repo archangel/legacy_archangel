@@ -19,7 +19,7 @@ module Archangel
         it "assigns the requested category as @category" do
           category = create(:category)
 
-          archangel_get :show, id: category
+          archangel_get :show, params: { id: category }
 
           expect(assigns(:category)).to eq(category)
         end
@@ -37,7 +37,7 @@ module Archangel
         it "assigns the requested category as @category" do
           category = create(:category)
 
-          archangel_get :edit, id: category
+          archangel_get :edit, params: { id: category }
 
           expect(assigns(:category)).to eq(category)
         end
@@ -54,19 +54,19 @@ module Archangel
 
           it "creates a new Category" do
             expect do
-              archangel_post :create, category: params
+              archangel_post :create, params: { category: params }
             end.to change(Category, :count).by(1)
           end
 
           it "assigns a newly created category as @category" do
-            archangel_post :create, category: params
+            archangel_post :create, params: { category: params }
 
             expect(assigns(:category)).to be_a(Category)
             expect(assigns(:category)).to be_persisted
           end
 
           it "redirects to the created category" do
-            archangel_post :create, category: params
+            archangel_post :create, params: { category: params }
 
             expect(response).to redirect_to(admin_categories_path)
           end
@@ -78,13 +78,13 @@ module Archangel
           end
 
           it "assigns a newly created but unsaved category as @category" do
-            archangel_post :create, category: params
+            archangel_post :create, params: { category: params }
 
             expect(assigns(:category)).to be_a_new(Category)
           end
 
           it "re-renders the 'new' template" do
-            archangel_post :create, category: params
+            archangel_post :create, params: { category: params }
 
             expect(response).to render_template(:new)
           end
@@ -100,7 +100,7 @@ module Archangel
           it "updates the requested category" do
             category = create(:category)
 
-            archangel_put :update, id: category, category: params
+            archangel_put :update, params: { id: category, category: params }
 
             category.reload
 
@@ -110,7 +110,7 @@ module Archangel
           it "assigns the requested category as @category" do
             category = create(:category)
 
-            archangel_put :update, id: category, category: params
+            archangel_put :update, params: { id: category, category: params }
 
             expect(assigns(:category)).to eq(category)
           end
@@ -118,7 +118,7 @@ module Archangel
           it "redirects to the category" do
             category = create(:category)
 
-            archangel_put :update, id: category, category: params
+            archangel_put :update, params: { id: category, category: params }
 
             expect(response).to redirect_to(admin_categories_path)
           end
@@ -132,7 +132,7 @@ module Archangel
           it "assigns the category as @category" do
             category = create(:category)
 
-            archangel_put :update, id: category, category: params
+            archangel_put :update, params: { id: category, category: params }
 
             expect(assigns(:category)).to eq(category)
           end
@@ -140,7 +140,7 @@ module Archangel
           it "re-renders the 'edit' template" do
             category = create(:category)
 
-            archangel_put :update, id: category, category: params
+            archangel_put :update, params: { id: category, category: params }
 
             expect(response).to render_template(:edit)
           end
@@ -152,14 +152,14 @@ module Archangel
           category = create(:category)
 
           expect do
-            archangel_delete :destroy, id: category
+            archangel_delete :destroy, params: { id: category }
           end.to change(Category, :count).by(-1)
         end
 
-        it "redirects to the categories list" do
+        it "redirects to the category list" do
           category = create(:category)
 
-          archangel_delete :destroy, id: category
+          archangel_delete :destroy, params: { id: category }
 
           expect(response).to redirect_to(admin_categories_path)
         end

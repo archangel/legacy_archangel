@@ -1,8 +1,0 @@
-<aside class="posts-sidebar">
-  <ul class="nav nav-pills nav-stacked">
-    <li><a href="<%= admin_posts_path %>"><%= Archangel.t(:posts, scope: :sidebar) %></a></li>
-    <% unless @post.new_record? %>
-      <li><a href="<%= admin_post_comments_path(@post) %>"><%= Archangel.t(:comments, scope: :sidebar) %> <span class="badge"><%= @post.comments.unapproved.count %></span></a></li>
-    <% end %>
-  </ul>
-</aside>

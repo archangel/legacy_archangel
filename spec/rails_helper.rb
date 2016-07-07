@@ -14,14 +14,14 @@ end
 require "spec_helper"
 require "rspec/rails"
 
-require "pry"
-require "byebug"
 require "launchy"
+require "pry-byebug"
 
-# For local support files only
-Dir[Rails.root.join("../support/**/*.rb")].each { |f| require f }
-
+# Archangel support files
 require "archangel/testing_support/support"
+
+# Local support files
+Dir[Rails.root.join("../support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   config.color = true

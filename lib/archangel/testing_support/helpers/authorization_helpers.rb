@@ -27,7 +27,7 @@ module Archangel
         Warden.test_mode!
 
         def stub_authorization!(user = nil)
-          user ||= create(:user, :admin)
+          user ||= create(:user)
 
           login_as user, scope: :user
 
@@ -42,6 +42,6 @@ RSpec.configure do |config|
   config.include Archangel::TestingSupport::AuthorizationHelpers::Controller,
                  type: :controller
 
- config.include Archangel::TestingSupport::AuthorizationHelpers::Feature,
-                type: :feature
+  config.include Archangel::TestingSupport::AuthorizationHelpers::Feature,
+                 type: :feature
 end

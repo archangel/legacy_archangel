@@ -22,7 +22,7 @@
 <body>
 
 <div id="wrapper">
-  <%= render "archangel/layouts/application/shared/header" %>
+  <%= render "archangel/shared/layouts/application/header" %>
 
   <main id="content" class="container">
     <%= render "archangel/shared/flash_messages" %>
@@ -30,7 +30,7 @@
     <%= yield %>
   </main>
 
-  <%= render "archangel/layouts/application/shared/footer" %>
+  <%= render "archangel/shared/layouts/application/footer" %>
 </div>
 
 <%= javascript_include_tag "archangel/application" %>

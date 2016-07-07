@@ -3,7 +3,6 @@ module Archangel
     class CommentsController < AdminController
       before_action :set_source
       before_action :set_comment, only: [:edit, :update, :destroy]
-      before_action :set_breadcrumbs
 
       helper Archangel::Admin::CommentsHelper
 
@@ -40,7 +39,7 @@ module Archangel
         #
         # @source = klass.find(params[class_name_for(klass)])
         @source = case
-          when params[:post_id] then Archangel::Post.find(params[:post_id])
+        when params[:page_id] then Archangel::Page.find(params[:post_id])
         end
       end
 
@@ -50,11 +49,12 @@ module Archangel
 
       def source_path
         case
-          when params[:post_id] then admin_post_comments_path(@source)
+        when params[:post_id] then admin_post_comments_path(@source)
         end
       end
 
       # def class_name_for(object)
+      #   # TODO: Use http://apidock.com/rails/Inflector/demodulize
       #   "#{object.name.split("::").last.underscore}_id"
       # end
 
@@ -78,26 +78,6 @@ module Archangel
 
       def comment_params
         params.require(:comment).permit(permitted_attributes)
-      end
-
-      def set_breadcrumbs
-        add_breadcrumb Archangel.t(:dashboard, scope: :menu), admin_root_path
-        add_breadcrumb Archangel.t(:posts, scope: :menu), admin_posts_path
-
-        action = action_name.to_sym
-        section_title = @source.title
-
-        add_breadcrumb section_title, admin_post_path(@source)
-        add_breadcrumb Archangel.t(:comments, scope: :menu), admin_post_comments_path(@source)
-
-        if action == :edit
-          section_title = @comment.class.name.split("::").last.humanize.titleize
-
-          add_breadcrumb(
-            Archangel.t(:edit_section, section: section_title, scope: :titles),
-            edit_admin_post_comment_path(@source, @comment)
-          )
-        end
       end
     end
   end

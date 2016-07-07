@@ -11,6 +11,15 @@ module Archangel
       class_option :route_path, type: :string, default: ""
       class_option :seed, type: :boolean, default: false
 
+      def create_assets
+        say_quietly "Copying Archangel vendor assets..."
+
+        %w(admin application auth).each do |section|
+          copy_file "vendor/assets/javascripts/archangel/#{section}.js"
+          copy_file "vendor/assets/stylesheets/archangel/#{section}.css"
+        end
+      end
+
       def add_env_file
         say_quietly "Copying sample .env file..."
 
@@ -56,9 +65,7 @@ Archangel::Engine.load_seed
       def install_migrations
         say_quietly "Installing migrations..."
 
-        silence_stream(STDOUT) do
-          silence_warnings { rake "railties:install:migrations" }
-        end
+        silence_warnings { rake "railties:install:migrations" }
       end
 
       def create_database

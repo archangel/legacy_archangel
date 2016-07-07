@@ -2,7 +2,33 @@ require "rails_helper"
 
 module Archangel
   RSpec.describe AdminHelper, type: :helper do
-    context "date picker field" do
+    context "#author_link(obj)" do
+      let!(:profile) { create(:user) }
+
+      before { allow(helper).to receive(:current_user).and_return(profile) }
+
+      it "returns current user" do
+        expect(helper.author_link(profile)).to have_link(
+          profile.name,
+          href: archangel.admin_profile_path
+        )
+      end
+
+      it "returns author" do
+        author = create(:user)
+
+        expect(helper.author_link(author)).to have_link(
+          author.name,
+          href: archangel.admin_user_path(author)
+        )
+      end
+
+      it "returns `Unknown` without author" do
+        expect(helper.author_link(nil)).to eq Archangel.t(:unknown)
+      end
+    end
+
+    context "#datepicker_field_value(date, now)" do
       it "uses current, formatted date for value" do
         now = Time.current
 
@@ -22,7 +48,7 @@ module Archangel
       end
     end
 
-    context "date time picker field" do
+    context "#datetimepicker_field_value(date, now)" do
       it "uses current, formatted date for value" do
         now = Time.current
 

@@ -51,11 +51,5 @@ module Archangel
         scope
       end
     end
-
-    protected
-
-    def administive_role?
-      user.admin?
-    end
   end
 end

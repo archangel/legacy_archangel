@@ -16,7 +16,7 @@ module Archangel
       it "assigns the requested page as @page" do
         page = create(:page)
 
-        archangel_get :show, path: page.path
+        archangel_get :show, params: { path: page.path }
 
         expect(assigns(:page)).to eq(page)
       end

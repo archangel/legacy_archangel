@@ -4,7 +4,7 @@ module Archangel
   module Admin
     RSpec.describe ProfilesController, type: :controller do
       let!(:profile) do
-        profile = create(:user, :admin)
+        profile = create(:user)
 
         stub_authorization!(profile)
 
@@ -21,7 +21,7 @@ module Archangel
 
       describe "GET #edit" do
         it "assigns the current user as @profile" do
-          get :edit
+          archangel_get :edit
 
           expect(assigns(:profile)).to eq(profile)
         end
@@ -37,7 +37,7 @@ module Archangel
           end
 
           it "assigns the current user as @profile" do
-            archangel_put :update, profile: attributes
+            archangel_put :update, params: { profile: attributes }
 
             expect(assigns(:profile)).to eq(profile)
           end
@@ -49,7 +49,7 @@ module Archangel
           end
 
           it "assigns the current user as @profile" do
-            archangel_put :update, profile: attributes
+            archangel_put :update, params: { profile: attributes }
 
             expect(assigns(:profile)).to eq(profile)
           end
@@ -64,13 +64,13 @@ module Archangel
           end
 
           it "assigns the current_user as @profile" do
-            archangel_put :update, profile: attributes
+            archangel_put :update, params: { profile: attributes }
 
             expect(assigns(:profile)).to eq(profile)
           end
 
           it "re-renders the 'edit' template" do
-            archangel_put :update, profile: attributes
+            archangel_put :update, params: { profile: attributes }
 
             expect(response).to render_template(:edit)
           end
@@ -88,14 +88,6 @@ module Archangel
           archangel_delete :destroy
 
           expect(response).to redirect_to(admin_root_url)
-        end
-      end
-
-      describe "POST #retoken" do
-        it "regenerates `api_key` for the requested user" do
-          archangel_post :retoken
-
-          expect(response).to redirect_to(admin_profile_path)
         end
       end
     end

@@ -3,6 +3,10 @@ Archangel.configure do |config|
   # Default is "admin"
   # config.admin_path = "admin"
 
+  # Auth path.
+  # Default is "account"
+  # config.auth_path = "account"
+
   # Application.
   # Default is "archangel"
   config.application = "archangel"

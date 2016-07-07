@@ -7,82 +7,62 @@ module Archangel
         routes { Archangel::Engine.routes }
       end
 
-      def archangel_get(action, parameters = nil, session = nil, flash = nil)
-        process_archangel_action(action, parameters, session, flash, :get)
+      def archangel_get(action, *args)
+        process_archangel_action(action, :get, *args)
       end
 
-      def archangel_post(action, parameters = nil, session = nil, flash = nil)
-        process_archangel_action(action, parameters, session, flash, :post)
+      def archangel_post(action, *args)
+        process_archangel_action(action, :post, *args)
       end
 
-      def archangel_put(action, parameters = nil, session = nil, flash = nil)
-        process_archangel_action(action, parameters, session, flash, :put)
+      def archangel_put(action, *args)
+        process_archangel_action(action, :put, *args)
       end
 
-      def archangel_delete(action, parameters = nil, session = nil, flash = nil)
-        process_archangel_action(action, parameters, session, flash, :delete)
+      def archangel_delete(action, *args)
+        process_archangel_action(action, :delete, *args)
       end
 
-      def archangel_xhr_get(action,
-                            parameters = nil,
-                            session = nil,
-                            flash = nil)
-        process_archangel_xhr_action(action, parameters, session, flash, :get)
+      def archangel_xhr_get(action, *args)
+        process_archangel_xhr_action(action, :get, *args)
       end
 
-      def archangel_xhr_post(action,
-                             parameters = nil,
-                             session = nil,
-                             flash = nil)
-        process_archangel_xhr_action(action, parameters, session, flash, :post)
+      def archangel_xhr_post(action, *args)
+        process_archangel_xhr_action(action, :post, *args)
       end
 
-      def archangel_xhr_put(action,
-                            parameters = nil,
-                            session = nil,
-                            flash = nil)
-        process_archangel_xhr_action(action, parameters, session, flash, :put)
+      def archangel_xhr_put(action, *args)
+        process_archangel_xhr_action(action, :put, *args)
       end
 
-      def archangel_xhr_patch(action,
-                              parameters = nil,
-                              session = nil,
-                              flash = nil)
-        process_archangel_xhr_action(action, parameters, session, flash, :patch)
+      def archangel_xhr_patch(action, *args)
+        process_archangel_xhr_action(action, :patch, *args)
       end
 
-      def archangel_xhr_delete(action,
-                               parameters = nil,
-                               session = nil,
-                               flash = nil)
-        process_archangel_xhr_action(action,
-                                     parameters,
-                                     session,
-                                     flash,
-                                     :delete)
+      def archangel_xhr_delete(action, *args)
+        process_archangel_xhr_action(action, :delete, *args)
       end
 
       private
 
-      def process_archangel_action(action,
-                                   parameters = nil,
-                                   session = nil,
-                                   flash = nil,
-                                   method = :get)
-        parameters ||= {}
+      def process_archangel_action(action, method = :get, *args)
+        params = args.first.blank? ? {} : args.first
 
-        process(action, method.to_s.upcase, parameters, session, flash)
+        params[:method] = method
+
+        process(action, params)
       end
 
-      def process_archangel_xhr_action(action,
-                                       parameters = nil,
-                                       session = nil,
-                                       flash = nil,
-                                       method = :get)
-        parameters ||= {}
-        parameters.reverse_merge!(format: :json)
+      def process_archangel_xhr_action(action, method = :get, *args)
+        params = args.first.blank? ? {} : args.first
 
-        xml_http_request(method, action, parameters, session, flash)
+        params.merge!(
+          method: method,
+          format: :json,
+          xhr: true
+        )
+
+        process(action, params)
       end
     end
   end

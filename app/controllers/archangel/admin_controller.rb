@@ -7,9 +7,7 @@ module Archangel
 
     helper Archangel::AdminHelper
 
-    unless Rails.application.config.consider_all_requests_local
-      rescue_from Pundit::NotAuthorizedError, with: :render_401
-    end
+    rescue_from Pundit::NotAuthorizedError, with: :render_401
 
     protected
 

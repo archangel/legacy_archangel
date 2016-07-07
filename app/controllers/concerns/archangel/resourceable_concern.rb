@@ -102,11 +102,7 @@ module Archangel
     end
 
     def resource_params
-      if permitted_attributes.empty?
-        params.require(:"#{model_name}").permit!
-      else
-        params.require(:"#{model_name}").permit(permitted_attributes)
-      end
+      params.require(:"#{model_name}").permit(permitted_attributes)
     end
 
     def location_after_save

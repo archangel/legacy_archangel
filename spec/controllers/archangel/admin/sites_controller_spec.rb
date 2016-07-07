@@ -24,11 +24,11 @@ module Archangel
       describe "PUT #update" do
         context "with valid params" do
           let(:params) do
-            { title: "My Archangel" }
+            { name: "My Archangel Site" }
           end
 
           it "updates the requested setting" do
-            archangel_put :update, site: params
+            archangel_put :update, params: { site: params }
 
             Site.first.reload
 
@@ -36,13 +36,13 @@ module Archangel
           end
 
           it "assigns the requested site as @site" do
-            archangel_put :update, site: params
+            archangel_put :update, params: { site: params }
 
             expect(assigns(:site)).to eq(Site.first)
           end
 
           it "redirects to the site" do
-            archangel_put :update, site: params
+            archangel_put :update, params: { site: params }
 
             expect(response).to redirect_to(admin_site_path)
           end
@@ -50,17 +50,17 @@ module Archangel
 
         context "with invalid params" do
           let(:params) do
-            { title: nil }
+            { name: nil }
           end
 
           it "assigns the site as @site" do
-            archangel_put :update, site: params
+            archangel_put :update, params: { site: params }
 
             expect(assigns(:site)).to eq(Site.first)
           end
 
           it "re-renders the 'edit' template" do
-            archangel_put :update, site: params
+            archangel_put :update, params: { site: params }
 
             expect(response).to render_template(:edit)
           end

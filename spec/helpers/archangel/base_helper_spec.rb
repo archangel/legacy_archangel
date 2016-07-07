@@ -2,9 +2,9 @@ require "rails_helper"
 
 module Archangel
   RSpec.describe BaseHelper, type: :helper do
-    context "locale attribute" do
+    context "#locale" do
       it "returns application locale" do
-        expect(helper.locale).to eq(:en)
+        expect(helper.locale).to eq("en")
       end
     end
   end

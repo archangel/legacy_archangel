@@ -1,5 +1,5 @@
 module Archangel
-  class Tagging < ActiveRecord::Base
+  class Tagging < ApplicationRecord
     # Associations
     belongs_to :tag
     belongs_to :taggable, polymorphic: true

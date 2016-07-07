@@ -1,6 +1,8 @@
 language: ruby
 bundler_args: --without production --quiet
 install: ruby -S bundle install
+env:
+  - COVERAGE=true
 script:
   - bundle exec rake dummy_app
   - bundle exec rspec spec

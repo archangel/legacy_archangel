@@ -1,7 +1,7 @@
 CarrierWave.configure do |config|
   # Local file storage
-  config.permissions = 0666
-  config.directory_permissions = 0777
+  config.permissions = 0o666
+  config.directory_permissions = 0o777
   config.storage = :file
 
   # Use local file storage for tests

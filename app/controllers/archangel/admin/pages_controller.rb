@@ -2,12 +2,11 @@ module Archangel
   module Admin
     class PagesController < AdminController
       before_action :set_page, only: [:show, :new, :edit, :update, :destroy]
-      before_action :set_breadcrumbs
 
       helper Archangel::Admin::PagesHelper
 
       def index
-        @pages = Archangel::Page.all
+        @pages = Archangel::Page.page(params[:page]).per(per_page)
 
         authorize @pages
 
@@ -53,7 +52,9 @@ module Archangel
       def permitted_attributes
         [
           :author_id, :content, :meta_description, :meta_keywords, :parent_id,
-          :position, :published_at, :slug, :title
+          :published_at, :slug, :title,
+          category_ids: [],
+          tag_ids: []
         ]
       end
 
@@ -69,32 +70,6 @@ module Archangel
         end
 
         authorize @page
-      end
-
-      def set_breadcrumbs
-        add_breadcrumb Archangel.t(:dashboard, scope: :menu), admin_root_path
-        add_breadcrumb Archangel.t(:pages, scope: :menu), admin_pages_path
-
-        action = action_name.to_sym
-        section_name = @page.class.name.split("::").last.humanize.titleize
-        section_title = @page.title if [:show, :edit].include?(action)
-
-        if action == :show
-          add_breadcrumb(
-            Archangel.t(:show_section, section: section_title, scope: :titles),
-            admin_page_path(@page)
-          )
-        elsif action == :new
-          add_breadcrumb(
-            Archangel.t(:new_section, section: section_name, scope: :titles),
-            new_admin_page_path
-          )
-        elsif action == :edit
-          add_breadcrumb(
-            Archangel.t(:edit_section, section: section_title, scope: :titles),
-            edit_admin_page_path(@page)
-          )
-        end
       end
     end
   end

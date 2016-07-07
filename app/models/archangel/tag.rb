@@ -1,5 +1,5 @@
 module Archangel
-  class Tag < ActiveRecord::Base
+  class Tag < ApplicationRecord
     acts_as_paranoid
 
     # Callbacks
@@ -12,9 +12,9 @@ module Archangel
 
     # Associations
     has_many :taggings
-    has_many :posts, through: :taggings,
+    has_many :pages, through: :taggings,
                      source: :taggable,
-                     source_type: "Archangel::Post"
+                     source_type: "Archangel::Page"
 
     # Default scope
     default_scope { order(name: :asc) }

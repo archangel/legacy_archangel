@@ -1,12 +1,10 @@
-class CreateArchangelUsers < ActiveRecord::Migration
+class CreateArchangelUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :archangel_users do |t|
       ## Common
       t.string :name, null: false, default: ""
       t.string :username, null: false, default: ""
-
-      ## Keys
-      t.string :api_key
+      t.string :avatar
 
       ## Database authenticatable
       t.string :email, null: false, default: ""
@@ -50,21 +48,18 @@ class CreateArchangelUsers < ActiveRecord::Migration
       t.index :invited_by_id
 
       ## Common
-      t.string :avatar
-      t.string :role, default: "user", null: false
       t.datetime :deleted_at
 
-      t.timestamps null: false
+      t.timestamps
     end
 
-    add_index :archangel_users, :api_key, unique: true
-    add_index :archangel_users, :confirmation_token, unique: true
+
+    add_index :archangel_users, :confirmation_token,   unique: true
     add_index :archangel_users, :deleted_at
-    add_index :archangel_users, :email, unique: true
+    add_index :archangel_users, :email,                unique: true
     add_index :archangel_users, :name
     add_index :archangel_users, :reset_password_token, unique: true
-    add_index :archangel_users, :role
-    add_index :archangel_users, :unlock_token, unique: true
-    add_index :archangel_users, :username, unique: true
+    add_index :archangel_users, :unlock_token,         unique: true
+    add_index :archangel_users, :username,             unique: true
   end
 end

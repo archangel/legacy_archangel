@@ -1,6 +1,5 @@
 require "rails/generators/rails/app/app_generator"
 require "active_support/core_ext/hash"
-require "pry"
 
 module Archangel
   module Generators
@@ -45,9 +44,7 @@ module Archangel
         @database = options[:database]
 
         [
-          "config/application.rb",
           "config/database.yml"
-
         ].each do |tpl|
           template tpl, "#{dummy_path}/#{tpl}", force: true
         end

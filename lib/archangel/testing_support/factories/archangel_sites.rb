@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :site, class: Archangel::Site do
-    title "Archangel"
+    name "Archangel"
     meta_keywords "very, useful, keywords"
     meta_description "This is the default description of the site."
 

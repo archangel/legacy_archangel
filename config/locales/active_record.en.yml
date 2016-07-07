@@ -10,9 +10,6 @@ en:
       archangel/page:
         one: Page
         other: Pages
-      archangel/post:
-        one: Post
-        other: Posts
       archangel/site:
         one: Site
         other: Site
@@ -44,19 +41,12 @@ en:
         published_at: Published At
         slug: Slug
         title: Title
-      archangel/posts:
-        author: Author
-        banner: Banner
-        content: Content
-        published_at: Published At
-        slug: Slug
-        title: Title
       archangel/site:
         logo: Logo
         meta_description: META Description
         meta_keywords: META Keywords
+        name: Name
         remove_logo: Remove Logo
-        title: Title
       archangel/tag:
         description: Description
         name: Name
@@ -67,5 +57,4 @@ en:
         name: Name
         password: Password
         password_confirmation: Confirm Password
-        role: Role
         username: Username

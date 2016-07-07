@@ -2,9 +2,7 @@
   <div class="col-lg-12">
     <h2>User List</h2>
 
-    <%= render "archangel/admin/users/buttons" %>
-
-    <%= render "archangel/admin/shared/breadcrumbs" %>
+    <%= render "buttons" %>
   </div>
 </div>
 
@@ -14,40 +12,36 @@
       <% if @users.any? %>
         <%= paginate @users %>
 
-        <table class="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th>Avatar</th>
-              <th>Name</th>
-              <th>Username</th>
-              <th>Role</th>
-              <th class="text-right">Action</th>
-            </tr>
-          </thead>
+        <div class="row">
+          <% @users.each do |user| %>
+            <div class="col-md-3">
+              <div class="ibox">
+                <div class="ibox-content product-box">
+                  <div class="product-imitation">
+                    <%= image_tag(user.avatar.medium.url) %>
+                  </div>
 
-          <tbody>
-            <% @users.each do |user| %>
-              <tr>
-                <td><%= image_tag(user.avatar.mini.url) %></td>
-                <td><%= user.name %></td>
-                <td><%= user.username %></td>
-                <td><%= user.role %></td>
-                <td>
-                  <ul class="nav nav-pills navbar-right">
-                    <li><%= link_to "Show", admin_user_path(user) %></li>
-                    <li><%= link_to "Edit", edit_admin_user_path(user) %></li>
-                    <li><%= link_to "Destroy", admin_user_path(user), method: :delete, data: { confirm: Archangel.t(:are_you_sure) } %></li>
-                  </ul>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+                  <div class="product-desc">
+                    <small class="text-muted"><%= user.username %></small>
+
+                    <%= link_to user.name, admin_user_path(user), class: "product-name" %>
+
+                    <div class="m-t text-right">
+                      <%= link_to "Show", admin_user_path(user), class: "btn btn-xs btn-outline btn-default" %>
+                      <%= link_to "Edit", edit_admin_user_path(user), class: "btn btn-xs btn-outline btn-primary" %>
+                      <%= link_to "Destroy", admin_user_path(user), class: "btn btn-xs btn-outline btn-danger", method: :delete, data: { confirm: Archangel.t(:are_you_sure) } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
 
         <%= paginate @users %>
       <% else %>
         <p>
-          <%= Archangel.t(:no_resources, resource: "Users") %>
+          <%= Archangel.t(:no_resources, resource: @users.model_name.human.pluralize) %>
         </p>
       <% end %>
     </div>

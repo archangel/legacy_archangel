@@ -5,7 +5,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :title %>
+    <%= f.input :name %>
 
     <%= image_tag(f.object.logo.thumb.url) %>
 
@@ -16,6 +16,7 @@
                               checked_value: true,
                               unchecked_value: false if f.object.logo? %>
 
+    <%= f.input :locale, as: :language %>
     <%= f.input :meta_keywords %>
     <%= f.input :meta_description %>
   </div>

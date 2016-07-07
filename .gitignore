@@ -1,13 +1,13 @@
 .bundle/
+coverage/
+pkg/
+spec/dummy/
+tmp/
 .DS_Store
 .Trashes
-coverage/
 Desktop.ini
 Gemfile.lock
 log/*.log
-pkg/
 rspec.log
-spec/dummy/
 spec/examples.txt
 Thumbs.db
-tmp/

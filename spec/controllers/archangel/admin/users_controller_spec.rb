@@ -19,7 +19,7 @@ module Archangel
         it "assigns the requested user as @user" do
           user = create(:user)
 
-          archangel_get :show, id: user
+          archangel_get :show, params: { id: user }
 
           expect(assigns(:user)).to eq(user)
         end
@@ -37,7 +37,7 @@ module Archangel
         it "assigns the requested user as @user" do
           user = create(:user)
 
-          get :edit, id: user.to_param
+          archangel_get :edit, params: { id: user.to_param }
 
           expect(assigns(:user)).to eq(user)
         end
@@ -55,19 +55,19 @@ module Archangel
 
           it "creates a new User" do
             expect do
-              archangel_post :create, user: attributes
+              archangel_post :create, params: { user: attributes }
             end.to change(User, :count).by(1)
           end
 
           it "assigns a newly created user as @user" do
-            archangel_post :create, user: attributes
+            archangel_post :create, params: { user: attributes }
 
             expect(assigns(:user)).to be_a(User)
             expect(assigns(:user)).to be_persisted
           end
 
           it "redirects to the created user" do
-            archangel_post :create, user: attributes
+            archangel_post :create, params: { user: attributes }
 
             expect(response).to redirect_to(admin_users_path)
           end
@@ -80,7 +80,7 @@ module Archangel
           end
 
           it "re-renders the 'new' template" do
-            archangel_post :create, user: attributes
+            archangel_post :create, params: { user: attributes }
 
             expect(response).to render_template(:new)
           end
@@ -96,7 +96,7 @@ module Archangel
           it "assigns the requested user as @user" do
             user = create(:user)
 
-            archangel_put :update, id: user.to_param, user: attributes
+            archangel_put :update, params: { id: user.to_param, user: attributes }
 
             expect(assigns(:user)).to eq(user)
           end
@@ -104,7 +104,7 @@ module Archangel
           it "redirects to the user" do
             user = create(:user)
 
-            archangel_put :update, id: user.to_param, user: attributes
+            archangel_put :update, params: { id: user.to_param, user: attributes }
 
             expect(response).to redirect_to(admin_users_path)
           end
@@ -119,7 +119,7 @@ module Archangel
           it "assigns the user as @user" do
             user = create(:user)
 
-            archangel_put :update, id: user.to_param, user: attributes
+            archangel_put :update, params: { id: user.to_param, user: attributes }
 
             expect(assigns(:user)).to eq(user)
           end
@@ -127,7 +127,7 @@ module Archangel
           it "re-renders the 'edit' template" do
             user = create(:user)
 
-            archangel_put :update, id: user.to_param, user: attributes
+            archangel_put :update, params: { id: user.to_param, user: attributes }
 
             expect(response).to render_template(:edit)
           end
@@ -139,24 +139,14 @@ module Archangel
           user = create(:user)
 
           expect do
-            archangel_delete :destroy, id: user.to_param
+            archangel_delete :destroy, params: { id: user.to_param }
           end.to change(User, :count).by(-1)
         end
 
         it "redirects to the users list" do
           user = create(:user)
 
-          archangel_delete :destroy, id: user.to_param
-
-          expect(response).to redirect_to(admin_users_path)
-        end
-      end
-
-      describe "POST #retoken" do
-        it "regenerates `api_key` for the requested user" do
-          user = create(:user)
-
-          archangel_post :retoken, id: user.to_param
+          archangel_delete :destroy, params: { id: user.to_param }
 
           expect(response).to redirect_to(admin_users_path)
         end

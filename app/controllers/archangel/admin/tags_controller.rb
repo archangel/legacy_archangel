@@ -2,12 +2,11 @@ module Archangel
   module Admin
     class TagsController < AdminController
       before_action :set_tag, only: [:show, :new, :edit, :update, :destroy]
-      before_action :set_breadcrumbs
 
       helper Archangel::Admin::TagsHelper
 
       def index
-        @tags = Archangel::Tag.all
+        @tags = Archangel::Tag.page(params[:page]).per(per_page)
 
         authorize @tags
 
@@ -68,32 +67,6 @@ module Archangel
         end
 
         authorize @tag
-      end
-
-      def set_breadcrumbs
-        add_breadcrumb Archangel.t(:dashboard, scope: :menu), admin_root_path
-        add_breadcrumb Archangel.t(:tags, scope: :menu), admin_tags_path
-
-        action = action_name.to_sym
-        section_name = @tag.class.name.split("::").last.humanize.titleize
-        section_title = @tag.name if [:show, :edit].include?(action)
-
-        if action == :show
-          add_breadcrumb(
-            Archangel.t(:show_section, section: section_title, scope: :titles),
-            admin_tag_path(@tag)
-          )
-        elsif action == :new
-          add_breadcrumb(
-            Archangel.t(:new_section, section: section_name, scope: :titles),
-            new_admin_tag_path
-          )
-        elsif action == :edit
-          add_breadcrumb(
-            Archangel.t(:edit_section, section: section_title, scope: :titles),
-            edit_admin_tag_path(@tag)
-          )
-        end
       end
     end
   end

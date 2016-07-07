@@ -1,5 +1,5 @@
 module Archangel
-  class Category < ActiveRecord::Base
+  class Category < ApplicationRecord
     acts_as_paranoid
 
     # Callbacks
@@ -8,13 +8,13 @@ module Archangel
 
     # Validation
     validates :name, presence: true
-    validates :slug, presence: true, length: { maximum: 24 }
+    validates :slug, presence: true, uniqueness: true
 
     # Associations
     has_many :categorizations
-    has_many :posts, through: :categorizations,
+    has_many :pages, through: :categorizations,
                      source: :categorizable,
-                     source_type: "Archangel::Post"
+                     source_type: "Archangel::Page"
 
     # Default scope
     default_scope { order(name: :asc) }

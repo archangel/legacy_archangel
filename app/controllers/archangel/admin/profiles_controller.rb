@@ -2,7 +2,6 @@ module Archangel
   module Admin
     class ProfilesController < AdminController
       before_action :set_profile
-      before_action :set_breadcrumbs
       after_action :skip_authorization
 
       helper Archangel::Admin::ProfilesHelper
@@ -35,12 +34,6 @@ module Archangel
         respond_with @profile, location: -> { admin_root_path }
       end
 
-      def retoken
-        @profile.regenerate_api_key
-
-        respond_with @profile, location: -> { admin_profile_path }
-      end
-
       protected
 
       def permitted_attributes
@@ -69,22 +62,7 @@ module Archangel
       protected
 
       def reauth_current_user(successful)
-        sign_in @profile, bypass: true if successful && @profile == current_user
-      end
-
-      def set_breadcrumbs
-        add_breadcrumb Archangel.t(:dashboard, scope: :menu), admin_root_path
-        add_breadcrumb Archangel.t(:profile, scope: :menu), admin_profile_path
-
-        action = action_name.to_sym
-        section_title = @profile.name if [:edit].include?(action)
-
-        if action == :edit
-          add_breadcrumb(
-            Archangel.t(:edit_section, section: section_title, scope: :titles),
-            edit_admin_profile_path
-          )
-        end
+        bypass_sign_in(@profile) if successful
       end
     end
   end

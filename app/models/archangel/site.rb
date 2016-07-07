@@ -1,15 +1,17 @@
 module Archangel
-  class Site < ActiveRecord::Base
+  class Site < ApplicationRecord
     # Uploader
     mount_uploader :logo, Archangel::LogoUploader
 
     # Validation
-    validates :title, presence: true
+    validates :name, presence: true
+    validates :locale, presence: true,
+                       inclusion: { in: Archangel::LANGUAGES }
 
     # Scope
     def self.current
       first_or_create do |site|
-        site.title = Archangel.t(:archangel)
+        site.name = Archangel.t(:archangel)
       end
     end
   end

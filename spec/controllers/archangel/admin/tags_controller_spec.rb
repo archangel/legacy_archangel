@@ -19,7 +19,7 @@ module Archangel
         it "assigns the requested tag as @tag" do
           tag = create(:tag)
 
-          archangel_get :show, id: tag
+          archangel_get :show, params: { id: tag }
 
           expect(assigns(:tag)).to eq(tag)
         end
@@ -37,7 +37,7 @@ module Archangel
         it "assigns the requested tag as @tag" do
           tag = create(:tag)
 
-          archangel_get :edit, id: tag
+          archangel_get :edit, params: { id: tag }
 
           expect(assigns(:tag)).to eq(tag)
         end
@@ -54,19 +54,19 @@ module Archangel
 
           it "creates a new Tag" do
             expect do
-              archangel_post :create, tag: params
+              archangel_post :create, params: { tag: params }
             end.to change(Tag, :count).by(1)
           end
 
           it "assigns a newly created tag as @tag" do
-            archangel_post :create, tag: params
+            archangel_post :create, params: { tag: params }
 
             expect(assigns(:tag)).to be_a(Tag)
             expect(assigns(:tag)).to be_persisted
           end
 
           it "redirects to the created tag" do
-            archangel_post :create, tag: params
+            archangel_post :create, params: { tag: params }
 
             expect(response).to redirect_to(admin_tags_path)
           end
@@ -78,13 +78,13 @@ module Archangel
           end
 
           it "assigns a newly created but unsaved tag as @tag" do
-            archangel_post :create, tag: params
+            archangel_post :create, params: { tag: params }
 
             expect(assigns(:tag)).to be_a_new(Tag)
           end
 
           it "re-renders the 'new' template" do
-            archangel_post :create, tag: params
+            archangel_post :create, params: { tag: params }
 
             expect(response).to render_template(:new)
           end
@@ -100,7 +100,7 @@ module Archangel
           it "updates the requested tag" do
             tag = create(:tag)
 
-            archangel_put :update, id: tag, tag: params
+            archangel_put :update, params: { id: tag, tag: params }
 
             tag.reload
 
@@ -110,7 +110,7 @@ module Archangel
           it "assigns the requested tag as @tag" do
             tag = create(:tag)
 
-            archangel_put :update, id: tag, tag: params
+            archangel_put :update, params: { id: tag, tag: params }
 
             expect(assigns(:tag)).to eq(tag)
           end
@@ -118,7 +118,7 @@ module Archangel
           it "redirects to the tag" do
             tag = create(:tag)
 
-            archangel_put :update, id: tag, tag: params
+            archangel_put :update, params: { id: tag, tag: params }
 
             expect(response).to redirect_to(admin_tags_path)
           end
@@ -132,7 +132,7 @@ module Archangel
           it "assigns the tag as @tag" do
             tag = create(:tag)
 
-            archangel_put :update, id: tag, tag: params
+            archangel_put :update, params: { id: tag, tag: params }
 
             expect(assigns(:tag)).to eq(tag)
           end
@@ -140,7 +140,7 @@ module Archangel
           it "re-renders the 'edit' template" do
             tag = create(:tag)
 
-            archangel_put :update, id: tag, tag: params
+            archangel_put :update, params: { id: tag, tag: params }
 
             expect(response).to render_template(:edit)
           end
@@ -152,14 +152,14 @@ module Archangel
           tag = create(:tag)
 
           expect do
-            archangel_delete :destroy, id: tag
+            archangel_delete :destroy, params: { id: tag }
           end.to change(Tag, :count).by(-1)
         end
 
         it "redirects to the tags list" do
           tag = create(:tag)
 
-          archangel_delete :destroy, id: tag
+          archangel_delete :destroy, params: { id: tag }
 
           expect(response).to redirect_to(admin_tags_path)
         end

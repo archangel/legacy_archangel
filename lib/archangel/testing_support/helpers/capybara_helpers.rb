@@ -13,5 +13,5 @@ module Archangel
 end
 
 RSpec.configure do |config|
- config.include Archangel::TestingSupport::CapybaraHelpers, type: :feature
+  config.include Archangel::TestingSupport::CapybaraHelpers, type: :feature
 end

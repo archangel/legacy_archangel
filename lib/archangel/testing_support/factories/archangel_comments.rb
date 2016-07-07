@@ -1,12 +1,12 @@
 FactoryGirl.define do
   factory :comment, class: Archangel::Comment do
-    association :commentable, factory: :post
+    association :commentable, factory: :page
     author
-    content "This is my comment."
+    message "This is my comment."
     approved_at { Time.current }
 
     factory :parent_comment do
-      after(:create) { |c, evaluator| create(:comment, parent: c) }
+      after(:create) { |c, _evaluator| create(:comment, parent: c) }
     end
 
     factory :child_comment do

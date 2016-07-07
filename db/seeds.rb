@@ -15,8 +15,17 @@ unless user
                                  name: name,
                                  password: password,
                                  password_confirmation: password,
-                                 role: "admin",
                                  confirmed_at: Time.current)
+end
+
+# Tags
+Archangel::Tag.find_or_create_by!(slug: "unknown") do |item|
+  item.name = "Unknown"
+end
+
+# Categories
+Archangel::Category.find_or_create_by!(slug: "unknown") do |item|
+  item.name = "Unknown"
 end
 
 # Pages
@@ -25,13 +34,4 @@ Archangel::Page.find_or_create_by!(path: "home", slug: "home") do |item|
   item.content = "Welcome to your new site."
   item.author_id = user.id
   item.published_at = Time.current
-end
-
-# Posts
-unless Archangel::Post.first
-  Archangel::Post.create!(title: "First Post",
-                          slug: "Welcome to your new site.",
-                          author_id: user.id,
-                          content: "This is the first post.",
-                          published_at: Time.current)
 end
