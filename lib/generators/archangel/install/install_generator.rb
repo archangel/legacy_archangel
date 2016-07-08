@@ -113,9 +113,9 @@ Archangel::Engine.load_seed
       end
 
       def complete
-        say_quietly "*" * 50
+        say_quietly "*" * 80
         say_quietly "  Done, sir! Done! Archangel has been installed!"
-        say_quietly "*" * 50
+        say_quietly "*" * 80
       end
 
       protected
