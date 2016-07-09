@@ -12,6 +12,7 @@ This project rocks and uses MIT-LICENSE.
 ## Table of contents
 
 * [Requirements](#requirements)
+* [Deploying to Heroku](#deploying-to-heroku)
 * [Installation](#installation)
 * [Updating](#updating)
 * [Testing](#testing)
@@ -21,6 +22,12 @@ This project rocks and uses MIT-LICENSE.
 
 - Ruby >= 2.2.2
 - Rails >= 5.0
+
+## Deploying to Heroku
+
+Deploy a sample application to play with.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/archangel/sample)
 
 ## Installation
 
@@ -39,13 +46,13 @@ bundle install
 Run the install generator
 
 ```
-rails g archangel:install
+bundle exec rails g archangel:install
 ```
 
 Run the install generator with seed data
 
 ```
-rails g archangel:install --seed
+bundle exec rails g archangel:install --seed
 ```
 
 Seed data can be created separately by running `rake db:seed`

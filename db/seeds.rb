@@ -4,13 +4,13 @@ require "highline/import"
 
 def prompt_for_admin_email
   ENV.fetch("ADMIN_EMAIL") do
-    ask("Email address:  ") { |q| q.default = "me@example.com" }
+    ask("Email address:  ") { |q| q.default = "archangel@example.com" }
   end
 end
 
 def prompt_for_admin_name
   ENV.fetch("ADMIN_NAME") do
-    ask("Name:  ") { |q| q.default = "Archangel" }
+    ask("Name:  ") { |q| q.default = "Archangel User" }
   end
 end
 
@@ -22,7 +22,7 @@ end
 
 def prompt_for_admin_username
   ENV.fetch("ADMIN_USERNAME") do
-    ask("Username:  ") { |q| q.default = "archangel" }
+    ask("Username:  ") { |q| q.default = "password123" }
   end
 end
 
