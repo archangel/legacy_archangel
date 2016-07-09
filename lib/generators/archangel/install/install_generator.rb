@@ -6,8 +6,13 @@ module Archangel
     class InstallGenerator < Rails::Generators::Base
       source_root File.expand_path("../templates", __FILE__)
 
-      class_option :quiet, type: :boolean, default: false
+      class_option :admin_email, type: :string
+      class_option :admin_name, type: :string
+      class_option :admin_password, type: :string
+      class_option :admin_username, type: :string
+
       class_option :migrate, type: :boolean, default: true
+      class_option :quiet, type: :boolean, default: false
       class_option :route_path, type: :string, default: ""
       class_option :seed, type: :boolean, default: false
 
@@ -89,7 +94,16 @@ Archangel::Engine.load_seed
         if options[:migrate] && options[:seed]
           say_quietly "Inseminating..."
 
-          silence_warnings { rake "db:seed" }
+          rake_options = [].tap do |collector|
+            %w(admin_email admin_name admin_password
+               admin_username).each do |word|
+              if options[word.to_sym]
+                collector << "#{word.to_s.upcase}=#{options[word.to_sym]}"
+              end
+            end
+          end
+
+          silence_warnings { rake "db:seed #{rake_options.join(' ')}" }
         else
           say_quietly "Skipping seed data. Run `rake db:seed` yourself."
         end

@@ -2,20 +2,49 @@
 
 require "highline/import"
 
+def prompt_for_admin_email
+  ENV.fetch("ADMIN_EMAIL") do
+    ask("Email address:  ") { |q| q.default = "me@example.com" }
+  end
+end
+
+def prompt_for_admin_name
+  ENV.fetch("ADMIN_NAME") do
+    ask("Name:  ") { |q| q.default = "Archangel" }
+  end
+end
+
+def prompt_for_admin_password
+  ENV.fetch("ADMIN_PASWORD") do
+    ask("Password:  ") { |q| q.echo = "*" }
+  end
+end
+
+def prompt_for_admin_username
+  ENV.fetch("ADMIN_USERNAME") do
+    ask("Username:  ") { |q| q.default = "archangel" }
+  end
+end
+
+# User
 user = Archangel::User.first
 
 unless user
-  email = ask("Email address:  ") { |q| q.default = "me@example.com" }
-  username = ask("Username:  ") { |q| q.default = "archangel" }
-  name = ask("Name:  ") { |q| q.default = "Archangel" }
-  password = ask("Password:  ") { |q| q.echo = "*" }
+  email    = prompt_for_admin_email
+  username = prompt_for_admin_username
+  name     = prompt_for_admin_name
+  password = prompt_for_admin_password
 
-  user = Archangel::User.create!(email: email,
-                                 username: username,
-                                 name: name,
-                                 password: password,
-                                 password_confirmation: password,
-                                 confirmed_at: Time.current)
+  attributes = {
+    email: email,
+    username: username,
+    name: name,
+    password: password,
+    password_confirmation: password,
+    confirmed_at: Time.current
+  }
+
+  user = Archangel::User.create!(attributes)
 end
 
 # Tags
