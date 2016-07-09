@@ -18,6 +18,8 @@ module Archangel
     validates :slug, presence: true
     validates :title, presence: true
 
+    validate :unique_slug_per_level
+
     # Associations
     belongs_to :author, class_name: Archangel::User
     belongs_to :assetable, polymorphic: true
@@ -59,6 +61,12 @@ module Archangel
 
     protected
 
+    def unique_slug_per_level
+      unless unique_slug_per_level?
+        errors.add(:slug, Archangel.t("errors.duplicate_slug"))
+      end
+    end
+
     def parameterize_slug
       self.slug = slug.to_s.downcase.parameterize
     end
@@ -70,9 +78,12 @@ module Archangel
     end
 
     def column_reset
-      self.path = "#{Time.current.to_i}/#{path}"
       self.slug = "#{Time.current.to_i}_#{slug}"
       self.save
+    end
+
+    def unique_slug_per_level?
+      Page.where(parent_id: parent_id, slug: slug).where.not(id: id).empty?
     end
   end
 end
