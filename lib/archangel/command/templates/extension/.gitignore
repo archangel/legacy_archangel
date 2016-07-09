@@ -1,0 +1,13 @@
+.bundle/
+coverage/
+pkg/
+spec/dummy/
+tmp/
+.DS_Store
+.Trashes
+Desktop.ini
+Gemfile.lock
+log/*.log
+rspec.log
+spec/examples.txt
+Thumbs.db

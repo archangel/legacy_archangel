@@ -1,0 +1,7 @@
+require "archangel"
+
+require "<%= file_name %>/engine"
+require "<%= file_name %>/version"
+
+module <%= class_name %>
+end

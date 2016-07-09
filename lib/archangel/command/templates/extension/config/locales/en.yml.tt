@@ -1,0 +1,4 @@
+en:
+  archangel:
+    <%= file_name %>:
+      hello: "Hello world"

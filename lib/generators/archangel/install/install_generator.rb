@@ -126,7 +126,7 @@ Archangel::Engine.load_seed
         say_quietly "Your application's config/routes.rb has been updated."
       end
 
-      def complete
+      def banner
         say_quietly "*" * 80
         say_quietly "  Done, sir! Done! Archangel has been installed!"
         say_quietly "*" * 80
