@@ -5,7 +5,7 @@ env:
   - COVERAGE=true
 script:
   - bundle exec rake dummy_app
-  - bundle exec rspec spec
+  - bundle exec rake coverage
 rvm:
   - 2.2.2
   - 2.3.1

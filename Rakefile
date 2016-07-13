@@ -15,6 +15,13 @@ RSpec::Core::RakeTask.new
 
 task default: :spec
 
+desc "Run RSpec with code coverage"
+task :coverage do
+  ENV["COVERAGE"] = "true"
+
+  Rake::Task["spec"].execute
+end
+
 desc "Generates a dummy app for testing"
 task :dummy_app do
   ENV["LIB_NAME"] = "archangel"
