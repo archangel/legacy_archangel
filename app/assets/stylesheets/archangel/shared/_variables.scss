@@ -9,11 +9,11 @@ $gray:                   #95a5a6 !default; // #555
 $gray-light:             #b4bcc2 !default;   // #999
 $gray-lighter:           #ecf0f1 !default; // #eee
 
-$brand-primary:         #2C3E50 !default;
-$brand-success:         #18BC9C !default;
-$brand-info:            #3498DB !default;
-$brand-warning:         #F39C12 !default;
-$brand-danger:          #E74C3C !default;
+$brand-primary:         #2c3e50 !default;
+$brand-success:         #18bc9c !default;
+$brand-info:            #3498db !default;
+$brand-warning:         #f39c12 !default;
+$brand-danger:          #e74c3c !default;
 
 
 //== Scaffolding
@@ -45,14 +45,14 @@ $font-family-base:        $font-family-sans-serif !default;
 
 $font-size-base:          13px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default;
-$font-size-small:         ceil(($font-size-base * 0.85)) !default;
+$font-size-small:         ceil(($font-size-base * .85)) !default;
 
 $font-size-h1:            floor(($font-size-base * 2.6)) !default;
 $font-size-h2:            floor(($font-size-base * 2.15)) !default;
 $font-size-h3:            ceil(($font-size-base * 1.7)) !default;
 $font-size-h4:            ceil(($font-size-base * 1.25)) !default;
 $font-size-h5:            $font-size-base !default;
-$font-size-h6:            ceil(($font-size-base * 0.85)) !default;
+$font-size-h6:            ceil(($font-size-base * .85)) !default;
 
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base:        1.428571429 !default; // 20/14
@@ -71,11 +71,11 @@ $headings-color:          inherit !default;
 //## Specify custom location and filename of the included Glyphicons icon font. Useful for those including Bootstrap via Bower.
 
 //** Load fonts from this directory.
-$icon-font-path:          "/assets/bootstrap/" !default;
+$icon-font-path:          '/assets/bootstrap/' !default;
 //** File name for all font files.
-$icon-font-name:          "glyphicons-halflings-regular" !default;
+$icon-font-name:          'glyphicons-halflings-regular' !default;
 //** Element ID within SVG icon file.
-$icon-font-svg-id:        "glyphicons_halflingsregular" !default;
+$icon-font-svg-id:        'glyphicons_halflingsregular' !default;
 
 
 //== Components
@@ -229,7 +229,7 @@ $cursor-disabled:                not-allowed !default;
 //** Background for the dropdown menu.
 $dropdown-bg:                    #fff !default;
 //** Dropdown menu `border-color`.
-$dropdown-border:                rgba(0,0,0,.15) !default;
+$dropdown-border:                rgba(0, 0, 0, .15) !default;
 //** Dropdown menu `border-color` **for IE8**.
 $dropdown-fallback-border:       #ccc !default;
 //** Divider color for between dropdown items.
@@ -535,7 +535,7 @@ $popover-bg:                          #fff !default;
 //** Popover maximum width
 $popover-max-width:                   276px !default;
 //** Popover border color
-$popover-border-color:                rgba(0,0,0,.2) !default;
+$popover-border-color:                rgba(0, 0, 0, .2) !default;
 //** Popover fallback border color
 $popover-fallback-border-color:       #ccc !default;
 
@@ -593,7 +593,7 @@ $modal-title-line-height:     $line-height-base !default;
 //** Background color of modal content area
 $modal-content-bg:                             #fff !default;
 //** Modal content border color
-$modal-content-border-color:                   rgba(0,0,0,.2) !default;
+$modal-content-border-color:                   rgba(0, 0, 0, .2) !default;
 //** Modal content border color **for IE8**
 $modal-content-fallback-border-color:          #999 !default;
 
@@ -791,14 +791,14 @@ $breadcrumb-color:              #ccc !default;
 //** Text color of current page in the breadcrumb
 $breadcrumb-active-color:       $gray !default;
 //** Textual separator for between breadcrumb elements
-$breadcrumb-separator:          "/" !default;
+$breadcrumb-separator:          '/' !default;
 
 
 //== Carousel
 //
 //##
 
-$carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6) !default;
+$carousel-text-shadow:                        0 1px 2px rgba(0, 0, 0, .6) !default;
 
 $carousel-control-color:                      #fff !default;
 $carousel-control-width:                      15% !default;
