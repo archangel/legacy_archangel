@@ -1,8 +1,9 @@
 module Archangel
   module Admin
     class ProfilesController < AdminController
+      include Archangel::SkipAuthorizableConcern
+
       before_action :set_profile
-      after_action :skip_authorization
 
       helper Archangel::Admin::ProfilesHelper
 

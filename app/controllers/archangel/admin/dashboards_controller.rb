@@ -1,7 +1,7 @@
 module Archangel
   module Admin
     class DashboardsController < AdminController
-      after_action :skip_authorization
+      include Archangel::SkipAuthorizableConcern
 
       helper Archangel::Admin::DashboardsHelper
 
