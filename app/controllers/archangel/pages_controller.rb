@@ -5,7 +5,7 @@ module Archangel
     helper Archangel::PagesHelper
 
     def show
-      respond_with @page if stale?(etag: @page, last_modified: @page.created_at)
+      respond_with @page if stale?(etag: @page, last_modified: @page.updated_at)
     end
 
     protected
