@@ -19,7 +19,7 @@ module Archangel
       private
 
       def resourceful(options = {})
-        options.reject { |key, value| resource_option_keys.exclude?(key) }
+        options.reject { |key, _value| resource_option_keys.exclude?(key) }
 
         @resource_opts ||= {}
         @resource_opts.merge!(options)
@@ -183,7 +183,7 @@ module Archangel
       find_by_key = resource_data[:find_by]
       find_by_value = params[resource_data[:param_key]]
 
-      model_class.find_by!("#{find_by_key}": find_by_value)
+      model_class.find_by!(find_by_key => find_by_value)
     end
 
     def set_instance_variable(object_name, object)

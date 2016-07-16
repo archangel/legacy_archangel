@@ -60,8 +60,6 @@ module Archangel
         params[:password].present?
       end
 
-      protected
-
       def reauth_current_user(successful)
         bypass_sign_in(@profile) if successful
       end
