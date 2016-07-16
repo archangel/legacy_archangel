@@ -66,7 +66,7 @@ module Archangel
         if action_name.to_sym == :new
           @page = Archangel::Page.new
         else
-          @page = Archangel::Page.find_by(id: params[:id])
+          @page = Archangel::Page.find_by!(id: params[:id])
         end
 
         authorize @page

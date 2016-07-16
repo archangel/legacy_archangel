@@ -63,7 +63,7 @@ module Archangel
         if action_name.to_sym == :new
           @tag = Archangel::Tag.new
         else
-          @tag = Archangel::Tag.find_by(slug: params[:id])
+          @tag = Archangel::Tag.find_by!(slug: params[:id])
         end
 
         authorize @tag

@@ -63,7 +63,7 @@ module Archangel
         if action_name.to_sym == :new
           @category = Archangel::Category.new
         else
-          @category = Archangel::Category.find_by(slug: params[:id])
+          @category = Archangel::Category.find_by!(slug: params[:id])
         end
 
         authorize @category

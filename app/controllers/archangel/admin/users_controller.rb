@@ -60,7 +60,7 @@ module Archangel
           @user = Archangel::User.new
         else
           @user = Archangel::User.where.not(id: current_user.id)
-                                 .find_by(username: params[:id])
+                                 .find_by!(username: params[:id])
         end
 
         authorize @user
