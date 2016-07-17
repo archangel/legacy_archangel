@@ -27,7 +27,6 @@ module Archangel
     has_many :assets, as: :assetable
     has_many :categorizations, as: :categorizable
     has_many :categories, through: :categorizations
-    has_many :comments, as: :commentable
     has_many :taggings, as: :taggable
     has_many :tags, through: :taggings
 

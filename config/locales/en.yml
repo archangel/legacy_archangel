@@ -56,9 +56,7 @@ en:
     menu:
       dashboard: Dashboard
       categories: Categories
-      comments: Comments
       pages: Pages
-      posts: Posts
       profile: Profile
       site: Site
       tags: Tags
@@ -67,9 +65,6 @@ en:
     placeholder_users: Name or username contains
     placeholder_pages: Title or body contains
     search: Search
-    sidebar:
-      comments: Comments
-      posts: Posts
     titles:
       list_section: "%{section}"
       show_section: "%{section}"

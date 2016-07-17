@@ -27,7 +27,6 @@ module Archangel
 
       it { expect(subject).to have_many(:assets) }
       it { expect(subject).to have_many(:categorizations) }
-      it { expect(subject).to have_many(:comments) }
       it { expect(subject).to have_many(:taggings) }
 
       it { expect(subject).to have_many(:categories).through(:categorizations) }
