@@ -7,33 +7,39 @@ require "generators/archangel/dummy/dummy_generator"
 desc "Generates a dummy app for testing"
 namespace :dummy do
   task :generate do |t, args|
+    lib = ENV["LIB_NAME"].to_s
+
+    require lib unless defined?(lib.camelize.constantize)
+
     ENV["RAILS_ENV"] = "test"
 
     Archangel::Generators::DummyGenerator.start [
-      "--lib_name=#{ENV["LIB_NAME"]}",
+      "--lib_name=#{lib}",
       "--quiet"
     ]
 
     Archangel::Generators::InstallGenerator.start [
+      "--lib_name=#{lib}",
       "--auto-accept",
-      "--skip-migrate",
-      "--skip-sample",
-      "--skip-seed",
-      "--skip-turbolinks",
-      "--route-path=archangel",
+      "--migrate=false",
+      "--seed=false",
+      "--sample=false",
       "--quiet"
     ]
 
     puts "Setting up dummy database..."
     system("bundle exec rake db:drop db:create db:migrate > #{File::NULL}")
 
-    unless ENV["LIB_NAME"] == "archangel"
+    # puts "Precompiling assets..."
+    # system("bundle exec rake assets:precompile > #{File::NULL}")
+
+    unless lib == "archangel"
       begin
-        require "generators/#{ENV["LIB_NAME"]}/install/install_generator"
+        require "generators/#{lib}/install/install_generator"
 
         puts "Running extension installation generator..."
 
-        "#{ENV["LIB_NAME"].camelize}::Generators::InstallGenerator".
+        "#{lib.camelize}::Generators::InstallGenerator".
           constantize.
           start([
             "--auto-run-migrations",
@@ -42,14 +48,12 @@ namespace :dummy do
             "--skip-sample",
             "--skip-seed",
             "--skip-turbolinks",
-            "--route-path=archangel",
+            "--route-path=#{lib}",
             "--quiet"
           ])
       rescue LoadError
         puts "Skipping extension install. No generator to run..."
       end
     end
-
-    puts "Done."
   end
 end

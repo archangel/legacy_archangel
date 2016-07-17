@@ -28,6 +28,7 @@ module Archangel
         opts = {}.merge(options).slice(*PASSTHROUGH_OPTIONS)
 
         opts[:database] = "sqlite3" if opts[:database].blank?
+        opts[:force] = true
         opts[:skip_bundle] = true
         opts[:old_style_hash] = false
         opts[:skip_turbolinks] = true
@@ -68,6 +69,7 @@ module Archangel
            "Gemfile",
            "public/robots.txt",
            "lib/tasks",
+           "spec",
            "test",
            "vendor"].each { |path| remove_file path }
         end

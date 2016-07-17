@@ -12,7 +12,7 @@ module <%= class_name %>
 
       def add_stylesheets
         %w(admin application auth).each do |section|
-          inject_into_file "vendor/assets/stylesheets/archangel/frontend/#{section}.css",
+          inject_into_file "vendor/assets/stylesheets/archangel/#{section}.css",
                            "*= require archangel/#{section}/<%= file_name %>\n ",
                            before: %r{\*/},
                            verbose: true
