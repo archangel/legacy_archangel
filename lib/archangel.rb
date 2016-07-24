@@ -39,7 +39,29 @@ module Archangel
     end
 
     def configuration
-      @configuration ||= Configuration.new
+      @configuration ||= Configuration.new(
+        default_configurations.with_indifferent_access.deep_merge(load_config)
+      )
+    end
+
+    protected
+
+    def default_configurations
+      {
+        admin_path: "admin",
+        auth_path: "account",
+        application: "archangel",
+        attachment_maximum_file_size: 2.megabytes
+      }
+    end
+
+    protected
+
+    def load_config
+      YAML.load_file(Rails.root.join("config/archangel.yml"))[Rails.env]
+     rescue
+       # TODO: Notify when file can't be loaded?
+       {}
     end
   end
 end

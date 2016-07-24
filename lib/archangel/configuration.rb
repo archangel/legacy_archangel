@@ -1,29 +1,40 @@
+require "forwardable"
+
 module Archangel
   class Configuration
-    DEFAULT_VALUE = nil
+    extend Forwardable
 
-    attr_accessor :admin_path, :auth_path, :application,
-                  :attachment_maximum_file_size
+    attr_reader :hash
 
-    def initialize
-      @admin_path = "admin"
-      @auth_path = "account"
-      @application = "archangel"
-      @attachment_maximum_file_size = 2.megabytes
+    def_delegators :hash, :key?, :[], :[]=, :to_hash, :to_json, :inspect
+
+    def initialize(hash)
+      @hash = if hash.respond_to?(:with_indifferent_access)
+        hash.with_indifferent_access
+      else
+        hash
+      end
     end
 
-    def method_missing(method_name, *args)
-      super(method_name, *args)
-    rescue NoMethodError
-      method = method_name.to_s
+    protected
 
-      if method[-1] == "?"
-        column = method.sub("?", "")
-
-        send(column.to_sym, *args) != DEFAULT_VALUE
+    def method_missing(method_name, *args, &block)
+      if method_name.to_s[-1] == "?"
+        key?(normalized_key(method_name.to_s[0..-2]))
       else
-        DEFAULT_VALUE
+        if key?(method_name)
+          value = hash[method_name]
+
+          value.kind_of?(Hash) ? Configuration.new(value) : value
+        else
+          # TODO: Notify when key not loaded?
+          default_value
+        end
       end
+    end
+
+    def default_value
+      nil
     end
   end
 end

@@ -1,0 +1,21 @@
+defaults: &defaults
+  # Admin root path. Default is `admin`.
+  admin_path: admin
+
+  # Auth root path. Default is `account`.
+  auth_path: account
+
+  # Application name. Default is `archangel`.
+  application: archangel
+
+  # Maximum file size of attachments for upload. Default is `2.megabytes`.
+  attachment_maximum_file_size: 2.megabytes
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
