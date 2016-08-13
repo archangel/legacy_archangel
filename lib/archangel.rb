@@ -39,29 +39,40 @@ module Archangel
     end
 
     def configuration
-      @configuration ||= Configuration.new(
-        default_configurations.with_indifferent_access.deep_merge(load_config)
-      )
+      @configuration ||= Configuration.new(load_configurations)
     end
 
     protected
 
-    def default_configurations
-      {
-        admin_path: "admin",
-        auth_path: "account",
-        application: "archangel",
-        attachment_maximum_file_size: 2.megabytes
-      }
+    def configuration_paths
+      %w(archangel)
     end
 
-    protected
+    def load_configurations
+      configuration_paths.inject({}) do |configs, filename|
+        configs.with_indifferent_access.deep_merge!(
+          load_default_configuration(filename)
+        )
 
-    def load_config
-      YAML.load_file(Rails.root.join("config/archangel.yml"))[Rails.env]
-     rescue
-       # TODO: Notify when file can't be loaded?
-       {}
+        configs.with_indifferent_access.deep_merge!(
+          load_application_configuration(filename)
+        )
+      end
+    end
+
+    def load_default_configuration(filename)
+      load_configuration(Engine.root.join("config/#{filename}.yml"))
+    end
+
+    def load_application_configuration(filename)
+      load_configuration(Rails.root.join("config/#{filename}.yml"))
+    end
+
+    def load_configuration(file_path)
+      YAML.load_file(file_path)[Rails.env]
+    rescue
+      # TODO: Notify when file can't be loaded?
+      {}
     end
   end
 end

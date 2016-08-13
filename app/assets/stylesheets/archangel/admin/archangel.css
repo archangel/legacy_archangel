@@ -1,0 +1,20 @@
+/**
+ * Default Archangel admin theme
+ *
+ *= require_self
+ *
+ * External assets
+ *= require font-awesome
+ *= require animate
+ *= require bootstrap-datetimepicker
+ *
+ * Internal assets
+ * n/a
+ *
+ * Theme assets
+ *= require archangel/archangel
+ *= require_tree ./archangel
+ *
+ * Third-party Archangel assets
+ *= require archangel/admin
+ */

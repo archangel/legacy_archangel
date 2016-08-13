@@ -16,7 +16,7 @@
 
   <%= yield(:analytics) if content_for?(:analytics) %>
 
-  <%= stylesheet_link_tag "archangel/application", media: "all" %>
+  <%= stylesheet_link_tag "archangel/application/archangel", media: "all" %>
   <%= yield(:stylesheet) if content_for?(:stylesheet) %>
 </head>
 <body>
@@ -33,7 +33,7 @@
   <%= render "archangel/shared/layouts/application/footer" %>
 </div>
 
-<%= javascript_include_tag "archangel/application" %>
+<%= javascript_include_tag "archangel/application/archangel" %>
 <%= yield(:javascript) if content_for?(:javascript) %>
 
 </body>

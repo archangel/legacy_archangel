@@ -27,7 +27,7 @@ $('input.datepicker').datetimepicker({
 
 // Date time picker
 $('input.datetimepicker').datetimepicker({
-  format:    "YYYY-MM-DD HH:mm:00 A",
+  format:    "YYYY-MM-DD HH:mm",
   showClear: true,
   stepping:  5,
   tooltips:  archangelDatetimepickerTranslations

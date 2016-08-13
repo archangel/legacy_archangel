@@ -1,3 +1,3 @@
 var Archangel = (function(object) {
-	return object;
+  return object;
 }(Archangel || {}));

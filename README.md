@@ -16,7 +16,6 @@ This project rocks and uses MIT-LICENSE.
 * [Installation](#installation)
 * [Updating](#updating)
 * [Testing](#testing)
-* [Code Analysis](#code-analysis)
 * [Contributing](#contributing)
 
 ## Requirements

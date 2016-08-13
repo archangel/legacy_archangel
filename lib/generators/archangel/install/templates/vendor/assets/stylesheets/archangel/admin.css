@@ -1,12 +1,6 @@
 /*
- * Archangel default admin theme
+ * This is where all of the Archangel extensions will add their stylesheets for
+ * the admin
  *
  *= require_self
- *
- *= require font-awesome
- *= require animate
- *
- *= require archangel/common/admin/core
- *
- *= require archangel/admin/all
  */
