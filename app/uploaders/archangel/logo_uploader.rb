@@ -1,7 +1,7 @@
 module Archangel
   class LogoUploader < BaseUploader
     def default_path
-      "archangel/fallback/" + [version_name, "logo.png"].compact.join("_")
+      "archangel/resources/" + [version_name, "logo.png"].compact.join("_")
     end
 
     process resize_to_fit: [512, 512]

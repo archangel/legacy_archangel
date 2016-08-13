@@ -1,7 +1,7 @@
 module Archangel
   class AssetUploader < BaseUploader
     def default_path
-      "archangel/fallback/" + [version_name, "asset.png"].compact.join("_")
+      "archangel/resources/" + [version_name, "asset.png"].compact.join("_")
     end
 
     process :set_content_type

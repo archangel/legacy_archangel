@@ -1,7 +1,7 @@
 module Archangel
   class AvatarUploader < BaseUploader
     def default_path
-      "archangel/fallback/" + [version_name, "avatar.jpg"].compact.join("_")
+      "archangel/resources/" + [version_name, "avatar.jpg"].compact.join("_")
     end
 
     process :remove_animation

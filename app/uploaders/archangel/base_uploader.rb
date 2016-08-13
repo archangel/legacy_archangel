@@ -11,7 +11,7 @@ module Archangel
     end
 
     def default_path
-      "archangel/fallback/" + [version_name, "default.png"].compact.join("_")
+      "archangel/resources/" + [version_name, "default.png"].compact.join("_")
     end
 
     def extension_white_list
