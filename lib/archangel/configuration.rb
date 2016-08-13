@@ -16,6 +16,10 @@ module Archangel
       end
     end
 
+    def add(key, value = nil)
+      hash[key.to_sym] = value.kind_of?(Hash) ? Configuration.new(value) : value
+    end
+
     protected
 
     def method_missing(method_name, *args, &block)
