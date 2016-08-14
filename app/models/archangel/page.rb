@@ -78,9 +78,9 @@ module Archangel
     end
 
     def stringify_meta_keywords
-      self.meta_keywords = JSON.parse(meta_keywords).compact
-                                                    .reject(&:blank?)
-                                                    .join(",")
+      keywords = JSON.parse(meta_keywords) rescue meta_keywords.to_s.split(",")
+
+      self.meta_keywords = keywords.compact.reject(&:blank?).join(",")
     end
 
     def build_path_before_save

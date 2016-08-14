@@ -4,7 +4,7 @@ FactoryGirl.define do
     content "Content of the page"
     author
     sequence(:slug) { |n| "page-#{n}" }
-    meta_keywords "very, useful, keywords"
+    meta_keywords "very,useful,keywords"
     meta_description "This is the default description of the page."
     published_at { Time.current }
 

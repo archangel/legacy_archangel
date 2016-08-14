@@ -10,7 +10,7 @@ class MetaKeywordsInput < SimpleForm::Inputs::CollectionSelectInput
   protected
 
   def collection
-    @collection ||= object.meta_keywords.downcase.split(",").map(&:strip)
+    @collection ||= object.meta_keywords.to_s.downcase.split(",").map(&:strip)
   end
 
   def selected_options
