@@ -7,6 +7,8 @@
  *= require font-awesome
  *= require animate
  *= require bootstrap-datetimepicker
+ *= require select2
+ *= require select2-bootstrap
  *
  * Internal assets
  * n/a
