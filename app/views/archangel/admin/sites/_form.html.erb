@@ -17,7 +17,7 @@
                               unchecked_value: false if f.object.logo? %>
 
     <%= f.input :locale, as: :language %>
-    <%= f.input :meta_keywords %>
+    <%= f.input :meta_keywords, as: :meta_keywords, input_html: { multiple: true } %>
     <%= f.input :meta_description %>
   </div>
 

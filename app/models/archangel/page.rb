@@ -7,6 +7,7 @@ module Archangel
 
     # Callbacks
     before_validation :parameterize_slug
+    before_save :stringify_meta_keywords
     before_save :build_path_before_save
     after_destroy :column_reset
 
@@ -74,6 +75,12 @@ module Archangel
 
     def parameterize_slug
       self.slug = slug.to_s.downcase.parameterize
+    end
+
+    def stringify_meta_keywords
+      self.meta_keywords = JSON.parse(meta_keywords).compact
+                                                    .reject(&:blank?)
+                                                    .join(",")
     end
 
     def build_path_before_save

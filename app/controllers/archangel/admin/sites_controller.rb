@@ -23,7 +23,8 @@ module Archangel
 
       def permitted_attributes
         [
-          :locale, :logo, :meta_keywords, :meta_description, :name, :remove_logo
+          :locale, :logo, :meta_description, :name, :remove_logo,
+          meta_keywords: []
         ]
       end
 

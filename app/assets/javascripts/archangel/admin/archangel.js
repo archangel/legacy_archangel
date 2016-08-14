@@ -17,6 +17,7 @@
 //= require archangel/resources/admin/select2-categories
 //= require archangel/resources/admin/select2-tags
 //= require archangel/resources/admin/tinymce
+//= require archangel/resources/admin/meta_keywords
 //
 // Theme assets
 //= require archangel/archangel

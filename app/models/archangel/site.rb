@@ -3,6 +3,9 @@ module Archangel
     # Uploader
     mount_uploader :logo, Archangel::LogoUploader
 
+    # Callbacks
+    before_save :stringify_meta_keywords
+
     # Validation
     validates :name, presence: true
     validates :locale, presence: true,
@@ -13,6 +16,14 @@ module Archangel
       first_or_create do |site|
         site.name = Archangel.t(:archangel)
       end
+    end
+
+    protected
+
+    def stringify_meta_keywords
+      self.meta_keywords = JSON.parse(meta_keywords).compact
+                                                    .reject(&:blank?)
+                                                    .join(",")
     end
   end
 end
