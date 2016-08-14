@@ -15,7 +15,7 @@
 
     <%= f.association :categories, as: :categories, input_html: { multiple: true } %>
     <%= f.association :tags, as: :tags, input_html: { multiple: true } %>
-    <%= f.input :content, as: :text %>
+    <%= f.input :content, as: :wysiwyg %>
     <%= f.input :meta_keywords %>
     <%= f.input :meta_description %>
     <%= f.input :published_at, as: :date_time_picker, input_html: { value: datetimepicker_field_value(f.object.published_at, f.object.new_record?) } %>

@@ -22,6 +22,7 @@ require "responders"
 require "sass-rails"
 require "select2-rails"
 require "simple_form"
+require "tinymce-rails"
 require "validates"
 require "uglifier"
 

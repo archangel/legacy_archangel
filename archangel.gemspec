@@ -49,6 +49,7 @@ Gem::Specification.new do |s|
   s.add_dependency "responders", "~> 2.2"
   s.add_dependency "select2-rails", "~> 4.0"
   s.add_dependency "simple_form", "~> 3.2"
+  s.add_dependency "tinymce-rails", "~> 4.1"
   s.add_dependency "validates", "~> 1.0"
 
   s.add_development_dependency "capybara"
