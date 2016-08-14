@@ -47,12 +47,28 @@ module Archangel
         respond_with @category, location: -> { admin_categories_path }
       end
 
+      def autocomplete
+        query = autocomplete_params.fetch(:term)
+
+        @categories = Archangel::Category.where("name like ?", "%#{query}%")
+                                         .order(:name)
+                                         .limit(25)
+
+        authorize @categories
+
+        respond_with @categories
+      end
+
       protected
 
       def permitted_attributes
         [
           :description, :name, :slug
         ]
+      end
+
+      def autocomplete_params
+        params.require(:q).permit(:term)
       end
 
       def category_params

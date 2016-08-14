@@ -13,6 +13,8 @@
       <%= f.association :author, as: :select %>
     <% end %>
 
+    <%= f.association :categories, as: :categories, input_html: { multiple: true } %>
+    <%= f.association :tags, as: :tags, input_html: { multiple: true } %>
     <%= f.input :content, as: :text %>
     <%= f.input :meta_keywords %>
     <%= f.input :meta_description %>

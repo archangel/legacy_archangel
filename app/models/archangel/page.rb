@@ -30,6 +30,12 @@ module Archangel
     has_many :taggings, as: :taggable
     has_many :tags, through: :taggings
 
+    # Nested attributes
+    accepts_nested_attributes_for :categories, reject_if: :all_blank,
+                                               allow_destroy: true
+    accepts_nested_attributes_for :tags, reject_if: :all_blank,
+                                         allow_destroy: true
+
     # Default scope
     default_scope { order(published_at: :desc) }
 

@@ -47,12 +47,28 @@ module Archangel
         respond_with @tag, location: -> { admin_tags_path }
       end
 
+      def autocomplete
+        query = autocomplete_params.fetch(:term)
+
+        @tags = Archangel::Tag.where("name like ?", "%#{query}%")
+                              .order(:name)
+                              .limit(25)
+
+        authorize @tags
+
+        respond_with @tags
+      end
+
       protected
 
       def permitted_attributes
         [
           :description, :name, :slug
         ]
+      end
+
+      def autocomplete_params
+        params.require(:q).permit(:term)
       end
 
       def tag_params
