@@ -164,6 +164,16 @@ module Archangel
           expect(response).to redirect_to(admin_categories_path)
         end
       end
+
+      describe "GET #autocomplete" do
+        it "queries for @categories" do
+          category = create(:category, name: "Foo Bar")
+
+          archangel_get :autocomplete, params: { q: { term: "foo" } }
+
+          expect(assigns(:categories)).to eq([category])
+        end
+      end
     end
   end
 end

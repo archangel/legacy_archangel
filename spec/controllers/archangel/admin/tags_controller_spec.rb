@@ -164,6 +164,16 @@ module Archangel
           expect(response).to redirect_to(admin_tags_path)
         end
       end
+
+      describe "GET #autocomplete" do
+        it "queries for @tags" do
+          tag = create(:tag, name: "Foo Bar")
+
+          archangel_get :autocomplete, params: { q: { term: "foo" } }
+
+          expect(assigns(:tags)).to eq([tag])
+        end
+      end
     end
   end
 end
