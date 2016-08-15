@@ -1,7 +1,7 @@
 module Archangel
   class Asset < ApplicationRecord
     # Uploader
-    mount_uploader :avatar, Archangel::AssetUploader
+    mount_uploader :file, Archangel::AssetUploader
 
     # Associations
     belongs_to :page

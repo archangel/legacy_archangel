@@ -4,10 +4,11 @@ module Archangel
       "archangel/resources/" + [version_name, "asset.png"].compact.join("_")
     end
 
-    process :set_content_type
     process :save_content_type_and_size_in_model
 
-    process resize_to_fit: [512, 512]
+    version :large do
+      process resize_to_fit: [512, 512]
+    end
 
     version :medium do
       process resize_to_fit: [256, 256]
@@ -19,10 +20,6 @@ module Archangel
 
     version :mini do
       process resize_to_fit: [48, 48]
-    end
-
-    def filename
-      "logo.#{file.extension}" if original_filename
     end
 
     protected
