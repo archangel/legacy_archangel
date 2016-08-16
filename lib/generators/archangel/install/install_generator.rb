@@ -37,9 +37,10 @@ module Archangel
         copy_file "config/archangel.yml"
       end
 
-      def add_devise_initializer
-        say_quietly "Copying Devise initializer..."
+      def add_initializers
+        say_quietly "Copying initializers..."
 
+        template "config/initializers/carrierwave.rb"
         template "config/initializers/devise.rb"
       end
 
