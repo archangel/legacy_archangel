@@ -9,6 +9,7 @@
  *= require bootstrap-datetimepicker
  *= require select2
  *= require select2-bootstrap
+ *= require trumbowyg/trumbowyg
  *
  * Internal assets
  * n/a

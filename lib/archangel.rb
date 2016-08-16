@@ -22,8 +22,6 @@ require "responders"
 require "sass-rails"
 require "select2-rails"
 require "simple_form"
-require "tinymce-rails"
-require "tinymce-rails-imageupload"
 require "validates"
 require "uglifier"
 

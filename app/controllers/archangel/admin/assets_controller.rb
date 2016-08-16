@@ -11,10 +11,9 @@ module Archangel
         @asset.save
 
         render json: {
-          image: {
-            url: @asset.file.url
-          }
-        }, content_type: "text/html"
+          success: true,
+          file: @asset.file.url
+        }
       end
 
       protected

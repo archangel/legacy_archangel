@@ -49,7 +49,7 @@ Archangel::Engine.routes.draw do
       to: redirect("#{Archangel.configuration.auth_path}/login")
 
   namespace :admin, path: Archangel.configuration.admin_path do
-    # POST   /admin/assets
+    # POST /admin/assets
     resources :assets, only: [:create]
 
     # GET    /admin/categories
