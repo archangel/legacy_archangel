@@ -83,6 +83,15 @@ module Archangel
 
         expect(Page.in_year_and_month(2015, 11).first).to eq(page)
       end
+
+      it ".published_this_month returns all where published_at is " \
+        "this month and year" do
+        current = create(:page, published_at: Time.current)
+        create(:page, published_at: 1.year.ago)
+        create(:page, published_at: Time.current - 1.month)
+
+        expect(Page.published_this_month).to eq([current])
+      end
     end
   end
 end
