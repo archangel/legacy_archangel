@@ -17,11 +17,11 @@ require "rspec/rails"
 require "launchy"
 require "pry-byebug"
 
-# Archangel support files
-require "archangel/testing_support/support"
-
 # Local support files
 Dir[Rails.root.join("../support/**/*.rb")].each { |f| require f }
+
+# Archangel support files
+require "archangel/testing_support/support"
 
 RSpec.configure do |config|
   config.color = true
