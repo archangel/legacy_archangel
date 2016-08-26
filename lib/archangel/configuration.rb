@@ -10,30 +10,28 @@ module Archangel
 
     def initialize(hash)
       @hash = if hash.respond_to?(:with_indifferent_access)
-        hash.with_indifferent_access
-      else
-        hash
-      end
+                hash.with_indifferent_access
+              else
+                hash
+              end
     end
 
     def add(key, value = nil)
-      hash[key.to_sym] = value.kind_of?(Hash) ? Configuration.new(value) : value
+      hash[key.to_sym] = value.is_a?(Hash) ? Configuration.new(value) : value
     end
 
     protected
 
-    def method_missing(method_name, *args, &block)
+    def method_missing(method_name, *_args, &_block)
       if method_name.to_s[-1] == "?"
         key?(normalized_key(method_name.to_s[0..-2]))
-      else
-        if key?(method_name)
-          value = hash[method_name]
+      elsif key?(method_name)
+        value = hash[method_name]
 
-          value.kind_of?(Hash) ? Configuration.new(value) : value
-        else
-          # TODO: Notify when key not loaded?
-          default_value
-        end
+        value.is_a?(Hash) ? Configuration.new(value) : value
+      else
+        # TODO: Notify when key not loaded?
+        default_value
       end
     end
 

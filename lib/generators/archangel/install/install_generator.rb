@@ -104,7 +104,7 @@ Archangel::Engine.load_seed
             end
           end
 
-          silence_warnings { rake "db:seed #{rake_options.join(' ')}" }
+          silence_warnings { rake "db:seed #{rake_options.join(" ")}" }
         else
           say_quietly "Skipping seed data. Run `rake db:seed` yourself."
         end

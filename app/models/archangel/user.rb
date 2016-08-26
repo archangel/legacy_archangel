@@ -38,7 +38,8 @@ module Archangel
     def column_reset
       self.email = "#{Time.current.to_i}_#{email}"
       self.username = "#{Time.current.to_i}_#{username}"
-      self.save
+
+      save
     end
   end
 end

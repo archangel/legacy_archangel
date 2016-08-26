@@ -31,7 +31,8 @@ module Archangel
 
     def column_reset
       self.slug = "#{Time.current.to_i}_#{slug}"
-      self.save
+
+      save
     end
   end
 end

@@ -6,7 +6,7 @@ RSpec.feature "User links", type: :feature do
 
     it "shows author name and links to User" do
       author = create(:user)
-      sample = create(:page, author: author)
+      create(:page, author: author)
 
       visit archangel.admin_pages_path
 
@@ -23,7 +23,7 @@ RSpec.feature "User links", type: :feature do
     before { stub_authorization! author }
 
     it "shows author name and links to current profile" do
-      sample = create(:page, author: author)
+      create(:page, author: author)
 
       visit archangel.admin_pages_path
 

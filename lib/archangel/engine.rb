@@ -7,10 +7,9 @@ module Archangel
 
     config.action_controller.include_all_helpers = false
 
-    initializer "archangel.environment", before: :load_config_initializers do |app|
-      app.config.archangel = Configuration.new({
-        config: %w(archangel)
-      })
+    initializer "archangel.environment",
+                before: :load_config_initializers do |app|
+      app.config.archangel = Configuration.new(config: %w(archangel))
     end
 
     config.generators do |g|

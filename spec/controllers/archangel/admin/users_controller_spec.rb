@@ -96,7 +96,8 @@ module Archangel
           it "assigns the requested user as @user" do
             user = create(:user)
 
-            archangel_put :update, params: { id: user.to_param, user: attributes }
+            archangel_put :update,
+                          params: { id: user.to_param, user: attributes }
 
             expect(assigns(:user)).to eq(user)
           end
@@ -104,7 +105,8 @@ module Archangel
           it "redirects to the user" do
             user = create(:user)
 
-            archangel_put :update, params: { id: user.to_param, user: attributes }
+            archangel_put :update,
+                          params: { id: user.to_param, user: attributes }
 
             expect(response).to redirect_to(admin_users_path)
           end
@@ -119,7 +121,8 @@ module Archangel
           it "assigns the user as @user" do
             user = create(:user)
 
-            archangel_put :update, params: { id: user.to_param, user: attributes }
+            archangel_put :update,
+                          params: { id: user.to_param, user: attributes }
 
             expect(assigns(:user)).to eq(user)
           end
@@ -127,7 +130,8 @@ module Archangel
           it "re-renders the 'edit' template" do
             user = create(:user)
 
-            archangel_put :update, params: { id: user.to_param, user: attributes }
+            archangel_put :update,
+                          params: { id: user.to_param, user: attributes }
 
             expect(response).to render_template(:edit)
           end

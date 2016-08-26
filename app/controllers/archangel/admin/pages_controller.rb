@@ -64,11 +64,11 @@ module Archangel
       end
 
       def set_page
-        if action_name.to_sym == :new
-          @page = Archangel::Page.new
-        else
-          @page = Archangel::Page.find_by!(id: params[:id])
-        end
+        @page = if action_name.to_sym == :new
+                  Archangel::Page.new
+                else
+                  Archangel::Page.find_by!(id: params[:id])
+                end
 
         authorize @page
       end

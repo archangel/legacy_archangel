@@ -6,7 +6,7 @@ require "generators/archangel/dummy/dummy_generator"
 
 desc "Generates a dummy app for testing"
 namespace :dummy do
-  task :generate do |t, args|
+  task :generate do |_t, _args|
     lib = ENV["LIB_NAME"].to_s
 
     require lib unless defined?(lib.camelize.constantize)
@@ -39,18 +39,20 @@ namespace :dummy do
 
         puts "Running extension installation generator..."
 
-        "#{lib.camelize}::Generators::InstallGenerator".
-          constantize.
-          start([
-            "--auto-run-migrations",
-            "--auto-accept",
-            "--migrate",
-            "--skip-sample",
-            "--skip-seed",
-            "--skip-turbolinks",
-            "--route-path=#{lib}",
-            "--quiet"
-          ])
+        "#{lib.camelize}::Generators::InstallGenerator"
+          .constantize
+          .start(
+            [
+              "--auto-run-migrations",
+              "--auto-accept",
+              "--migrate",
+              "--skip-sample",
+              "--skip-seed",
+              "--skip-turbolinks",
+              "--route-path=#{lib}",
+              "--quiet"
+            ]
+          )
       rescue LoadError
         puts "Skipping extension install. No generator to run..."
       end
