@@ -12,6 +12,6 @@ module Archangel
 
       super(*args)
     end
-    alias_method :t, :translate
+    alias t translate
   end
 end
