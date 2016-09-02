@@ -78,7 +78,7 @@ module Archangel
     end
 
     def stringify_meta_keywords
-      keywords = JSON.parse(meta_keywords) rescue meta_keywords.to_s.split(",")
+      keywords = parse_keywords(meta_keywords)
 
       self.meta_keywords = keywords.compact.reject(&:blank?).join(",")
     end
@@ -97,6 +97,12 @@ module Archangel
 
     def unique_slug_per_level?
       Page.where(parent_id: parent_id, slug: slug).where.not(id: id).empty?
+    end
+
+    def parse_keywords(keywords)
+      JSON.parse(keywords)
+    rescue
+      keywords.to_s.split(",")
     end
   end
 end

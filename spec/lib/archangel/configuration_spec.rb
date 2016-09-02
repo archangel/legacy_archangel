@@ -30,7 +30,9 @@ module Archangel
 
         Archangel.configuration.add(:abc, hash)
 
-        expect(Archangel.configuration.abc).to be_a_kind_of(Archangel::Configuration)
+        expect(Archangel.configuration.abc).to(
+          be_a_kind_of(Archangel::Configuration)
+        )
       end
     end
 
