@@ -24,7 +24,7 @@ module Archangel
 
     def method_missing(method_name, *_args, &_block)
       if method_name.to_s[-1] == "?"
-        key?(normalized_key(method_name.to_s[0..-2]))
+        key?(method_name.to_s[0..-2])
       elsif key?(method_name)
         value = hash[method_name]
 
