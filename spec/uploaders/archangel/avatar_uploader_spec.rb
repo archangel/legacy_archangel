@@ -33,6 +33,10 @@ module Archangel
       expect(uploader.mini).to be_no_larger_than(48, 48)
     end
 
+    it "scales a mini image to be no larger than 24 by 24 pixels" do
+      expect(uploader.micro).to be_no_larger_than(24, 24)
+    end
+
     it "makes the image with 666 permissions" do
       expect(uploader).to have_permissions(0o666)
     end

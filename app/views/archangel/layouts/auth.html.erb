@@ -14,24 +14,20 @@
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
 
-  <%= yield(:analytics) if content_for?(:analytics) %>
-
   <%= stylesheet_link_tag "archangel/auth/archangel", media: "all" %>
   <%= yield(:stylesheet) if content_for?(:stylesheet) %>
 </head>
-<body>
+<body class="gray-bg">
 
-<div id="wrapper" class="middle-box loginscreen">
+<div id="wrapper" class="middle-box text-center loginscreen">
   <div>
-    <%= render "archangel/shared/layouts/auth/header" %>
+    <%= render "archangel/auth/shared/header" %>
 
-    <main id="content" class="container">
-      <%= render "archangel/shared/flash_messages" %>
+    <%= render "archangel/shared/flash_messages" %>
 
-      <%= yield %>
-    </main>
+    <%= yield %>
 
-    <%= render "archangel/shared/layouts/auth/footer" %>
+    <%= render "archangel/auth/shared/footer" %>
   </div>
 </div>
 

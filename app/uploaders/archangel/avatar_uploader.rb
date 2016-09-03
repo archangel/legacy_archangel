@@ -20,6 +20,10 @@ module Archangel
       process resize_to_fit: [48, 48]
     end
 
+    version :micro do
+      process resize_to_fit: [24, 24]
+    end
+
     def filename
       "avatar.#{file.extension}" if original_filename
     end

@@ -1,5 +1,7 @@
 module Archangel
   module AdminHelper
+    include FontAwesome::Rails::IconHelper
+
     def author_link(author)
       author ||= Archangel::User.new
 

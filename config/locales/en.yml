@@ -54,6 +54,7 @@ en:
     login: Log In
     logout: Log out
     menu:
+      assets: Assets
       dashboard: Dashboard
       categories: Categories
       pages: Pages

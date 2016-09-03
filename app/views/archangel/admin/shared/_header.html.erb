@@ -1,0 +1,14 @@
+<header id="header" class="row border-bottom">
+  <nav class="navbar navbar-static-top" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-minimalize btn btn-primary" href="#">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+
+    <ul class="nav navbar-top-links navbar-right">
+      <li><%= link_to(current_user.name, admin_profile_path) %></li>
+      <li><%= link_to(fa_icon("sign-out", text: Archangel.t(:logout)), destroy_user_session_path, method: :delete) %></li>
+    </ul>
+  </nav>
+</header>

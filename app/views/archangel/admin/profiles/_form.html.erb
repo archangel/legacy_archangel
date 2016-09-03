@@ -1,7 +1,8 @@
 <%= simple_form_for([:admin, @profile],
                     as: :profile,
                     url: :admin_profile,
-                    html: { class: "form-vertical" }) do |f| %>
+                    wrapper: :horizontal_form,
+                    html: { class: "form-horizontal" }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -21,7 +22,7 @@
     <%= f.input :password_confirmation, as: :password %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions pull-right">
     <%= f.button :submit %>
   </div>
 <% end %>

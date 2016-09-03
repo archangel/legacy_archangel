@@ -4,8 +4,8 @@
   *= require_self
   *
   * External assets
-  *= require font-awesome
   *= require animate
+  *= require font-awesome
   *
   * Internal assets
   * n/a

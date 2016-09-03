@@ -4,9 +4,9 @@
  *= require_self
  *
  * External assets
- *= require font-awesome
  *= require animate
  *= require bootstrap-datetimepicker
+ *= require font-awesome
  *= require select2
  *= require select2-bootstrap
  *= require trumbowyg/trumbowyg
