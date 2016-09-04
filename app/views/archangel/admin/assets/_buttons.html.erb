@@ -1,0 +1,13 @@
+<ul class="nav nav-pills pull-right">
+  <% if member_action? %>
+    <li><%= link_to(fa_icon("arrow-left", text: "Back"), admin_assets_path) %></li>
+  <% end %>
+
+  <% if collection_action? || show_action? || edit_action? %>
+    <li><%= link_to(fa_icon("plus", text: "New"), new_admin_asset_path) %></li>
+  <% end %>
+
+  <% if show_action? %>
+    <li><%= link_to(fa_icon("check", text: "Edit"), edit_admin_asset_path(@asset)) %></li>
+  <% end %>
+</ul>

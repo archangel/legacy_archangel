@@ -49,12 +49,19 @@ Archangel::Engine.routes.draw do
       to: redirect("#{Archangel.configuration.auth_path}/login")
 
   namespace :admin, path: Archangel.configuration.admin_path do
-    # POST /admin/assets
-    resources :assets, only: [:create]
+    # GET    /admin/assets
+    # GET    /admin/assets/page/[PAGE]
+    # POST   /admin/assets
+    # GET    /admin/assets/new
+    # GET    /admin/assets/[ID]/edit
+    # GET    /admin/assets/[ID]
+    # PATCH  /admin/assets/[ID]
+    # PUT    /admin/assets/[ID]
+    # DELETE /admin/assets/[ID]
+    resources :assets, concerns: [:paginatable]
 
     # GET    /admin/categories
     # GET    /admin/categories/page/[PAGE]
-    # GET    /admin/categories
     # POST   /admin/categories
     # GET    /admin/categories/new
     # GET    /admin/categories/[ID]/edit
@@ -70,7 +77,6 @@ Archangel::Engine.routes.draw do
 
     # GET    /admin/pages
     # GET    /admin/pages/page/[PAGE]
-    # GET    /admin/pages
     # POST   /admin/pages
     # GET    /admin/pages/new
     # GET    /admin/pages/[ID]/edit
@@ -95,7 +101,6 @@ Archangel::Engine.routes.draw do
 
     # GET    /admin/tags
     # GET    /admin/tags/page/[PAGE]
-    # GET    /admin/tags
     # POST   /admin/tags
     # GET    /admin/tags/new
     # GET    /admin/tags/[ID]/edit
@@ -111,7 +116,6 @@ Archangel::Engine.routes.draw do
 
     # GET    /admin/users
     # GET    /admin/users/page/[PAGE]
-    # GET    /admin/users
     # POST   /admin/users
     # GET    /admin/users/new
     # GET    /admin/users/[USERNAME]/edit

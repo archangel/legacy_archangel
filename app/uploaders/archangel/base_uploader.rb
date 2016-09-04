@@ -21,5 +21,15 @@ module Archangel
     def remove_animation
       manipulate!(&:collapse!) if content_type == "image/gif"
     end
+
+    protected
+
+    def image?(new_file)
+      image_formats.include?(new_file.content_type)
+    end
+
+    def image_formats
+      %w(image/jpg image/jpeg image/png image/gif)
+    end
   end
 end

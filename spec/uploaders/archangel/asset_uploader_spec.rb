@@ -17,14 +17,6 @@ module Archangel
       uploader.remove!
     end
 
-    it "scales a large image to be no larger than 512 by 512 pixels" do
-      expect(uploader.large).to be_no_larger_than(512, 512)
-    end
-
-    it "scales a medium image to be no larger than 256 by 256 pixels" do
-      expect(uploader.medium).to be_no_larger_than(256, 256)
-    end
-
     it "scales a thumb image to be no larger than 128 by 128 pixels" do
       expect(uploader.thumb).to be_no_larger_than(128, 128)
     end

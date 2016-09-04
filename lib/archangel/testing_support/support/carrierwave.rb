@@ -11,3 +11,7 @@ end
 def uploader_test_image
   Archangel::Engine.root + "lib/archangel/testing_support/fixtures/image.gif"
 end
+
+def uploader_test_text
+  Archangel::Engine.root + "lib/archangel/testing_support/fixtures/text.txt"
+end

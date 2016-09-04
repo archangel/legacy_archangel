@@ -1,0 +1,43 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-12">
+    <h2>Asset</h2>
+
+    <%= render "buttons" %>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12 ibox-content">
+      <p>
+        <strong>Title:</strong>
+        <%= @asset.title %>
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <%= @asset.description %>
+      </p>
+
+      <p>
+        <strong>File:</strong>
+        <%= @asset.file %>
+      </p>
+
+      <p>
+        <strong>Uploader:</strong>
+        <%= @asset.uploader_id %>
+      </p>
+
+      <p>
+        <strong>File Size:</strong>
+        <%= number_to_human_size(@asset.file_size) %>
+      </p>
+
+      <p>
+        <strong>Content Type:</strong>
+        <%= @asset.content_type %>
+      </p>
+    </div>
+  </div>
+</div>
