@@ -4,12 +4,12 @@ module Archangel
   RSpec.describe Configuration, type: :library do
     describe "#initialize" do
       it "initializes with a hash" do
-        config = Archangel::Configuration.new({
+        config = Archangel::Configuration.new(
           something: "nothing",
           yesno: {
             yes: "no"
           }
-        })
+        )
 
         expect(config.something).to be_a_kind_of(String)
         expect(config.yesno).to be_a_kind_of(Archangel::Configuration)

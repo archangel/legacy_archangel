@@ -81,7 +81,9 @@ module Archangel
           it "is in JSON format" do
             archangel_xhr_post :create, params: params
 
-            expect(response.header["Content-Type"]).to include "application/json"
+            expect(response.header["Content-Type"]).to(
+              include "application/json"
+            )
           end
 
           it "creates a new Asset" do

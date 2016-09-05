@@ -31,8 +31,7 @@ module Archangel
     protected
 
     def format_path(asset)
-      "archangel/resources/mime/" + [version_name, "asset.png"]
-        .compact.join("_")
+      "archangel/resources/mime/" + [version_name, asset].compact.join("_")
     end
 
     def save_content_type_and_size_in_model
