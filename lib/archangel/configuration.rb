@@ -8,7 +8,7 @@ module Archangel
 
     def_delegators :hash, :key?, :[], :[]=, :to_hash, :to_json, :inspect
 
-    def initialize(hash)
+    def initialize(hash = {})
       @hash = if hash.respond_to?(:with_indifferent_access)
                 hash.with_indifferent_access
               else

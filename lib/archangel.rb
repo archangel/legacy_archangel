@@ -29,6 +29,7 @@ require "archangel/engine"
 require "archangel/configuration"
 require "archangel/i18n"
 require "archangel/languages"
+require "archangel/settings"
 require "archangel/version"
 
 module Archangel
@@ -40,40 +41,7 @@ module Archangel
     end
 
     def configuration
-      @configuration ||= Configuration.new(load_configurations)
-    end
-
-    protected
-
-    def configuration_paths
-      %w(archangel)
-    end
-
-    def load_configurations
-      configuration_paths.inject({}) do |configs, filename|
-        configs.with_indifferent_access.deep_merge!(
-          load_default_configuration(filename)
-        )
-
-        configs.with_indifferent_access.deep_merge!(
-          load_application_configuration(filename)
-        )
-      end
-    end
-
-    def load_default_configuration(filename)
-      load_configuration(Engine.root.join("config/#{filename}.yml"))
-    end
-
-    def load_application_configuration(filename)
-      load_configuration(Rails.root.join("config/#{filename}.yml"))
-    end
-
-    def load_configuration(file_path)
-      YAML.load_file(file_path)[Rails.env]
-    rescue
-      # TODO: Notify when file can't be loaded?
-      {}
+      @configuration ||= Settings.new
     end
   end
 end

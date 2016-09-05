@@ -4,51 +4,67 @@ module Archangel
   RSpec.describe Configuration, type: :library do
     describe "#initialize" do
       it "initializes with a hash" do
-        hash = { something: "nothing", yesno: { yes: "no" } }
-        config = Archangel::Configuration.new(hash)
+        config = Archangel::Configuration.new({
+          something: "nothing",
+          yesno: {
+            yes: "no"
+          }
+        })
 
         expect(config.something).to be_a_kind_of(String)
         expect(config.yesno).to be_a_kind_of(Archangel::Configuration)
       end
+
+      it "initializes without a hash" do
+        config = Archangel::Configuration.new
+
+        expect(config).to be_a_kind_of(Archangel::Configuration)
+      end
     end
 
     describe "#add" do
-      it "adds an integer value" do
-        Archangel.configuration.add(:abc, 123)
+      let(:config) do
+        hash = { something: "nothing", yesno: { yes: "no" } }
 
-        expect(Archangel.configuration.abc).to be_a_kind_of(Integer)
+        Archangel::Configuration.new(hash)
+      end
+
+      it "adds an integer value" do
+        config.add(:abc, 123)
+
+        expect(config.abc).to be_a_kind_of(Integer)
       end
 
       it "adds a string value" do
-        Archangel.configuration.add(:abc, "123")
+        config.add(:abc, "123")
 
-        expect(Archangel.configuration.abc).to be_a_kind_of(String)
+        expect(config.abc).to be_a_kind_of(String)
       end
 
       it "adds a hash value" do
         hash = { foo: "bar", sponge_bob: "square pants" }
 
-        Archangel.configuration.add(:abc, hash)
+        config.add(:abc, hash)
 
-        expect(Archangel.configuration.abc).to(
-          be_a_kind_of(Archangel::Configuration)
-        )
+        expect(config.abc).to be_a_kind_of(Archangel::Configuration)
       end
     end
 
     describe "#missing_method" do
+      let(:config) { Archangel::Configuration.new }
+
       it "returns default (nil) value for key not found" do
-        expect(Archangel.configuration.unavailable_key).to eq nil
+        expect(config.unavailable_key).to eq nil
       end
 
       it "checks for availability of unavailable key" do
-        expect(Archangel.configuration.bar?).to be_falsey
+        expect(config.bar?).to be_falsey
       end
 
       it "checks for availability of nil key" do
-        Archangel.configuration.add(:foo, "bar")
+        config.add(:foo, "bar")
 
-        expect(Archangel.configuration.foo?).to be_truthy
+        expect(config.foo?).to be_truthy
       end
     end
   end

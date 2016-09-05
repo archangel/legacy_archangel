@@ -32,9 +32,9 @@ module Archangel
       end
 
       def add_archangel_initializer
-        say_quietly "Copying Archangel YAML configurations..."
+        say_quietly "Copying Archangel configurations..."
 
-        copy_file "config/archangel.yml"
+        copy_file "config/initializers/archangel.rb"
       end
 
       def add_initializers
