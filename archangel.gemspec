@@ -7,25 +7,21 @@ Gem::Specification.new do |s|
   s.name        = "archangel"
   s.version     = Archangel::VERSION
   s.authors     = ["David Freerksen"]
+  s.email       = "dfreerksen@gmail.com"
   s.homepage    = "https://github.com/archangel/archangel"
   s.summary     = "Summary of Archangel."
   s.description = "Description of Archangel."
   s.license     = "MIT"
 
-  s.files = Dir[
-    "{app,config,db,lib}/**/*",
-    "MIT-LICENSE",
-    "Rakefile",
-    "README.md"
-  ]
+  s.files       = `git ls-files`.split($\)
 
   s.required_ruby_version = ">= 2.2.2"
 
-  s.add_dependency "coffee-rails", ">= 4.2"
-  s.add_dependency "jquery-rails", ">= 4.1"
-  s.add_dependency "rails", ">= 5.0"
-  s.add_dependency "sass-rails", ">= 5.0"
-  s.add_dependency "uglifier", ">= 2.7"
+  s.add_dependency "coffee-rails", "~> 4.2"
+  s.add_dependency "jquery-rails", "~> 4.1"
+  s.add_dependency "rails", ">= 5.0", "< 5.1"
+  s.add_dependency "sass-rails", "~> 5.0"
+  s.add_dependency "uglifier", "~> 2.7"
 
   s.add_dependency "acts_as_list", "~> 0.7"
   s.add_dependency "acts_as_tree", "~> 2.4"
@@ -51,17 +47,17 @@ Gem::Specification.new do |s|
   s.add_dependency "simple_form", "~> 3.2"
   s.add_dependency "validates", "~> 1.0"
 
-  s.add_development_dependency "capybara"
-  s.add_development_dependency "coveralls"
+  s.add_development_dependency "capybara", "~> 2.8"
+  s.add_development_dependency "coveralls", "~> 0.8"
   s.add_development_dependency "database_cleaner", "~> 1.5"
   s.add_development_dependency "factory_girl_rails", "~> 4.7"
-  s.add_development_dependency "launchy"
-  s.add_development_dependency "poltergeist"
-  s.add_development_dependency "pry-byebug"
+  s.add_development_dependency "launchy", "~> 2.4"
+  s.add_development_dependency "poltergeist", "~> 1.10"
+  s.add_development_dependency "pry-byebug", "~> 3.4"
   s.add_development_dependency "rails-controller-testing", "~> 1.0"
   s.add_development_dependency "rspec-rails", "~> 3.5"
   s.add_development_dependency "shoulda-callback-matchers", "~> 1.1"
   s.add_development_dependency "shoulda-matchers", "~> 3.1"
-  s.add_development_dependency "simplecov"
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "simplecov", "~> 0.12"
+  s.add_development_dependency "sqlite3", "~> 1.3"
 end
