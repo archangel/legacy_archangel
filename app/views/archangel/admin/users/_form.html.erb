@@ -1,6 +1,4 @@
-<%= simple_form_for([:admin, @user],
-                    wrapper: :horizontal_form,
-                    html: { class: "form-horizontal" }) do |f| %>
+<%= simple_form_for([:admin, @user]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -13,7 +11,7 @@
     <%= f.input(:remove_avatar, as: :boolean, checked_value: true, unchecked_value: false) if f.object.avatar? %>
   </div>
 
-  <div class="form-actions pull-right">
+  <div class="form-actions text-right">
     <%= f.button :submit %>
   </div>
 <% end %>

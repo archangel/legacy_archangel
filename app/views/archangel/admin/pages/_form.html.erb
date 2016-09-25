@@ -1,6 +1,4 @@
-<%= simple_form_for([:admin, @page],
-                    wrapper: :horizontal_form,
-                    html: { class: "form-horizontal" }) do |f| %>
+<%= simple_form_for([:admin, @page]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -22,7 +20,7 @@
     <%= f.input :published_at, as: :date_time_picker, input_html: { value: datetimepicker_field_value(f.object.published_at, f.object.new_record?) } %>
   </div>
 
-  <div class="form-actions pull-right">
+  <div class="form-actions text-right">
     <%= f.button :submit %>
   </div>
 <% end %>
