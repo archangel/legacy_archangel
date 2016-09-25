@@ -8,10 +8,20 @@ module Archangel
                 ActionView::MissingTemplate,
                 ActiveRecord::RecordNotFound, with: :render_404
 
+    before_action :set_locale
+
     protected
 
     def per_page
       params[:limit] || Kaminari.config.default_per_page
+    end
+
+    def set_locale
+      locale = params[:locale].to_s.strip.to_sym
+
+      I18n.locale = I18n.available_locales.include?(locale) ?
+          locale :
+          I18n.default_locale
     end
 
     def render_401(exception)

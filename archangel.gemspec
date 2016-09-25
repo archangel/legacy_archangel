@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency "jquery-rails", "~> 4.1"
   s.add_dependency "rails", ">= 5.0", "< 5.1"
   s.add_dependency "sass-rails", "~> 5.0"
-  s.add_dependency "uglifier", "~> 2.7"
+  s.add_dependency "uglifier", ">= 2.7"
 
   s.add_dependency "acts_as_list", "~> 0.7"
   s.add_dependency "acts_as_tree", "~> 2.4"

@@ -1,9 +1,18 @@
-@import "./resources/fonts";
+// Fonts
+@import "./resources/fonts/open-sans";
+
+// Variables
 @import "./resources/variables";
 
+// Boostrap
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// Shared theme
 @import "./resources/theme";
 
-@import "./resources/theme/style";
+
+// @import "./common/theme/heading";
+// @import "./common/theme/base";
+// @import "./common/theme/rtl";
+// @import "./common/theme/print";

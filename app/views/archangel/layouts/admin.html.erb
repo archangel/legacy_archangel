@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<%= locale %>">
+<html dir="<%= text_direction %>" lang="<%= locale %>">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -20,23 +20,23 @@
 <body>
 
 <div id="wrapper">
-  <%= render "archangel/admin/shared/sidebar" %>
+  <%= render "archangel/layouts/admin/shared/sidebar" %>
 
-  <main id="page-wrapper" class="gray-bg">
-    <%= render "archangel/admin/shared/header" %>
+  <main id="page-wrapper" role="main">
+    <%= render "archangel/layouts/admin/shared/header" %>
 
     <%= render "archangel/shared/flash_messages" %>
 
     <%= yield %>
 
-    <%= render "archangel/admin/shared/footer" %>
+    <%= render "archangel/layouts/admin/shared/footer" %>
   </main>
 </div>
 
 <%= javascript_include_tag "archangel/admin/archangel" %>
 <%= yield(:javascript) if content_for?(:javascript) %>
 
-<%= render "archangel/admin/shared/translations" %>
+<%= render "archangel/layouts/admin/shared/translations" %>
 
 </body>
 </html>

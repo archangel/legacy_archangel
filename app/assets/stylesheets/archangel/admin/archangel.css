@@ -1,23 +1,22 @@
 /**
  * Default Archangel admin theme
  *
+ * Self
  *= require_self
  *
- * External assets
- *= require animate
+ * Third party libraries
  *= require bootstrap-datetimepicker
  *= require font-awesome
  *= require select2
  *= require select2-bootstrap
  *= require trumbowyg/trumbowyg
  *
- * Internal assets
- * n/a
- *
- * Theme assets
- *= require archangel/archangel
- *= require_tree ./archangel
- *
- * Third-party Archangel assets
+ * Third-party Archangel assets (from the vendor directory)
  *= require archangel/admin
+ *
+ * Common theme assets
+ *= require archangel/archangel
+ *
+ * Section assets
+ *= require archangel/admin/archangel/style
  */

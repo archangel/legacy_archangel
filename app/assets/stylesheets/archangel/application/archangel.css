@@ -1,19 +1,18 @@
- /**
-  * Default Archangel frontend theme
-  *
-  *= require_self
-  *
-  * External assets
-  *= require animate
-  *= require font-awesome
-  *
-  * Internal assets
-  * n/a
-  *
-  * Theme assets
-  *= require archangel/archangel
-  *= require_tree ./archangel
-  *
-  * Third-party Archangel assets
-  *= require archangel/application
-  */
+/**
+ * Default Archangel frontend theme
+ *
+ * Self
+ *= require_self
+ *
+ * Third party libraries
+ *= require font-awesome
+ *
+ * Third-party Archangel assets (from the vendor directory)
+ *= require archangel/application
+ *
+ * Common theme assets
+ *= require archangel/archangel
+ *
+ * Section assets
+ *= require archangel/application/archangel/style
+ */

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<%= locale %>">
+<html dir="<%= text_direction %>" lang="<%= locale %>">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,18 +17,18 @@
   <%= stylesheet_link_tag "archangel/auth/archangel", media: "all" %>
   <%= yield(:stylesheet) if content_for?(:stylesheet) %>
 </head>
-<body class="gray-bg">
+<body>
 
-<div id="wrapper" class="middle-box text-center loginscreen">
-  <div>
-    <%= render "archangel/auth/shared/header" %>
+<div id="wrapper">
+  <main id="page-wrapper" role="main">
+    <%= render "archangel/layouts/auth/shared/header" %>
 
     <%= render "archangel/shared/flash_messages" %>
 
     <%= yield %>
 
-    <%= render "archangel/auth/shared/footer" %>
-  </div>
+    <%= render "archangel/layouts/auth/shared/footer" %>
+  </main>
 </div>
 
 <%= javascript_include_tag "archangel/auth/archangel" %>
