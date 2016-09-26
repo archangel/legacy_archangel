@@ -4,11 +4,13 @@ $.fn.inputSelectTags = function () {
   this.select2({
     minimumInputLength: 1,
     multiple: true,
+    theme: "bootstrap",
     ajax: {
       cache: true,
       datatype: "json",
       delay: 500,
       url: "/admin/tags/autocomplete.json",
+      width: "100%",
       data: function (term) {
         return {
           q: term

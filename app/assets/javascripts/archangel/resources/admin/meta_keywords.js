@@ -11,7 +11,9 @@ $.fn.inputTextMetaKeywords = function () {
     minimumInputLength: 2,
     multiple: true,
     tags: true,
-    tokenSeparators: [","]
+    theme: "bootstrap",
+    tokenSeparators: [","],
+    width: "100%"
   });
 };
 
