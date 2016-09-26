@@ -3,82 +3,27 @@
 ====================================== */
 
 #sidebar {
-  // // Small screen
-  // @media (min-width: $screen-sm-min) {
-  //   color: #ff00ff;
-  // }
-  //
-  // // Medium screen
-  // @media (min-width: $screen-md-min) {
-  //   color: #00ffff;
-  // }
-  //
-  // // Large screen
-  // @media (min-width: $screen-lg-min) {
-  //   color: #ffff00;
-  // }
+  -webkit-box-flex:  0;
+     -moz-box-flex:  0;
+      -ms-box-flex:  0;
+          box-flex:  0;
+
+  background-color: #2c3e50;
+  min-height: 100%;
+  padding-left: 0;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 60px;
+  }
+
+  @media (min-width: 992px) {
+    width: 220px;
+  }
+
+  .nav {
+    @media (min-width: 768px) and (max-width: 992px) {
+      text-align: center;
+    }
+  }
 }
-
-
-//   <nav class="navbar-default navbar-static-side" role="navigation">
-//     <div class="sidebar-collapse">
-//       <ul class="nav" id="side-menu">
-//         <li class="nav-header">
-//           <div class="dropdown profile-element">
-//             <span>
-//               <a href="/admin"><img alt="image" class="img-circle" src="/assets/archangel/resources/thumb_logo-4b0f5edab1f2d8a3a9d07be604eb129c6611dddaf591a468e15b9777e435004e.png" /></a>
-//             </span>
-//           </div>
-//         </li>
-//
-//         <li class="dashboard">
-//           <a href="/admin">
-//             <i class="fa fa-th-large"></i>
-//             <span class="nav-label">Dashboard</span>
-//           </a>
-//         </li>
-//
-//         <li class="pages">
-//           <a href="/admin/pages">
-//             <i class="fa fa-files-o"></i>
-//             <span class="nav-label">Pages</span>
-//           </a>
-//         </li>
-//
-//         <li class="categories">
-//           <a href="/admin/categories">
-//             <i class="fa fa-list-ul"></i>
-//             <span class="nav-label">Categories</span>
-//           </a>
-//         </li>
-//
-//         <li class="tags">
-//           <a href="/admin/tags">
-//             <i class="fa fa-tags"></i>
-//             <span class="nav-label">Tags</span>
-//           </a>
-//         </li>
-//
-//         <li class="assets">
-//           <a href="/admin/assets">
-//             <i class="fa fa-object-group"></i>
-//             <span class="nav-label">Assets</span>
-//           </a>
-//         </li>
-//
-//         <li class="users">
-//           <a href="/admin/users">
-//             <i class="fa fa-users"></i>
-//             <span class="nav-label">Users</span>
-//           </a>
-//         </li>
-//
-//         <li class="site">
-//           <a href="/admin/site">
-//             <i class="fa fa-globe"></i>
-//             <span class="nav-label">Site</span>
-//           </a>
-//         </li>
-//       </ul>
-//     </div>
-//   </nav>

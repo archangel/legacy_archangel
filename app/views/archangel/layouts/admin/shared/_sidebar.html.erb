@@ -1,64 +1,62 @@
-<aside id="sidebar">
-  <nav class="navbar-default navbar-static-side" role="navigation">
-    <div class="sidebar-collapse">
-      <ul class="nav" id="side-menu">
-        <li class="nav-header">
-          <div class="dropdown profile-element">
-            <span>
-              <a href="<%= admin_root_path %>"><img alt="image" class="img-circle" src="<%= current_site.logo_url(:thumb) %>" /></a>
-            </span>
-          </div>
-        </li>
+<nav class="navbar" role="navigation">
+  <div class="sidebar-collapse">
+    <ul class="nav" id="side-menu">
+      <li class="nav-header">
+        <div class="dropdown profile-element">
+          <span>
+            <a href="<%= admin_root_path %>"><img alt="image" class="img-center img-responsive" src="<%= current_site.logo_url(:thumb) %>" /></a>
+          </span>
+        </div>
+      </li>
 
-        <li class="dashboard">
-          <a href="<%= admin_root_path %>">
-            <%= fa_icon("th-large") %>
-            <span class="nav-label"><%= Archangel.t(:dashboard, scope: :menu) %></span>
-          </a>
-        </li>
+      <li class="dashboard">
+        <a href="<%= admin_root_path %>">
+          <%= fa_icon("th-large") %>
+          <span class="nav-label"><%= Archangel.t(:dashboard, scope: :menu) %></span>
+        </a>
+      </li>
 
-        <li class="pages">
-          <a href="<%= admin_pages_path %>">
-            <%= fa_icon("files-o") %>
-            <span class="nav-label"><%= Archangel.t(:pages, scope: :menu) %></span>
-          </a>
-        </li>
+      <li class="pages">
+        <a href="<%= admin_pages_path %>">
+          <%= fa_icon("files-o") %>
+          <span class="nav-label"><%= Archangel.t(:pages, scope: :menu) %></span>
+        </a>
+      </li>
 
-        <li class="categories">
-          <a href="<%= admin_categories_path %>">
-            <%= fa_icon("list-ul") %>
-            <span class="nav-label"><%= Archangel.t(:categories, scope: :menu) %></span>
-          </a>
-        </li>
+      <li class="categories">
+        <a href="<%= admin_categories_path %>">
+          <%= fa_icon("list-ul") %>
+          <span class="nav-label"><%= Archangel.t(:categories, scope: :menu) %></span>
+        </a>
+      </li>
 
-        <li class="tags">
-          <a href="<%= admin_tags_path %>">
-            <%= fa_icon("tags") %>
-            <span class="nav-label"><%= Archangel.t(:tags, scope: :menu) %></span>
-          </a>
-        </li>
+      <li class="tags">
+        <a href="<%= admin_tags_path %>">
+          <%= fa_icon("tags") %>
+          <span class="nav-label"><%= Archangel.t(:tags, scope: :menu) %></span>
+        </a>
+      </li>
 
-        <li class="assets">
-          <a href="<%= admin_assets_path %>">
-            <%= fa_icon("object-group") %>
-            <span class="nav-label"><%= Archangel.t(:assets, scope: :menu) %></span>
-          </a>
-        </li>
+      <li class="assets">
+        <a href="<%= admin_assets_path %>">
+          <%= fa_icon("object-group") %>
+          <span class="nav-label"><%= Archangel.t(:assets, scope: :menu) %></span>
+        </a>
+      </li>
 
-        <li class="users">
-          <a href="<%= admin_users_path %>">
-            <%= fa_icon("users") %>
-            <span class="nav-label"><%= Archangel.t(:users, scope: :menu) %></span>
-          </a>
-        </li>
+      <li class="users">
+        <a href="<%= admin_users_path %>">
+          <%= fa_icon("users") %>
+          <span class="nav-label"><%= Archangel.t(:users, scope: :menu) %></span>
+        </a>
+      </li>
 
-        <li class="site">
-          <a href="<%= admin_site_path %>">
-            <%= fa_icon("globe") %>
-            <span class="nav-label"><%= Archangel.t(:site, scope: :menu) %></span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</aside>
+      <li class="site">
+        <a href="<%= admin_site_path %>">
+          <%= fa_icon("globe") %>
+          <span class="nav-label"><%= Archangel.t(:site, scope: :menu) %></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

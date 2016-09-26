@@ -20,14 +20,18 @@
 <body>
 
 <div id="wrapper">
-  <%= render "archangel/layouts/admin/shared/sidebar" %>
+  <aside id="sidebar">
+    <%= render "archangel/layouts/admin/shared/sidebar" %>
+  </aside>
 
   <main id="page-wrapper" role="main">
     <%= render "archangel/layouts/admin/shared/header" %>
 
-    <%= render "archangel/shared/flash_messages" %>
+    <div class="container-fluid">
+      <%= render "archangel/shared/flash_messages" %>
 
-    <%= yield %>
+      <%= yield %>
+    </div>
 
     <%= render "archangel/layouts/admin/shared/footer" %>
   </main>
