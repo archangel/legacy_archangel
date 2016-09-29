@@ -1,4 +1,4 @@
-<div class="row wrapper page-heading">
+<div class="row wrapper page-header">
   <div class="col-lg-12">
     <h2>Page</h2>
 
@@ -6,43 +6,41 @@
   </div>
 </div>
 
-<div class="wrapper wrapper-content">
-  <div class="pages-show row">
-    <div class="col-lg-12">
-      <p>
-        <strong>Title:</strong>
-        <%= @page.title %>
-      </p>
+<div class="pages-show panel panel-default">
+  <div class="panel-body">
+    <p>
+      <strong>Title:</strong>
+      <%= @page.title %>
+    </p>
 
-      <p>
-        <strong>Path:</strong>
-        <%= @page.path %>
-      </p>
+    <p>
+      <strong>Path:</strong>
+      <%= @page.path %>
+    </p>
 
-      <p>
-        <strong>Slug:</strong>
-        <%= @page.slug %>
-      </p>
+    <p>
+      <strong>Slug:</strong>
+      <%= @page.slug %>
+    </p>
 
-      <p>
-        <strong>Author:</strong>
-        <%= author_link(@page.author) %>
-      </p>
+    <p>
+      <strong>Author:</strong>
+      <%= author_link(@page.author) %>
+    </p>
 
-      <p>
-        <strong>META Keywords:</strong>
-        <%= @page.meta_keywords %>
-      </p>
+    <p>
+      <strong>META Keywords:</strong>
+      <%= @page.meta_keywords %>
+    </p>
 
-      <p>
-        <strong>META Description:</strong>
-        <%= @page.meta_description %>
-      </p>
+    <p>
+      <strong>META Description:</strong>
+      <%= @page.meta_description %>
+    </p>
 
-      <p>
-        <strong>Content:</strong>
-        <%= @page.content %>
-      </p>
-    </div>
+    <p>
+      <strong>Content:</strong>
+      <%= @page.content %>
+    </p>
   </div>
 </div>

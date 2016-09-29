@@ -1,59 +1,61 @@
-<nav class="navbar" role="navigation">
+<nav class="navbar-default" role="navigation">
   <div class="sidebar-collapse">
-    <ul class="nav" id="side-menu">
-      <li class="nav-header">
-        <div class="dropdown profile-element">
-          <span>
-            <a href="<%= admin_root_path %>"><img alt="image" class="img-center img-responsive" src="<%= current_site.logo_url(:thumb) %>" /></a>
-          </span>
-        </div>
-      </li>
+    <div class="nav-header">
+      <div class="brand-logo text-center">
+        <a href="<%= admin_root_path %>"><img alt="<%= current_site.name %>" class="img-center img-responsive" src="<%= current_site.logo_url(:thumb) %>" /></a>
+      </div>
 
-      <li class="dashboard">
+      <h2 class="brand-name text-center visible-md visible-lg">
+        <%= current_site.name %>
+      </h2>
+    </div>
+
+    <ul id="sidebar-menu" class="nav hidden-xs">
+      <li class="dashboard active">
         <a href="<%= admin_root_path %>">
-          <%= fa_icon("th-large") %>
+          <%= fa_icon("th-large lg") %>
           <span class="nav-label"><%= Archangel.t(:dashboard, scope: :menu) %></span>
         </a>
       </li>
 
       <li class="pages">
         <a href="<%= admin_pages_path %>">
-          <%= fa_icon("files-o") %>
+          <%= fa_icon("files-o lg") %>
           <span class="nav-label"><%= Archangel.t(:pages, scope: :menu) %></span>
         </a>
       </li>
 
       <li class="categories">
         <a href="<%= admin_categories_path %>">
-          <%= fa_icon("list-ul") %>
+          <%= fa_icon("list-ul lg") %>
           <span class="nav-label"><%= Archangel.t(:categories, scope: :menu) %></span>
         </a>
       </li>
 
       <li class="tags">
         <a href="<%= admin_tags_path %>">
-          <%= fa_icon("tags") %>
+          <%= fa_icon("tags lg") %>
           <span class="nav-label"><%= Archangel.t(:tags, scope: :menu) %></span>
         </a>
       </li>
 
       <li class="assets">
         <a href="<%= admin_assets_path %>">
-          <%= fa_icon("object-group") %>
+          <%= fa_icon("object-group lg") %>
           <span class="nav-label"><%= Archangel.t(:assets, scope: :menu) %></span>
         </a>
       </li>
 
       <li class="users">
         <a href="<%= admin_users_path %>">
-          <%= fa_icon("users") %>
+          <%= fa_icon("users lg") %>
           <span class="nav-label"><%= Archangel.t(:users, scope: :menu) %></span>
         </a>
       </li>
 
       <li class="site">
         <a href="<%= admin_site_path %>">
-          <%= fa_icon("globe") %>
+          <%= fa_icon("globe lg") %>
           <span class="nav-label"><%= Archangel.t(:site, scope: :menu) %></span>
         </a>
       </li>

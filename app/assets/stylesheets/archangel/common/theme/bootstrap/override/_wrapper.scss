@@ -1,0 +1,42 @@
+/* ======================================
+ Wrapper
+====================================== */
+
+#wrapper {
+  -webkit-box-orient: vertical;
+     -moz-box-orient: vertical;
+      -ms-box-orient: vertical;
+           box-orient: vertical;
+
+  -ms-flex-direction: column;
+      flex-direction: column;
+
+  @media (min-width: 768px) {
+    -webkit-box-orient: horizontal;
+       -moz-box-orient: horizontal;
+        -ms-box-orient: horizontal;
+            box-orient: horizontal;
+
+    -ms-flex-direction: row;
+        flex-direction: row;
+
+
+    -webkit-box-flex: 1;
+        -webkit-flex: 1;
+       -moz-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+  }
+
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+
+  height: 100%;
+  margin: 0 auto;
+  max-width: 1800px;
+  overflow-x: hidden;
+  width: 100%;
+}

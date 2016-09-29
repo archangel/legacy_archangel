@@ -1,4 +1,4 @@
-<div class="row wrapper page-heading">
+<div class="row wrapper page-header">
   <div class="col-lg-12">
     <h2>Category</h2>
 
@@ -6,23 +6,21 @@
   </div>
 </div>
 
-<div class="wrapper wrapper-content">
-  <div class="categories-show row">
-    <div class="col-lg-12">
-      <p>
-        <strong>Name:</strong>
-        <%= @category.name %>
-      </p>
+<div class="categories-show panel panel-default">
+  <div class="panel-body">
+    <p>
+      <strong>Name:</strong>
+      <%= @category.name %>
+    </p>
 
-      <p>
-        <strong>Slug:</strong>
-        <%= @category.slug %>
-      </p>
+    <p>
+      <strong>Slug:</strong>
+      <%= @category.slug %>
+    </p>
 
-      <p>
-        <strong>Description:</strong>
-        <%= @category.description %>
-      </p>
-    </div>
+    <p>
+      <strong>Description:</strong>
+      <%= @category.description %>
+    </p>
   </div>
 </div>

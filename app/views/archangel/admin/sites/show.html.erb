@@ -1,4 +1,4 @@
-<div class="row wrapper page-heading">
+<div class="row wrapper page-header">
   <div class="col-lg-12">
     <h2>Site</h2>
 
@@ -6,30 +6,28 @@
   </div>
 </div>
 
-<div class="wrapper wrapper-content">
-  <div class="site-show row">
-    <div class="col-lg-12">
-      <%= image_tag(@site.logo.thumb.url) %>
+<div class="site-show panel panel-default">
+  <div class="panel-body">
+    <%= image_tag(@site.logo.thumb.url) %>
 
-      <p>
-        <strong>Name:</strong>
-        <%= @site.name %>
-      </p>
+    <p>
+      <strong>Name:</strong>
+      <%= @site.name %>
+    </p>
 
-      <p>
-        <strong>Locale:</strong>
-        <%= @site.locale %>
-      </p>
+    <p>
+      <strong>Locale:</strong>
+      <%= @site.locale %>
+    </p>
 
-      <p>
-        <strong>META Keywords:</strong>
-        <%= @site.meta_keywords %>
-      </p>
+    <p>
+      <strong>META Keywords:</strong>
+      <%= @site.meta_keywords %>
+    </p>
 
-      <p>
-        <strong>META Description:</strong>
-        <%= @site.meta_description %>
-      </p>
-    </div>
+    <p>
+      <strong>META Description:</strong>
+      <%= @site.meta_description %>
+    </p>
   </div>
 </div>

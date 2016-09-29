@@ -1,4 +1,4 @@
-<div class="row wrapper page-heading">
+<div class="row wrapper page-header">
   <div class="col-lg-12">
     <h2>User List</h2>
 
@@ -6,9 +6,8 @@
   </div>
 </div>
 
-<div class="wrapper wrapper-content">
-  <div class="users-index row">
-
+<div class="users-index panel panel-default">
+  <div class="panel-body">
     <% if @users.any? %>
 
       <%= paginate @users %>
@@ -48,7 +47,7 @@
           <%= Archangel.t(:no_resources, resource: @users.model_name.human.pluralize) %>
         </p>
       </div>
-    <% end %>
 
+    <% end %>
   </div>
 </div>

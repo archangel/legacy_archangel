@@ -1,15 +1,13 @@
 // Layout
-@import "./wrapper";
-@import "./header";
-@import "./sidebar";
-@import "./page-wrapper";
-@import "./footer";
+@import "archangel/admin/archangel/header";
+@import "archangel/admin/archangel/sidebar";
+@import "archangel/admin/archangel/footer";
 
 // Sections
-@import "./sections/dashboard";
-@import "./sections/pages";
-@import "./sections/categories";
-@import "./sections/tags";
-@import "./sections/assets";
-@import "./sections/users";
-@import "./sections/site";
+@import "archangel/admin/archangel/sections/dashboard";
+@import "archangel/admin/archangel/sections/pages";
+@import "archangel/admin/archangel/sections/categories";
+@import "archangel/admin/archangel/sections/tags";
+@import "archangel/admin/archangel/sections/assets";
+@import "archangel/admin/archangel/sections/users";
+@import "archangel/admin/archangel/sections/site";
