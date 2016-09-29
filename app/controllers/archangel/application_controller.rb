@@ -19,9 +19,7 @@ module Archangel
     def set_locale
       locale = params[:locale].to_s.strip.to_sym
 
-      I18n.locale = I18n.available_locales.include?(locale) ?
-          locale :
-          I18n.default_locale
+      I18n.locale = locale_for(locale)
     end
 
     def render_401(exception)
@@ -44,6 +42,12 @@ module Archangel
     def log_error(exception)
       Rails.logger.error status.to_s + " " + exception.message.to_s
       Rails.logger.error exception.backtrace.join("\n")
+    end
+
+    private
+
+    def locale_for(locale)
+      I18n.available_locales.include?(locale) ? locale : I18n.default_locale
     end
   end
 end
