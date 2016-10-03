@@ -15,19 +15,21 @@ module Archangel
         expect(config.yesno).to be_a_kind_of(Archangel::Configuration)
       end
 
-      it "initializes without a hash" do
+      it "initializes with with empty a hash" do
         config = Archangel::Configuration.new
+
+        expect(config).to be_a_kind_of(Archangel::Configuration)
+      end
+
+      it "initializes without a hash" do
+        config = Archangel::Configuration.new(nil)
 
         expect(config).to be_a_kind_of(Archangel::Configuration)
       end
     end
 
     describe "#add" do
-      let(:config) do
-        hash = { something: "nothing", yesno: { yes: "no" } }
-
-        Archangel::Configuration.new(hash)
-      end
+      let(:config) { Archangel::Configuration.new }
 
       it "adds an integer value" do
         config.add(:abc, 123)
@@ -47,6 +49,7 @@ module Archangel
         config.add(:abc, hash)
 
         expect(config.abc).to be_a_kind_of(Archangel::Configuration)
+        expect(config.abc.foo).to eq "bar"
       end
     end
 
