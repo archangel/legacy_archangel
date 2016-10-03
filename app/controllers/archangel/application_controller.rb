@@ -2,7 +2,6 @@ module Archangel
   class ApplicationController < BaseController
     helper Archangel::ApplicationHelper
 
-    rescue_from ActionController::RoutingError, with: :render_401
     rescue_from ActionController::UnknownController,
                 AbstractController::ActionNotFound,
                 ActionView::MissingTemplate,
@@ -20,10 +19,6 @@ module Archangel
       locale = params[:locale].to_s.strip.to_sym
 
       I18n.locale = locale_for(locale)
-    end
-
-    def render_401(exception)
-      render_error("archangel/errors/error_401", :unauthorized, exception)
     end
 
     def render_404(exception)
