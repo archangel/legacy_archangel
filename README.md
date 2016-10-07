@@ -112,20 +112,12 @@ bundle exec rspec spec --fail-fast
 [RuboCop](https://github.com/bbatsov/rubocop) is a Ruby static code analyzer.
 
 ```
-gem install rubocop
-```
-
-```
 rubocop
 ```
 
 ###### scss-lint
 
 [scss-lint](https://github.com/brigade/scss-lint) is a SCSS style analyzer.
-
-```
-gem install scss_lint
-```
 
 ```
 scss-lint

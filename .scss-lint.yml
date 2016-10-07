@@ -1,0 +1,8 @@
+exclude: 'vendor/assets/stylesheets/**'
+
+linters:
+  Indentation:
+    character: space
+    width: 4
+  StringQuotes:
+    style: single_quotes
