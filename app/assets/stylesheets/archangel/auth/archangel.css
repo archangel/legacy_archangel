@@ -1,17 +1,11 @@
 /**
  * Default Archangel auth theme
  *
- * Archangel common theme variables w/ Boostrap
- *= require archangel/common/bootstrap-sass
- *
  * Third party libraries
  *= require font-awesome
  *
  * Third-party Archangel assets (from the vendor directory)
  *= require archangel/auth
- *
- * Archangel common theme styles
- *= require archangel/common/theme
  *
  * Archangel section theme styles
  *= require archangel/auth/archangel/style

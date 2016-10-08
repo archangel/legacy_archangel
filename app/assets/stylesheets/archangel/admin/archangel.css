@@ -1,9 +1,6 @@
 /**
  * Default Archangel admin theme
  *
- * Archangel common theme variables w/ Boostrap
- *= require archangel/common/bootstrap-sass
- *
  * Third party libraries
  *= require bootstrap-datetimepicker
  *= require font-awesome
@@ -14,9 +11,6 @@
  *
  * Third-party Archangel assets (from the vendor directory)
  *= require archangel/admin
- *
- * Archangel common theme styles
- *= require archangel/common/theme
  *
  * Archangel section theme styles
  *= require archangel/admin/archangel/style
