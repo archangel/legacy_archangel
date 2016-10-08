@@ -1,0 +1,4 @@
+---
+:quiet: true
+:output_files:
+- brakeman.html

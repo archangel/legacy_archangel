@@ -16,6 +16,7 @@ This project rocks and uses MIT-LICENSE.
 * [Installation](#installation)
 * [Updating](#updating)
 * [Testing](#testing)
+* [Code Analysis](#code-analysis)
 * [Contributing](#contributing)
 
 ## Requirements
@@ -103,11 +104,11 @@ You can also enable fail fast in order to stop tests at the first failure
 bundle exec rspec spec --fail-fast
 ```
 
-#### Code Analysis
+## Code Analysis
 
 [Hound](https://houndci.com/) is used as the code analyzer. When making a pull request, you may get comments on style and quality violations.
 
-###### RuboCop
+### RuboCop
 
 [RuboCop](https://github.com/bbatsov/rubocop) is a Ruby static code analyzer.
 
@@ -115,12 +116,20 @@ bundle exec rspec spec --fail-fast
 rubocop
 ```
 
-###### scss-lint
+### scss-lint
 
 [scss-lint](https://github.com/brigade/scss-lint) is a SCSS style analyzer.
 
 ```
 scss-lint
+```
+
+### Brakeman
+
+[Brakeman](https://github.com/presidentbeef/brakeman) is a static analysis security vulnerability scanner.
+
+```
+brakeman
 ```
 
 ## Contributing

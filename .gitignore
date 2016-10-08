@@ -5,6 +5,7 @@ spec/dummy/
 tmp/
 .DS_Store
 .Trashes
+brakeman.html
 Desktop.ini
 Gemfile.lock
 log/*.log
