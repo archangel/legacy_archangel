@@ -8,7 +8,7 @@
 
 <div class="site-show panel panel-default">
   <div class="panel-body">
-    <%= image_tag(@site.logo.thumb.url) %>
+    <%= image_tag(@site.logo.thumb.url, alt: @site.name) %>
 
     <p>
       <strong>Name:</strong>

@@ -3,11 +3,14 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-
-    <%= image_tag(f.object.logo.thumb.url) %>
-
     <%= f.input :logo, as: :file %>
     <%= f.input :logo_cache, as: :hidden %>
+
+    <div class="form-group site_logo_image">
+      <div class="col-sm-10 col-sm-offset-2">
+        <%= image_tag(f.object.logo.thumb.url, alt: "") %>
+      </div>
+    </div>
 
     <%= f.input :remove_logo, as: :boolean,
                               checked_value: true,

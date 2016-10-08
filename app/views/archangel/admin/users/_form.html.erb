@@ -6,7 +6,12 @@
     <%= f.input :username %>
     <%= f.input :email, as: :email %>
 
-    <%= image_tag(f.object.avatar.thumb.url) %>
+    <div class="form-group user_avatar_image">
+      <div class="col-sm-10 col-sm-offset-2">
+        <%= image_tag(f.object.avatar.thumb.url, alt: "") %>
+      </div>
+    </div>
+
     <%= f.input :avatar_cache, as: :hidden %>
     <%= f.input(:remove_avatar, as: :boolean, checked_value: true, unchecked_value: false) if f.object.avatar? %>
   </div>

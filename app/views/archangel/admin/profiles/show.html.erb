@@ -8,7 +8,7 @@
 
 <div class="profile-show panel panel-default">
   <div class="panel-body">
-    <%= image_tag(@profile.avatar.thumb.url) %>
+    <%= image_tag(@profile.avatar.thumb.url, alt: @profile.username) %>
 
     <p>
       <strong>Name:</strong>
