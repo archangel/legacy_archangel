@@ -3,6 +3,10 @@ $.fn.inputTextareaWysiwyg = function () {
 
   this.trumbowyg({
     autogrow: true,
+    fullscreenable: false,
+    removeformatPasted: true,
+    resetCss: true,
+    semantic: true,
     btns: [
       ["undo", "redo"],
       ["preformatted"],
@@ -33,11 +37,13 @@ $.fn.inputTextareaWysiwyg = function () {
         serverPath: "/admin/assets",
         fileFieldName: "file"
       }
-    },
-    fullscreenable: false,
-    removeformatPasted: true,
-    resetCss: true,
-    semantic: true
+    }
+  })
+  .on("focus tbwfocus", function() {
+    $(this).parent(".trumbowyg-box").toggleClass("focus", true);
+  })
+  .on("blur tbwblur", function() {
+    $(this).parent(".trumbowyg-box").toggleClass("focus", false);
   });
 };
 

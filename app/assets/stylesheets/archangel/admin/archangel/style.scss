@@ -5,6 +5,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// Select2
+@import "archangel/common/resources/select2";
+
+// Trumbowyg
+@import "archangel/common/resources/trumbowyg";
+
 // Common theme
 @import "archangel/common/theme";
 

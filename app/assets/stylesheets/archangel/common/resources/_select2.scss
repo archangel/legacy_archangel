@@ -1,0 +1,35 @@
+$select2-theme-name: "bootstrap";
+
+.select2-container--#{$select2-theme-name} {
+  .select2-selection {
+    background-color: $input-bg;
+    border: 2px solid $input-border;
+    border-radius: $input-border-radius;
+    box-shadow: none;
+    transition: border-color ease-in-out 0.15s;
+  }
+
+  &.select2-container--focus,
+  &.select2-container--open {
+    .select2-selection {
+      border-color: $input-border-focus;
+      box-shadow: none;
+    }
+  }
+
+  .select2-dropdown {
+    border-color: $input-border-focus;
+    border-width: 2px;
+    box-shadow: none;
+  }
+
+  .select2-dropdown--above {
+    box-shadow: none;
+  }
+
+  .select2-selection--multiple {
+    .select2-selection__rendered {
+      padding: 4px 2px;
+    }
+  }
+}

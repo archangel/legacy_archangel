@@ -1,4 +1,5 @@
 @import "archangel/common/theme/rtl";
+@import "archangel/common/theme/form";
 @import "archangel/common/theme/heading";
 
 // Bootstrap extensions
@@ -10,9 +11,6 @@
 @import "archangel/common/theme/bootstrap/override/container";
 @import "archangel/common/theme/bootstrap/override/page-header";
 @import "archangel/common/theme/bootstrap/override/wrapper";
-
-// Select2
-@import "archangel/common/theme/select2/responsive";
 
 // Theme
 @import "archangel/common/theme/common/page-wrapper";

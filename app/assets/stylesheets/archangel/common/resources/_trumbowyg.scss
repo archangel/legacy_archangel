@@ -1,0 +1,29 @@
+.trumbowyg-box {
+  background-color: $input-bg;
+  border: 2px solid $input-border;
+  border-radius: $input-border-radius;
+  transition: border-color ease-in-out 0.15s;
+
+  &.focus {
+    border-color: $input-border-focus;
+
+    .trumbowyg-button-pane {
+      border-color: $input-border-focus;
+    }
+  }
+}
+
+.trumbowyg-textarea {
+  border: none;
+}
+
+.trumbowyg-button-pane {
+  background: $btn-default-color;
+  border-bottom: 2px solid $input-border;
+
+  .trumbowyg-button-group {
+    &:not(:empty) + .trumbowyg-button-group::before {
+      background: $input-border-focus;
+    }
+  }
+}
