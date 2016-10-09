@@ -20,11 +20,11 @@ module Archangel
 
     process :save_content_type_and_size_in_model
 
-    version :thumb do
+    version :thumb, if: :image_format? do
       process resize_to_fit: [128, 128]
     end
 
-    version :mini do
+    version :mini, if: :image_format? do
       process resize_to_fit: [48, 48]
     end
 
@@ -32,6 +32,10 @@ module Archangel
 
     def format_path(asset)
       "archangel/resources/mime/" + [version_name, asset].compact.join("_")
+    end
+
+    def image_format?(new_file)
+      image_formats.include?(new_file.content_type)
     end
 
     def save_content_type_and_size_in_model

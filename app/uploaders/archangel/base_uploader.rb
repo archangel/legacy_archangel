@@ -22,11 +22,11 @@ module Archangel
       manipulate!(&:collapse!) if content_type == "image/gif"
     end
 
-    protected
-
-    def image?(new_file)
-      image_formats.include?(new_file.content_type)
+    def image?
+      image_formats.include?(file.content_type)
     end
+
+    protected
 
     def image_formats
       %w(image/jpg image/jpeg image/png image/gif)
