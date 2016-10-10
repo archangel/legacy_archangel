@@ -60,7 +60,7 @@ end
 # Pages
 Archangel::Page.find_or_create_by!(path: "home", slug: "home") do |item|
   item.title = "Welcome"
-  item.content = "Welcome to your new site."
+  item.content = "<p>Welcome to your new site.</p>"
   item.author_id = user.id
   item.published_at = Time.current
 end
