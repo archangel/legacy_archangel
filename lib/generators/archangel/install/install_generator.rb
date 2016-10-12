@@ -6,15 +6,23 @@ module Archangel
     class InstallGenerator < Rails::Generators::Base
       source_root File.expand_path("../templates", __FILE__)
 
-      class_option :admin_email, type: :string
-      class_option :admin_name, type: :string
-      class_option :admin_password, type: :string
-      class_option :admin_username, type: :string
+      class_option :admin_email, type: :string, desc: "Admin email address"
+      class_option :admin_name, type: :string, desc: "Admin name"
+      class_option :admin_password, type: :string, desc: "Admin password"
+      class_option :admin_username, type: :string, desc: "Admin username"
 
-      class_option :migrate, type: :boolean, default: true
-      class_option :quiet, type: :boolean, default: false
-      class_option :route_path, type: :string, default: ""
-      class_option :seed, type: :boolean, default: false
+      class_option :migrate, type: :boolean,
+                             default: true,
+                             desc: "Run database migrations"
+      class_option :quiet, type: :boolean,
+                           default: false,
+                           desc: "Silence is golden"
+      class_option :route_path, type: :string, default: "", desc: "Root path"
+      class_option :seed, type: :boolean, default: false, desc: "Seed database"
+
+      def provent_file_overwrite
+        say("Cannot run command from Archangel.") and exit if Rails.root.nil?
+      end
 
       def create_assets
         say_quietly "Copying Archangel vendor assets..."
