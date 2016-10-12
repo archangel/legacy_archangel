@@ -6,8 +6,10 @@ module Archangel
     class DummyGenerator < Rails::Generators::Base
       desc "Creates blank Rails application, installs Archangel"
 
-      class_option :lib_name, default: ""
-      class_option :database, default: ""
+      class_option :lib_name, default: "", desc: "Library name"
+      class_option :database, default: "",
+                              desc: "Type of database to use in dummy app. " \
+                                    "Default: sqlite"
 
       PASSTHROUGH_OPTIONS = [
         :skip_active_record, :skip_javascript, :database, :javascript, :quiet,
