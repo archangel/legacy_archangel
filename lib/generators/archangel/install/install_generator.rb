@@ -20,10 +20,6 @@ module Archangel
       class_option :route_path, type: :string, default: "", desc: "Root path"
       class_option :seed, type: :boolean, default: false, desc: "Seed database"
 
-      def provent_file_overwrite
-        say("Cannot run command from Archangel.") and exit if Rails.root.nil?
-      end
-
       def create_assets
         say_quietly "Copying Archangel vendor assets..."
 
