@@ -68,9 +68,9 @@ module Archangel
     protected
 
     def unique_slug_per_level
-      unless unique_slug_per_level?
-        errors.add(:slug, Archangel.t("errors.duplicate_slug"))
-      end
+      return if unique_slug_per_level?
+
+      errors.add(:slug, Archangel.t("errors.duplicate_slug"))
     end
 
     def parameterize_slug

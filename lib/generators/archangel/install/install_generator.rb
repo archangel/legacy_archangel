@@ -35,14 +35,10 @@ module Archangel
         copy_file ".env.sample"
       end
 
-      def add_archangel_initializer
-        say_quietly "Copying Archangel configurations..."
-
-        copy_file "config/initializers/archangel.rb"
-      end
-
       def add_initializers
         say_quietly "Copying initializers..."
+
+        copy_file "config/initializers/archangel.rb"
 
         template "config/initializers/carrierwave.rb"
         template "config/initializers/devise.rb"
@@ -99,16 +95,7 @@ Archangel::Engine.load_seed
         if options[:migrate] && options[:seed]
           say_quietly "Inseminating..."
 
-          rake_options = [].tap do |collector|
-            %w(admin_email admin_name admin_password
-               admin_username).each do |word|
-              if options[word.to_sym]
-                collector << "#{word.to_s.upcase}=#{options[word.to_sym]}"
-              end
-            end
-          end
-
-          silence_warnings { rake "db:seed #{rake_options.join(" ")}" }
+          silence_warnings { rake "db:seed #{rake_seed_options.join(" ")}" }
         else
           say_quietly "Skipping seed data. Run `rake db:seed` yourself."
         end
@@ -120,8 +107,8 @@ Archangel::Engine.load_seed
         insert_into_file File.join("config", "routes.rb"),
                          after: "Rails.application.routes.draw do\n" do
           <<-ROUTES
-  # This line mounts Archangel's routes at the root of your application. If you
-  # would like to change where this engine is mounted, simply change the :at
+  # This mounts Archangel's routes at the root of your application. If you
+  # would like to change where the engine is mounted, simply change the :at
   # option to reflect your needs.
   mount Archangel::Engine, at: "/#{options[:route_path]}"
 
@@ -138,6 +125,16 @@ Archangel::Engine.load_seed
       end
 
       protected
+
+      def rake_seed_options
+        [].tap do |collector|
+          %w(admin_email admin_name admin_password admin_username).each do |opt|
+            if options[opt.to_sym]
+              collector << "#{opt.to_s.upcase}=#{options[opt.to_sym]}"
+            end
+          end
+        end
+      end
 
       def say_quietly(message)
         say message unless options[:quiet]
