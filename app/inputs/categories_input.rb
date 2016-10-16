@@ -10,7 +10,7 @@ class CategoriesInput < SimpleForm::Inputs::CollectionSelectInput
   protected
 
   def collection
-    @collection ||= object.tags
+    @collection ||= object.categories
   end
 
   def selected_options
