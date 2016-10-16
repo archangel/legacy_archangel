@@ -69,6 +69,7 @@ Archangel::Engine.routes.draw do
     # PATCH  /admin/categories/[ID]
     # PUT    /admin/categories/[ID]
     # DELETE /admin/categories/[ID]
+    # GET    /admin/categories/autocomplete
     resources :categories, concerns: [:paginatable] do
       collection do
         get "autocomplete"
@@ -108,6 +109,7 @@ Archangel::Engine.routes.draw do
     # PATCH  /admin/tags/[ID]
     # PUT    /admin/tags/[ID]
     # DELETE /admin/tags/[ID]
+    # GET    /admin/tags/autocomplete
     resources :tags, concerns: [:paginatable] do
       collection do
         get "autocomplete"
