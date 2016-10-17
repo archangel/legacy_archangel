@@ -16,13 +16,19 @@ module Archangel
 
     def datepicker_field_value(date, now = false)
       date_field_value(date,
-                       Archangel.t(:format, scope: :datetimepicker),
+                       Archangel.t(:date_format, scope: :datetimepicker),
+                       now)
+    end
+
+    def timepicker_field_value(date, now = false)
+      date_field_value(date,
+                       Archangel.t(:time_format, scope: :datetimepicker),
                        now)
     end
 
     def datetimepicker_field_value(date, now = false)
       date_field_value(date,
-                       Archangel.t(:time_format, scope: :datetimepicker),
+                       Archangel.t(:format, scope: :datetimepicker),
                        now)
     end
 

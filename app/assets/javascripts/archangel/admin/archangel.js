@@ -29,7 +29,7 @@
 //= require archangel/resources/trumbowyg
 //
 // Archangel common theme scripts
-//= require archangel/common/objects/translations
+//= require archangel/common/objects/translations/datetimepicker
 //
 // Archangel section theme scripts
 // n/a
