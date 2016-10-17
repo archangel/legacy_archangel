@@ -48,6 +48,28 @@ module Archangel
       end
     end
 
+    context "#timepicker_field_value(date, now)" do
+      it "uses current, formatted time for value" do
+        now = Time.current
+
+        expect(helper.timepicker_field_value(nil, true)).to eq(
+          now.strftime("%H:%M")
+        )
+      end
+
+      it "uses specified, formatted time for value" do
+        date = DateTime.parse("1979-11-24 06:24:18")
+
+        expect(helper.timepicker_field_value(date)).to eq(
+          "06:24"
+        )
+      end
+
+      it "sets the date to empty with empty date" do
+        expect(helper.timepicker_field_value(nil)).to eq nil
+      end
+    end
+
     context "#datetimepicker_field_value(date, now)" do
       it "uses current, formatted date for value" do
         now = Time.current
