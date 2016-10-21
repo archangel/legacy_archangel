@@ -1,5 +1,7 @@
 module Archangel
   class ApplicationController < BaseController
+    include Archangel::ActionableConcern
+
     helper Archangel::ApplicationHelper
 
     rescue_from ActionController::UnknownController,

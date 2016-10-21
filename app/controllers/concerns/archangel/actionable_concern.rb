@@ -9,7 +9,7 @@ module Archangel
                     :new_action?,
                     :edit_action?,
                     :member_action?,
-                    :update_action?,
+                    :save_action?,
                     :restful_action?,
                     :action
     end
@@ -19,31 +19,31 @@ module Archangel
     end
 
     def index_action?
-      action == :index
+      action?(:index)
     end
 
     def show_action?
-      action == :show
+      action?(:show)
     end
 
     def new_action?
-      action == :new
+      action?(:new)
     end
 
     def edit_action?
-      action == :edit
+      action?(:edit)
     end
 
     def member_action?
-      !collection_actions.include?(action)
+      member_actions.include?(action)
     end
 
-    def update_action?
-      update_actions.include?(action)
+    def save_action?
+      save_actions.include?(action)
     end
 
     def restful_action?
-      !restful_actions.include?(action)
+      restful_actions.include?(action)
     end
 
     def action
@@ -52,23 +52,19 @@ module Archangel
 
     protected
 
+    def action?(action_method)
+      action == action_method.to_sym
+    end
+
     def collection_actions
       [:index]
     end
 
-    def resource_actions
+    def member_actions
       [:show, :edit, :update, :destroy]
     end
 
-    def new_actions
-      [:new, :create]
-    end
-
-    def update_actions
-      [:new, :edit]
-    end
-
-    def commit_actions
+    def save_actions
       [:create, :update, :destroy]
     end
 
