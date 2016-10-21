@@ -14,7 +14,7 @@ module Archangel
       if image_formats.include?(type)
         model.file.versions[version_name].url
       else
-        format_path("asset.png")
+        default_path
       end
     end
 
@@ -29,10 +29,6 @@ module Archangel
     end
 
     protected
-
-    def format_path(asset)
-      "archangel/resources/mime/" + [version_name, asset].compact.join("_")
-    end
 
     def image_format?(new_file)
       image_formats.include?(new_file.content_type)

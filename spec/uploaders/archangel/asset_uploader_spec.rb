@@ -6,9 +6,7 @@ module Archangel
     let(:uploader) { AssetUploader.new(asset, :file) }
 
     it "allows certain extensions" do
-      expect(subject.extension_white_list).to(
-        eq Archangel.configuration.attachment_white_list
-      )
+      expect(subject.extension_white_list).to eq %w(gif jpeg jpg png)
     end
 
     context "with image file" do
