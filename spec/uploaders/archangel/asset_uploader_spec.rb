@@ -5,6 +5,12 @@ module Archangel
     let(:asset) { create(:asset) }
     let(:uploader) { AssetUploader.new(asset, :file) }
 
+    it "allows certain extensions" do
+      expect(subject.extension_white_list).to(
+        eq Archangel.configuration.attachment_white_list
+      )
+    end
+
     context "with image file" do
       before do
         Archangel::AssetUploader.enable_processing = true
