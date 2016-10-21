@@ -1,10 +1,10 @@
 require "rails_helper"
 
 module Archangel
-  class FoosController < ApplicationController; end
+  class FakeApplicationController < ApplicationController; end
 
   RSpec.describe ApplicationController, type: :controller do
-    controller FoosController do
+    controller FakeApplicationController do
       include Archangel::ActionableConcern
 
       def index
@@ -161,7 +161,7 @@ module Archangel
 
     describe "GET #custom" do
       it "knows custom action types" do
-        routes.draw { get "custom" => "archangel/foos#custom" }
+        routes.draw { get "custom" => "archangel/fake_application#custom" }
 
         get :custom
 
