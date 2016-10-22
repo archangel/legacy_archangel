@@ -30,6 +30,7 @@
 //
 // Archangel common theme scripts
 //= require archangel/common/objects/translations/datetimepicker
+//= require archangel/common/objects/routes/admin
 //
 // Archangel section theme scripts
 // n/a

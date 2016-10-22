@@ -1,0 +1,85 @@
+(function(object) {
+
+  var mergeRecursive = function(obj1, obj2) {
+        for (var p in obj2) {
+          try {
+            if (obj2[p].constructor == Object) {
+              obj1[p] = mergeRecursive(obj1[p], obj2[p]);
+            } else {
+              obj1[p] = obj2[p];
+            }
+          } catch(e) {
+            obj1[p] = obj2[p];
+          }
+        }
+
+        return obj1;
+      };
+
+  object.route.admin = mergeRecursive(object.route.admin, {
+    // Assets
+    assets: object.adminPathFor("assets"),
+    new_asset: object.adminPathFor("assets/new"),
+    asset: function(id) {
+      return object.adminPathFor("assets/" + id);
+    },
+    edit_asset: function(id) {
+      return object.adminPathFor("assets/" + id + "/edit");
+    },
+    // Categories
+    categories: object.adminPathFor("categories"),
+    new_category: object.adminPathFor("categories/new"),
+    category: function(slug) {
+      return object.adminPathFor("categories/" + slug);
+    },
+    edit_category: function(slug) {
+      return object.adminPathFor("categories/" + slug + "/edit");
+    },
+    categories_autocomplete: function(term) {
+      return object.adminPathFor(
+        "categories/autocomplete?q[term]=" + term + "&q[_type]=query"
+      );
+    },
+    // Pages
+    pages: object.adminPathFor("pages"),
+    new_page: object.adminPathFor("pages/new"),
+    page: function(path) {
+      return object.adminPathFor("pages/" + path);
+    },
+    edit_page: function(path) {
+      return object.adminPathFor("pages/" + path + "/edit");
+    },
+    // Tags
+    tags: object.adminPathFor("tags"),
+    new_tag: object.adminPathFor("tags/new"),
+    tag: function(slug) {
+      return object.adminPathFor("tags/" + slug);
+    },
+    edit_tag: function(slug) {
+      return object.adminPathFor("tags/" + slug + "/edit");
+    },
+    tags_autocomplete: function(term) {
+      return object.adminPathFor(
+        "tags/autocomplete?q[term]=" + term + "&q[_type]=query"
+      );
+    },
+    // Users
+    users: object.adminPathFor("users"),
+    new_user: object.adminPathFor("users/new"),
+    user: function(username) {
+      return object.adminPathFor("users/" + username);
+    },
+    edit_user: function(username) {
+      return object.adminPathFor("users/" + username + "/edit");
+    },
+    // Profile
+    profile: object.adminPathFor("profile"),
+    edit_profile: object.adminPathFor("profile/edit"),
+    // Site
+    site: object.adminPathFor("site"),
+    edit_site: object.adminPathFor("site/edit")
+  });
+
+  return object;
+
+}(Archangel || {}));

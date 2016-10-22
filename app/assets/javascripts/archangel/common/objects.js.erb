@@ -1,9 +1,6 @@
 var Archangel = (function(object) {
 
-  var mountedAt = "", // TODO: Figure out where it's mounted at
-      adminPath = "admin", // TODO: Find admin path
-      authPath = "account", // TODO: Find auth path
-      serialize = function(obj, prefix) {
+  var serialize = function(obj, prefix) {
         var p,
             str = [];
 
@@ -20,7 +17,7 @@ var Archangel = (function(object) {
 
         return str.join("&");
       },
-      pathBuilder = function(path, prefix) {
+      pathBuilder = function(path) {
         var new_path = [];
 
         // Array to string
@@ -41,37 +38,46 @@ var Archangel = (function(object) {
           new_path = [encodeURIComponent(path)];
         }
 
-        final_path = new_path.join("/").toLowerCase();
+        final_path = new_path.filter(Boolean).join("/").toLowerCase();
 
-        // Prefix
-        if ( ! final_path.startsWith(prefix)) {
-          final_path = [prefix, final_path].join("/");
-        }
-
-        return final_path.toString();
+        return final_path;
       };
+
+  function mountScope() {
+    var mount = "<%= Rails.application.routes.url_helpers.archangel_path %>";
+
+    return mount.replace(/\/$/, "");
+  }
+
+  function adminScope() {
+    return "<%= Archangel.configuration.auth_path %>";
+  }
+
+  function authScope() {
+    return "<%= Archangel.configuration.auth_path %>";
+  }
 
   // Translations
   object.translation = {};
 
   // Where the Rails engine is mounted
   object.mountedAt = function() {
-    return mountedAt;
+    return mountScope();
   };
 
   // Archangel root path
   object.rootPath = function() {
-    return pathBuilder("", object.mountedAt());
+    return pathBuilder(mountScope());
   };
 
   // Archangel admin root path
   object.adminPath = function() {
-    return pathBuilder(adminPath, object.mountedAt());
+    return pathBuilder([mountScope(), adminScope()]);
   };
 
   // Archangel auth root path
   object.authPath = function() {
-    return pathBuilder(authPath, object.mountedAt());
+    return pathBuilder([mountScope(), authScope()]);
   };
 
   // Archangel route path
@@ -79,7 +85,7 @@ var Archangel = (function(object) {
     var final_path,
         options = serialize(args || {});
 
-    final_path = pathBuilder(path, object.mountedAt());
+    final_path = pathBuilder(path);
 
     // Query string
     if (options.length !== 0) {
@@ -91,20 +97,27 @@ var Archangel = (function(object) {
 
   // Archangel admin route path
   object.adminPathFor = function(path, args) {
-    return this.pathFor([object.adminPath(), path], args);
+    return this.pathFor([adminScope(), path], args);
   };
 
   // Archangel auth route path
   object.authPathFor = function(path, args) {
-    return this.pathFor([object.authPath(), path], args);
+    return this.pathFor([authScope(), path], args);
   };
 
   // Routes
   object.route = {
-    home: object.pathFor("home"), // TODO: Make this dynamic
+    home: object.rootPath(),
     root: object.rootPath(),
-    admin_root: object.adminPath(),
-    auth_root: object.authPath()
+    admin: {
+      root: object.adminPath()
+    },
+    auth: {
+      root: object.authPath()
+    },
+    page: function(path) {
+      return object.pathFor(path);
+    }
   };
 
   return object;
