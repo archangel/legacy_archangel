@@ -22,20 +22,18 @@ var Archangel = (function(object) {
 
         // Array to string
         if (path.constructor === Array) {
-          new_path = path.map(function(segment) {
-                       return encodeURIComponent(segment);
-                     });
+          new_path = path.map(function(segment) { return segment; });
         // Object to string
         } else if (path.constructor === Object) {
           new_path = Object.keys(path).map(function(resource) {
                        return [
-                         encodeURIComponent(resource),
-                         encodeURIComponent(path[resource])
+                         resource,
+                         path[resource]
                        ].join("/");
                      });
         // String
         } else if (path.constructor === String) {
-          new_path = [encodeURIComponent(path)];
+          new_path = [path];
         }
 
         final_path = new_path.filter(Boolean).join("/").toLowerCase();
@@ -50,7 +48,7 @@ var Archangel = (function(object) {
   }
 
   function adminScope() {
-    return "<%= Archangel.configuration.auth_path %>";
+    return "<%= Archangel.configuration.admin_path %>";
   }
 
   function authScope() {
@@ -92,31 +90,31 @@ var Archangel = (function(object) {
       final_path = final_path + "?" + options;
     }
 
-    return final_path.toString();
+    return final_path;
   };
 
   // Archangel admin route path
   object.adminPathFor = function(path, args) {
-    return this.pathFor([adminScope(), path], args);
+    return object.pathFor([adminScope(), path], args);
   };
 
   // Archangel auth route path
   object.authPathFor = function(path, args) {
-    return this.pathFor([authScope(), path], args);
+    return object.pathFor([authScope(), path], args);
   };
 
   // Routes
   object.route = {
-    home: object.rootPath(),
-    root: object.rootPath(),
+    home_path: object.rootPath(),
+    root_path: object.rootPath(),
     admin: {
-      root: object.adminPath()
+      root_path: object.adminPath()
     },
     auth: {
-      root: object.authPath()
+      root_path: object.authPath()
     },
-    page: function(path) {
-      return object.pathFor(path);
+    page_path: function(path) {
+      return this.pathFor(path);
     }
   };
 
