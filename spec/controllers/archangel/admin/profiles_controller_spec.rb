@@ -17,6 +17,14 @@ module Archangel
 
           expect(assigns(:profile)).to eq(profile)
         end
+
+        it "has default avatar for profile" do
+          archangel_get :show
+
+          expect(profile.avatar.url).to(
+            include("/assets/archangel/resources/avatar")
+          )
+        end
       end
 
       describe "GET #edit" do
@@ -28,6 +36,22 @@ module Archangel
       end
 
       describe "PUT #update" do
+        context "with avatar upload" do
+          let(:attributes) do
+            {
+              avatar: fixture_file_upload(uploader_test_image)
+            }
+          end
+
+          it "has avatar for @user" do
+            archangel_put :update, params: { profile: attributes }
+
+            expect(profile.avatar.url).to(
+              include("/uploads/archangel/user/avatar")
+            )
+          end
+        end
+
         context "with valid params, with password" do
           let(:attributes) do
             {
