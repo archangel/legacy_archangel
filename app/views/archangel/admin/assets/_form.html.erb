@@ -8,7 +8,13 @@
 
     <div class="form-group asset_file_object">
       <div class="col-sm-10 col-sm-offset-2">
-        <%= image_tag(f.object.file.thumb.url, alt: "") %>
+        <% if f.object.file? %>
+          <%= f.object.file %>
+        <% end %>
+
+        <div>
+          <%= image_tag(f.object.file.thumb.url, alt: "") %>
+        </div>
       </div>
     </div>
   </div>

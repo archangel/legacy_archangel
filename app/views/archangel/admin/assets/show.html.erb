@@ -21,6 +21,10 @@
     <p>
       <strong>File:</strong>
       <%= @asset.file %>
+
+      <div>
+        <%= image_tag(@asset.file.thumb.url) %>
+      </div>
     </p>
 
     <p>

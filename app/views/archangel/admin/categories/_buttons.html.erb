@@ -1,5 +1,5 @@
 <ul class="nav nav-pills">
-  <% if member_action? %>
+  <% if member_action? || new_action? %>
     <li><%= link_to(fa_icon("arrow-left", text: "Back"), admin_categories_path) %></li>
   <% end %>
 

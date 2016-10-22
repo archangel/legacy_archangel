@@ -5,16 +5,12 @@ module Archangel
     end
 
     def default_path
-      "archangel/resources/" + [version_name, "asset.png"].compact.join("_")
-    end
-
-    def type_url
       type = model.content_type
 
       if image_formats.include?(type)
         model.file.versions[version_name].url
       else
-        default_path
+        "archangel/resources/" + [version_name, "asset.png"].compact.join("_")
       end
     end
 
