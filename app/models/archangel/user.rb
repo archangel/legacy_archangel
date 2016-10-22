@@ -15,6 +15,10 @@ module Archangel
     mount_uploader :avatar, Archangel::AvatarUploader
 
     # Validation
+    validates :avatar, file_size: {
+                         less_than_or_equal_to:
+                           Archangel.configuration.image_maximum_file_size
+                       }
     validates :email, presence: true, uniqueness: true, email: true
     validates :name, presence: true
     validates :password, presence: true,

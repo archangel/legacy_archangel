@@ -10,6 +10,10 @@ module Archangel
     validates :name, presence: true
     validates :locale, presence: true,
                        inclusion: { in: Archangel::LANGUAGES }
+    validates :logo, file_size: {
+                       less_than_or_equal_to:
+                         Archangel.configuration.image_maximum_file_size
+                     }
 
     # Scope
     def self.current

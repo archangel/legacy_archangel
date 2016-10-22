@@ -6,7 +6,7 @@ module Archangel
     let(:uploader) { AssetUploader.new(asset, :file) }
 
     it "allows certain extensions" do
-      expect(subject.extension_white_list).to eq %w(gif jpeg jpg png)
+      expect(subject.extension_whitelist).to eq %w(gif jpeg jpg png)
     end
 
     context "with image file" do
@@ -41,12 +41,16 @@ module Archangel
 
     context "with non-image file" do
       before do
+        Archangel.configuration.attachment_white_list.insert(0, "txt")
+
         Archangel::AssetUploader.enable_processing = true
 
         File.open(uploader_test_text) { |f| uploader.store!(f) }
       end
 
       after do
+        Archangel.configuration.attachment_white_list.delete_at(0)
+
         Archangel::AssetUploader.enable_processing = false
 
         uploader.remove!

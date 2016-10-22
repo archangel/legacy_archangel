@@ -100,7 +100,7 @@ module Archangel
         expect(subject.collection_action?).to be_falsey
         expect(subject.index_action?).to be_falsey
         expect(subject.show_action?).to be_falsey
-        expect(subject.new_action?).to be_falsey
+        expect(subject.new_action?).to be_truthy
         expect(subject.edit_action?).to be_falsey
         expect(subject.member_action?).to be_falsey
         expect(subject.save_action?).to be_truthy
@@ -135,7 +135,7 @@ module Archangel
         expect(subject.index_action?).to be_falsey
         expect(subject.show_action?).to be_falsey
         expect(subject.new_action?).to be_falsey
-        expect(subject.edit_action?).to be_falsey
+        expect(subject.edit_action?).to be_truthy
         expect(subject.member_action?).to be_truthy
         expect(subject.save_action?).to be_truthy
         expect(subject.restful_action?).to be_truthy

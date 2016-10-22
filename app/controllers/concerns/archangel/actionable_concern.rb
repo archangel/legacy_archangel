@@ -27,11 +27,11 @@ module Archangel
     end
 
     def new_action?
-      action?(:new)
+      [:new, :create].include?(action)
     end
 
     def edit_action?
-      action?(:edit)
+      [:edit, :update].include?(action)
     end
 
     def member_action?

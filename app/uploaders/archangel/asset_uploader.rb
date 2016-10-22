@@ -1,6 +1,6 @@
 module Archangel
   class AssetUploader < BaseUploader
-    def extension_white_list
+    def extension_whitelist
       Archangel.configuration.attachment_white_list
     end
 
