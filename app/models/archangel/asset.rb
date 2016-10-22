@@ -1,5 +1,8 @@
 module Archangel
   class Asset < ApplicationRecord
+    # Callbacks
+    before_save :save_asset_attributes
+
     # Uploader
     mount_uploader :file, Archangel::AssetUploader
 
@@ -18,5 +21,14 @@ module Archangel
 
     # Default scope
     default_scope { order(created_at: :desc) }
+
+    protected
+
+    def save_asset_attributes
+      if file.present? && file_changed?
+        self.content_type = file.file.content_type
+        self.file_size = file.file.size
+      end
+    end
   end
 end

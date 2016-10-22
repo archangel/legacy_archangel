@@ -1,6 +1,8 @@
 require "carrierwave/test/matchers"
 
 RSpec.configure do |config|
+  include ActionDispatch::TestProcess
+
   config.include CarrierWave::Test::Matchers, type: :uploader
 
   config.after(:all) do

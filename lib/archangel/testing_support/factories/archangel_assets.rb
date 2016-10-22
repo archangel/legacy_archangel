@@ -3,10 +3,10 @@ FactoryGirl.define do
     association :assetable, factory: :page
     uploader
     title "Asset File"
-    file { File.new(uploader_test_image) }
+    file { fixture_file_upload(uploader_test_image) }
 
     trait :text_file do
-      file { File.new(uploader_test_text) }
+      file { fixture_file_upload(uploader_test_text) }
     end
   end
 end

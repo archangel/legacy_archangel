@@ -23,6 +23,32 @@ module Archangel
 
           expect(assigns(:asset)).to eq(asset)
         end
+
+        it "builds url using uploaded image" do
+          asset = create(:asset)
+
+          expect(asset.file.mini.url).to(
+            include("/uploads/archangel/asset/file/#{asset.id}/mini_image.gif")
+          )
+        end
+
+        context "with non-image file" do
+          before do
+            Archangel.configuration.attachment_white_list.insert(0, "txt")
+          end
+
+          after do
+            Archangel.configuration.attachment_white_list.delete_at(0)
+          end
+
+          it "builds url using default image" do
+            asset = create(:asset, :text_file)
+
+            expect(asset.file.mini.url).to(
+              match(/\/assets\/archangel\/resources\/mini_asset(.*)\.png/)
+            )
+          end
+        end
       end
 
       describe "GET #new" do

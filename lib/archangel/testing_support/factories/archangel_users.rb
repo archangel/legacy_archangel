@@ -9,7 +9,7 @@ FactoryGirl.define do
     confirmation_sent_at { Time.current }
 
     trait :avatar do
-      avatar { File.new(uploader_test_image) }
+      avatar { fixture_file_upload(uploader_test_image) }
     end
 
     trait :unconfirmed do

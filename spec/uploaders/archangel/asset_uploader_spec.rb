@@ -13,7 +13,7 @@ module Archangel
       before do
         Archangel::AssetUploader.enable_processing = true
 
-        File.open(uploader_test_image) { |f| uploader.store!(f) }
+        uploader.store!(fixture_file_upload(uploader_test_image))
       end
 
       after do
@@ -45,7 +45,7 @@ module Archangel
 
         Archangel::AssetUploader.enable_processing = true
 
-        File.open(uploader_test_text) { |f| uploader.store!(f) }
+        uploader.store!(fixture_file_upload(uploader_test_text))
       end
 
       after do

@@ -10,10 +10,6 @@ module Archangel
       ActionController::Base.helpers.asset_path(default_path)
     end
 
-    def default_path
-      "archangel/resources/" + [version_name, "default.png"].compact.join("_")
-    end
-
     def extension_whitelist
       Archangel.configuration.image_white_list
     end

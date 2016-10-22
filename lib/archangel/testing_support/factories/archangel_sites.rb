@@ -5,7 +5,7 @@ FactoryGirl.define do
     meta_description "This is the default description of the site."
 
     trait :logo do
-      logo { File.new(uploader_test_image) }
+      logo { fixture_file_upload(uploader_test_image) }
     end
   end
 end
