@@ -72,7 +72,7 @@ Archangel::Engine.routes.draw do
     # GET    /admin/categories/autocomplete
     resources :categories, concerns: [:paginatable] do
       collection do
-        get "autocomplete"
+        get "autocomplete", defaults: { format: :json }
       end
     end
 
@@ -112,7 +112,7 @@ Archangel::Engine.routes.draw do
     # GET    /admin/tags/autocomplete
     resources :tags, concerns: [:paginatable] do
       collection do
-        get "autocomplete"
+        get "autocomplete", defaults: { format: :json }
       end
     end
 

@@ -48,11 +48,11 @@ module Archangel
       end
 
       def autocomplete
-        query = autocomplete_params.fetch(:term)
+        query = params.fetch(:q, "").to_s.strip
 
-        @categories = Archangel::Category.where("name like ?", "%#{query}%")
-                                         .order(:name)
-                                         .limit(25)
+        @q = Archangel::Category.ransack(description_or_name_cont: query)
+
+        @categories = @q.result(distinct: true).order(:name).limit(25)
 
         authorize @categories
 
@@ -65,10 +65,6 @@ module Archangel
         [
           :description, :name, :slug
         ]
-      end
-
-      def autocomplete_params
-        params.require(:q).permit(:term)
       end
 
       def category_params

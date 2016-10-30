@@ -11,9 +11,9 @@ $.fn.inputSelectTags = function () {
       delay: 500,
       url: "/admin/tags/autocomplete.json",
       width: "100%",
-      data: function (term) {
+      data: function (params) {
         return {
-          q: term
+          q: params.term
         };
       },
       processResults: function (data) {

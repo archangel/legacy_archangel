@@ -42,6 +42,7 @@ Gem::Specification.new do |s|
   s.add_dependency "momentjs-rails", "~> 2.11"
   s.add_dependency "paranoia", "~> 2.2"
   s.add_dependency "pundit", "~> 1.1"
+  s.add_dependency "ransack", "~> 1.8"
   s.add_dependency "responders", "~> 2.2"
   s.add_dependency "select2-rails", "~> 4.0"
   s.add_dependency "simple_form", "~> 3.2"

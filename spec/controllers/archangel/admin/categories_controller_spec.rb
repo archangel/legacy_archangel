@@ -169,7 +169,7 @@ module Archangel
         it "queries for @categories" do
           category = create(:category, name: "Foo Bar")
 
-          archangel_get :autocomplete, params: { q: { term: "foo" } }
+          archangel_get :autocomplete, params: { q: "foo" }
 
           expect(assigns(:categories)).to eq([category])
         end

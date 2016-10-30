@@ -169,7 +169,7 @@ module Archangel
         it "queries for @tags" do
           tag = create(:tag, name: "Foo Bar")
 
-          archangel_get :autocomplete, params: { q: { term: "foo" } }
+          archangel_get :autocomplete, params: { q: "foo" }
 
           expect(assigns(:tags)).to eq([tag])
         end

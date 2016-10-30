@@ -11,9 +11,9 @@ $.fn.inputSelectCategories = function () {
       delay: 500,
       url: "/admin/categories/autocomplete.json",
       width: "100%",
-      data: function (term) {
+      data: function (params) {
         return {
-          q: term
+          q: params.term
         };
       },
       processResults: function (data) {
