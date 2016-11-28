@@ -42,7 +42,7 @@ module Archangel
     end
 
     def configuration
-      @configuration ||= Settings.new
+      @configuration ||= Configuration.new
     end
   end
 end

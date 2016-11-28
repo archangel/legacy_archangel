@@ -9,7 +9,7 @@ module Archangel
 
     initializer "archangel.environment",
                 before: :load_config_initializers do |app|
-      app.config.archangel = Configuration.new(config: %w(archangel))
+      app.config.archangel = Settings.new(config: %w(archangel))
     end
 
     config.generators do |g|

@@ -1,33 +1,42 @@
+require "forwardable"
+
 module Archangel
   class Settings
-    DEFAULT_VALUE = nil
+    extend Forwardable
 
-    attr_accessor :admin_path, :application, :attachment_maximum_file_size,
-                  :attachment_white_list, :auth_path, :image_maximum_file_size,
-                  :image_white_list
+    attr_reader :hash
 
-    def initialize
-      @admin_path = "admin"
-      @application = "archangel"
-      @attachment_maximum_file_size = 2.megabytes
-      @attachment_white_list = %w(gif jpeg jpg png)
-      @auth_path = "account"
-      @image_maximum_file_size = 2.megabytes
-      @image_white_list = %w(gif jpeg jpg png)
+    def_delegators :hash, :key?, :[], :[]=, :to_hash, :to_json, :inspect
+
+    def initialize(hash = {})
+      @hash = if hash.respond_to?(:with_indifferent_access)
+                hash.with_indifferent_access
+              else
+                hash
+              end
     end
 
-    def method_missing(method_name, *args)
-      super(method_name, *args)
-    rescue NoMethodError
-      method = method_name.to_s
+    def add(key, value = nil)
+      hash[key.to_sym] = value.is_a?(Hash) ? Settings.new(value) : value
+    end
 
-      if method[-1] == "?"
-        column = method.sub("?", "")
+    protected
 
-        send(column.to_sym, *args) != DEFAULT_VALUE
+    def method_missing(method_name, *_args, &_block)
+      if method_name.to_s[-1] == "?"
+        key?(method_name.to_s[0..-2])
+      elsif key?(method_name)
+        value = hash[method_name]
+
+        value.is_a?(Hash) ? Settings.new(value) : value
       else
-        DEFAULT_VALUE
+        # TODO: Notify when key not loaded?
+        default_value
       end
+    end
+
+    def default_value
+      nil
     end
   end
 end
