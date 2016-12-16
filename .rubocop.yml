@@ -17,7 +17,7 @@ ModuleLength:
   Enabled: false
 
 Documentation:
-  Enabled: false
+  Enabled: true
 
 DotPosition:
   EnforcedStyle: leading

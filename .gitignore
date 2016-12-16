@@ -1,5 +1,7 @@
 .bundle/
+.yardoc/
 coverage/
+doc/
 pkg/
 spec/dummy/
 tmp/

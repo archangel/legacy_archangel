@@ -16,6 +16,7 @@ This project rocks and uses MIT-LICENSE.
 * [Installation](#installation)
 * [Updating](#updating)
 * [Testing](#testing)
+* [Documentation](#documentation)
 * [Code Analysis](#code-analysis)
 * [Contributing](#contributing)
 
@@ -102,6 +103,14 @@ You can also enable fail fast in order to stop tests at the first failure
 
 ```
 bundle exec rspec spec --fail-fast
+```
+
+## Documentation
+
+[Yard](https://github.com/lsegal/yard) is used to generate documentation.
+
+```
+yard
 ```
 
 ## Code Analysis

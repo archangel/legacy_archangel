@@ -6,6 +6,7 @@ group :development do
   gem "brakeman"
   gem "rubocop"
   gem "scss_lint"
+  gem "yard", "~> 0.9.5"
 end
 
 group :development, :test do
