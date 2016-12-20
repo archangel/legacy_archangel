@@ -9,17 +9,6 @@
 
 This project rocks and uses MIT-LICENSE.
 
-## Table of contents
-
-* [Requirements](#requirements)
-* [Deploying to Heroku](#deploying-to-heroku)
-* [Installation](#installation)
-* [Updating](#updating)
-* [Testing](#testing)
-* [Documentation](#documentation)
-* [Code Analysis](#code-analysis)
-* [Contributing](#contributing)
-
 ## Requirements
 
 - Ruby >= 2.2.2

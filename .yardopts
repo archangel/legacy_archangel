@@ -6,4 +6,4 @@ lib/**/*.rb
 -
 README.md
 MIT-LICENSE
-COMMAND.md
+docs/**/*.md
