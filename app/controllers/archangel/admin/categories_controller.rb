@@ -1,15 +1,14 @@
 module Archangel
   module Admin
     class CategoriesController < AdminController
-      before_action :set_category, only: [:show, :new, :edit, :update, :destroy]
+      before_action :set_categories, only: [:index]
+      before_action :set_new_category, only: [:create, :new]
+      before_action :set_category, only: [:destroy, :edit, :show, :update]
+      before_action :set_autocomplete_categories, only: [:autocomplete]
 
       helper Archangel::Admin::CategoriesHelper
 
       def index
-        @categories = Archangel::Category.page(params[:page]).per(per_page)
-
-        authorize @categories
-
         respond_with @categories
       end
 
@@ -21,18 +20,14 @@ module Archangel
         respond_with @category
       end
 
-      def edit
-        respond_with @category
-      end
-
       def create
-        @category = Archangel::Category.new(category_params)
-
-        authorize @category
-
         @category.save
 
         respond_with @category, location: -> { admin_categories_path }
+      end
+
+      def edit
+        respond_with @category
       end
 
       def update
@@ -48,14 +43,6 @@ module Archangel
       end
 
       def autocomplete
-        query = params.fetch(:q, "").to_s.strip
-
-        @q = Archangel::Category.ransack(description_or_name_cont: query)
-
-        @categories = @q.result(distinct: true).order(:name).limit(25)
-
-        authorize @categories
-
         respond_with @categories
       end
 
@@ -71,14 +58,34 @@ module Archangel
         params.require(:category).permit(permitted_attributes)
       end
 
-      def set_category
-        if action_name.to_sym == :new
-          @category = Archangel::Category.new
-        else
-          @category = Archangel::Category.find_by!(slug: params[:id])
-        end
+      def set_categories
+        @categories = Archangel::Category.page(params[:page]).per(per_page)
+
+        authorize @categories
+      end
+
+      def set_new_category
+        new_params = action_name.to_sym == :create ? category_params : nil
+
+        @category = Archangel::Category.new(new_params)
 
         authorize @category
+      end
+
+      def set_category
+        @category = Archangel::Category.find_by!(slug: params[:id])
+
+        authorize @category
+      end
+
+      def set_autocomplete_categories
+        query = params.fetch(:q, "").to_s.strip
+
+        @q = Archangel::Category.ransack(description_or_name_cont: query)
+
+        @categories = @q.result(distinct: true).order(:name).limit(25)
+
+        authorize @categories
       end
     end
   end

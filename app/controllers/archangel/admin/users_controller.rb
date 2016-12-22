@@ -1,17 +1,13 @@
 module Archangel
   module Admin
     class UsersController < AdminController
-      before_action :set_user, only: [:show, :new, :edit, :update, :destroy]
+      before_action :set_users, only: [:index]
+      before_action :set_new_user, only: [:create, :new]
+      before_action :set_user, only: [:destroy, :edit, :show, :update]
 
       helper Archangel::Admin::UsersHelper
 
       def index
-        @users = Archangel::User.where.not(id: current_user.id)
-                                .page(params[:page])
-                                .per(per_page)
-
-        authorize @users
-
         respond_with @users
       end
 
@@ -23,16 +19,14 @@ module Archangel
         respond_with @user
       end
 
-      def edit
-        respond_with @user
-      end
-
       def create
-        @user = Archangel::User.invite!(user_params)
-
-        authorize @user
+        @user.invite! @user
 
         respond_with @user, location: -> { admin_users_path }
+      end
+
+      def edit
+        respond_with @user
       end
 
       def update
@@ -55,13 +49,29 @@ module Archangel
         ]
       end
 
-      def set_user
-        if action_name.to_sym == :new
-          @user = Archangel::User.new
+      def set_users
+        @users = Archangel::User.where.not(id: current_user.id)
+                                .page(params[:page])
+                                .per(per_page)
+
+        authorize @users
+      end
+
+      def set_new_user
+        if action_name.to_sym == :create
+          @user = Archangel::User.invite!(user_params) do |u|
+            u.skip_invitation = true
+          end
         else
-          @user = Archangel::User.where.not(id: current_user.id)
-                                 .find_by!(username: params[:id])
+          @user = Archangel::User.new
         end
+
+        authorize @user
+      end
+
+      def set_user
+        @user = Archangel::User.where.not(id: current_user.id)
+                               .find_by!(username: params[:id])
 
         authorize @user
       end

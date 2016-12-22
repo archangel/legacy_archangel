@@ -1,15 +1,13 @@
 module Archangel
   module Admin
     class PagesController < AdminController
-      before_action :set_page, only: [:show, :new, :edit, :update, :destroy]
+      before_action :set_pages, only: [:index]
+      before_action :set_new_page, only: [:create, :new]
+      before_action :set_page, only: [:destroy, :edit, :show, :update]
 
       helper Archangel::Admin::PagesHelper
 
       def index
-        @pages = Archangel::Page.page(params[:page]).per(per_page)
-
-        authorize @pages
-
         respond_with @pages
       end
 
@@ -21,18 +19,14 @@ module Archangel
         respond_with @page
       end
 
-      def edit
-        respond_with @page
-      end
-
       def create
-        @page = Archangel::Page.new(page_params)
-
-        authorize @page
-
         @page.save
 
         respond_with @page, location: -> { admin_pages_path }
+      end
+
+      def edit
+        respond_with @page
       end
 
       def update
@@ -63,12 +57,22 @@ module Archangel
         params.require(:page).permit(permitted_attributes)
       end
 
+      def set_pages
+        @pages = Archangel::Page.page(params[:page]).per(per_page)
+
+        authorize @pages
+      end
+
+      def set_new_page
+        new_params = action_name.to_sym == :create ? page_params : nil
+
+        @page = Archangel::Page.new(new_params)
+
+        authorize @page
+      end
+
       def set_page
-        @page = if action_name.to_sym == :new
-                  Archangel::Page.new
-                else
-                  Archangel::Page.find_by!(id: params[:id])
-                end
+        @page = Archangel::Page.find_by!(id: params[:id])
 
         authorize @page
       end

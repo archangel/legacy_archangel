@@ -1,17 +1,15 @@
 module Archangel
   module Admin
     class AssetsController < AdminController
-      before_action :set_asset, only: [:show, :new, :edit, :update, :destroy]
+      before_action :set_assets, only: [:index]
+      before_action :set_new_asset, only: [:create, :new]
+      before_action :set_asset, only: [:destroy, :edit, :show, :update]
 
       helper Archangel::Admin::AssetsHelper
 
       respond_to :json
 
       def index
-        @assets = Archangel::Asset.page(params[:page]).per(per_page)
-
-        authorize @assets
-
         respond_with @assets
       end
 
@@ -23,17 +21,7 @@ module Archangel
         respond_with @asset
       end
 
-      def edit
-        respond_with @asset
-      end
-
       def create
-        params = request.xhr? ? asset_xhr_params : asset_params
-
-        @asset = Archangel::Asset.new(params)
-
-        authorize @asset
-
         @asset.save
 
         respond_to do |format|
@@ -44,6 +32,10 @@ module Archangel
             render json: { success: true, file: @asset.file.url }
           end
         end
+      end
+
+      def edit
+        respond_with @asset
       end
 
       def update
@@ -77,12 +69,26 @@ module Archangel
               .merge(uploader_id: current_user.id)
       end
 
+      def set_assets
+        @assets = Archangel::Asset.page(params[:page]).per(per_page)
+
+        authorize @assets
+      end
+
+      def set_new_asset
+        if action_name.to_sym == :create
+          params = request.xhr? ? asset_xhr_params : asset_params
+
+          @asset = Archangel::Asset.new(params)
+        else
+          @asset = Archangel::Asset.new
+        end
+
+        authorize @asset
+      end
+
       def set_asset
-        @asset = if action_name.to_sym == :new
-                   Archangel::Asset.new
-                 else
-                   Archangel::Asset.find_by!(id: params[:id])
-                 end
+        @asset = Archangel::Asset.find_by!(id: params[:id])
 
         authorize @asset
       end
