@@ -1,5 +1,8 @@
 ---
-IrresponsibleModule:
-  enabled: true
 exclude_paths:
+  - db/migrate
   - spec/dummy
+
+"spec":
+  IrresponsibleModule:
+    enabled: false

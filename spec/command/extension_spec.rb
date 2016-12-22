@@ -63,14 +63,14 @@ module Archangel
 
       def glob_directories_in(extension_path)
         Dir.glob("#{extension_path}/*")
-           .select { |f| !File.file?(f) }
-           .map { |f| File.basename(f) }
+           .select { |file| !File.file?(file) }
+           .map { |file| File.basename(file) }
       end
 
       def glob_files_in(extension_path)
         Dir.glob("#{extension_path}/{.[^\.]*,*}")
-           .select { |f| File.file?(f) }
-           .map { |f| File.basename(f) }
+           .select { |file| File.file?(file) }
+           .map { |file| File.basename(file) }
       end
     end
   end
