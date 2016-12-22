@@ -65,6 +65,14 @@ module Archangel
       joins(:tags).where("archangel_tags.slug = ?", tag)
     }
 
+    scope :previous_post, lambda { |post|
+      where("published_at < ?", post.published_at)
+    }
+
+    scope :next_post, lambda { |post|
+      where("published_at > ?", post.published_at)
+    }
+
     protected
 
     def parameterize_slug

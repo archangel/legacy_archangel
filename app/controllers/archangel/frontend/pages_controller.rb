@@ -16,13 +16,15 @@ module Archangel
         # Make this configurable to set any page as the home page
         redirect_to root_path, status: :moved_permanently if intended_home_page?
 
-        path = params[:path] ||= "home"
-
-        @page = Archangel::Page.find_by!(path: path)
+        @page = Archangel::Page.find_by!(path: find_page_path)
       end
 
       def intended_home_page?
-        params[:path] == "home"
+        params.fetch(:path, nil) == "home"
+      end
+
+      def find_page_path
+        params.fetch(:path, "home")
       end
     end
   end

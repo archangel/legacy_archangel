@@ -4,6 +4,8 @@
 
 <div class="panel panel-default">
   <div class="panel-body">
+    <%= render "pager" %>
+
     <article id="article_<%= @post.id %>" class="article">
       <div class="article-title text-center">
         <h2><%= @post.title %></h2>
@@ -51,5 +53,7 @@
         <%= @post.content.html_safe %>
       </div>
     </article>
+
+    <%= render "pager" %>
   </div>
 </div>
