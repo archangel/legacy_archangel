@@ -1,7 +1,12 @@
+require "archangel/application_responder"
+
 module Archangel
-  class ApplicationController < BaseController
+  class ApplicationController < ActionController::Base
     include Archangel::ActionableConcern
 
+    protect_from_forgery with: :exception
+
+    helper Archangel::FlashHelper
     helper Archangel::ApplicationHelper
 
     rescue_from ActionController::UnknownController,
@@ -11,10 +16,25 @@ module Archangel
 
     before_action :set_locale
 
+    layout :theme_resolver
+
+    respond_to :html, :json
+    responders :flash, :http_cache
+
+    helper_method :current_site
+
     protected
 
+    def current_site
+      @site ||= Archangel::Site.current
+    end
+
+    def theme_resolver
+      "archangel/layouts/frontend"
+    end
+
     def per_page
-      params[:limit] || Kaminari.config.default_per_page
+      params.fetch(:limit, Kaminari.config.default_per_page)
     end
 
     def set_locale

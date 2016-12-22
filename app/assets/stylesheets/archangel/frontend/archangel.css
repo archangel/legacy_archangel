@@ -6,8 +6,8 @@
  *= require hamburgers/hamburgers
  *
  * Third-party Archangel assets (from the vendor directory)
- *= require archangel/application
+ *= require archangel/frontend
  *
  * Archangel section theme styles
- *= require archangel/application/archangel/style
+ *= require archangel/frontend/archangel/style
  */

@@ -143,41 +143,49 @@ Archangel::Engine.routes.draw do
     root to: "dashboards#show"
   end
 
-  scope Archangel.configuration.posts_path do
-    # GET /posts
-    # GET /posts/page/[PAGE]
-    get "/(page/:page)", to: "posts#index", as: :posts
+  namespace :frontend, path: Archangel.configuration.frontend_path do
+    scope Archangel.configuration.posts_path do
+      # GET /posts
+      # GET /posts/page/[PAGE]
+      get "/(page/:page)", to: "posts#index", as: :posts
 
-    # GET /posts/[YYYY]
-    # GET /posts/[YYYY]/page/[PAGE]
-    get "/:year(/page/:page)", to: "posts#index",
-                  as: :posts_year,
-                  constraints: { year: /\d{4}/ }
+      # GET /posts/[YYYY]
+      # GET /posts/[YYYY]/page/[PAGE]
+      get "/:year(/page/:page)", to: "posts#index",
+                                 as: :posts_year,
+                                 constraints: { year: /\d{4}/ }
 
-    # GET /posts/[YYYY]/[MM]
-    # GET /posts/[YYYY]/[MM]/page/[PAGE]
-    get "/:year/:month(/page/:page)", to: "posts#index",
-                         as: :posts_year_month,
-                         constraints: { year: /\d{4}/, month: /\d{2}/ }
+      # GET /posts/[YYYY]/[MM]
+      # GET /posts/[YYYY]/[MM]/page/[PAGE]
+      get "/:year/:month(/page/:page)", to: "posts#index",
+                                        as: :posts_year_month,
+                                        constraints: {
+                                          year: /\d{4}/,
+                                          month: /\d{2}/
+                                        }
 
-    # GET /posts/[YYYY]/[MM]/[SLUG]
-    get "/:year/:month/:slug", to: "posts#show",
-                               as: :post,
-                               constraints: { year: /\d{4}/, month: /\d{2}/ }
+      # GET /posts/[YYYY]/[MM]/[SLUG]
+      get "/:year/:month/:slug", to: "posts#show",
+                                 as: :post,
+                                 constraints: { year: /\d{4}/, month: /\d{2}/ }
 
-     # GET /posts/category/[SLUG]
-     # GET /posts/category/[SLUG]/page/[PAGE]
-     get "/category/:slug(/page/:page)", to: "posts#category",
-                                             as: :posts_category
+      # GET /posts/category/[SLUG]
+      # GET /posts/category/[SLUG]/page/[PAGE]
+      get "/category/:slug(/page/:page)", to: "posts#category",
+                                          as: :posts_category
 
-     # GET /posts/tag/[SLUG]
-     # GET /posts/tag/[SLUG]/page/[PAGE]
-     get "/tag/:slug(/page/:page)", to: "posts#tag", as: :posts_tag
+      # GET /posts/tag/[SLUG]
+      # GET /posts/tag/[SLUG]/page/[PAGE]
+      get "/tag/:slug(/page/:page)", to: "posts#tag", as: :posts_tag
+    end
+
+    # GET /[PATH]
+    get "*path", to: "pages#show", as: :page
+
+    # GET /
+    root to: "pages#show"
   end
 
-  # GET /[PATH]
-  get "*path", to: "pages#show", as: :page
-
   # GET /
-  root to: "pages#show"
+  root to: "frontend/pages#show"
 end

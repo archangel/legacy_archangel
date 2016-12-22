@@ -3,8 +3,8 @@ module Archangel
     DEFAULT_VALUE = nil
 
     attr_accessor :admin_path, :application, :attachment_maximum_file_size,
-                  :attachment_white_list, :auth_path, :image_maximum_file_size,
-                  :image_white_list, :posts_path
+                  :attachment_white_list, :auth_path, :frontend_path,
+                  :image_maximum_file_size, :image_white_list, :posts_path
 
     def initialize
       @admin_path = "admin"
@@ -12,6 +12,7 @@ module Archangel
       @attachment_maximum_file_size = 2.megabytes
       @attachment_white_list = %w(gif jpeg jpg png)
       @auth_path = "account"
+      @frontend_path = ""
       @image_maximum_file_size = 2.megabytes
       @image_white_list = %w(gif jpeg jpg png)
       @posts_path = "posts"

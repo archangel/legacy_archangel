@@ -79,14 +79,15 @@ module Archangel
 
     def build_path_before_save
       year = published_at.nil? ? nil : published_at.year
-      month = published_at.nil? ? nil : "%02d" % published_at.month
+      month = published_at.nil? ? nil : format("%02d", published_at.month)
 
       self.path = [year, month, slug].compact.join("/")
     end
 
     def column_reset
       self.slug = "#{Time.current.to_i}_#{slug}"
-      self.save
+
+      save
     end
 
     def parse_keywords(keywords)

@@ -5,8 +5,7 @@ module Archangel
 
       helper Archangel::Admin::DashboardsHelper
 
-      def show
-      end
+      def show; end
     end
   end
 end

@@ -10,17 +10,17 @@ AllCops:
     - "config/initializers/simple_form.rb"
     - "config/initializers/simple_form_bootstrap.rb"
 
+Documentation:
+  Enabled: false
+
+DotPosition:
+  EnforcedStyle: leading
+
 LineLength:
   Max: 80
 
 ModuleLength:
   Enabled: false
-
-Documentation:
-  Enabled: true
-
-DotPosition:
-  EnforcedStyle: leading
 
 StringLiterals:
   EnforcedStyle: double_quotes

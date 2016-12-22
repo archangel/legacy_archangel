@@ -1,4 +1,4 @@
 module Archangel
-  module PagesHelper
+  module FrontendHelper
   end
 end

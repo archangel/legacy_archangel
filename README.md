@@ -53,13 +53,13 @@ Seed data can be created separately by running `rake db:seed`
 Subsequent updates can be done by bumping the version in your Gemfile then adding the new migrations
 
 ```
-rake archangel:install:migrations
+bundle exec rake archangel:install:migrations
 ```
 
 Run migrations
 
 ```
-rake db:migrate
+bundle exec rake db:migrate
 ```
 
 ## Testing

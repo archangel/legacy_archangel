@@ -4,14 +4,14 @@ module <%= class_name %>
       class_option :auto_run_migrations, type: :boolean, default: false
 
       def add_javascripts
-        %w(admin application auth).each do |section|
+        %w(admin auth frontend).each do |section|
           append_file "vendor/assets/javascripts/archangel/#{section}.js",
                       "//= require archangel/#{section}/<%= file_name %>\n"
         end
       end
 
       def add_stylesheets
-        %w(admin application auth).each do |section|
+        %w(admin auth frontend).each do |section|
           inject_into_file "vendor/assets/stylesheets/archangel/#{section}.css",
                            "*= require archangel/#{section}/<%= file_name %>\n ",
                            before: %r{\*/},

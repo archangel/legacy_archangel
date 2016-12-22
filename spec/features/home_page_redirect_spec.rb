@@ -5,7 +5,7 @@ RSpec.feature "Home page", type: :feature do
     it "redirects to /" do
       home = create(:page, :homepage)
 
-      visit archangel.page_path(home.path)
+      visit archangel.frontend_page_path(home.path)
 
       expect(page.current_path).to eq archangel.root_path
     end

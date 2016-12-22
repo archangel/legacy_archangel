@@ -1,6 +1,6 @@
 require "rails_helper"
 
 module Archangel
-  RSpec.describe PagesHelper, type: :helper do
+  RSpec.describe FrontendHelper, type: :helper do
   end
 end

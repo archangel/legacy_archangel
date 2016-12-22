@@ -23,7 +23,7 @@ module Archangel
       def create_assets
         say_quietly "Copying Archangel vendor assets..."
 
-        %w(admin application auth).each do |section|
+        %w(admin auth frontend).each do |section|
           copy_file "vendor/assets/javascripts/archangel/#{section}.js"
           copy_file "vendor/assets/stylesheets/archangel/#{section}.css"
         end

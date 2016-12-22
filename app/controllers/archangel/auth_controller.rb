@@ -1,5 +1,5 @@
 module Archangel
-  class AuthController < BaseController
+  class AuthController < ApplicationController
     helper Archangel::AuthHelper
 
     before_action :configure_permitted_parameters

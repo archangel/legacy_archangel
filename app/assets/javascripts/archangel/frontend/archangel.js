@@ -11,7 +11,7 @@
 //= require local_time
 //
 // Third-party Archangel assets (from the vendor directory)
-//= require archangel/application
+//= require archangel/frontend
 //
 // Internal assets
 // n/a
