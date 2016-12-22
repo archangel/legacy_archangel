@@ -126,6 +126,14 @@ yard server --reload
 rubocop
 ```
 
+### Reek
+
+[Reek](https://github.com/troessner/reek) is a code smell detector for Ruby.
+
+```
+reek
+```
+
 ### scss-lint
 
 [scss-lint](https://github.com/brigade/scss-lint) is a SCSS style analyzer.

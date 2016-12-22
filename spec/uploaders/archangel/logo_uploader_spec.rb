@@ -8,7 +8,7 @@ module Archangel
     before do
       Archangel::LogoUploader.enable_processing = true
 
-      File.open(uploader_test_image) { |f| uploader.store!(f) }
+      File.open(uploader_test_image) { |file| uploader.store!(file) }
     end
 
     after do
