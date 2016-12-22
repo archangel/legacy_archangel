@@ -1,4 +1,9 @@
 module Archangel
+  # Application authorization policies
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
   class ApplicationPolicy
     attr_reader :user, :record
 

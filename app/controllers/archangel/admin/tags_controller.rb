@@ -1,5 +1,10 @@
 module Archangel
   module Admin
+    # Admin tags controller
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     class TagsController < AdminController
       before_action :set_tags, only: [:index]
       before_action :set_new_tag, only: [:create, :new]

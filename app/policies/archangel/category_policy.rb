@@ -1,4 +1,9 @@
 module Archangel
+  # Cateogries authorization policies
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
   class CategoryPolicy < ApplicationPolicy
     def autocomplete?
       true

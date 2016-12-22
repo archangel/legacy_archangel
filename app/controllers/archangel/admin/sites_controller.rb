@@ -1,5 +1,10 @@
 module Archangel
   module Admin
+    # Admin site controller
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     class SitesController < AdminController
       before_action :set_site
 

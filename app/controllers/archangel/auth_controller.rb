@@ -1,4 +1,9 @@
 module Archangel
+  # Auth controller
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
   class AuthController < ApplicationController
     helper Archangel::AuthHelper
 

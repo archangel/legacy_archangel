@@ -1,9 +1,15 @@
 module Archangel
+  # Category model
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
   class Category < ApplicationRecord
     acts_as_paranoid
 
     # Callbacks
     before_validation :parameterize_slug
+
     after_destroy :column_reset
 
     # Validation

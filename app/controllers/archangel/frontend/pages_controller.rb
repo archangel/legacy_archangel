@@ -1,5 +1,10 @@
 module Archangel
   module Frontend
+    # Frontend pages controller
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     class PagesController < FrontendController
       before_action :set_page
 

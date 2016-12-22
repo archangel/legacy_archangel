@@ -1,4 +1,9 @@
 module Archangel
+  # Admin helpers
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
   module AdminHelper
     include FontAwesome::Rails::IconHelper
 

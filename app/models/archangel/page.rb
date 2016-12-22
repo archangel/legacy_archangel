@@ -1,4 +1,9 @@
 module Archangel
+  # Page model
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
   class Page < ApplicationRecord
     extend ActsAsTree::TreeView
 
@@ -7,8 +12,10 @@ module Archangel
 
     # Callbacks
     before_validation :parameterize_slug
+
     before_save :stringify_meta_keywords
     before_save :build_path_before_save
+
     after_destroy :column_reset
 
     # Validation

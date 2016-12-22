@@ -1,5 +1,10 @@
 module Archangel
   module Admin
+    # Admin posts controller
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     class PostsController < AdminController
       before_action :set_posts, only: [:index]
       before_action :set_new_post, only: [:create, :new]

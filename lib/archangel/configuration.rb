@@ -1,4 +1,9 @@
 module Archangel
+  # Application configurations
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
   class Configuration
     DEFAULT_VALUE = nil
 

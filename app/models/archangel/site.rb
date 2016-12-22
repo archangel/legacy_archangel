@@ -1,4 +1,9 @@
 module Archangel
+  # Site model
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
   class Site < ApplicationRecord
     # Uploader
     mount_uploader :logo, Archangel::LogoUploader
@@ -7,18 +12,16 @@ module Archangel
     before_save :stringify_meta_keywords
 
     # Validation
-    validates :name, presence: true
     validates :locale, presence: true,
                        inclusion: { in: Archangel::LANGUAGES }
     validates :logo, file_size: {
       less_than_or_equal_to: Archangel.configuration.image_maximum_file_size
     }
+    validates :name, presence: true
 
     # Scope
     def self.current
-      first_or_create do |site|
-        site.name = Archangel.t(:archangel)
-      end
+      first_or_create { |site| site.name = Archangel.t(:archangel) }
     end
 
     protected

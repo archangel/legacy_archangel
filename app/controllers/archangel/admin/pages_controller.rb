@@ -1,5 +1,10 @@
 module Archangel
   module Admin
+    # Admin pages controller
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     class PagesController < AdminController
       before_action :set_pages, only: [:index]
       before_action :set_new_page, only: [:create, :new]

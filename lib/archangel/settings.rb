@@ -1,6 +1,9 @@
-require "forwardable"
-
 module Archangel
+  # Application setting
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
   class Settings
     extend Forwardable
 

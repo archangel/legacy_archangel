@@ -1,4 +1,9 @@
 module Archangel
+  # Asset model
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
   class Asset < ApplicationRecord
     # Callbacks
     before_save :save_asset_attributes

@@ -1,6 +1,11 @@
 require "archangel/application_responder"
 
 module Archangel
+  # Application controller
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
   class ApplicationController < ActionController::Base
     include Archangel::ActionableConcern
 

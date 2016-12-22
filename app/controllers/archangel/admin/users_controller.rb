@@ -1,5 +1,10 @@
 module Archangel
   module Admin
+    # Admin users controller
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     class UsersController < AdminController
       before_action :set_users, only: [:index]
       before_action :set_new_user, only: [:create, :new]
@@ -7,34 +12,164 @@ module Archangel
 
       helper Archangel::Admin::UsersHelper
 
+      # List of all users
+      #
+      # = Request
+      #   GET /admin/users
+      #   GET /admin/users/page/:page
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Params
+      #   [Integer] page - the page number
+      #
+      # = Response
+      #   [
+      #     {
+      #       "id": 123,
+      #       "name": "John Doe",
+      #       "username": "john-doe"
+      #     }
+      #   ]
+      #
       def index
         respond_with @users
       end
 
+      # View a user
+      #
+      # = Request
+      #   GET /admin/users/:id
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Params
+      #   [Integer] id - the user ID
+      #
+      # = Response
+      #   {
+      #     "id": 123,
+      #     "name": "John Doe",
+      #     "username": "john-doe"
+      #   }
+      #
       def show
         respond_with @user
       end
 
+      # New user
+      #
+      # = Request
+      #   GET /admin/users/new
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Response
+      #   {
+      #     "id": 0,
+      #     "name": "",
+      #     "username": ""
+      #   }
+      #
       def new
         respond_with @user
       end
 
+      # Create a new user
+      #
+      # = Request
+      #   POST /admin/users
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Request
+      #   {
+      #     "user": {
+      #       "name": "John Doe",
+      #       "username": "john-doe"
+      #     }
+      #   }
+      #
+      # = Response
+      #   {
+      #     "id": 123,
+      #     "name": "John Doe",
+      #     "username": "john-doe"
+      #   }
+      #
       def create
         @user.invite! @user
 
         respond_with @user, location: -> { admin_users_path }
       end
 
+      # Edit a user
+      #
+      # = Request
+      #   GET /admin/users/:id/edit
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Response
+      #   {
+      #     "id": 123,
+      #     "name": "John Doe",
+      #     "slug": "john-doe"
+      #   }
+      #
       def edit
         respond_with @user
       end
 
+      # Update a user
+      #
+      # = Request
+      #   PATCH /admin/users/:id
+      #   PUT   /admin/users/:id
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Request
+      #   {
+      #     "user": {
+      #       "name": "John Doe",
+      #       "username": "john-doe"
+      #     }
+      #   }
+      #
+      # = Response
+      #   {
+      #     "id": 123,
+      #     "name": "John Doe",
+      #     "username": "john-doe"
+      #   }
+      #
       def update
         @user.update_without_password(user_params)
 
         respond_with @user, location: -> { admin_users_path }
       end
 
+      # Destroy a user
+      #
+      # This does not destroy the record. This only marks the user as
+      # deleted
+      #
+      # = Request
+      #   DELETE /admin/users/:id
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Params
+      #   [Integer] id - the user ID
+      #
       def destroy
         @user.destroy
 

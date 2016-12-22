@@ -1,5 +1,10 @@
 module Archangel
   module Admin
+    # Admin assets controller
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     class AssetsController < AdminController
       before_action :set_assets, only: [:index]
       before_action :set_new_asset, only: [:create, :new]

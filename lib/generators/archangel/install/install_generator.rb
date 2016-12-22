@@ -3,6 +3,11 @@ require "highline/import"
 
 module Archangel
   module Generators
+    # Install generator
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     class InstallGenerator < Rails::Generators::Base
       source_root File.expand_path("../templates", __FILE__)
 
@@ -126,18 +131,20 @@ Archangel::Engine.load_seed
 
       protected
 
-      def rake_seed_options
-        [].tap do |collector|
-          %w(admin_email admin_name admin_password admin_username).each do |opt|
-            if options[opt.to_sym]
-              collector << "#{opt.to_s.upcase}=#{options[opt.to_sym]}"
+      no_tasks do
+        def rake_seed_options
+          [].tap do |collector|
+            %w(admin_email admin_name admin_password admin_username).each do |o|
+              if options[o.to_sym]
+                collector << "#{o.to_s.upcase}=#{options[o.to_sym]}"
+              end
             end
           end
         end
-      end
 
-      def say_quietly(message)
-        say message unless options[:quiet]
+        def say_quietly(message)
+          say message unless options[:quiet]
+        end
       end
     end
   end

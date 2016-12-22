@@ -1,4 +1,9 @@
 module Archangel
+  # Admin controller
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
   class AdminController < ApplicationController
     include Pundit
 

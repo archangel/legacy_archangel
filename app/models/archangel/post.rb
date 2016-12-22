@@ -1,11 +1,18 @@
 module Archangel
+  # Post model
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
   class Post < ApplicationRecord
     acts_as_paranoid
 
     # Callbacks
     before_validation :parameterize_slug
+
     before_save :stringify_meta_keywords
     before_save :build_path_before_save
+
     after_destroy :column_reset
 
     # Uploader

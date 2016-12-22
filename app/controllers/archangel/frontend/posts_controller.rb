@@ -1,5 +1,10 @@
 module Archangel
   module Frontend
+    # Frontend posts controller
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     class PostsController < FrontendController
       before_action :set_posts, only: [:index]
       before_action :set_post, only: [:show]

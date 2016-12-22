@@ -1,4 +1,9 @@
 module Archangel
+  # Categorization model
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
   class Categorization < ApplicationRecord
     # Associations
     belongs_to :category

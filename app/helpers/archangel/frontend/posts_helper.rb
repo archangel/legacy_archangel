@@ -1,5 +1,10 @@
 module Archangel
   module Frontend
+    # Frontend posts helpers
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     module PostsHelper
       def author_link(post)
         link_to(post.author.name, "#")

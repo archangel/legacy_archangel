@@ -1,5 +1,10 @@
 module Archangel
   module Admin
+    # Admin profile controller
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     class ProfilesController < AdminController
       include Archangel::SkipAuthorizableConcern
 

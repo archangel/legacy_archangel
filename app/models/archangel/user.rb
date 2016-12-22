@@ -1,9 +1,15 @@
 module Archangel
+  # User model
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
   class User < ApplicationRecord
     acts_as_paranoid
 
     # Callbacks
     before_validation :parameterize_username
+
     after_destroy :column_reset
 
     # Devise

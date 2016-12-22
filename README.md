@@ -102,6 +102,18 @@ bundle exec rspec spec --fail-fast
 yard
 ```
 
+List all undocumented objects
+
+```
+yard stats --list-undoc
+```
+
+Yard server with auto-recompile
+
+```
+yard server --reload
+```
+
 ## Code Analysis
 
 [Hound](https://houndci.com/) is used as the code analyzer. When making a pull request, you may get comments on style and quality violations.
