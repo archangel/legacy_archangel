@@ -64,3 +64,12 @@ Archangel::Page.find_or_create_by!(path: "home", slug: "home") do |item|
   item.author_id = user.id
   item.published_at = Time.current
 end
+
+# Posts
+unless Archangel::Post.published.any?
+  Archangel::Post.create(title: "First Post",
+                         slug: "first-post",
+                         author_id: Archangel::User.first.id,
+                         content: "This is the body of the very first post.",
+                         published_at: Time.current)
+end

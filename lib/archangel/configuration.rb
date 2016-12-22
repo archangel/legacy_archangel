@@ -4,7 +4,7 @@ module Archangel
 
     attr_accessor :admin_path, :application, :attachment_maximum_file_size,
                   :attachment_white_list, :auth_path, :image_maximum_file_size,
-                  :image_white_list
+                  :image_white_list, :posts_path
 
     def initialize
       @admin_path = "admin"
@@ -14,6 +14,7 @@ module Archangel
       @auth_path = "account"
       @image_maximum_file_size = 2.megabytes
       @image_white_list = %w(gif jpeg jpg png)
+      @posts_path = "posts"
     end
 
     def method_missing(method_name, *args)

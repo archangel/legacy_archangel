@@ -1,0 +1,67 @@
+<% if @posts.any? %>
+
+  <%= paginate @posts %>
+
+  <% @posts.each do |post| %>
+
+    <article id="article_<%= post.id %>" class="article">
+      <div class="article-title text-center">
+        <h2><a href="<%= post_path(post) %>"><%= post.title %></a></h2>
+
+        <span class="text-muted">
+          <%= Archangel.t("posts.posted_on") %> <%= posted_at(post) %>
+        </span>
+      </div>
+
+      <div class="article-posted text-center">
+        <p>
+          <%= Archangel.t("posts.posted_by") %> <%= author_link(post) %>
+        </p>
+      </div>
+
+      <div class="article-feature">
+        <%= image_tag(post.feature.url, alt: "", class: "img-responsive") %>
+      </div>
+
+      <% if post.categories.any? %>
+        <div class="article-categories">
+          <h5>Categories:</h5>
+
+          <ul class="nav nav-pills">
+            <% post.categories.each do |category| %>
+              <li><%= link_to(category.name, posts_category_path(category.slug), { title: category.description }) %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <% if post.tags.any? %>
+        <div class="article-tags">
+          <h5>Tags:</h5>
+
+          <ul class="nav nav-pills">
+            <% post.tags.each do |tag| %>
+              <li><%= link_to(tag.name, posts_tag_path(tag.slug), { title: tag.description }) %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="article-body">
+        <%= post.content.html_safe %>
+      </div>
+    </article>
+
+  <% end %>
+
+  <%= paginate @posts %>
+
+<% else %>
+
+  <div class="no-resources">
+    <p>
+      <%= Archangel.t(:no_resources, resource: @posts.model_name.human.pluralize) %>
+    </p>
+  </div>
+
+<% end %>

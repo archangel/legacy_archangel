@@ -25,6 +25,13 @@
         </a>
       </li>
 
+      <li class="posts">
+        <a href="<%= admin_posts_path %>">
+          <%= fa_icon("rss lg") %>
+          <span class="nav-label"><%= Archangel.t(:posts, scope: :menu) %></span>
+        </a>
+      </li>
+
       <li class="categories">
         <a href="<%= admin_categories_path %>">
           <%= fa_icon("list-ul lg") %>

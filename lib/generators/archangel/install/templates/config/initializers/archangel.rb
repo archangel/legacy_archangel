@@ -7,7 +7,11 @@ Archangel.configure do |config|
   # Default is "account"
   # config.auth_path = "account"
 
-  # Application.
+  # Posts path.
+  # Default is "posts"
+  # config.posts_path = "posts"
+
+  # Application name.
   # Default is "archangel"
   # config.application = "archangel"
 
@@ -17,5 +21,5 @@ Archangel.configure do |config|
 
   # File upload extensions of attachments for upload.
   # Default is %w(jpg jpeg gif png)
-  # config.attachment_white_list = %w(jpg jpeg gif png)
+  # config.attachment_white_list = %w(gif jpg jpeg png)
 end

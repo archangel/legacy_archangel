@@ -60,6 +60,7 @@ en:
       dashboard: Dashboard
       categories: Categories
       pages: Pages
+      posts: Posts
       profile: Profile
       site: Site
       tags: Tags
@@ -67,6 +68,9 @@ en:
     no_resources: No %{resource} found.
     placeholder_users: Name or username contains
     placeholder_pages: Title or body contains
+    posts:
+      posted_by: by
+      posted_on: Posted on
     search: Search
     titles:
       list_section: "%{section}"

@@ -87,6 +87,18 @@ Archangel::Engine.routes.draw do
     # DELETE /admin/pages/[ID]
     resources :pages, concerns: [:paginatable]
 
+    # GET /admin/posts
+    # GET /admin/posts/page/[PAGE]
+    # GET /admin/posts
+    # POST /admin/posts
+    # GET /admin/posts/new
+    # GET /admin/posts/[ID]/edit
+    # GET /admin/posts/[ID]
+    # PATCH /admin/posts/[ID]
+    # PUT /admin/posts/[ID]
+    # DELETE /admin/posts/[ID]
+    resources :posts, concerns: [:paginatable]
+
     # GET    /admin/profile/edit
     # GET    /admin/profile
     # PATCH  /admin/profile
@@ -129,6 +141,38 @@ Archangel::Engine.routes.draw do
 
     # GET /admin
     root to: "dashboards#show"
+  end
+
+  scope Archangel.configuration.posts_path do
+    # GET /posts
+    # GET /posts/page/[PAGE]
+    get "/(page/:page)", to: "posts#index", as: :posts
+
+    # GET /posts/[YYYY]
+    # GET /posts/[YYYY]/page/[PAGE]
+    get "/:year(/page/:page)", to: "posts#index",
+                  as: :posts_year,
+                  constraints: { year: /\d{4}/ }
+
+    # GET /posts/[YYYY]/[MM]
+    # GET /posts/[YYYY]/[MM]/page/[PAGE]
+    get "/:year/:month(/page/:page)", to: "posts#index",
+                         as: :posts_year_month,
+                         constraints: { year: /\d{4}/, month: /\d{2}/ }
+
+    # GET /posts/[YYYY]/[MM]/[SLUG]
+    get "/:year/:month/:slug", to: "posts#show",
+                               as: :post,
+                               constraints: { year: /\d{4}/, month: /\d{2}/ }
+
+     # GET /posts/category/[SLUG]
+     # GET /posts/category/[SLUG]/page/[PAGE]
+     get "/category/:slug(/page/:page)", to: "posts#category",
+                                             as: :posts_category
+
+     # GET /posts/tag/[SLUG]
+     # GET /posts/tag/[SLUG]/page/[PAGE]
+     get "/tag/:slug(/page/:page)", to: "posts#tag", as: :posts_tag
   end
 
   # GET /[PATH]
