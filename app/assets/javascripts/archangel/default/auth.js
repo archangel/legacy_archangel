@@ -1,4 +1,4 @@
-// Default Archangel frontend theme
+// Default Archangel auth theme
 //
 // Archangel common theme variables
 //= require archangel/common/objects

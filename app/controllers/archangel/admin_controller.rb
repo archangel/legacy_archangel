@@ -17,7 +17,7 @@ module Archangel
     protected
 
     def theme_resolver
-      "archangel/layouts/admin"
+      "archangel/layouts/#{site_theme}/admin"
     end
   end
 end

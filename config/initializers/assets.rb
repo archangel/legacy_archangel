@@ -1,7 +1,7 @@
 Rails.application.config.assets.precompile += [
   "*.gif", "*.jpeg", "*.jpg", "*.png",
   "*.eot", "*.svg", "*.ttf", "*.woff", "*.woff2",
-  "archangel/admin/archangel.css", "archangel/admin/archangel.js",
-  "archangel/auth/archangel.css", "archangel/auth/archangel.js",
-  "archangel/frontend/archangel.css", "archangel/frontend/archangel.js"
+  "archangel/default/admin.css", "archangel/default/admin.js",
+  "archangel/default/auth.css", "archangel/default/auth.js",
+  "archangel/default/frontend.css", "archangel/default/frontend.js"
 ]

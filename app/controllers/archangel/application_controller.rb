@@ -34,8 +34,12 @@ module Archangel
       @site ||= Archangel::Site.current
     end
 
+    def site_theme
+      "default"
+    end
+
     def theme_resolver
-      "archangel/layouts/frontend"
+      "archangel/layouts/#{site_theme}/frontend"
     end
 
     def per_page

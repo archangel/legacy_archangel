@@ -8,5 +8,5 @@
  *= require archangel/auth
  *
  * Archangel section theme styles
- *= require archangel/auth/archangel/style
+ *= require archangel/default/auth/style
  */

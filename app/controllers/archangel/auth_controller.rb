@@ -12,7 +12,7 @@ module Archangel
     protected
 
     def theme_resolver
-      "archangel/layouts/auth"
+      "archangel/layouts/#{site_theme}/auth"
     end
 
     def configure_permitted_parameters
