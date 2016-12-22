@@ -1,5 +1,10 @@
 module Archangel
   module TestingSupport
+    # URL helper test support
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     module UrlHelpers
       def archangel
         Archangel::Engine.routes.url_helpers

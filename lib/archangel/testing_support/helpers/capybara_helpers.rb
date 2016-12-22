@@ -1,5 +1,10 @@
 module Archangel
   module TestingSupport
+    # Capybara helper test support
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     module CapybaraHelpers
       def within_row(num, &block)
         if RSpec.current_example.metadata[:js]

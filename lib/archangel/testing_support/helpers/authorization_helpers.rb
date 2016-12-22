@@ -1,5 +1,10 @@
 module Archangel
   module TestingSupport
+    # Authorization helper test support
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     module AuthorizationHelpers
       module Controller
         def stub_authorization!(user = double("user"))
