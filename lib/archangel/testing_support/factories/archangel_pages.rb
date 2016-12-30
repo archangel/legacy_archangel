@@ -9,7 +9,7 @@ FactoryGirl.define do
     published_at { Time.current }
 
     trait :homepage do
-      slug "home"
+      homepage true
     end
 
     trait :unpublished do

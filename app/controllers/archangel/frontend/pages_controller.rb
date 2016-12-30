@@ -11,25 +11,29 @@ module Archangel
       helper Archangel::Frontend::PagesHelper
 
       def show
+        if redirect_to_homepage?
+          return redirect_to root_path, status: :moved_permanently
+        end
+
         respond_with @page
       end
 
       protected
 
       def set_page
-        # TODO: This assumes the home page is a Page and its slug is `home`.
-        # Make this configurable to set any page as the home page
-        redirect_to root_path, status: :moved_permanently if intended_home_page?
+        page_path = params.fetch(:path, nil)
 
-        @page = Archangel::Page.find_by!(path: find_page_path)
+        @page = if page_path.nil?
+                  Archangel::Page.published.homepage.first
+                else
+                  Archangel::Page.published.find_by!(path: page_path)
+                end
       end
 
-      def intended_home_page?
-        params.fetch(:path, nil) == "home"
-      end
+      def redirect_to_homepage?
+        return false if @page.nil?
 
-      def find_page_path
-        params.fetch(:path, "home")
+        (params.fetch(:path, nil) == @page.path) && @page.homepage?
       end
     end
   end

@@ -18,6 +18,7 @@
     <%= f.input :meta_keywords, as: :meta_keywords, input_html: { multiple: true } %>
     <%= f.input :meta_description %>
     <%= f.input :published_at, as: :date_time_picker, input_html: { value: datetimepicker_field_value(f.object.published_at, f.object.new_record?) } %>
+    <%= f.input :homepage, as: :boolean %>
   </div>
 
   <div class="form-actions text-right">

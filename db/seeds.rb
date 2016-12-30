@@ -58,7 +58,8 @@ Archangel::Category.find_or_create_by!(slug: "unknown") do |item|
 end
 
 # Pages
-Archangel::Page.find_or_create_by!(path: "home", slug: "home") do |item|
+Archangel::Page.published.find_or_create_by!(homepage: true) do |item|
+  item.slug = "homepage-#{Time.now.to_i}"
   item.title = "Welcome"
   item.content = "<p>Welcome to your new site.</p>"
   item.author_id = user.id

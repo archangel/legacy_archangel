@@ -16,6 +16,8 @@ module Archangel
     before_save :stringify_meta_keywords
     before_save :build_path_before_save
 
+    after_save :homepage_reset
+
     after_destroy :column_reset
 
     # Validation
@@ -48,7 +50,9 @@ module Archangel
     default_scope { order(published_at: :desc) }
 
     # Scope
-    scope :published, -> { where("published_at <= ?", Time.now) }
+    scope :published, lambda {
+      where.not(published_at: nil).where("published_at <= ?", Time.now)
+    }
 
     scope :unpublished, lambda {
       where("published_at IS NULL OR published_at > ?", Time.now)
@@ -70,6 +74,10 @@ module Archangel
 
     scope :published_this_month, lambda {
       where(published_at: Time.now.beginning_of_month..Time.now)
+    }
+
+    scope :homepage, lambda {
+      where(homepage: true)
     }
 
     protected
@@ -94,6 +102,14 @@ module Archangel
       parent_path = parent.nil? ? nil : parent.path
 
       self.path = [parent_path, slug].compact.join("/")
+    end
+
+    def homepage_reset
+      return unless homepage?
+
+      Page.where(homepage: true)
+          .where.not(id: id)
+          .update_all(homepage: false)
     end
 
     def column_reset

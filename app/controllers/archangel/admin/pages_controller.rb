@@ -50,8 +50,8 @@ module Archangel
 
       def permitted_attributes
         [
-          :author_id, :content, :meta_description, :parent_id, :published_at,
-          :slug, :title,
+          :author_id, :content, :homepage, :meta_description, :parent_id,
+          :published_at, :slug, :title,
           meta_keywords: [],
           category_ids: [],
           tag_ids: []
