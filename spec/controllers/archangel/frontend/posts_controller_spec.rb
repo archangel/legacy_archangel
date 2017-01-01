@@ -33,7 +33,7 @@ module Archangel
           excluded_post = create(:post, published_at: 1.year.ago)
 
           archangel_get :index, params: {
-            year: Time.now.year
+            year: Time.now.utc.year
           }
 
           expect(assigns(:posts)).not_to include(excluded_post)
@@ -44,8 +44,8 @@ module Archangel
           excluded_post = create(:post, published_at: 1.year.ago)
 
           archangel_get :index, params: {
-            year: Time.now.year,
-            month: format("%02d", Time.now.month)
+            year: Time.now.utc.year,
+            month: format("%02d", Time.now.utc.month)
           }
 
           expect(assigns(:posts)).not_to include(excluded_post)
