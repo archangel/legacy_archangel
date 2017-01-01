@@ -10,6 +10,8 @@ module Archangel
     # Callbacks
     before_validation :parameterize_username
 
+    after_initialize :column_default
+
     after_destroy :column_reset
 
     # Devise
@@ -42,6 +44,12 @@ module Archangel
 
     def parameterize_username
       self.username = username.to_s.downcase.parameterize
+    end
+
+    def column_default
+      return unless self.new_record?
+
+      self.role = Archangel::ROLE_DEFAULT
     end
 
     def column_reset

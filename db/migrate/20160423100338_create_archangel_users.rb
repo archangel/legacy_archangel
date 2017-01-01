@@ -4,6 +4,7 @@ class CreateArchangelUsers < ActiveRecord::Migration[5.0]
       ## Common
       t.string :name, null: false, default: ""
       t.string :username, null: false, default: ""
+      t.string :role
       t.string :avatar
 
       ## Database authenticatable
@@ -53,12 +54,12 @@ class CreateArchangelUsers < ActiveRecord::Migration[5.0]
       t.timestamps
     end
 
-
     add_index :archangel_users, :confirmation_token,   unique: true
     add_index :archangel_users, :deleted_at
     add_index :archangel_users, :email,                unique: true
     add_index :archangel_users, :name
     add_index :archangel_users, :reset_password_token, unique: true
+    add_index :archangel_users, :role
     add_index :archangel_users, :unlock_token,         unique: true
     add_index :archangel_users, :username,             unique: true
   end

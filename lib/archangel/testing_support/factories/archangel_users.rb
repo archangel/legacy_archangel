@@ -12,6 +12,10 @@ FactoryGirl.define do
       avatar { fixture_file_upload(uploader_test_image) }
     end
 
+    trait :admin do
+      role "admin"
+    end
+
     trait :unconfirmed do
       confirmation_token nil
       confirmed_at nil

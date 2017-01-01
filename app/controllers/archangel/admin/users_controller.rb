@@ -180,7 +180,7 @@ module Archangel
 
       def permitted_attributes
         [
-          :email, :name, :remove_avatar, :username
+          :email, :name, :remove_avatar, :role, :username
         ]
       end
 

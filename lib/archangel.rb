@@ -28,6 +28,7 @@ require "archangel/engine"
 require "archangel/configuration"
 require "archangel/i18n"
 require "archangel/languages"
+require "archangel/roles"
 require "archangel/settings"
 require "archangel/version"
 
