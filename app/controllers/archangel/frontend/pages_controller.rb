@@ -24,7 +24,7 @@ module Archangel
         page_path = params.fetch(:path, nil)
 
         @page = if page_path.nil?
-                  Archangel::Page.published.homepage.first
+                  Archangel::Page.published.homepage.first!
                 else
                   Archangel::Page.published.find_by!(path: page_path)
                 end
