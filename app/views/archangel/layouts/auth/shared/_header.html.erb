@@ -1,7 +1,11 @@
-<header id="header">
-  <div>
-    <h1 class="logo-name"><%= image_tag(current_site.logo.thumb.url, alt: current_site.name) %></h1>
+<header id="header" class="text-center">
+  <div >
+    <h1 class="logo-name">
+      <%= image_tag(current_site.logo.thumb.url, alt: current_site.name) %>
+    </h1>
   </div>
 
-  <h3><%= Archangel.t(:welcome, site: current_site.name) %></h3>
+  <h3>
+    <%= Archangel.t(:welcome, site: current_site.name) %>
+  </h3>
 </header>

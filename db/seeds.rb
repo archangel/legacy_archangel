@@ -64,3 +64,6 @@ Archangel::Page.find_or_create_by!(path: "home", slug: "home") do |item|
   item.author_id = user.id
   item.published_at = Time.current
 end
+# Archangel seed data
+Archangel::Engine.load_seed
+
