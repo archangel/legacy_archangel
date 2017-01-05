@@ -51,8 +51,8 @@ module Archangel
       end
 
       def set_post_pager
-        @previous = Archangel::Post.published.previous_post(@post).first
-        @next = Archangel::Post.published.next_post(@post).first
+        @previous = @post.previous
+        @next = @post.next
       end
 
       def set_category_posts

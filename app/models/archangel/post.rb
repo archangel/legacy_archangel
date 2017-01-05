@@ -72,13 +72,17 @@ module Archangel
       joins(:tags).where("archangel_tags.slug = ?", tag)
     }
 
-    scope :previous_post, lambda { |post|
-      where("published_at < ?", post.published_at)
-    }
+    def next
+      return nil if published_at.nil?
 
-    scope :next_post, lambda { |post|
-      where("published_at > ?", post.published_at)
-    }
+      self.class.where("published_at > ?", published_at).first
+    end
+
+    def previous
+      return nil if published_at.nil?
+
+      self.class.where("published_at < ?", published_at).last
+    end
 
     protected
 
