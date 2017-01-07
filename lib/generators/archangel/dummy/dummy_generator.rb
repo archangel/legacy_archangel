@@ -22,6 +22,12 @@ module Archangel
         paths.flatten
       end
 
+      def prevent_application_dummy
+        return unless Rails.respond_to?(:root) && !Rails.root.nil?
+
+        abort "Dummy generator cannot be run outside Archangel extension."
+      end
+
       def clean_up
         remove_directory_if_exists(dummy_path)
       end

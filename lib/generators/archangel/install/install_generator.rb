@@ -25,6 +25,12 @@ module Archangel
       class_option :route_path, type: :string, default: "", desc: "Root path"
       class_option :seed, type: :boolean, default: false, desc: "Seed database"
 
+      def prevent_nested_install
+        return unless Rails.respond_to?(:root) && Rails.root.nil?
+
+        abort "Install generator cannot be run inside Archangel extension."
+      end
+
       def create_assets
         say_quietly "Copying Archangel vendor assets..."
 
