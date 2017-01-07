@@ -6,7 +6,7 @@ group :development do
   gem "brakeman", "~> 3.4.1"
   gem "reek", "~> 4.5.3"
   gem "rubocop", "~> 0.46.0"
-  gem "scss_lint", "~> 0.51.0"
+  gem "scss_lint", "~> 0.52.0"
   gem "yard", "~> 0.9.5"
 end
 

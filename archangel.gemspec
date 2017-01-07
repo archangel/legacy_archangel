@@ -42,6 +42,6 @@ Gem::Specification.new do |s|
   s.add_dependency "ransack", "~> 1.8.2"
   s.add_dependency "responders", "~> 2.3.0"
   s.add_dependency "select2-rails", "~> 4.0.3"
-  s.add_dependency "simple_form", "~> 3.3.1"
+  s.add_dependency "simple_form", "~> 3.4.0"
   s.add_dependency "validates", "~> 1.0.0"
 end
