@@ -10,20 +10,27 @@ AllCops:
     - "config/initializers/simple_form.rb"
     - "config/initializers/simple_form_bootstrap.rb"
 
-Documentation:
-  Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - '**/*.rake'
+    - 'config/routes.rb'
+    - 'lib/archangel/testing_support/**/*.rb'
+    - 'spec/**/*.rb'
 
-DotPosition:
-  EnforcedStyle: leading
-
-LineLength:
+Metrics/LineLength:
   Max: 80
 
-ModuleLength:
+Metrics/ModuleLength:
   Enabled: false
 
-StringLiterals:
+Style/Documentation:
+  Enabled: false
+
+Style/DotPosition:
+  EnforcedStyle: leading
+
+Style/StringLiterals:
   EnforcedStyle: double_quotes
 
-StringLiteralsInInterpolation:
+Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
