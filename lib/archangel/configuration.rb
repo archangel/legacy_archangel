@@ -23,8 +23,12 @@ module Archangel
       @posts_path = "posts"
     end
 
+    def respond_to_missing?
+      false
+    end
+
     def method_missing(method_name, *args)
-      super(method_name, *args)
+      super
     rescue NoMethodError
       method = method_name.to_s
 

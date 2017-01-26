@@ -47,7 +47,7 @@ module Archangel
     end
 
     def column_default
-      return unless self.new_record?
+      return unless new_record?
 
       self.role = Archangel::ROLE_DEFAULT
     end
