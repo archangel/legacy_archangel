@@ -51,6 +51,8 @@ module Archangel
       end
 
       def before_generation(extension_name)
+        silence_output
+
         Dir.chdir("spec/dummy") do
           subject = Archangel::Command::Extension.new([extension_name])
           subject.invoke_all
@@ -58,6 +60,8 @@ module Archangel
       end
 
       def after_generation(extension_path)
+        enable_output
+
         FileUtils.rm_rf("#{extension_path}/")
       end
 
@@ -71,6 +75,22 @@ module Archangel
         Dir.glob("#{extension_path}/{.[^\.]*,*}")
            .select { |file| File.file?(file) }
            .map { |file| File.basename(file) }
+      end
+
+      def silence_output
+        @orig_stderr = $stderr
+        @orig_stdout = $stdout
+
+        $stderr = File.new("/dev/null", "w")
+        $stdout = File.new("/dev/null", "w")
+      end
+
+      def enable_output
+        $stderr = @orig_stderr
+        $stdout = @orig_stdout
+
+        @orig_stderr = nil
+        @orig_stdout = nil
       end
     end
   end
