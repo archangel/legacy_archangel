@@ -27,13 +27,12 @@ module Archangel
 
     def method_missing(method_name, *_args, &_block)
       if method_name.to_s[-1] == "?"
-        key?(method_name.to_s[0..-2])
+        key?(method_name.to_s.sub("?", ""))
       elsif key?(method_name)
         value = hash[method_name]
 
         value.is_a?(Hash) ? Settings.new(value) : value
       else
-        # TODO: Notify when key not loaded?
         default_value
       end
     end
