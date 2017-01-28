@@ -1,38 +1,44 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4 col-xs-offset-1 col-xs-10">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div><%= Archangel.t("auth.currently_waiting_confirmation_for_resource") %></div>
-  <% end %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div><%= Archangel.t("auth.currently_waiting_confirmation_for_resource") %></div>
+      <% end %>
 
-  <div class="form-group">
-    <%= f.label :password %> <i>(<%= Archangel.t("auth.leave_blank_if_you_dont_want_to_change_it") %>)</i>
-    <%= f.password_field :password, autocomplete: false, class: "form-control" %>
+      <div class="form-group">
+        <%= f.label :password %> <i>(<%= Archangel.t("auth.leave_blank_if_you_dont_want_to_change_it") %>)</i>
+        <%= f.password_field :password, autocomplete: false, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: false, class: "form-control"  %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :current_password %> <i>(<%= Archangel.t("auth.we_need_your_current_password_to_confirm_your_changes") %></i>
+        <%= f.password_field :current_password, autocomplete: false, class: "form-control" %>
+      </div>
+
+      <div class="actions form-actions text-center">
+        <%= f.submit Archangel.t("auth.button.update"), class: "btn btn-primary block full-width" %>
+      </div>
+    <% end %>
+
+    <h3>
+      <%= Archangel.t("auth.cancel_my_account") %>
+    </h3>
+
+    <p>
+    <%= Archangel.t("auth.unhappy") %> <%= button_to Archangel.t("auth.button.cancel_my_account"), registration_path(resource_name), data: { confirm: Archangel.t("auth.are_you_sure") }, method: :delete %>
+    </p>
   </div>
 
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: false, class: "form-control"  %>
+  <div class="col-sm-offset-4 col-sm-4 col-xs-offset-1 col-xs-10">
+    <ul class="list-inline">
+      <li><%= link_to Archangel.t("auth.back"), :back %></li>
+    </ul>
   </div>
-
-  <div class="form-group">
-    <%= f.label :current_password %> <i>(<%= Archangel.t("auth.we_need_your_current_password_to_confirm_your_changes") %></i>
-    <%= f.password_field :current_password, autocomplete: false, class: "form-control" %>
-  </div>
-
-  <div class="actions form-actions text-center">
-    <%= f.submit Archangel.t("auth.button.update"), class: "btn btn-primary block full-width" %>
-  </div>
-<% end %>
-
-<h3>
-  <%= Archangel.t("auth.cancel_my_account") %>
-</h3>
-
-<p>
-  <%= Archangel.t("auth.unhappy") %> <%= button_to Archangel.t("auth.button.cancel_my_account"), registration_path(resource_name), data: { confirm: Archangel.t("auth.are_you_sure") }, method: :delete %>
-</p>
-
-<ul class="list-inline">
-  <li><%= link_to Archangel.t("auth.back"), :back %></li>
-</ul>
+</div>
