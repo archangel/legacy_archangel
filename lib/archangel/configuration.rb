@@ -24,7 +24,7 @@ module Archangel
     end
 
     def method_missing(method_name, *args)
-      super(method_name, *args)
+      super
     rescue NoMethodError
       method = method_name.to_s
 
