@@ -25,6 +25,10 @@ module Archangel
 
     protected
 
+    def respond_to_missing?
+      false
+    end
+
     def method_missing(method_name, *_args, &_block)
       if method_name.to_s[-1] == "?"
         key?(method_name.to_s.sub("?", ""))
