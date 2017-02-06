@@ -4,6 +4,12 @@ en:
       archangel/categories:
         one: Category
         other: Categories
+      archangel/menu:
+        one: Menu
+        other: Menus
+      archangel/menu_item:
+        one: Menu Item
+        other: Menu Items
       archangel/page:
         one: Page
         other: Pages
@@ -25,6 +31,22 @@ en:
         description: Description
         name: Name
         slug: Slug
+      archangel/menu:
+        active_leaf_class: Active Leaf Class
+        attr_id: Menu ID
+        attr_class: Menu Class
+        name: Name
+        selected_class: Selected Class
+        slug: Slug
+      archangel/menu_item:
+        attr_id: Item ID
+        attr_class: Item Class
+        highlights_on: Highlight On
+        label: Label
+        menuable: Resource
+        method: Method
+        target: Target
+        url: URL
       archangel/page:
         author: Author
         content: Content

@@ -22,8 +22,27 @@ end
 
 def prompt_for_admin_username
   ENV.fetch("ADMIN_USERNAME") do
-    ask("Username:  ") { |q| q.default = "password123" }
+    ask("Username:  ") { |q| q.default = "administrator" }
   end
+end
+
+# Site
+Archangel::Site.first_or_create! do |item|
+  item.name = "Archangel"
+  item.locale = "en"
+end
+
+# Menu
+menu = Archangel::Menu.find_or_create_by!(slug: "frontend") do |item|
+  item.name = "Frontend Menu"
+  item.selected_class = "selected"
+  item.active_leaf_class = "active-leaf-class"
+end
+
+# Menu Item
+Archangel::MenuItem.where(menu_id: menu.id).first_or_create! do |item|
+  item.label = "Home"
+  item.url = "/"
 end
 
 # User

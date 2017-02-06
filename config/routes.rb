@@ -76,6 +76,17 @@ Archangel::Engine.routes.draw do
       end
     end
 
+    # GET    /admin/menus
+    # GET    /admin/menus/page/[PAGE]
+    # POST   /admin/menus
+    # GET    /admin/menus/new
+    # GET    /admin/menus/[ID]/edit
+    # GET    /admin/menus/[ID]
+    # PATCH  /admin/menus/[ID]
+    # PUT    /admin/menus/[ID]
+    # DELETE /admin/menus/[ID]
+    resources :menus
+
     # GET    /admin/pages
     # GET    /admin/pages/page/[PAGE]
     # POST   /admin/pages

@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency "bootstrap-sass", "~> 3.3.7"
   s.add_dependency "bootstrap3-datetimepicker-rails", "~> 4.17.43"
   s.add_dependency "carrierwave", "~> 1.0.0"
+  s.add_dependency "cocoon", "~> 1.2.9"
   s.add_dependency "date_validator", "~> 0.9.0"
   s.add_dependency "devise", "~> 4.2.0"
   s.add_dependency "devise_invitable", "~> 1.7.0"
@@ -42,6 +43,7 @@ Gem::Specification.new do |s|
   s.add_dependency "ransack", "~> 1.8.2"
   s.add_dependency "responders", "~> 2.3.0"
   s.add_dependency "select2-rails", "~> 4.0.3"
+  s.add_dependency "simple-navigation", "~> 4.0.3"
   s.add_dependency "simple_form", "~> 3.4.0"
   s.add_dependency "validates", "~> 1.0.0"
 end

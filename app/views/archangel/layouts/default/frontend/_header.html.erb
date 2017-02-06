@@ -12,9 +12,9 @@
 
     <div class="collapse navbar-collapse">
       <nav id="navigation">
-        <ul class="nav navbar-nav">
-          <li><%= link_to("Home", root_path) %></li>
-        </ul>
+        <%= render_navigation(renderer: :bootstrap,
+                              expand_all: true,
+                              &current_navigation) %>
       </nav>
     </div>
   </div>

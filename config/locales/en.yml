@@ -59,6 +59,8 @@ en:
       assets: Assets
       dashboard: Dashboard
       categories: Categories
+      home: Home
+      menus: Menus
       pages: Pages
       posts: Posts
       profile: Profile

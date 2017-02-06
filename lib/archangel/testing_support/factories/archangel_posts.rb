@@ -23,5 +23,27 @@ FactoryGirl.define do
     trait :deleted do
       deleted_at { Time.current }
     end
+
+    trait :with_tags do
+      transient do
+        tag_count 2
+      end
+
+      after(:create) do |post, evaluator|
+        create_list :tagging, evaluator.tag_count, taggable: post
+      end
+    end
+
+    trait :with_categories do
+      transient do
+        category_count 2
+      end
+
+      after(:create) do |post, evaluator|
+        create_list :categorization,
+                    evaluator.category_count,
+                    categorizable: post
+      end
+    end
   end
 end
