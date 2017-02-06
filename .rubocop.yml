@@ -29,6 +29,9 @@ Style/Documentation:
 Style/DotPosition:
   EnforcedStyle: leading
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 

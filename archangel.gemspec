@@ -22,8 +22,8 @@ Gem::Specification.new do |s|
   s.add_dependency "sass-rails", ">= 5.0.0"
   s.add_dependency "uglifier", ">= 2.7"
 
-  s.add_dependency "acts_as_list", "~> 0.9.0"
-  s.add_dependency "acts_as_tree", "~> 2.6.0"
+  s.add_dependency "acts_as_list", "~> 0.9.1"
+  s.add_dependency "acts_as_tree", "~> 2.6.1"
   s.add_dependency "bootstrap-sass", "~> 3.3.7"
   s.add_dependency "bootstrap3-datetimepicker-rails", "~> 4.17.43"
   s.add_dependency "carrierwave", "~> 1.0.0"
