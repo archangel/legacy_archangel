@@ -6,19 +6,7 @@ module Archangel
 
         tag = options[:ordered] ? :ol : :ul
         content = list_content(item_container)
-        attributes = {
-          id: item_container.dom_id,
-          class: item_container.dom_class
-        }
-
-        if item_container.respond_to?(:dom_attributes)
-          attributes = item_container.dom_attributes
-        end
-
-        attributes[:class] = [
-          attributes[:class],
-          container_class(item_container.level)
-        ].flatten.compact.join(" ")
+        attributes = container_attributes(item_container)
 
         content_tag(tag, content, attributes)
       end
@@ -29,9 +17,27 @@ module Archangel
         level == 1 ? nil : "dropdown"
       end
 
+      def container_attributes(item_container)
+        attributes = {
+          id: item_container.dom_id,
+          class: item_container.dom_class
+        }
+
+        attributes[:class] = [
+          attributes[:class],
+          container_class(item_container.level)
+        ].flatten.compact.join(" ")
+
+        if item_container.respond_to?(:dom_attributes)
+          attributes = item_container.dom_attributes
+        end
+
+        attributes
+      end
+
       def list_content(item_container)
         item_container.items.inject([]) do |list, item|
-          li_options = item.html_options.reject { |k, v| k == :link }
+          li_options = item.html_options.reject { |k, _v| k == :link }
           icon = li_options.delete(:icon)
           li_content = tag_for(item, icon)
 
@@ -44,26 +50,25 @@ module Archangel
       end
 
       def tag_for(item, icon = nil)
-        link = []
+        item_name = list_item_name(item.name, icon)
 
-        item_name = item.name
+        list_item_link(item, item_name)
+      end
 
+      def list_item_name(item_name, icon = nil)
         unless icon.nil?
-          item_name = [
-            content_tag(:i, "", class: [icon].flatten.compact.join(" ")),
-            item_name,
-          ].join(" ")
+          icon = content_tag(:i, "", class: [icon].flatten.compact.join(" "))
         end
 
+        [icon, content_tag(:span, item_name)].compact.join(" ")
+      end
+
+      def list_item_link(item, item_name)
         if suppress_link?(item)
-          link << content_tag("span",
-                              item_name,
-                              link_options_for(item).except(:method))
+          content_tag("span", item_name, link_options_for(item).except(:method))
         else
-          link << link_to(item_name, item.url, options_for(item))
+          link_to(item_name, item.url, options_for(item))
         end
-
-        link.join(" ")
       end
     end
   end

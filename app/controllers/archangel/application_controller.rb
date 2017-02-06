@@ -58,7 +58,7 @@ module Archangel
     end
 
     def navigation_items
-      proc { |primary| nil }
+      proc { |_primary| nil }
     end
 
     def render_404(exception)

@@ -22,9 +22,9 @@ FactoryGirl.define do
 
       after(:create) do |menu, evaluator|
         create_list :menu_item,
-                    evaluator.item_count#,
-                    # parent_id: menu.id,
-                    # menu_id: evaluator.menu.id,
+                    evaluator.item_count,
+                    parent_id: menu.id,
+                    menu_id: evaluator.menu.id
       end
     end
   end

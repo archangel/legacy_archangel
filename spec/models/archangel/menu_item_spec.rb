@@ -2,15 +2,7 @@ require "rails_helper"
 
 module Archangel
   RSpec.describe MenuItem, type: :model do
-
-
-
-    # # Scope
-    # scope :children, -> { where(parent_id: id) }
-
-
     describe "ActiveModel validations" do
-      # it { expect(subject).to validate_presence_of(:menu_id) }
       it { expect(subject).to validate_presence_of(:label) }
 
       it { expect(subject).to allow_value("").for(:method) }
