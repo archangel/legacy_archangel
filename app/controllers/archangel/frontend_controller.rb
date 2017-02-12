@@ -14,11 +14,9 @@ module Archangel
     end
 
     def navigation_items
-      proc do |primary|
-        primary.dom_attributes = { class: "nav navbar-nav" }
+      navigation = Archangel::Navigation.new()
 
-        primary.item :home, Archangel.t(:home, scope: :menu), root_path
-      end
+      navigation.build
     end
   end
 end
