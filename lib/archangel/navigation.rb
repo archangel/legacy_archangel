@@ -7,6 +7,8 @@ module Archangel
     end
 
     def build
+      return nil if menu.nil?
+
       proc do |primary|
         primary.selected_class = selected_class
         primary.dom_attributes = dom_attributes
@@ -26,9 +28,7 @@ module Archangel
     def find_navigation_items
       items = Archangel::MenuItem.where(menu_id: menu, parent_id: nil)
 
-      if items.empty?
-        items = [default_navigation]
-      end
+      items = [default_navigation] if items.empty?
 
       items
     end
