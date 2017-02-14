@@ -19,7 +19,7 @@ module Archangel
     validates :slug, presence: true, uniqueness: true
 
     # Associations
-    has_many :menu_items
+    has_many :menu_items, dependent: :destroy
 
     # Nested attributes
     accepts_nested_attributes_for :menu_items, reject_if: :all_blank,

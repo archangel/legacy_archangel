@@ -33,8 +33,8 @@ module Archangel
       items
     end
 
-    def find_navigation_subitems_for(item)
-      Archangel::MenuItem.where(parent_id: item.id)
+    def find_navigation_subitems_for(parent)
+      Archangel::MenuItem.where(parent_id: parent.id)
     end
 
     def default_navigation
@@ -61,19 +61,11 @@ module Archangel
     end
 
     def navigation_walk(item, parent)
-      sub_items = find_navigation_subitems_for(item)
-
-      if sub_items.any?
-        parent.item item_key_for(item),
-                    item_label_for(item),
-                    item_link_for(item),
-                    class: "dropdown" do |sub|
-          sub_items.each do |sub_item|
-            navigation_walk(sub_item, sub)
-          end
+      parent.item(item_key_for(item), item_label_for(item),
+                  item_link_for(item), class: "dropdown") do |sub|
+        find_navigation_subitems_for(item).each do |sub_item|
+          navigation_walk(sub_item, sub)
         end
-      else
-        parent.item item.label, item.label, item.url
       end
     end
 

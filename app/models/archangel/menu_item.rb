@@ -18,7 +18,6 @@ module Archangel
     validates :label, presence: true
     validates :method, allow_blank: true,
                        inclusion: { in: Archangel::MENU_METHODS }
-    validates :url, url: true, allow_blank: true
 
     # Associations
     belongs_to :menu
@@ -35,7 +34,7 @@ module Archangel
     default_scope { order(position: :asc) }
 
     # Scope
-    scope :children, -> { where(parent_id: self.id) }
+    scope :children, -> { where(parent_id: id) }
 
     protected
 
