@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Archangel
   module Admin
     # Admin assets helpers

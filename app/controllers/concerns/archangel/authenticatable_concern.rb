@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Archangel
   module AuthenticatableConcern
     extend ActiveSupport::Concern

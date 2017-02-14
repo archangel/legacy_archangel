@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Archangel
   class LogoUploader < BaseUploader
     def default_path

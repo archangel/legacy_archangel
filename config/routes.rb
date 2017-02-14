@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Archangel::Engine.routes.draw do
   # Pagination
   concern :paginatable do

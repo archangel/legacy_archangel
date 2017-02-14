@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   factory :page, class: Archangel::Page do
     sequence(:title) { |n| "Page #{n} Title" }
