@@ -50,14 +50,13 @@ module Archangel
 
       def permitted_attributes
         [
-          :active_leaf_class, :attr_class, :attr_id, :name, :selected_class,
-          :slug,
+          :attr_class, :attr_id, :name, :selected_class, :slug,
 
           menu_items_attributes: [
             :id, :_destroy,
-            :menu_id, :parent_id, :label, :attr_id, :attr_class, :target,
-            :highlights_on, :url, :menuable_id, :menuable_type, :method,
-            :position, :deleted_at
+            :attr_class, :attr_id, :highlights_on, :label, :link_attr_class,
+            :menuable_id, :menuable_type, :method, :parent_id, :position,
+            :target, :url
           ]
         ]
       end

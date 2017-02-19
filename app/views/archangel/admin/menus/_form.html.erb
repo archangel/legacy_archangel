@@ -7,11 +7,10 @@
     <%= f.input :attr_id %>
     <%= f.input :attr_class %>
     <%= f.input :selected_class %>
-    <%= f.input :active_leaf_class %>
 
     <h3>Menu Items</h3>
 
-    <div id="menu_items">
+    <div class="sub-menu-items">
       <%= f.simple_fields_for :menu_items do |menu_item| %>
         <%= render "menu_item_fields", f: menu_item %>
       <% end %>

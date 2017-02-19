@@ -48,7 +48,11 @@ module Archangel
     end
 
     def per_page
-      params.fetch(:limit, Kaminari.config.default_per_page)
+      params.fetch(:limit, per_page_default)
+    end
+
+    def per_page_default
+      Kaminari.config.default_per_page
     end
 
     def set_locale

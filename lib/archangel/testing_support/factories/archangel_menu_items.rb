@@ -8,7 +8,7 @@ FactoryGirl.define do
 
     trait :menuable do
       association :menuable, factory: :page
-      url ""
+      url nil
     end
 
     trait :deleted do

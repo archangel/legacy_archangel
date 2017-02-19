@@ -13,13 +13,11 @@ module Archangel
     after_destroy :column_reset
 
     # Validation
-    validates :active_leaf_class, presence: true
     validates :name, presence: true
-    validates :selected_class, presence: true
     validates :slug, presence: true, uniqueness: true
 
     # Associations
-    has_many :menu_items, dependent: :destroy
+    has_many :menu_items, -> { where(parent_id: nil) }, dependent: :destroy
 
     # Nested attributes
     accepts_nested_attributes_for :menu_items, reject_if: :all_blank,
@@ -27,6 +25,9 @@ module Archangel
 
     # Default scope
     default_scope { order(name: :asc) }
+
+    # Scope
+    scope :includes_items, -> { includes(:menu_items) }
 
     def to_param
       slug

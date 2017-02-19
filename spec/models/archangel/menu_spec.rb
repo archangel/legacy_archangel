@@ -3,9 +3,7 @@ require "rails_helper"
 module Archangel
   RSpec.describe Menu, type: :model do
     describe "ActiveModel validations" do
-      it { expect(subject).to validate_presence_of(:active_leaf_class) }
       it { expect(subject).to validate_presence_of(:name) }
-      it { expect(subject).to validate_presence_of(:selected_class) }
       it { expect(subject).to validate_presence_of(:slug) }
 
       it { expect(subject).to have_db_index(:slug).unique(:true) }

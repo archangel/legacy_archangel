@@ -24,7 +24,7 @@ module Archangel
     belongs_to :menuable, polymorphic: true
     belongs_to :parent, class_name: Archangel::MenuItem
 
-    has_many :menu_items
+    has_many :menu_items, foreign_key: :parent_id, source: :parent, dependent: :destroy
 
     # Nested attributes
     accepts_nested_attributes_for :menu_items, reject_if: :all_blank,

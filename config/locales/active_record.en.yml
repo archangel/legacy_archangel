@@ -32,7 +32,6 @@ en:
         name: Name
         slug: Slug
       archangel/menu:
-        active_leaf_class: Active Leaf Class
         attr_id: Menu ID
         attr_class: Menu Class
         name: Name
@@ -43,6 +42,7 @@ en:
         attr_class: Item Class
         highlights_on: Highlight On
         label: Label
+        link_attr_class: Link Attribute Class
         menuable: Resource
         method: Method
         target: Target

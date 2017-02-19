@@ -9,14 +9,18 @@ module Archangel
 
     protected
 
-    def per_page
-      params.fetch(:limit, 12)
+    def per_page_default
+      12
     end
 
     def navigation_items
-      navigation = Archangel::Navigation.new
+      navigation = Archangel::NavigationService.new(find_navigation)
 
       navigation.build
+    end
+
+    def find_navigation
+      Archangel::Menu.includes_items.first
     end
   end
 end

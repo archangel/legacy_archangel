@@ -35,8 +35,6 @@ end
 # Menu
 menu = Archangel::Menu.find_or_create_by!(slug: "frontend") do |item|
   item.name = "Frontend Menu"
-  item.selected_class = "selected"
-  item.active_leaf_class = "active-leaf-class"
 end
 
 # Menu Item

@@ -6,6 +6,7 @@ class CreateArchangelMenuItems < ActiveRecord::Migration[5.0]
       t.string :label
       t.string :attr_id
       t.string :attr_class
+      t.string :link_attr_class
       t.string :target
       t.string :highlights_on
       t.string :url

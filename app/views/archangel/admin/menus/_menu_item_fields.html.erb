@@ -1,7 +1,9 @@
 <div class="nested-fields">
   <%= f.input :label %>
+  <%#= f.input :parent_id %>
   <%= f.input :attr_id %>
   <%= f.input :attr_class %>
+  <%= f.input :link_attr_class %>
   <%= f.input :target %>
   <%= f.input :url %>
   <%= f.input :menuable_id %>
@@ -9,4 +11,10 @@
   <%= f.input :method %>
 
   <%= link_to_remove_association "remove menu item", f %>
+
+  <div class="sub-menu-items">
+    <%= f.simple_fields_for :menu_items do |menu_item| %>
+      <%= render "menu_item_fields", f: menu_item %>
+    <% end %>
+  </div>
 </div>

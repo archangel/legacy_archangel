@@ -4,7 +4,6 @@ FactoryGirl.define do
     sequence(:slug) { |n| "menu-#{n}" }
     sequence(:attr_class) { |n| "menu-#{n}-class" }
     selected_class "selected"
-    active_leaf_class "active-leaf-class"
 
     trait :deleted do
       deleted_at { Time.current }

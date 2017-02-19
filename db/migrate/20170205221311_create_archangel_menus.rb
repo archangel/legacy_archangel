@@ -5,8 +5,7 @@ class CreateArchangelMenus < ActiveRecord::Migration[5.0]
       t.string :slug
       t.string :attr_id
       t.string :attr_class
-      t.string :selected_class, default: "selected"
-      t.string :active_leaf_class, default: "active-leaf-class"
+      t.string :selected_class
       t.datetime :deleted_at
 
       t.timestamps
