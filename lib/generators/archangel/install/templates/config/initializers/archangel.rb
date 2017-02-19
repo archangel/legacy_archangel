@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Archangel.configure do |config|
   # Admin path.
   # Default is "admin"

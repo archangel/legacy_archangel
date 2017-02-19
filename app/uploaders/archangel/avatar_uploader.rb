@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Archangel
   class AvatarUploader < BaseUploader
     def default_path

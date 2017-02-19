@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rake"
 
 RSpec.shared_context "rake" do

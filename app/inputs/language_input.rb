@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LanguageInput < SimpleForm::Inputs::CollectionSelectInput
   def multiple?
     false

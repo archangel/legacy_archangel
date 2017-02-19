@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TimePickerInput < SimpleForm::Inputs::Base
   def input(_wrapper_options)
     template.content_tag(:div, class: "input-group") do

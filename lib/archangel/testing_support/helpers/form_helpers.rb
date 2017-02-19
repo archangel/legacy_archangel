@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Archangel
   module TestingSupport
     # Form helper test support

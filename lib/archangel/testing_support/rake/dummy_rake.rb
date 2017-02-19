@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 unless defined?(Archangel::Generators::InstallGenerator)
   require "generators/archangel/install/install_generator"
 end
