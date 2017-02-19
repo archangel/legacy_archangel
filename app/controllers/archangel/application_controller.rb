@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "archangel/application_responder"
 
 module Archangel

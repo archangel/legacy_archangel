@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CategoriesInput < SimpleForm::Inputs::CollectionSelectInput
   def input_options
     super.tap do |options|

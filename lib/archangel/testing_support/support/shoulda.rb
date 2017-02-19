@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "shoulda-matchers"
 require "shoulda-callback-matchers"
 

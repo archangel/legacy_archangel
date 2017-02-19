@@ -30,7 +30,7 @@ Style/DotPosition:
   EnforcedStyle: leading
 
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  EnforcedStyle: always
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes

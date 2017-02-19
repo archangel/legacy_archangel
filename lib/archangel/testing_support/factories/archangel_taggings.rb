@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   factory :tagging, class: Archangel::Tagging do
     tag

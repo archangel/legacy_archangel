@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   factory :tag, class: Archangel::Tag do
     sequence(:name) { |n| "Tag #{n}" }

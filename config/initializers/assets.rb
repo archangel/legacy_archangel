@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.config.assets.precompile += [
   "*.gif", "*.jpeg", "*.jpg", "*.png",
   "*.eot", "*.svg", "*.ttf", "*.woff", "*.woff2",

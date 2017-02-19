@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Support files
 %w(support helpers matchers shared_contexts).each do |type|
   Dir["#{File.dirname(__FILE__)}/#{type}/**/*.rb"].each do |f|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "acts_as_list"
 require "acts_as_tree"
 require "bootstrap-sass"
