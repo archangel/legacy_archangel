@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 SimpleNavigation::Configuration.run do |navigation|
   # Specify the class that will be applied to active navigation items. Defaults
   # to 'selected'

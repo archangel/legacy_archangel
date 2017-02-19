@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Archangel
   module Renderer
     class Bootstrap < SimpleNavigation::Renderer::Base
