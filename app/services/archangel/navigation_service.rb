@@ -84,7 +84,7 @@ module Archangel
         attributes[:class] = [
           attributes[:class],
           "dropdown"
-        ].reject { |c| c.blank? }.join(" ")
+        ].reject(&:blank?).join(" ")
       end
 
       attributes

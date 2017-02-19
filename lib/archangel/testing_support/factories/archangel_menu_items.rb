@@ -20,10 +20,10 @@ FactoryGirl.define do
         item_count 2
       end
 
-      after(:create) do |menu, evaluator|
+      after(:create) do |menu_item, evaluator|
         create_list :menu_item,
                     evaluator.item_count,
-                    parent_id: menu.id,
+                    parent_id: menu_item.id,
                     menu_id: evaluator.menu.id
       end
     end

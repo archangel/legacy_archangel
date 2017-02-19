@@ -14,7 +14,7 @@ module Archangel
     after_initialize :column_default
 
     # Validation
-    # validates :menu_id, presence: true
+    validates :menu_id, presence: true
     validates :label, presence: true
     validates :method, allow_blank: true,
                        inclusion: { in: Archangel::MENU_METHODS }
@@ -24,7 +24,9 @@ module Archangel
     belongs_to :menuable, polymorphic: true
     belongs_to :parent, class_name: Archangel::MenuItem
 
-    has_many :menu_items, foreign_key: :parent_id, source: :parent, dependent: :destroy
+    has_many :menu_items, foreign_key: :parent_id,
+                          source: :parent,
+                          dependent: :destroy
 
     # Nested attributes
     accepts_nested_attributes_for :menu_items, reject_if: :all_blank,

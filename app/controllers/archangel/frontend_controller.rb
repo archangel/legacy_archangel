@@ -14,9 +14,7 @@ module Archangel
     end
 
     def navigation_items
-      navigation = Archangel::NavigationService.new(find_navigation)
-
-      navigation.build
+      Archangel::NavigationService.new(find_navigation).build
     end
 
     def find_navigation
