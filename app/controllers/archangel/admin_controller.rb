@@ -30,7 +30,7 @@ module Archangel
                      Archangel.t(:dashboard, scope: :menu),
                      admin_root_path,
                      html: { icon: "fa fa-lg fa-th-large" },
-                     highlights_on: %r{/admin$/}
+                     highlights_on: %r{/admin$}
         primary.item :pages,
                      Archangel.t(:pages, scope: :menu),
                      admin_pages_path,
