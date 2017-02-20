@@ -20,7 +20,7 @@ module Archangel
         primary.selected_class = selected_class
         primary.dom_attributes = dom_attributes
 
-        items.each { |item| build_menu_item(item, primary) }
+        items.each { |item| NavigationItemService.new(item, primary).to_proc }
       end
     end
 
@@ -46,71 +46,6 @@ module Archangel
       menu.menu_items
     rescue
       []
-    end
-
-    def build_menu_item(item, primary)
-      children = item.children
-
-      highlights_on = highlights_on_for(item)
-      html_options = html_options_for(item)
-      link_html_options = link_html_options_for(item)
-
-      primary.item(key_for(item), label_for(item), link_for(item),
-                   highlights_on: highlights_on,
-                   html: html_options, link_html: link_html_options) do |sub|
-        children.each { |child| build_menu_item(child, sub) } if children.any?
-      end
-    end
-
-    def key_for(item)
-      item.label.underscore
-    end
-
-    def label_for(item)
-      item.label
-    end
-
-    def link_for(item)
-      return item.url unless item.url.blank?
-
-      item.menuable.homepage? ? "/" : item.menuable.path
-    end
-
-    def highlights_on_for(item)
-      unless item.highlights_on.blank?
-        return %r{/#{Regexp.escape(item.highlights_on)}/}
-      end
-
-      return proc { false } if item.url =~ URI.regexp
-
-      menuable_highlights_on_for(item)
-    end
-
-    def menuable_highlights_on_for(item)
-      menu_object = item.menuable
-
-      return proc { false } if menu_object.nil?
-
-      return %r{/\/$/} if menu_object.homepage?
-
-      %r{/#{Regexp.escape(item.menuable.path)}/}
-    end
-
-    def html_options_for(item)
-      attributes = { id: item.attr_id, class: item.attr_class }.compact
-
-      if item.children.any?
-        attributes[:class] = [
-          attributes[:class],
-          "dropdown"
-        ].reject(&:blank?).join(" ")
-      end
-
-      attributes
-    end
-
-    def link_html_options_for(item)
-      { class: item.link_attr_class }.compact
     end
 
     private
