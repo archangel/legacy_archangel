@@ -21,13 +21,11 @@ module Archangel
 
       def container_attributes(item_container)
         attributes = {
-          id: item_container.dom_id,
-          class: item_container.dom_class
+          id: item_container.dom_id, class: item_container.dom_class
         }
 
         attributes[:class] = [
-          attributes[:class],
-          container_class(item_container.level)
+          attributes[:class], container_class(item_container.level)
         ].flatten.compact.join(" ")
 
         if item_container.respond_to?(:dom_attributes)
