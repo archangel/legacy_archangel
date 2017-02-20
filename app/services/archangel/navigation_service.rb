@@ -71,12 +71,29 @@ module Archangel
     end
 
     def link_for(item)
-      item.url
+      return item.url unless item.url.blank?
+
+      item.menuable.homepage? ? "/" : item.menuable.path
     end
 
-    def highlights_on_for(_item)
-      # %r(/books)
-      proc { false }
+    def highlights_on_for(item)
+      unless item.highlights_on.blank?
+        return %r{/#{Regexp.escape(item.highlights_on)}/}
+      end
+
+      return proc { false } if item.url =~ URI.regexp
+
+      menuable_highlights_on_for(item)
+    end
+
+    def menuable_highlights_on_for(item)
+      menu_object = item.menuable
+
+      return proc { false } if menu_object.nil?
+
+      return %r{/\/$/} if menu_object.homepage?
+
+      %r{/#{Regexp.escape(item.menuable.path)}/}
     end
 
     def html_options_for(item)
