@@ -44,8 +44,6 @@ module Archangel
 
     def items
       menu.menu_items
-    rescue
-      []
     end
 
     private

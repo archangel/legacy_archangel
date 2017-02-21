@@ -22,6 +22,10 @@ FactoryGirl.define do
       published_at { Time.current + 1.week }
     end
 
+    trait :deleted do
+      deleted_at { Time.current }
+    end
+
     trait :with_tags do
       transient do
         tag_count 2

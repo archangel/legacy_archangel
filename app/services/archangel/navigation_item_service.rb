@@ -41,12 +41,18 @@ module Archangel
     end
 
     def to_proc
-      primary.item(key, label, link, highlights_on: highlights_on,
-                                     html: html,
-                                     link_html: link_html) do |secondary|
-        item.children.each do |child|
-          NavigationItemService.new(child, secondary).to_proc
+      if item.children.any?
+        primary.item(key, label, link, highlights_on: highlights_on,
+                                       html: html,
+                                       link_html: link_html) do |secondary|
+          item.children.each do |child|
+            NavigationItemService.new(child, secondary).to_proc
+          end
         end
+      else
+        primary.item(key, label, link, highlights_on: highlights_on,
+                                       html: html,
+                                       link_html: link_html)
       end
     end
 
@@ -55,7 +61,9 @@ module Archangel
     def build_link
       return item.url unless item.url.blank?
 
-      item.menuable.homepage? ? "/" : item.menuable.path
+      return nil if item.menuable.nil?
+
+      check_homepage? ? "/" : item.menuable.path
     end
 
     def build_highlights_on
@@ -73,7 +81,7 @@ module Archangel
 
       return proc { false } if menuable_object.nil?
 
-      return %r{/$} if menuable_object.homepage?
+      return %r{/$} if check_homepage?
 
       %r{#{Regexp.escape(menuable_object.path)}}
     end
@@ -92,6 +100,12 @@ module Archangel
 
     def build_link_html
       { class: item.link_attr_class }.compact
+    end
+
+    def check_homepage?
+      item.menuable.homepage?
+    rescue
+      false
     end
   end
 end
