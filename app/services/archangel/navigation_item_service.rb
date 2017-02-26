@@ -65,7 +65,9 @@ module Archangel
 
       return nil if item.menuable.nil?
 
-      check_homepage? ? "/" : "/#{item.menuable.path}"
+      return Archangel.routes.root_path if check_homepage?
+
+      Archangel.routes.frontend_page_path(item.menuable.path)
     end
 
     def build_options

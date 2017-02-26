@@ -48,5 +48,9 @@ module Archangel
     def configuration
       @configuration ||= Configuration.new
     end
+
+    def routes
+      Archangel::Engine.routes.url_helpers
+    end
   end
 end
