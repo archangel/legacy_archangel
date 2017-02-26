@@ -47,20 +47,14 @@ module Archangel
     end
 
     def to_proc
-      options = {
-        highlights_on: highlights_on,
-        html: html,
-        link_html: link_html
-      }
-
       if children.any?
-        primary.item(key, label, link, options) do |secondary|
+        primary.item(key, label, link, build_options) do |secondary|
           children.each do |child|
             NavigationItemService.new(child, items, secondary).to_proc
           end
         end
       else
-        primary.item(key, label, link, options)
+        primary.item(key, label, link, build_options)
       end
     end
 
@@ -72,6 +66,14 @@ module Archangel
       return nil if item.menuable.nil?
 
       check_homepage? ? "/" : "/#{item.menuable.path}"
+    end
+
+    def build_options
+      {
+        highlights_on: highlights_on,
+        html: html,
+        link_html: link_html
+      }
     end
 
     def build_highlights_on
@@ -95,9 +97,11 @@ module Archangel
     def build_html
       attributes = { id: item.attr_id, class: item.attr_class }.compact
 
-      attributes[:class] = [
-        attributes[:class], "dropdown"
-      ].reject(&:blank?).join(" ") if children.any?
+      if children.any?
+        attributes[:class] = [
+          attributes[:class], "dropdown"
+        ].reject(&:blank?).join(" ")
+      end
 
       attributes
     end
