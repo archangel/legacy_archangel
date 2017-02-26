@@ -28,9 +28,6 @@ module Archangel
     # Default scope
     default_scope { order(name: :asc) }
 
-    # Scope
-    scope :includes_items, -> { includes(:menu_items) }
-
     def to_param
       slug
     end

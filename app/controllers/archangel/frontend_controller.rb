@@ -16,11 +16,10 @@ module Archangel
     end
 
     def navigation_items
-      Archangel::NavigationService.new(find_navigation).build
-    end
+      menu = Archangel::Menu.first
+      items = Archangel::MenuItem.includes(:menuable).where(menu: menu)
 
-    def find_navigation
-      Archangel::Menu.includes_items.first
+      Archangel::NavigationService.new(menu, items).build
     end
   end
 end

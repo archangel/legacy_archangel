@@ -67,7 +67,10 @@ RSpec.feature "Navigation", type: :feature do
 
         expect(page).to have_css("li.#{item.attr_class}")
         within("li.#{item.attr_class}") do
-          expect(page).to have_link(item.label, href: custom_page.path)
+          expect(page).to(
+            have_link(item.label,
+                      href: archangel.frontend_page_path(custom_page.path))
+          )
         end
       end
     end
@@ -85,7 +88,9 @@ RSpec.feature "Navigation", type: :feature do
 
         expect(page).to have_css("li.#{item.attr_class}")
         within("li.#{item.attr_class}") do
-          expect(page).to have_link(item.label, href: post.path)
+          expect(page).to(
+            have_link(item.label, href: archangel.frontend_page_path(post.path))
+          )
         end
       end
     end
@@ -202,7 +207,8 @@ RSpec.feature "Navigation", type: :feature do
                               attr_id: "custom_id",
                               attr_class: "custom_class",
                               link_attr_class: "custom_link_class",
-                              highlights_on: custom_page.path)
+                              menuable: custom_page,
+                              url: nil)
 
     visit archangel.frontend_page_path(custom_page.path)
 
@@ -217,7 +223,10 @@ RSpec.feature "Navigation", type: :feature do
         expect(page).to(
           have_css("a.#{item.link_attr_class}.#{menu.selected_class}")
         )
-        expect(page).to have_link(item.label, href: item.url)
+        expect(page).to(
+          have_link(item.label,
+                    href: archangel.frontend_page_path(custom_page.path))
+        )
       end
     end
   end

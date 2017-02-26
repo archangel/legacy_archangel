@@ -7,10 +7,11 @@ module Archangel
   # @since 0.0.1
   #
   class NavigationService
-    attr_accessor :menu
+    attr_accessor :items, :menu
 
-    def initialize(menu = nil)
+    def initialize(menu = nil, items = nil)
       @menu = menu
+      @items = items
     end
 
     def build
@@ -20,7 +21,9 @@ module Archangel
         primary.selected_class = selected_class
         primary.dom_attributes = dom_attributes
 
-        items.each { |item| NavigationItemService.new(item, primary).to_proc }
+        children.each do |child|
+          NavigationItemService.new(child, items, primary).to_proc
+        end
       end
     end
 
@@ -42,8 +45,8 @@ module Archangel
       property(:attr_class, "nav navbar-nav")
     end
 
-    def items
-      menu.menu_items
+    def children
+      items.reject { |item| !item.parent_id.nil? }
     end
 
     private

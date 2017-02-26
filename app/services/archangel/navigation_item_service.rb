@@ -7,12 +7,14 @@ module Archangel
   # @since 0.0.1
   #
   class NavigationItemService
-    attr_accessor :item, :primary
+    attr_accessor :item, :items, :primary
 
-    attr_reader :key, :label, :link, :highlights_on, :html, :link_html
+    attr_reader :children, :key, :label, :link, :highlights_on, :html,
+                :link_html
 
-    def initialize(item, primary)
+    def initialize(item, items, primary)
       self.item = item
+      self.items = items
       self.primary = primary
     end
 
@@ -40,19 +42,25 @@ module Archangel
       @link_html ||= build_link_html
     end
 
+    def children
+      @children ||= build_children
+    end
+
     def to_proc
-      if item.children.any?
-        primary.item(key, label, link, highlights_on: highlights_on,
-                                       html: html,
-                                       link_html: link_html) do |secondary|
-          item.children.each do |child|
-            NavigationItemService.new(child, secondary).to_proc
+      options = {
+        highlights_on: highlights_on,
+        html: html,
+        link_html: link_html
+      }
+
+      if children.any?
+        primary.item(key, label, link, options) do |secondary|
+          children.each do |child|
+            NavigationItemService.new(child, items, secondary).to_proc
           end
         end
       else
-        primary.item(key, label, link, highlights_on: highlights_on,
-                                       html: html,
-                                       link_html: link_html)
+        primary.item(key, label, link, options)
       end
     end
 
@@ -63,15 +71,13 @@ module Archangel
 
       return nil if item.menuable.nil?
 
-      check_homepage? ? "/" : item.menuable.path
+      check_homepage? ? "/" : "/#{item.menuable.path}"
     end
 
     def build_highlights_on
-      unless item.highlights_on.blank?
-        return %r{#{Regexp.escape(item.highlights_on)}}
-      end
+      return false if item.url =~ URI.regexp
 
-      return proc { false } if item.url =~ URI.regexp
+      return %r{/#{item.highlights_on}} unless item.highlights_on.blank?
 
       build_menuable_highlights_on
     end
@@ -79,27 +85,29 @@ module Archangel
     def build_menuable_highlights_on
       menuable_object = item.menuable
 
-      return proc { false } if menuable_object.nil?
+      return nil if menuable_object.nil?
 
       return %r{/$} if check_homepage?
 
-      %r{#{Regexp.escape(menuable_object.path)}}
+      %r{/#{menuable_object.path}}
     end
 
     def build_html
       attributes = { id: item.attr_id, class: item.attr_class }.compact
 
-      if item.children.any?
-        attributes[:class] = [
-          attributes[:class], "dropdown"
-        ].reject(&:blank?).join(" ")
-      end
+      attributes[:class] = [
+        attributes[:class], "dropdown"
+      ].reject(&:blank?).join(" ") if children.any?
 
       attributes
     end
 
     def build_link_html
       { class: item.link_attr_class }.compact
+    end
+
+    def build_children
+      items.reject { |itm| itm.parent_id != item.id }
     end
 
     def check_homepage?
