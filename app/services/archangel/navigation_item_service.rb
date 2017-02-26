@@ -81,7 +81,7 @@ module Archangel
     def build_highlights_on
       return false if item.url =~ URI.regexp
 
-      return %r{/#{item.highlights_on}} unless item.highlights_on.blank?
+      return Regexp.new(item.highlights_on) unless item.highlights_on.blank?
 
       build_menuable_highlights_on
     end
@@ -93,7 +93,7 @@ module Archangel
 
       return %r{/$} if check_homepage?
 
-      %r{/#{menuable_object.path}}
+      Regexp.new(Archangel.routes.frontend_page_path(menuable_object.path))
     end
 
     def build_html
