@@ -3,7 +3,6 @@
 .yardoc/
 coverage/
 doc/
-node_modules/
 pkg/
 spec/dummy/
 tmp/
@@ -16,4 +15,3 @@ log/*.log
 rspec.log
 spec/examples.txt
 Thumbs.db
-yarn.lock
