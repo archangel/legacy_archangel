@@ -1,0 +1,37 @@
+{
+  "private": true,
+  "name": "archangel",
+  "version": "0.0.1",
+  "license": "MIT",
+  "homepage": "https://github.com/archangel/archangel",
+  "description": "Description of Archangel.",
+  "keywords": [
+    "archangel",
+    "cms",
+    "rails",
+    "ruby"
+  ],
+  "author": "David Freerksen <dfreerksen@gmail.com>",
+  "contributors": [
+    {
+      "name": "Aaron Astle",
+      "email": "aaronpastle@gmail.com"
+    }
+  ],
+  "bin": {},
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/archangel/archangel"
+  },
+  "bugs": {
+    "url": "https://github.com/archangel/archangel/issues"
+  },
+  "preferGlobal": true,
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^3.16.1",
+    "eslint-plugin-react": "^6.10.0",
+    "jshint": "^2.9.4"
+  }
+}
