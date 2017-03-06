@@ -5,6 +5,11 @@ require "active_support/core_ext/hash"
 
 module Archangel
   module Generators
+    # Dummy application generator
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     class DummyGenerator < Rails::Generators::Base
       desc "Creates blank Rails application, installs Archangel"
 
