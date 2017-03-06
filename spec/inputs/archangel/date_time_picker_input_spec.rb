@@ -3,7 +3,7 @@
 require "rails_helper"
 
 module Archangel
-  RSpec.describe "Date time picker custom input for simple_form", type: :input do
+  RSpec.describe "Datetime picker custom input for simple_form", type: :input do
     before do
       concat input_for(:foo, :input_field, as: :date_time_picker)
     end

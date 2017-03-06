@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Archangel
-# Date and time custom simple_form input field
+  # Date and time custom simple_form input field
   #
   # @author dfreerksen
   # @since 0.0.1
