@@ -10,15 +10,38 @@ module Archangel
     extend ActiveSupport::Concern
 
     included do
-      helper_method :collection_action?,
-                    :index_action?,
-                    :show_action?,
-                    :new_action?,
+      helper_method :action,
+                    :action?,
+                    :collection_action?,
                     :edit_action?,
+                    :index_action?,
                     :member_action?,
-                    :save_action?,
+                    :new_action?,
                     :restful_action?,
-                    :action
+                    :save_action?,
+                    :show_action?
+    end
+
+    # Controller action as a symbol
+    #
+    # = Example
+    #   "<%= action %>" #=> ":action"
+    #
+    # @return [Symbol] action symbol
+    #
+    def action
+      action_name.to_sym
+    end
+
+    # Controller action equality
+    #
+    # = Example
+    #   "<% action? %>"
+    #
+    # @return [Boolean] if action
+    #
+    def action?(action_method)
+      action == action_method.to_sym
     end
 
     # Controller action as a collection action
@@ -30,6 +53,17 @@ module Archangel
     #
     def collection_action?
       collection_actions.include?(action)
+    end
+
+    # Controller action as an edit action
+    #
+    # = Example
+    #   "<% edit_action? %>"
+    #
+    # @return [Boolean] if action is an edit action
+    #
+    def edit_action?
+      [:edit, :update].include?(action)
     end
 
     # Controller action as the index action.
@@ -45,17 +79,15 @@ module Archangel
       action?(:index)
     end
 
-    # Controller action as the show action.
-    #
-    # This is a shortcut for `action?(:show)`
+    # Controller action as a member action
     #
     # = Example
-    #   "<% show_action? %>"
+    #   "<% member_action? %>"
     #
-    # @return [Boolean] if action is the show action
+    # @return [Boolean] if action is a member action
     #
-    def show_action?
-      action?(:show)
+    def member_action?
+      member_actions.include?(action)
     end
 
     # Controller action as a new action
@@ -69,26 +101,15 @@ module Archangel
       [:new, :create].include?(action)
     end
 
-    # Controller action as an edit action
+    # Controller action as a restful action
     #
     # = Example
-    #   "<% edit_action? %>"
+    #   "<% restful_action? %>"
     #
-    # @return [Boolean] if action is an edit action
+    # @return [Boolean] if action is restful
     #
-    def edit_action?
-      [:edit, :update].include?(action)
-    end
-
-    # Controller action as a member action
-    #
-    # = Example
-    #   "<% member_action? %>"
-    #
-    # @return [Boolean] if action is a member action
-    #
-    def member_action?
-      member_actions.include?(action)
+    def restful_action?
+      restful_actions.include?(action)
     end
 
     # Controller action as a save action
@@ -102,37 +123,17 @@ module Archangel
       save_actions.include?(action)
     end
 
-    # Controller action as a restful action
+    # Controller action as the show action.
+    #
+    # This is a shortcut for `action?(:show)`
     #
     # = Example
-    #   "<% restful_action? %>"
+    #   "<% show_action? %>"
     #
-    # @return [Boolean] if action is restful
+    # @return [Boolean] if action is the show action
     #
-    def restful_action?
-      restful_actions.include?(action)
-    end
-
-    # Controller action as a symbol
-    #
-    # = Example
-    #   "<%= action %>" #=> ":action"
-    #
-    # @return [Symbol] action symbol
-    #
-    def action
-      action_name.to_sym
-    end
-
-    # Controller action
-    #
-    # = Example
-    #   "<% action? %>"
-    #
-    # @return [Boolean] if action
-    #
-    def action?(action_method)
-      action == action_method.to_sym
+    def show_action?
+      action?(:show)
     end
 
     protected
@@ -145,12 +146,12 @@ module Archangel
       [:show, :edit, :update, :destroy]
     end
 
-    def save_actions
-      [:create, :update, :destroy]
-    end
-
     def restful_actions
       [:index, :show, :new, :create, :edit, :update, :destroy]
+    end
+
+    def save_actions
+      [:create, :update, :destroy]
     end
   end
 end

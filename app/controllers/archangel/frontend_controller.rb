@@ -12,7 +12,7 @@ module Archangel
     protected
 
     def per_page
-      params.fetch(:limit, 12)
+      params.fetch(:limit, 12).to_i
     end
   end
 end
