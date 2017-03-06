@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
 module Archangel
-  class BaseUploader < CarrierWave::Uploader::Base
+  # Application uploader
+  #
+  # @author dfreerksen
+  # @since 0.0.1
+  #
+  class ApplicationUploader < CarrierWave::Uploader::Base
     include CarrierWave::MiniMagick
 
     def store_dir
