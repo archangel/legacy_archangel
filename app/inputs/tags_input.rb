@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+# Tag custom simple_form input field
+#
+# @author dfreerksen
+# @since 0.0.1
+#
 class TagsInput < SimpleForm::Inputs::CollectionSelectInput
   def input_options
     super.tap do |options|

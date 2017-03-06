@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+# Language select custom simple_form input field
+#
+# @author dfreerksen
+# @since 0.0.1
+#
 class LanguageInput < SimpleForm::Inputs::CollectionSelectInput
   def multiple?
     false

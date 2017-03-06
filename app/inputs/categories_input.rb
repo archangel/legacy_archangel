@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+# Category select custom simple_form input field
+#
+# @author dfreerksen
+# @since 0.0.1
+#
 class CategoriesInput < SimpleForm::Inputs::CollectionSelectInput
   def input_options
     super.tap do |options|

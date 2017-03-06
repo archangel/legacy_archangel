@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+# Parent page select custom simple_form input field
+#
+# @author dfreerksen
+# @since 0.0.1
+#
 class ParentPageInput < SimpleForm::Inputs::CollectionSelectInput
   def multiple?
     false

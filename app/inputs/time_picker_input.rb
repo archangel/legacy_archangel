@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+# Time picker custom simple_form input field
+#
+# @author dfreerksen
+# @since 0.0.1
+#
 class TimePickerInput < SimpleForm::Inputs::Base
   def input(_wrapper_options)
     template.content_tag(:div, class: "input-group") do
