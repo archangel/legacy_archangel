@@ -2,6 +2,11 @@
 
 module Archangel
   module TestingSupport
+    # Input helper support for type: input
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     module InputExampleGroup
       extend ActiveSupport::Concern
 
