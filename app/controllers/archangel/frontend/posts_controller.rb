@@ -43,13 +43,7 @@ module Archangel
       end
 
       def set_post
-        path = [
-          params[:year],
-          params[:month],
-          params[:slug]
-        ].join("/")
-
-        @post = Archangel::Post.published.find_by!(path: path)
+        @post = Archangel::Post.published.find_by!(path: single_post_path)
       end
 
       def set_post_pager
@@ -75,6 +69,14 @@ module Archangel
                                 .with_tag(tag_slug)
                                 .page(params[:page])
                                 .per(per_page)
+      end
+
+      def single_post_path
+        [
+          params[:year],
+          params[:month],
+          params[:slug]
+        ].join("/")
       end
     end
   end
