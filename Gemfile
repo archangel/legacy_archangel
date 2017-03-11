@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gemspec
 
 group :development do
-  gem "brakeman", "~> 3.4.1"
+  gem "brakeman", "~> 3.5.0"
   gem "reek", "~> 4.5.3"
   gem "rubocop", "~> 0.47.1"
   gem "scss_lint", "~> 0.52.0"
@@ -18,7 +18,7 @@ end
 
 group :test do
   gem "capybara", "~> 2.12.0"
-  gem "coveralls", "~> 0.8.17"
+  gem "coveralls", "~> 0.8.19"
   gem "database_cleaner", "~> 1.5.3"
   gem "factory_girl_rails", "~> 4.8.0"
   gem "launchy", "~> 2.4.3"
