@@ -134,6 +134,38 @@ rubocop
 reek
 ```
 
+### JSHint
+
+[jshint](https://github.com/jshint/jshint) is a Javascript style analyzer.
+
+Install globally with
+
+```
+npm install -g jshint
+```
+
+Run jshint
+
+```
+jshint ./app/assets/javascripts
+```
+
+### ESLint
+
+[eslint](https://github.com/eslint/eslint) is a Javascript style analyzer.
+
+Install globally with
+
+```
+npm install -g eslint
+```
+
+Run eslint
+
+```
+eslint ./app/assets/javascripts
+```
+
 ### scss-lint
 
 [scss-lint](https://github.com/brigade/scss-lint) is a SCSS style analyzer.
