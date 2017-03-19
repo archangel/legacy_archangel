@@ -1,0 +1,53 @@
+<div class="row wrapper page-header">
+  <div class="col-lg-12">
+    <h2>Menu List</h2>
+
+    <%= render "buttons" %>
+  </div>
+</div>
+
+<div class="menus-index panel panel-default">
+  <div class="panel-body">
+    <% if @menus.any? %>
+      <div class="table-responsive">
+        <table class="table table-stripedr">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Slug</th>
+              <th>ID Attribute</th>
+              <th>Class Attribute</th>
+              <th>Selected Class</th>
+              <th class="actions text-right">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @menus.each do |menu| %>
+              <tr>
+                <td><%= link_to(menu.name, admin_menu_path(menu)) %></td>
+                <td><%= menu.slug %></td>
+                <td><%= menu.attr_id %></td>
+                <td><%= menu.attr_class %></td>
+                <td><%= menu.selected_class %></td>
+                <td class="actions text-right">
+                  <%= link_to(fa_icon("folder-open", text: "Show"), admin_menu_path(menu), class: "btn btn-info btn-sm") %>
+                  <%= link_to(fa_icon("pencil", text: "Edit"), edit_admin_menu_path(menu), class: "btn btn-success btn-sm") %>
+                  <%= link_to(fa_icon("times", text: "Destroy"), admin_menu_path(menu), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: Archangel.t(:are_you_sure) }) %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% else %>
+
+    <div class="no-resources col-lg-12">
+      <p>
+        <%= Archangel.t(:no_resources, resource: @menus.model_name.human.pluralize.downcase) %>
+      </p>
+    </div>
+
+    <% end %>
+  </div>
+</div>

@@ -23,8 +23,14 @@ end
 
 def prompt_for_admin_username
   ENV.fetch("ADMIN_USERNAME") do
-    ask("Username:  ") { |q| q.default = "password123" }
+    ask("Username:  ") { |q| q.default = "administrator" }
   end
+end
+
+# Site
+Archangel::Site.first_or_create! do |item|
+  item.name = "Archangel"
+  item.locale = "en"
 end
 
 # User
@@ -59,7 +65,7 @@ Archangel::Category.find_or_create_by!(slug: "unknown") do |item|
 end
 
 # Pages
-Archangel::Page.published.find_or_create_by!(homepage: true) do |item|
+page = Archangel::Page.published.find_or_create_by!(homepage: true) do |item|
   item.slug = "homepage-#{Time.now.to_i}"
   item.title = "Welcome"
   item.content = "<p>Welcome to your new site.</p>"
@@ -74,4 +80,15 @@ unless Archangel::Post.published.any?
                          author_id: Archangel::User.first.id,
                          content: "This is the body of the very first post.",
                          published_at: Time.current)
+end
+
+# Menu
+menu = Archangel::Menu.find_or_create_by!(slug: "frontend") do |item|
+  item.name = "Frontend Menu"
+end
+
+# Menu Item
+Archangel::MenuItem.where(menu_id: menu.id).first_or_create! do |item|
+  item.label = page.title
+  item.menuable = page
 end

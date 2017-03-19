@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :asset, class: Archangel::Asset do
-    association :assetable, factory: :page
     uploader
+    association :assetable, factory: :page
     title "Asset File"
     file { fixture_file_upload(uploader_test_image) }
 

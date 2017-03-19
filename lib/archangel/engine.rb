@@ -11,6 +11,10 @@ module Archangel
     engine_name "archangel"
 
     require "responders"
+    require "simple-navigation"
+
+    SimpleNavigation.config_file_paths <<
+      File.expand_path("../../../config", __FILE__)
 
     config.action_controller.include_all_helpers = false
 

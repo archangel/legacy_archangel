@@ -1,0 +1,36 @@
+<div class="row wrapper page-header">
+  <div class="col-lg-12">
+    <h2>Menu</h2>
+
+    <%= render "buttons" %>
+  </div>
+</div>
+
+<div class="menus-show panel panel-default">
+  <div class="panel-body">
+    <p>
+      <strong>Name:</strong>
+      <%= @menu.name %>
+    </p>
+
+    <p>
+      <strong>Slug:</strong>
+      <%= @menu.slug %>
+    </p>
+
+    <p>
+      <strong>ID Attribute:</strong>
+      <%= @menu.attr_id %>
+    </p>
+
+    <p>
+      <strong>Class Attribute:</strong>
+      <%= @menu.attr_class %>
+    </p>
+
+    <p>
+      <strong>Selected Class:</strong>
+      <%= @menu.selected_class %>
+    </p>
+  </div>
+</div>

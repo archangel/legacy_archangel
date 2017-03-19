@@ -11,8 +11,15 @@ module Archangel
 
     protected
 
-    def per_page
-      params.fetch(:limit, 12).to_i
+    def per_page_default
+      12
+    end
+
+    def navigation_items
+      menu = Archangel::Menu.first
+      items = Archangel::MenuItem.includes(:menuable).where(menu: menu)
+
+      Archangel::NavigationService.new(menu, items).build
     end
   end
 end

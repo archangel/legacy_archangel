@@ -1,0 +1,27 @@
+<%= simple_form_for([:admin, @menu]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :slug %>
+    <%= f.input :attr_id %>
+    <%= f.input :attr_class %>
+    <%= f.input :selected_class %>
+
+    <h3>Menu Items</h3>
+
+    <div class="sub-menu-items">
+      <%= f.simple_fields_for :menu_items do |menu_item| %>
+        <%= render "menu_item_fields", f: menu_item %>
+      <% end %>
+
+      <div class="links">
+        <%= link_to_add_association "add menu item", f, :menu_items %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions text-right">
+    <%= f.button :submit %>
+  </div>
+<% end %>

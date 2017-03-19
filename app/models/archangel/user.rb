@@ -36,6 +36,7 @@ module Archangel
     validates :password, allow_blank: true,
                          length: { minimum: 8, maximum: 72 },
                          on: :update
+    validates :role, presence: true, inclusion: { in: Archangel::ROLES }
     validates :username, presence: true, uniqueness: true
 
     def to_param
