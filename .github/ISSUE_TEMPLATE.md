@@ -1,6 +1,6 @@
-## Short description
+# Summary
 
-I was trying to do [...]
+I was trying to [...]
 
 ## Steps to reproduce
 
@@ -19,7 +19,7 @@ Explain what happened instead.
 ## Backtrace
 
 ```
-Please copy paste the backtrace here if available
+Copy/paste the backtrace if available
 ```
 
 ## Solution

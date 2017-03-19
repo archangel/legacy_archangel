@@ -1,25 +1,18 @@
-## Proposed changes
+# Summary
 
-Describe your changes here to communicate why the pull request should be accepted.
+Describe your changes to communicate why the pull request is needed.
 
-## Types of changes
+## What's New
 
-What types of changes does your code introduce?
-_Put an `x` in the boxes that apply_
+- Added neat thing
+- More stuff...
 
-- [ ] Bugfix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+## What's Changed
 
-## Checklist
+- Changed something to be better
+- Not so neat thing removed
+- More stuff...
 
-_Put an `x` in the boxes that apply. This is a reminder of what will be looked at before merging the code._
-
-- [ ] Code compiles correctly
-- [ ] Created tests which fail without the change (if possible)
-- [ ] All tests passing
-- [ ] Extended the README / documentation, if necessary
-
-## Further comments
+## Further Comments
 
 If this is a large or complex change, explain why you chose the solution you did and what alternatives you considered.
