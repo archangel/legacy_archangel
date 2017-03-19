@@ -12,10 +12,18 @@ RSpec.configure do |config|
   end
 end
 
+# Image file to be used for testing image file uploads
+#
+# @return [String] path to image file
+#
 def uploader_test_image
   Archangel::Engine.root + "lib/archangel/testing_support/fixtures/image.gif"
 end
 
+# Text file to be used for testing non-image file uploads
+#
+# @return [String] path to non-image file
+#
 def uploader_test_text
   Archangel::Engine.root + "lib/archangel/testing_support/fixtures/text.txt"
 end

@@ -2,6 +2,11 @@
 
 module Archangel
   module Command
+    # Generate Archangel extension
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     class Extension < Thor::Group
       include Thor::Actions
 

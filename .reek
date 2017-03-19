@@ -1,8 +1,8 @@
+# https://github.com/troessner/reek/blob/master/defaults.reek
 ---
 exclude_paths:
   - db/migrate
   - spec/dummy
 
-"spec":
-  IrresponsibleModule:
-    enabled: false
+IrresponsibleModule:
+  enabled: false

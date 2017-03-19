@@ -1,4 +1,9 @@
-exclude: 'vendor/assets/stylesheets/**'
+# https://github.com/brigade/scss-lint/blob/master/config/default.yml
+scss_files:
+  - 'app/assets/stylesheets/**/*.scss'
+
+exclude:
+  - 'vendor/assets/stylesheets/**'
 
 linters:
   Indentation:

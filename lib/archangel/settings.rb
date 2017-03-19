@@ -27,7 +27,13 @@ module Archangel
 
     protected
 
+    def respond_to_missing?
+      super
+    end
+
     def method_missing(method_name, *_args, &_block)
+      super
+    rescue NoMethodError
       if method_name.to_s[-1] == "?"
         key?(method_name.to_s.sub("?", ""))
       elsif key?(method_name)

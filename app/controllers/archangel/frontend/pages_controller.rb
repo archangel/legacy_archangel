@@ -25,17 +25,21 @@ module Archangel
       def set_page
         page_path = params.fetch(:path, nil)
 
-        @page = if page_path.nil?
-                  Archangel::Page.published.homepage.first!
-                else
-                  Archangel::Page.published.find_by!(path: page_path)
-                end
+        @page = page_path.nil? ? find_homepage : find_page(page_path)
       end
 
       def redirect_to_homepage?
         return false if @page.nil?
 
         (params.fetch(:path, nil) == @page.path) && @page.homepage?
+      end
+
+      def find_homepage
+        Archangel::Page.published.homepage.first!
+      end
+
+      def find_page(path)
+        Archangel::Page.published.find_by!(path: path)
       end
     end
   end

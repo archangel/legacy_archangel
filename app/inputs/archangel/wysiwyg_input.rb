@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module Archangel
-  # Application job
+  # WYSIWYG custom simple_form input field
   #
   # @author dfreerksen
   # @since 0.0.1
   #
-  class ApplicationJob < ActiveJob::Base
+  class WysiwygInput < SimpleForm::Inputs::TextInput
   end
 end
