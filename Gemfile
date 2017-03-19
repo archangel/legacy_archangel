@@ -4,7 +4,7 @@ gemspec
 
 group :development do
   gem "brakeman", "~> 3.5.0"
-  gem "reek", "~> 4.5.5"
+  gem "reek", "~> 4.5.6"
   gem "rubocop", "~> 0.47.1"
   gem "scss_lint", "~> 0.52.0"
   gem "yard", "~> 0.9.8"
@@ -17,13 +17,13 @@ group :development, :test do
 end
 
 group :test do
-  gem "capybara", "~> 2.12.0"
+  gem "capybara", "~> 2.13.0"
   gem "coveralls", "~> 0.8.19"
   gem "database_cleaner", "~> 1.5.3"
   gem "factory_girl_rails", "~> 4.8.0"
   gem "launchy", "~> 2.4.3"
-  gem "poltergeist", "~> 1.13.0"
-  gem "rails-controller-testing", "~> 1.0.0"
+  gem "poltergeist", "~> 1.14.0"
+  gem "rails-controller-testing", "~> 1.0.1"
   gem "rspec-rails", "~> 3.5.2"
   gem "shoulda-callback-matchers", "~> 1.1.4"
   gem "shoulda-matchers", "~> 3.1.1"
