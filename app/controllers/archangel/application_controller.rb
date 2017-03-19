@@ -28,13 +28,18 @@ module Archangel
     respond_to :html, :json
     responders :flash, :http_cache
 
+    helper_method :current_navigation
     helper_method :current_site
 
-    protected
+    def current_navigation
+      @current_navigation ||= navigation_items
+    end
 
     def current_site
       @site ||= Archangel::Site.current
     end
+
+    protected
 
     def site_theme
       "default"
@@ -45,13 +50,21 @@ module Archangel
     end
 
     def per_page
-      params.fetch(:limit, Kaminari.config.default_per_page)
+      params.fetch(:limit, per_page_default)
+    end
+
+    def per_page_default
+      Kaminari.config.default_per_page
     end
 
     def set_locale
-      locale = params[:locale].to_s.strip.to_sym
+      locale = session[:locale].to_s.strip.to_sym
 
       I18n.locale = locale_for(locale)
+    end
+
+    def navigation_items
+      nil
     end
 
     def render_404(exception)

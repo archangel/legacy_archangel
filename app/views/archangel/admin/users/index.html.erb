@@ -44,7 +44,7 @@
 
       <div class="no-resources col-lg-12">
         <p>
-          <%= Archangel.t(:no_resources, resource: @users.model_name.human.pluralize) %>
+          <%= Archangel.t(:no_resources, resource: @users.model_name.human.pluralize.downcase) %>
         </p>
       </div>
 

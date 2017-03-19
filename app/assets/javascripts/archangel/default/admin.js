@@ -9,6 +9,7 @@
 //= require bootstrap
 //= require moment
 //= require bootstrap-datetimepicker
+//= require cocoon
 //= require hamburgers/hamburgers
 //= require local_time
 //= require select2-full

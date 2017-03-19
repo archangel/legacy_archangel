@@ -4,10 +4,10 @@ gemspec
 
 group :development do
   gem "brakeman", "~> 3.5.0"
-  gem "reek", "~> 4.5.3"
+  gem "reek", "~> 4.5.5"
   gem "rubocop", "~> 0.47.1"
   gem "scss_lint", "~> 0.52.0"
-  gem "yard", "~> 0.9.5"
+  gem "yard", "~> 0.9.8"
 end
 
 group :development, :test do

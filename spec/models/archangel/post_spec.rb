@@ -21,6 +21,9 @@ module Archangel
       end
 
       it { expect(subject).to have_db_index(:path).unique(:true) }
+
+      it { expect(subject).to accept_nested_attributes_for(:categories) }
+      it { expect(subject).to accept_nested_attributes_for(:tags) }
     end
 
     describe "ActiveRecord associations" do

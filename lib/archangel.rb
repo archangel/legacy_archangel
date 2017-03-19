@@ -5,6 +5,7 @@ require "acts_as_tree"
 require "bootstrap-sass"
 require "bootstrap3-datetimepicker-rails"
 require "carrierwave"
+require "cocoon"
 require "coffee-rails"
 require "date_validator"
 require "devise"
@@ -30,6 +31,8 @@ require "archangel/engine"
 require "archangel/configuration"
 require "archangel/i18n"
 require "archangel/languages"
+require "archangel/menu_methods"
+require "archangel/renderer/bootstrap"
 require "archangel/roles"
 require "archangel/settings"
 require "archangel/version"
@@ -44,6 +47,10 @@ module Archangel
 
     def configuration
       @configuration ||= Configuration.new
+    end
+
+    def routes
+      Archangel::Engine.routes.url_helpers
     end
   end
 end
