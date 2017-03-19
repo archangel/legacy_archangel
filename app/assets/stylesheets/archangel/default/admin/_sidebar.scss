@@ -1,16 +1,15 @@
-/* ======================================
- Sidebar
-====================================== */
+//========================================
+// Sidebar
+//========================================
 
-@import "archangel/common/variables";
+@import 'archangel/common/variables';
 
 #sidebar {
-  -webkit-box-flex:  0;
-     -moz-box-flex:  0;
-      -ms-box-flex:  0;
-          box-flex:  0;
-
   background-color: $navbar-default-bg;
+  -moz-box-flex: 0;
+  -ms-box-flex: 0;
+  -webkit-box-flex: 0;
+  box-flex: 0;
   padding: 15px 0;
 
   @media (min-width: $screen-sm-min) {
@@ -36,7 +35,7 @@
         border-left: 4px solid $brand-success;
 
         > a {
-          color: #fff;
+          color: $white;
         }
       }
 
@@ -45,7 +44,7 @@
 
         &:hover {
           background: $navbar-default-bg;
-          color: #fff;
+          color: $white;
         }
       }
     }
@@ -68,12 +67,6 @@
   }
 
   .brand-name {
-    color: #ffffff;
+    color: $white;
   }
 }
-
-/* ======================================
- Sidebar Menu
-====================================== */
-
-#sidebar-menu { }

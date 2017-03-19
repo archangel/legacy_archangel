@@ -1,22 +1,22 @@
-@import "archangel/common/theme/rtl";
-@import "archangel/common/theme/form";
-@import "archangel/common/theme/heading";
+@import 'archangel/common/theme/rtl';
+@import 'archangel/common/theme/form';
+@import 'archangel/common/theme/heading';
 
 // Bootstrap extensions
-@import "archangel/common/theme/bootstrap/extend/block";
-@import "archangel/common/theme/bootstrap/extend/font";
-@import "archangel/common/theme/bootstrap/extend/img";
+@import 'archangel/common/theme/bootstrap/extend/block';
+@import 'archangel/common/theme/bootstrap/extend/font';
+@import 'archangel/common/theme/bootstrap/extend/img';
 
 // Bootstrap overrides
-@import "archangel/common/theme/bootstrap/override/container";
-@import "archangel/common/theme/bootstrap/override/page-header";
-@import "archangel/common/theme/bootstrap/override/wrapper";
+@import 'archangel/common/theme/bootstrap/override/container';
+@import 'archangel/common/theme/bootstrap/override/page-header';
+@import 'archangel/common/theme/bootstrap/override/wrapper';
 
 // Theme
-@import "archangel/common/theme/common/page-wrapper";
+@import 'archangel/common/theme/common/page-wrapper';
 
 // Print
-@import "archangel/common/theme/print";
+@import 'archangel/common/theme/print';
 
 
 // Navbar =====================================================================
@@ -27,7 +27,7 @@
   &-default {
 
     .badge {
-      background-color: #fff;
+      background-color: $white;
       color: $navbar-default-bg;
     }
   }
@@ -35,7 +35,7 @@
   &-inverse {
 
     .badge {
-      background-color: #fff;
+      background-color: $white;
       color: $navbar-inverse-bg;
     }
   }
@@ -103,12 +103,12 @@ table,
   .warning,
   .danger,
   .info {
-    color: #fff;
+    color: $white;
 
     > th > a,
     > td > a,
     > a {
-      color: #fff;
+      color: $white;
     }
   }
 
@@ -118,7 +118,7 @@ table,
   > thead > tr > td,
   > tbody > tr > td,
   > tfoot > tr > td {
-    border: none;
+    border: 0;
   }
 
   &-bordered > thead > tr > th,
@@ -231,14 +231,14 @@ input {
 .pager {
   a,
   a:hover {
-    color: #fff;
+    color: $white;
   }
 
   .disabled {
-    &>a,
-    &>a:hover,
-    &>a:focus,
-    &>span {
+    > a,
+    > a:hover,
+    > a:focus,
+    > span {
       background-color: $pagination-disabled-bg;
     }
   }
@@ -247,13 +247,13 @@ input {
 // Indicators =================================================================
 
 .close {
-  color: #fff;
+  color: $white;
+  opacity: .4;
   text-decoration: none;
-  opacity: 0.4;
 
   &:hover,
   &:focus {
-    color: #fff;
+    color: $white;
     opacity: 1;
   }
 }
@@ -261,7 +261,7 @@ input {
 .alert {
 
   .alert-link {
-    color: #fff;
+    color: $white;
     text-decoration: underline;
   }
 }
@@ -269,8 +269,9 @@ input {
 // Progress bars ==============================================================
 
 .progress {
-  height: 10px;
   box-shadow: none;
+  height: 10px;
+
   .progress-bar {
     font-size: 10px;
     line-height: 10px;

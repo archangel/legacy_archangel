@@ -1,16 +1,16 @@
 $.fn.inputSelectCategories = function () {
-  "use strict";
+  'use strict';
 
   this.select2({
     minimumInputLength: 1,
     multiple: true,
-    theme: "bootstrap",
+    theme: 'bootstrap',
     ajax: {
       cache: true,
-      datatype: "json",
+      datatype: 'json',
       delay: 500,
-      url: "/admin/categories/autocomplete.json",
-      width: "100%",
+      url: '/admin/categories/autocomplete.json',
+      width: '100%',
       data: function (params) {
         return {
           q: params.term
@@ -27,10 +27,12 @@ $.fn.inputSelectCategories = function () {
       }
     }
   });
+
 };
 
 $(function() {
+  'use strict';
 
-  $("select.categories").inputSelectCategories();
+  $('select.categories').inputSelectCategories();
 
 });

@@ -2,7 +2,7 @@
   background-color: $input-bg;
   border: 2px solid $input-border;
   border-radius: $input-border-radius;
-  transition: border-color ease-in-out 0.15s;
+  transition: border-color ease-in-out .15s;
 
   &.focus {
     border-color: $input-border-focus;
@@ -14,7 +14,7 @@
 }
 
 .trumbowyg-textarea {
-  border: none;
+  border: 0;
 }
 
 .trumbowyg-button-pane {

@@ -1,9 +1,9 @@
 $.fn.inputTextMetaKeywords = function () {
-  "use strict";
+  'use strict';
 
   var formatMetaKeywordOption = function(data) {
     return data.text.toLowerCase();
-  }
+  };
 
   this.select2({
     templateResult: formatMetaKeywordOption,
@@ -11,14 +11,16 @@ $.fn.inputTextMetaKeywords = function () {
     minimumInputLength: 2,
     multiple: true,
     tags: true,
-    theme: "bootstrap",
-    tokenSeparators: [","],
-    width: "100%"
+    theme: 'bootstrap',
+    tokenSeparators: [','],
+    width: '100%'
   });
+
 };
 
 $(function() {
+  'use strict';
 
-  $("select.meta_keywords").inputTextMetaKeywords();
+  $('select.meta_keywords').inputTextMetaKeywords();
 
 });

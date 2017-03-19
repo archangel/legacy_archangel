@@ -1,30 +1,30 @@
 // Variables
-@import "archangel/common/variables";
+@import 'archangel/common/variables';
 
 // Boostrap
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
 
 // Select2
-@import "archangel/common/resources/select2";
+@import 'archangel/common/resources/select2';
 
 // Trumbowyg
-@import "archangel/common/resources/trumbowyg";
+@import 'archangel/common/resources/trumbowyg';
 
 // Common theme
-@import "archangel/common/theme";
+@import 'archangel/common/theme';
 
 // Layout
-@import "archangel/default/admin/header";
-@import "archangel/default/admin/sidebar";
-@import "archangel/default/admin/footer";
+@import 'archangel/default/admin/header';
+@import 'archangel/default/admin/sidebar';
+@import 'archangel/default/admin/footer';
 
 // Sections
-@import "archangel/default/admin/sections/dashboard";
-@import "archangel/default/admin/sections/pages";
-@import "archangel/default/admin/sections/categories";
-@import "archangel/default/admin/sections/menus";
-@import "archangel/default/admin/sections/tags";
-@import "archangel/default/admin/sections/assets";
-@import "archangel/default/admin/sections/users";
-@import "archangel/default/admin/sections/site";
+@import 'archangel/default/admin/sections/dashboard';
+@import 'archangel/default/admin/sections/pages';
+@import 'archangel/default/admin/sections/categories';
+@import 'archangel/default/admin/sections/menus';
+@import 'archangel/default/admin/sections/tags';
+@import 'archangel/default/admin/sections/assets';
+@import 'archangel/default/admin/sections/users';
+@import 'archangel/default/admin/sections/site';

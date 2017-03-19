@@ -1,4 +1,5 @@
 $(function() {
+  'use strict';
 
   // Date/datetime tooltips
   var archangelDatetimepickerTranslations = function() {

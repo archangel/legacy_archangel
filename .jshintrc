@@ -1,4 +1,7 @@
 {
+  "globals": {
+    "Archangel": true
+  },
   "boss": true,
   "curly": true,
   "debug": false,
