@@ -81,8 +81,10 @@ module Archangel
     end
 
     def log_error(exception)
-      Rails.logger.error status.to_s + " " + exception.message.to_s
-      Rails.logger.error exception.backtrace.join("\n")
+      logger = Rails.logger
+
+      logger.error status.to_s + " " + exception.message.to_s
+      logger.error exception.backtrace.join("\n")
     end
 
     private

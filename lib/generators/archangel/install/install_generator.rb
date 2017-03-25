@@ -140,11 +140,13 @@ Archangel::Engine.load_seed
 
       no_tasks do
         def rake_seed_options
+          fields = %w(admin_email admin_name admin_password admin_username)
+
           [].tap do |collector|
-            %w(admin_email admin_name admin_password admin_username).each do |o|
-              if options[o.to_sym]
-                collector << "#{o.to_s.upcase}=#{options[o.to_sym]}"
-              end
+            fields.each do |field|
+              field_option = options[field.to_sym]
+
+              collector << "#{field.upcase}=#{field_option}" if field_option
             end
           end
         end

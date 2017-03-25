@@ -9,9 +9,9 @@ module Archangel
   class Configuration
     DEFAULT_VALUE = nil
 
-    attr_accessor :admin_path, :application, :attachment_maximum_file_size,
-                  :attachment_white_list, :auth_path, :frontend_path,
-                  :image_maximum_file_size, :image_white_list, :posts_path
+    attr_reader :admin_path, :application, :attachment_maximum_file_size,
+                :attachment_white_list, :auth_path, :frontend_path,
+                :image_maximum_file_size, :image_white_list, :posts_path
 
     def initialize
       @admin_path = "admin"

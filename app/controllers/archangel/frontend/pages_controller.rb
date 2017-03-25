@@ -29,7 +29,7 @@ module Archangel
       end
 
       def redirect_to_homepage?
-        return false if @page.nil?
+        return false unless @page
 
         (params.fetch(:path, nil) == @page.path) && @page.homepage?
       end

@@ -34,8 +34,10 @@ module Archangel
     def save_asset_attributes
       return unless file.present? && file_changed?
 
-      self.content_type = file.file.content_type
-      self.file_size = file.file.size
+      asset_object = file.file
+
+      self.content_type = asset_object.content_type
+      self.file_size = asset_object.size
     end
   end
 end
