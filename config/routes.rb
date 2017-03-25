@@ -37,7 +37,7 @@ Archangel::Engine.routes.draw do
              module: :devise,
              class_name: "Archangel::User",
              path: "",
-             path_prefix: Archangel.configuration.auth_path,
+             path_prefix: Archangel.config.auth_path,
              skip: [:omniauth_callbacks],
              path_names: {
                sign_in: "login",
@@ -47,10 +47,10 @@ Archangel::Engine.routes.draw do
                confirmation: "verification",
                unlock: "unlock"
              }
-  get Archangel.configuration.auth_path,
-      to: redirect("#{Archangel.configuration.auth_path}/login")
+  get Archangel.config.auth_path,
+      to: redirect("#{Archangel.config.auth_path}/login")
 
-  namespace :admin, path: Archangel.configuration.admin_path do
+  namespace :admin, path: Archangel.config.admin_path do
     # GET    /admin/assets
     # GET    /admin/assets/page/[PAGE]
     # POST   /admin/assets
@@ -156,8 +156,8 @@ Archangel::Engine.routes.draw do
     root to: "dashboards#show"
   end
 
-  namespace :frontend, path: Archangel.configuration.frontend_path do
-    scope Archangel.configuration.posts_path do
+  namespace :frontend, path: Archangel.config.frontend_path do
+    scope Archangel.config.posts_path do
       # GET /posts
       # GET /posts/page/[PAGE]
       get "/(page/:page)", to: "posts#index", as: :posts

@@ -53,7 +53,7 @@ module Archangel
       # @return [String] link to post
       #
       def post_path(post)
-        full_path = "#{Archangel.configuration.posts_path}/#{post.path}"
+        full_path = "#{Archangel.config.posts_path}/#{post.path}"
 
         archangel.frontend_page_path(full_path)
       end

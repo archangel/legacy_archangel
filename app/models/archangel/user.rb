@@ -26,7 +26,7 @@ module Archangel
 
     # Validation
     validates :avatar, file_size: {
-      less_than_or_equal_to: Archangel.configuration.image_maximum_file_size
+      less_than_or_equal_to: Archangel.config.image_maximum_file_size
     }
     validates :email, presence: true, uniqueness: true, email: true
     validates :name, presence: true

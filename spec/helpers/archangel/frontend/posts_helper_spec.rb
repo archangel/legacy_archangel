@@ -35,7 +35,7 @@ module Archangel
         let(:post) { create(:post) }
 
         it "build local path to post" do
-          expected = "/#{Archangel.configuration.posts_path}/#{post.path}"
+          expected = "/#{Archangel.config.posts_path}/#{post.path}"
 
           expect(helper.post_path(post)).to eq(expected)
         end
@@ -45,7 +45,7 @@ module Archangel
         let(:post) { create(:post) }
 
         it "build URL to post" do
-          expected = "#{Archangel.configuration.posts_path}/#{post.path}"
+          expected = "#{Archangel.config.posts_path}/#{post.path}"
 
           expect(helper.post_url(post)).to end_with(expected)
         end

@@ -20,7 +20,7 @@ module Archangel
     # @return [Array] file extension whitelist
     #
     def extension_whitelist
-      Archangel.configuration.attachment_white_list
+      Archangel.config.attachment_white_list
     end
 
     # Path to default logo file

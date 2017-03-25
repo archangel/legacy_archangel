@@ -23,7 +23,7 @@ module Archangel
                      file_size: {
                        greater_than_or_equal_to: 2.bytes,
                        less_than_or_equal_to:
-                         Archangel.configuration.attachment_maximum_file_size
+                         Archangel.config.attachment_maximum_file_size
                      }
 
     # Default scope
