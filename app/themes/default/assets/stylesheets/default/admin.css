@@ -1,6 +1,8 @@
 /**
  * Default Archangel admin theme
  *
+ *= require_self
+ *
  * Third party libraries
  *= require bootstrap-datetimepicker
  *= require font-awesome
@@ -13,5 +15,5 @@
  *= require archangel/admin
  *
  * Archangel section theme styles
- *= require archangel/default/admin/style
+ *= require default/admin/style
  */

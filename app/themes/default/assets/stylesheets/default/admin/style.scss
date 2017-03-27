@@ -1,0 +1,30 @@
+// Variables
+@import 'archangel/common/variables';
+
+// Boostrap
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+// Select2
+@import 'archangel/common/resources/select2';
+
+// Trumbowyg
+@import 'archangel/common/resources/trumbowyg';
+
+// Common theme
+@import 'archangel/common/theme';
+
+// Layout
+@import 'default/admin/header';
+@import 'default/admin/sidebar';
+@import 'default/admin/footer';
+
+// Sections
+@import 'default/admin/sections/dashboard';
+@import 'default/admin/sections/pages';
+@import 'default/admin/sections/categories';
+@import 'default/admin/sections/menus';
+@import 'default/admin/sections/tags';
+@import 'default/admin/sections/assets';
+@import 'default/admin/sections/users';
+@import 'default/admin/sections/site';

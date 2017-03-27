@@ -1,6 +1,8 @@
 /**
  * Default Archangel frontend theme
  *
+ *= require_self
+ *
  * Third party libraries
  *= require font-awesome
  *= require hamburgers/hamburgers
@@ -9,5 +11,5 @@
  *= require archangel/frontend
  *
  * Archangel section theme styles
- *= require archangel/default/frontend/style
+ *= require default/frontend/style
  */

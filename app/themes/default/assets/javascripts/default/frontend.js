@@ -1,7 +1,7 @@
 // Default Archangel frontend theme
 //
 // Archangel common theme variables
-//= require archangel/common/objects
+// require archangel/common/objects
 //
 // External assets
 //= require jquery2
