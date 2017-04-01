@@ -85,7 +85,7 @@ module Archangel
       #
       # = Response
       #   {
-      #     "id": 2,
+      #     "id": 123,
       #     "name": "John Doe",
       #     "username": "john-doe",
       #     "role": "admin",
@@ -207,7 +207,7 @@ module Archangel
       #
       # = Response
       #   {
-      #     "id": 2,
+      #     "id": 123,
       #     "name": "John Doe",
       #     "username": "john-doe",
       #     "role": "admin",
