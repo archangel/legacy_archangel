@@ -1,0 +1,6 @@
+en:
+  archangel:
+    theme:
+      <%= theme_name %>:
+        author: Captain Awesome
+        name: <%= theme_name %>
