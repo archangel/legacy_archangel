@@ -43,7 +43,7 @@ module Archangel
     protected
 
     def theme_resolver
-      theme = "default"
+      theme = current_site.theme
 
       Archangel::THEMES.include?(theme) ? theme : Archangel::THEME_DEFAULT
     end

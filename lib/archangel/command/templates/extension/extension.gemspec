@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.version     = <%= class_name %>::VERSION
   s.authors     = ["Your Name"]
   s.homepage    = "https://github.com/[your-github-handle]/<%= file_name %>"
-  s.summary     = "TODO: Summary of <%= class_name %>."
-  s.description = "TODO: Description of <%= class_name %>."
+  s.summary     = "Summary of <%= class_name %>."
+  s.description = "Description of <%= class_name %>."
   s.license     = "MIT"
 
   s.files = Dir[

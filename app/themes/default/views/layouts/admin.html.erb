@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="shortcut icon" href="<%= current_site.favicon.url %>" type="image/x-icon">
+
     <title><%= content_for?(:title) ? yield(:title) : Archangel.t(:archangel) %></title>
 
     <%= csrf_meta_tags %>
