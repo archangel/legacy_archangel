@@ -37,6 +37,11 @@ require "archangel/roles"
 require "archangel/settings"
 require "archangel/version"
 
+# Archangel
+#
+# @author dfreerksen
+# @since 0.0.1
+#
 module Archangel
   class << self
     attr_accessor :configuration
