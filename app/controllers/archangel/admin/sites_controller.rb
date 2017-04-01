@@ -12,14 +12,102 @@ module Archangel
 
       helper Archangel::Admin::SitesHelper
 
+      # View site
+      #
+      # = Request
+      #   GET /admin/site
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Response
+      #   {
+      #     "id": 123,
+      #     "name": "Site Name",
+      #     "locale": "en",
+      #     "logo": {
+      #       "url": "/path/to/logo.jpg",
+      #       "medium": {
+      #         "url": "/path/to/medium_logo.jpg"
+      #       },
+      #       "thumb": {
+      #         "url": "/path/to/thumb_logo.jpg"
+      #       },
+      #       "mini": {
+      #         "url": "/path/to/mini_logo.jpg"
+      #       }
+      #     },
+      #     "meta_keywords": "site, keywords",
+      #     "meta_description": "Site description",
+      #     "created_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #     "updated_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #     "theme": "default",
+      #     "favicon": null
+      #   }
+      #
       def show
         respond_with @site
       end
 
+      # Edit site
+      #
+      # = Request
+      #   GET /admin/site/edit
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Response
+      #   {
+      #     "id": 123,
+      #     "name": "Site Name",
+      #     "locale": "en",
+      #     "logo": {
+      #       "url": "/path/to/logo.jpg",
+      #       "medium": {
+      #         "url": "/path/to/medium_logo.jpg"
+      #       },
+      #       "thumb": {
+      #         "url": "/path/to/thumb_logo.jpg"
+      #       },
+      #       "mini": {
+      #         "url": "/path/to/mini_logo.jpg"
+      #       }
+      #     },
+      #     "meta_keywords": "site, keywords",
+      #     "meta_description": "Site description",
+      #     "created_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #     "updated_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #     "theme": "default",
+      #     "favicon": null
+      #   }
+      #
       def edit
         respond_with @site
       end
 
+      # Update site
+      #
+      # = Request
+      #   PATCH /admin/site
+      #   PUT   /admin/site
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Request
+      #   {
+      #     "site": {
+      #       "name": "Site Name",
+      #       "locale": "en",
+      #       "logo": "local/path/to/logo.jpg",
+      #       "meta_keywords": "updated/site, keywords",
+      #       "meta_description": "Updated site description",
+      #       "theme": "default",
+      #       "favicon": "local/path/to/favicon.ico"
+      #     }
+      #   }
+      #
       def update
         @site.update(site_params)
 
