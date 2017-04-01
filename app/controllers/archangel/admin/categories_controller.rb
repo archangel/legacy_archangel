@@ -30,9 +30,13 @@ module Archangel
       # = Response
       #   [
       #     {
-      #       "name": "My category name",
-      #       "slug": "my-category-name",
-      #       "description": "This is the description of the category"
+      #       "id": 123,
+      #       "name": "Category Name",
+      #       "slug": "category-name",
+      #       "description": "Description of the category",
+      #       "deleted_at": null,
+      #       "created_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #       "updated_at": "YYYY-MM-DDTHH:MM:SS.MSZ"
       #     }
       #   ]
       #
@@ -43,19 +47,23 @@ module Archangel
       # View a category
       #
       # = Request
-      #   GET /admin/categories/:id
+      #   GET /admin/categories/:slug
       #
       # = Formats
       #   HTML, JSON
       #
       # = Params
-      #   [Integer] id - the category ID
+      #   [Integer] slug - the category slug
       #
       # = Response
       #   {
-      #     "name": "My category name",
-      #     "slug": "my-category-name",
-      #     "description": "This is the description of the category"
+      #     "id": 123,
+      #     "name": "Category Name",
+      #     "slug": "category-name",
+      #     "description": "Description of the category",
+      #     "deleted_at": null,
+      #     "created_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #     "updated_at": "YYYY-MM-DDTHH:MM:SS.MSZ"
       #   }
       #
       def show
@@ -72,9 +80,13 @@ module Archangel
       #
       # = Response
       #   {
-      #     "name": "",
-      #     "slug": "",
-      #     "description": ""
+      #     "id": null,
+      #     "name": null,
+      #     "slug": null,
+      #     "description": null,
+      #     "deleted_at": null,
+      #     "created_at": null,
+      #     "updated_at": null
       #   }
       #
       def new
@@ -92,17 +104,10 @@ module Archangel
       # = Request
       #   {
       #     "category": {
-      #       "name": "My category name",
-      #       "slug": "my-category-name",
-      #       "description": "This is the description of the category"
+      #       "name": "Category Name",
+      #       "slug": "category-name",
+      #       "description": "Description of the category"
       #     }
-      #   }
-      #
-      # = Response
-      #   {
-      #     "name": "My category name",
-      #     "slug": "my-category-name",
-      #     "description": "This is the description of the category"
       #   }
       #
       def create
@@ -114,16 +119,23 @@ module Archangel
       # Edit a category
       #
       # = Request
-      #   GET /admin/categories/:id/edit
+      #   GET /admin/categories/:slug/edit
       #
       # = Formats
       #   HTML, JSON
       #
+      # = Params
+      #   [Integer] slug - the category slug
+      #
       # = Response
       #   {
-      #     "name": "My category name",
-      #     "slug": "my-category-name",
-      #     "description": "This is the description of the category"
+      #     "id": 123,
+      #     "name": "Category Name",
+      #     "slug": "category-name",
+      #     "description": "Description of the category",
+      #     "deleted_at": null,
+      #     "created_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #     "updated_at": "YYYY-MM-DDTHH:MM:SS.MSZ"
       #   }
       #
       def edit
@@ -133,26 +145,22 @@ module Archangel
       # Update a category
       #
       # = Request
-      #   PATCH /admin/categories/:id
-      #   PUT   /admin/categories/:id
+      #   PATCH /admin/categories/:slug
+      #   PUT   /admin/categories/:slug
       #
       # = Formats
       #   HTML, JSON
       #
+      # = Params
+      #   [Integer] slug - the category slug
+      #
       # = Request
       #   {
       #     "category": {
-      #       "name": "My category name",
-      #       "slug": "my-category-name",
-      #       "description": "This is the description of the category"
+      #       "name": "Updated Category Name",
+      #       "slug": "updated-category-name",
+      #       "description": "Updated description of the category"
       #     }
-      #   }
-      #
-      # = Response
-      #   {
-      #     "name": "My category name",
-      #     "slug": "my-category-name",
-      #     "description": "This is the description of the category"
       #   }
       #
       def update
@@ -167,13 +175,13 @@ module Archangel
       # deleted
       #
       # = Request
-      #   DELETE /admin/categories/:id
+      #   DELETE /admin/categories/:slug
       #
       # = Formats
       #   HTML, JSON
       #
       # = Params
-      #   [Integer] id - the category ID
+      #   [Integer] slug - the category slug
       #
       def destroy
         @category.destroy
@@ -185,7 +193,7 @@ module Archangel
       #
       # = Request
       #   GET /admin/categories/autocomplete
-      #   GET /admin/categories/autocomplete?q=query
+      #   GET /admin/categories/autocomplete?q=[QUERY]
       #
       # = Formats
       #   JSON
@@ -196,10 +204,15 @@ module Archangel
       # = Response
       #   [
       #     {
-      #       "name": "My category name",
-      #       "slug": "my-category-name",
-      #       "description": "This is the description of the category"
-      #     }
+      #       "id": 123,
+      #       "name": "Category Name",
+      #       "slug": "category-name",
+      #       "description": "Description of the category",
+      #       "deleted_at": null,
+      #       "created_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #       "updated_at": "YYYY-MM-DDTHH:MM:SS.MSZ"
+      #     },
+      #     ...
       #   ]
       #
       def autocomplete
