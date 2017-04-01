@@ -53,7 +53,7 @@ module Archangel
       #   HTML, JSON
       #
       # = Params
-      #   [Integer] slug - the category slug
+      #   [String] slug - the category slug
       #
       # = Response
       #   {
@@ -125,7 +125,7 @@ module Archangel
       #   HTML, JSON
       #
       # = Params
-      #   [Integer] slug - the category slug
+      #   [String] slug - the category slug
       #
       # = Response
       #   {
@@ -152,7 +152,7 @@ module Archangel
       #   HTML, JSON
       #
       # = Params
-      #   [Integer] slug - the category slug
+      #   [String] slug - the category slug
       #
       # = Request
       #   {
@@ -181,7 +181,7 @@ module Archangel
       #   HTML, JSON
       #
       # = Params
-      #   [Integer] slug - the category slug
+      #   [String] slug - the category slug
       #
       def destroy
         @category.destroy

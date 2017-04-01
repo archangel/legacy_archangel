@@ -81,7 +81,7 @@ module Archangel
       #   HTML, JSON
       #
       # = Params
-      #   [Integer] username - the user username
+      #   [String] username - the user username
       #
       # = Response
       #   {
@@ -203,7 +203,7 @@ module Archangel
       #   HTML, JSON
       #
       # = Params
-      #   [Integer] username - the user username
+      #   [String] username - the user username
       #
       # = Response
       #   {
@@ -254,7 +254,7 @@ module Archangel
       #   HTML, JSON
       #
       # = Params
-      #   [Integer] username - the user username
+      #   [String] username - the user username
       #
       # = Request
       #   {
@@ -286,7 +286,7 @@ module Archangel
       #   HTML, JSON
       #
       # = Params
-      #   [Integer] username - the user username
+      #   [String] username - the user username
       #
       def destroy
         @user.destroy

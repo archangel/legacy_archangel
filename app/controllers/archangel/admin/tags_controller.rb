@@ -53,7 +53,7 @@ module Archangel
       #   HTML, JSON
       #
       # = Params
-      #   [Integer] slug - the tag slug
+      #   [String] slug - the tag slug
       #
       # = Response
       #   {
@@ -125,7 +125,7 @@ module Archangel
       #   HTML, JSON
       #
       # = Params
-      #   [Integer] slug - the tag slug
+      #   [String] slug - the tag slug
       #
       # = Response
       #   {
@@ -152,7 +152,7 @@ module Archangel
       #   HTML, JSON
       #
       # = Params
-      #   [Integer] slug - the tag slug
+      #   [String] slug - the tag slug
       #
       # = Request
       #   {
@@ -181,7 +181,7 @@ module Archangel
       #   HTML, JSON
       #
       # = Params
-      #   [Integer] slug - the tag slug
+      #   [String] slug - the tag slug
       #
       def destroy
         @tag.destroy
