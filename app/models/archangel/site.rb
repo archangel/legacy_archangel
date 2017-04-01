@@ -23,12 +23,12 @@ module Archangel
     validates :name, presence: true
     validates :theme, presence: true, inclusion: { in: Archangel.themes }
 
-    # Default scope
-    default_scope { order(name: :asc) }
-
     # Scope
     def self.current
-      first_or_create { |site| site.name = Archangel.t(:archangel) }
+      first_or_create do |site|
+        site.name = Archangel.t(:archangel)
+        site.theme = Archangel::THEME_DEFAULT
+      end
     end
 
     protected
