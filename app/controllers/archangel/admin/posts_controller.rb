@@ -14,34 +14,252 @@ module Archangel
 
       helper Archangel::Admin::PostsHelper
 
+      # List of all posts
+      #
+      # = Request
+      #   GET /admin/posts
+      #   GET /admin/posts/page/:page
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Params
+      #   [Integer] page - the page number
+      #
+      # = Response
+      #   [
+      #     {
+      #       "id": 123,
+      #       "title": "Post Title",
+      #       "path": "YYYY/MM/post-title",
+      #       "slug": "post-title",
+      #       "author_id": 123,
+      #       "content": "<p>Body of the post</p>",
+      #       "meta_keywords": "keywords, for, the, post",
+      #       "meta_description": "Description of the post",
+      #       "feature": {
+      #         "url": "/path/to/feature.jpg"
+      #         "medium": {
+      #           "url": "/path/to/medium_feature.jpg"
+      #         },
+      #         "thumb": {
+      #           "url": "/path/to/thumb_feature.jpg"
+      #        },
+      #         "mini": {
+      #           "url": "/path/to/mini_feature.jpg"
+      #         }
+      #       },
+      #       "deleted_at": null,
+      #       "published_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #       "created_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #       "updated_at": "YYYY-MM-DDTHH:MM:SS.MSZ"
+      #     },
+      #     ...
+      #   ]
+      #
       def index
         respond_with @posts
       end
 
+      # View a post
+      #
+      # = Request
+      #   GET /admin/posts/:id
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Params
+      #   [Integer] id - the post ID
+      #
+      # = Response
+      #   {
+      #     "id": 123,
+      #     "title": "Post Title",
+      #     "path": "YYYY/MM/post-title",
+      #     "slug": "post-title",
+      #     "author_id": 123,
+      #     "content": "<p>Body of the post</p>",
+      #     "meta_keywords": "keywords, for, the, post",
+      #     "meta_description": "Description of the post",
+      #     "feature": {
+      #       "url": "/path/to/feature.jpg"
+      #       "medium": {
+      #         "url": "/path/to/medium_feature.jpg"
+      #       },
+      #       "thumb": {
+      #         "url": "/path/to/thumb_feature.jpg"
+      #      },
+      #       "mini": {
+      #         "url": "/path/to/mini_feature.jpg"
+      #       }
+      #     },
+      #     "deleted_at": null,
+      #     "published_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #     "created_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #     "updated_at": "YYYY-MM-DDTHH:MM:SS.MSZ"
+      #   }
+      #
       def show
         respond_with @post
       end
 
+      # New post
+      #
+      # = Request
+      #   GET /admin/posts/new
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Response
+      #   {
+      #     "id": null,
+      #     "title": null,
+      #     "path": null,
+      #     "slug": null,
+      #     "author_id": null,
+      #     "content": "",
+      #     "meta_keywords": null,
+      #     "meta_description": null,
+      #     "feature": {
+      #       "url": "/path/to/default_feature.jpg"
+      #       "medium": {
+      #         "url": "/path/to/medium_default_feature.jpg"
+      #       },
+      #       "thumb": {
+      #         "url": "/path/to/thumb_default_feature.jpg"
+      #      },
+      #       "mini": {
+      #         "url": "/path/to/mini_default_feature.jpg"
+      #       }
+      #     },
+      #     "deleted_at": null,
+      #     "published_at": null,
+      #     "created_at": null,
+      #     "updated_at": null
+      #   }
+      #
       def new
         respond_with @post
       end
 
-      def edit
-        respond_with @post
-      end
-
+      # Create a new post
+      #
+      # = Request
+      #   POST /admin/posts
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Request
+      #   {
+      #     "post": {
+      #       "title": "Post Title",
+      #       "slug": "post-title",
+      #       "author_id": 123,
+      #       "content": "<p>Body of the post</p>",
+      #       "meta_keywords": "keywords, for, the, post",
+      #       "meta_description": "Description of the post",
+      #       "feature": "/local/path/to/upload/feature.jpg",
+      #       "published_at": "YYYY-MM-DDTHH:MM:SS.MSZ"
+      #     }
+      #   }
+      #
       def create
         @post.save
 
         respond_with @post, location: -> { admin_posts_path }
       end
 
+      # Edit a post
+      #
+      # = Request
+      #   GET /admin/posts/:id/edit
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Params
+      #   [Integer] id - the post ID
+      #
+      # = Response
+      #   {
+      #     "id": 123,
+      #     "title": "Post Title",
+      #     "path": "YYYY/MM/post-title",
+      #     "slug": "post-title",
+      #     "author_id": 123,
+      #     "content": "<p>Body of the post</p>",
+      #     "meta_keywords": "keywords, for, the, post",
+      #     "meta_description": "Description of the post",
+      #     "feature": {
+      #       "url": "/path/to/feature.jpg"
+      #       "medium": {
+      #         "url": "/path/to/medium_feature.jpg"
+      #       },
+      #       "thumb": {
+      #         "url": "/path/to/thumb_feature.jpg"
+      #      },
+      #       "mini": {
+      #         "url": "/path/to/mini_feature.jpg"
+      #       }
+      #     },
+      #     "deleted_at": null,
+      #     "published_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #     "created_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #     "updated_at": "YYYY-MM-DDTHH:MM:SS.MSZ"
+      #   }
+      #
+      def edit
+        respond_with @post
+      end
+
+      # Update a post
+      #
+      # = Request
+      #   PATCH /admin/posts/:id
+      #   PUT   /admin/posts/:id
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Params
+      #   [Integer] id - the post ID
+      #
+      # = Request
+      #   {
+      #     "post": {
+      #       "title": "Updated Post Title",
+      #       "slug": "updated-post-title",
+      #       "author_id": 123,
+      #       "content": "<p>Updated body of the post</p>",
+      #       "meta_keywords": "updated, keywords, for, the, post",
+      #       "meta_description": "Updated description of the post",
+      #       "feature": "/local/path/to/upload/feature.jpg",
+      #       "published_at": "YYYY-MM-DDTHH:MM:SS.MSZ"
+      #     }
+      #   }
+      #
       def update
         @post.update(post_params)
 
         respond_with @post, location: -> { admin_posts_path }
       end
 
+      # Destroy a post
+      #
+      # This does not destroy the record. This only marks the post as deleted
+      #
+      # = Request
+      #   DELETE /admin/posts/:id
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Params
+      #   [Integer] id - the post ID
+      #
       def destroy
         @post.destroy
 
