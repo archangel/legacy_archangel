@@ -87,5 +87,23 @@ module Archangel
         expect(Post.in_year_and_month(2015, 11).first).to eq(post)
       end
     end
+
+    context "#next" do
+      it "finds the next post" do
+        current_post = create(:post)
+        next_post = create(:post)
+
+        expect(current_post.next).to eq next_post
+      end
+    end
+
+    context "#previous" do
+      it "finds the previous post" do
+        previous_post = create(:post)
+        current_post = create(:post)
+
+        expect(current_post.previous).to eq previous_post
+      end
+    end
   end
 end
