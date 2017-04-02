@@ -10,7 +10,7 @@ module Archangel
     # Input options
     #
     # Wrap the field and add "input-group" HTML classes to and make way for a
-    # calendar icon. 
+    # calendar icon.
     #
     def input(_wrapper_options)
       template.content_tag(:div, class: "input-group") do
