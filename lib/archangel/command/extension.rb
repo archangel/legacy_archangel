@@ -17,6 +17,11 @@ module Archangel
                            desc: "Extension name",
                            default: "unknown"
 
+      # Generate extension
+      #
+      # = Usage
+      #   bundle exec bin/archangel extension [extension_name]
+      #
       def generate
         extension_prefix "archangel_"
 
@@ -32,13 +37,9 @@ module Archangel
            Rakefile README.md).each do |tpl|
           template tpl, "#{file_name}/#{tpl}"
         end
-      end
 
-      def banner
-        puts "*" * 80
-        puts "Your extension has been generated with a gemspec dependency " \
-             "on Archangel #{archangel_version}."
-        puts "*" * 80
+        banner("Your extension has been generated with a gemspec dependency " \
+               "on Archangel #{archangel_version}.")
       end
 
       no_tasks do
@@ -58,6 +59,13 @@ module Archangel
           end
 
           @file_name = Thor::Util.snake_case(extension_name)
+        end
+
+        def banner(message)
+          puts "*" * 80
+          puts "Your extension has been generated with a gemspec dependency " \
+               "on Archangel #{archangel_version}."
+          puts "*" * 80
         end
       end
     end

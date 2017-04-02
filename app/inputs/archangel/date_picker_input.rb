@@ -7,6 +7,11 @@ module Archangel
   # @since 0.0.1
   #
   class DatePickerInput < SimpleForm::Inputs::Base
+    # Input options
+    #
+    # Wrap the field and add "input-group" HTML classes to and make way for a
+    # calendar icon. 
+    #
     def input(_wrapper_options)
       template.content_tag(:div, class: "input-group") do
         template.concat @builder.text_field(attribute_name, input_html_options)
@@ -14,6 +19,11 @@ module Archangel
       end
     end
 
+    # HTML Input options
+    #
+    # Add "form-control" and "datepicker" HTML classes to date time picker
+    # fields
+    #
     def input_html_options
       super.merge(class: "form-control datepicker")
     end
