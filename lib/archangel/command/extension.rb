@@ -38,8 +38,10 @@ module Archangel
           template tpl, "#{file_name}/#{tpl}"
         end
 
-        banner("Your extension has been generated with a gemspec dependency " \
-               "on Archangel #{archangel_version}.")
+        puts "*" * 80
+        puts "  Your extension has been generated with a gemspec dependency"
+        puts "  on Archangel #{archangel_version}."
+        puts "*" * 80
       end
 
       no_tasks do
@@ -59,13 +61,6 @@ module Archangel
           end
 
           @file_name = Thor::Util.snake_case(extension_name)
-        end
-
-        def banner(message)
-          puts "*" * 80
-          puts "Your extension has been generated with a gemspec dependency " \
-               "on Archangel #{archangel_version}."
-          puts "*" * 80
         end
       end
     end
