@@ -10,7 +10,6 @@ module Archangel
     class PostsController < FrontendController
       before_action :set_posts, only: [:index]
       before_action :set_post, only: [:show]
-      before_action :set_post_pager, only: [:show]
       before_action :set_category_posts, only: [:category]
       before_action :set_tag_posts, only: [:tag]
 
@@ -206,11 +205,6 @@ module Archangel
 
       def set_post
         @post = Archangel::Post.published.find_by!(path: single_post_path)
-      end
-
-      def set_post_pager
-        @previous = @post.previous
-        @next = @post.next
       end
 
       def set_category_posts

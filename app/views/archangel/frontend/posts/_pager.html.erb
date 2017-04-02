@@ -1,13 +1,13 @@
 <nav>
   <ul class="pager">
-    <% if @previous.present? %>
-      <li class="previous"><a href="<%= post_path(@previous) %>" title="<%= @previous.title %>"><span aria-hidden="true">&larr;</span> Previous</a></li>
+    <% if @post.previous.present? %>
+      <li class="previous"><a href="<%= post_path(@post.previous) %>" title="<%= @post.previous.title %>"><span aria-hidden="true">&larr;</span> Previous</a></li>
     <% else %>
       <li class="previous disabled"><a href="<%= post_path(@post) %>"><span aria-hidden="true">&larr;</span> Previous</a></li>
     <% end %>
 
-    <% if @next.present? %>
-      <li class="next"><a href="<%= post_path(@next) %>" title="<%= @next.title %>">Next <span aria-hidden="true">&rarr;</span></a></li>
+    <% if @post.next.present? %>
+      <li class="next"><a href="<%= post_path(@post.next) %>" title="<%= @post.next.title %>">Next <span aria-hidden="true">&rarr;</span></a></li>
     <% else %>
       <li class="next disabled"><a href="<%= post_path(@post) %>">Next <span aria-hidden="true">&rarr;</span></a></li>
     <% end %>

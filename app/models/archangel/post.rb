@@ -74,12 +74,32 @@ module Archangel
       joins(:tags).where("archangel_tags.slug = ?", tag)
     }
 
+    # Next post
+    #
+    # Next post based on current posts publication date
+    #
+    # = Example
+    #   "<% next = @post.next %>" #=> Archangel::Post
+    #
+    # @return [Object] next post
+    #                  next post based on published_at
+    #
     def next
       return nil unless published_at
 
       self.class.where("published_at > ?", published_at).first
     end
 
+    # Previous post
+    #
+    # Previous post based on current posts publication date
+    #
+    # = Example
+    #   "<% previous = @post.previous %>" #=> Archangel::Post
+    #
+    # @return [Object] previous post
+    #                  previous post based on published_at
+    #
     def previous
       return nil unless published_at
 
