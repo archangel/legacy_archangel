@@ -46,15 +46,36 @@ module Archangel
   class << self
     attr_accessor :configuration
 
+    # Set Archangel configs
+    #
+    # Used in initializer to set configurations
+    #
+    # = Example
+    #   Archangel.configure do |config|
+    #     config.auth_path = "auth"
+    #   end
+    #
     def configure
       yield configuration
     end
 
+    # Archangel configs
+    #
+    # = Example
+    #  <% Archangel.contiguration.application %> #=> "archangel"
+    #  <% Archangel.contig.application %> #=> "archangel"
+    #
     def configuration
       @configuration ||= Configuration.new
     end
     alias config configuration
 
+    # Archangel routes
+    #
+    # = Example
+    #  <% Archangel.routes.root_path %> #=> "/"
+    #  <% Archangel.routes.admin_root_path %> #=> "/admin"
+    #
     def routes
       Archangel::Engine.routes.url_helpers
     end

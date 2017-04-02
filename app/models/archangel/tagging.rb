@@ -7,7 +7,6 @@ module Archangel
   # @since 0.0.1
   #
   class Tagging < ApplicationRecord
-    # Associations
     belongs_to :tag
     belongs_to :taggable, polymorphic: true
   end

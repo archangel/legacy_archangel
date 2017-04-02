@@ -7,13 +7,10 @@ module Archangel
   # @since 0.0.1
   #
   class Site < ApplicationRecord
-    # Uploader
     mount_uploader :logo, Archangel::LogoUploader
 
-    # Callbacks
     before_save :stringify_meta_keywords
 
-    # Validation
     validates :locale, presence: true,
                        inclusion: { in: Archangel::LANGUAGES }
     validates :logo, file_size: {
@@ -21,7 +18,15 @@ module Archangel
     }
     validates :name, presence: true
 
-    # Scope
+    # Current site
+    #
+    # First available record in the `sites` table is considered the current
+    # site. A site may or may not exist. If a record doesn't exist, a site is
+    # created using default values.
+    #
+    # @return [Object] current site
+    #                  next post based on published_at
+    #
     def self.current
       first_or_create { |site| site.name = Archangel.t(:archangel) }
     end

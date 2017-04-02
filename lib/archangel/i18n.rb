@@ -7,15 +7,23 @@ module Archangel
   extend ActionView::Helpers::TranslationHelper
 
   class << self
-    # Flash message type based on Bootstrap flash types
+    # Archangel translation scope
     #
-    # = Example
+    # Translations scoped to "archangel".
+    #
+    # = Locale
     #   en:
     #     archangel:
     #       foo: Bar
     #       hello:
     #         word: Hello World
     #
+    # = I18n Example
+    #   "<%= I18n.t("archangel.foo") %>" #=> "Bar"
+    #   "<%= I18n.t(:foo, scope: :archangel) %>" #=> "Bar"
+    #
+    # = Example
+    #   "<%= Archangel.translate(:foo, scope: :archangel) %>" #=> "Bar"
     #   "<%= Archangel.translate('archangel.foo') %>" #=> "Bar"
     #   "<%= Archangel.translate(:foo) %>" #=> "Bar"
     #   "<%= Archangel.translate('foo') %>" #=> "Bar"

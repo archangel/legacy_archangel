@@ -12,7 +12,6 @@ module Archangel
     acts_as_tree order: :title
     acts_as_paranoid
 
-    # Callbacks
     before_validation :parameterize_slug
 
     before_save :stringify_meta_keywords
@@ -22,7 +21,6 @@ module Archangel
 
     after_destroy :column_reset
 
-    # Validation
     validates :author_id, presence: true
     validates :content, presence: true, allow_blank: true
     validates :path, uniqueness: true
@@ -32,7 +30,6 @@ module Archangel
 
     validate :unique_slug_per_level
 
-    # Associations
     belongs_to :author, class_name: Archangel::User
     belongs_to :assetable, polymorphic: true
 
@@ -48,10 +45,8 @@ module Archangel
     accepts_nested_attributes_for :tags, reject_if: :all_blank,
                                          allow_destroy: true
 
-    # Default scope
     default_scope { order(published_at: :desc) }
 
-    # Scope
     scope :published, lambda {
       where.not(published_at: nil).where("published_at <= ?", Time.now)
     }

@@ -9,25 +9,22 @@ module Archangel
   class Menu < ApplicationRecord
     acts_as_paranoid
 
-    # Callbacks
     before_validation :parameterize_slug
 
     after_destroy :column_reset
 
-    # Validation
     validates :name, presence: true
     validates :slug, presence: true, uniqueness: true
 
-    # Associations
     has_many :menu_items, -> { where(parent_id: nil) }, dependent: :destroy
 
-    # Nested attributes
     accepts_nested_attributes_for :menu_items, reject_if: :all_blank,
                                                allow_destroy: true
 
-    # Default scope
     default_scope { order(name: :asc) }
 
+    # Override column used for constructing the URL to this object
+    #
     def to_param
       slug
     end
