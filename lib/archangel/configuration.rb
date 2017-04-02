@@ -7,11 +7,92 @@ module Archangel
   # @since 0.0.1
   #
   class Configuration
+    # Default value
+    #
+    # Default value to return when key isn't set
+    #
     DEFAULT_VALUE = nil
 
-    attr_reader :admin_path, :application, :attachment_maximum_file_size,
-                :attachment_white_list, :auth_path, :frontend_path,
-                :image_maximum_file_size, :image_white_list, :posts_path
+    # Admin path
+    #
+    # Path for admin area. Default is "admin"
+    #
+    # = Options
+    #   [String] admin_path admin path
+    #
+    attr_reader :admin_path
+
+    # Application name
+    #
+    # Short name. Default is "archangel"
+    #
+    # = Options
+    #   [String] application application name
+    #
+    attr_reader :application
+
+    # Attachment maximum file size
+    #
+    # Maximum file size of attachments. Default is `2.megabytes`
+    #
+    # = Options
+    #   [Integer] attachment_maximum_file_size maximum file size
+    #
+    attr_reader :attachment_maximum_file_size
+
+    # Attachment whitelist
+    #
+    # Attachment file extension whitelist. Default is `%w(gif jpeg jpg png)`
+    #
+    # = Options
+    #   [Array] image_white_list image file extensions
+    #
+    attr_reader :attachment_white_list
+
+    # Auth path
+    #
+    # Path for auth area. Default is "account"
+    #
+    # = Options
+    #   [String] auth_path auth path
+    #
+    attr_reader :auth_path
+
+    # Frontend path
+    #
+    # Path for frontend. Default is ""
+    #
+    # = Options
+    #   [String] frontend_path frontend path
+    #
+    attr_reader :frontend_path
+
+    # Image maximum file size
+    #
+    # Maximum file size of images. Default is `2.megabytes`
+    #
+    # = Options
+    #   [Integer] image_maximum_file_size maximum file size
+    #
+    attr_reader :image_maximum_file_size
+
+    # Image whitelist
+    #
+    # Image file extension whitelist. Default is `%w(gif jpeg jpg png)`
+    #
+    # = Options
+    #   [Array] image_white_list image file extensions
+    #
+    attr_reader :image_white_list
+
+    # Posts path
+    #
+    # Path for blog posts. Default is "posts"
+    #
+    # = Options
+    #   [String] posts_path frontend posts path
+    #
+    attr_reader :posts_path
 
     def initialize
       @admin_path = "admin"
