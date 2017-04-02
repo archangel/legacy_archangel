@@ -37,10 +37,18 @@ module Archangel
            Rakefile README.md).each do |tpl|
           template tpl, "#{file_name}/#{tpl}"
         end
+      end
 
+      # Banner
+      #
+      # Say something nice
+      #
+      def banner
         puts "*" * 80
-        puts "  Your extension has been generated with a gemspec dependency"
-        puts "  on Archangel #{archangel_version}."
+        puts "  Your extension has been generated with a gemspec dependency on"
+        puts "  Archangel #{archangel_version}."
+        puts ""
+        puts "  You look lovely today by the way."
         puts "*" * 80
       end
 
