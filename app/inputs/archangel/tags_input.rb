@@ -7,8 +7,6 @@ module Archangel
   # @since 0.0.1
   #
   class TagsInput < SimpleForm::Inputs::CollectionSelectInput
-    Input field options
-    #
     # Simple Form options for field.
     #   Sets `include_blank` to `false`
     #   Sets `multiple` to `true`
