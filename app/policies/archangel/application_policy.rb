@@ -85,9 +85,9 @@ module Archangel
     # Scope
     #
     class Scope
-      # Requested object
+      # Object scope
       #
-      attr_reader :record
+      attr_reader :scope
 
       # Current user
       #
