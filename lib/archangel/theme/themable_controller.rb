@@ -37,7 +37,6 @@ module Archangel
           end
 
           controller_class.send(filter_method, options) do |controller|
-            controller.prepend_view_path theme_instance.default_theme_view_path
             controller.prepend_view_path theme_instance.theme_view_path
           end
         end
@@ -51,15 +50,35 @@ module Archangel
 
       def initialize(controller, theme)
         @controller = controller
-        @theme_name = theme.to_s
+        @theme_name = theme_name_identifier(theme)
       end
 
       def theme_view_path
-        "#{Rails.root}/app/themes/#{@theme_name}/views"
+        path = @theme_name == "default" ? Archangel::Engine.root : Rails.root
+
+        "#{path}/app/themes/#{@theme_name}/views"
       end
 
-      def default_theme_view_path
-        "#{Archangel::Engine.root}/app/themes/default/views"
+      private
+
+      def theme_name_identifier(theme)
+        case theme
+        when String then theme
+        when Proc then theme.call(@controller).to_s
+        when Symbol then theme_name_symbol_identifier(theme)
+        else
+          raise ArgumentError,
+            "String, Proc, or Symbol, expected for `theme'; " \
+            "you passed #{theme.inspect}"
+        end
+      end
+
+      def theme_name_symbol_identifier(theme)
+        if @controller.respond_to?(theme, true)
+          @controller.send(theme).to_s
+        else
+          theme.to_s
+        end
       end
     end
   end

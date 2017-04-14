@@ -43,12 +43,12 @@ module Archangel
     end
 
     initializer "archangel.precompile" do |app|
-      app.config.assets.precompile << proc do |path, fn|
-        if fn =~ %r{app/themes}
-          if path =~ %r{/(admin|auth|frontend).(js|css)$}
-            true
-          else
-            false
+      theme_dirs.each.each do |path|
+        full_path = "#{path}/app/themes/*/assets/*"
+
+        Dir.glob(full_path).each do |dir|
+          app.config.assets.precompile << proc do |file, fn|
+            file =~ %r{(admin|auth|frontend).(js|css)} ? true : false
           end
         end
       end

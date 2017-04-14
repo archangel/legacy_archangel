@@ -8,3 +8,4 @@
 // Images so that views can link to them
 //
 //= link_tree ../images/archangel
+//= link_tree ../../app/themes/default/assets/images

@@ -26,7 +26,7 @@ module Archangel
     def theme_options
       [].tap do |obj|
         Archangel.themes.each do |theme|
-          obj << [Archangel.t("theme.#{theme}.name"), theme]
+          obj << [theme, theme]
         end
       end
     end

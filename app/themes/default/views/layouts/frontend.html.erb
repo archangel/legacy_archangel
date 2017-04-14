@@ -18,7 +18,7 @@
 
     <%= yield(:analytics) if content_for?(:analytics) %>
 
-    <%= stylesheet_link_tag "default/frontend", media: "all" %>
+    <%= stylesheet_link_tag "#{current_theme}/frontend", media: "all" %>
     <%= yield(:stylesheet) if content_for?(:stylesheet) %>
   </head>
   <body>
@@ -35,7 +35,7 @@
       </main>
     </div>
 
-    <%= javascript_include_tag "default/frontend" %>
+    <%= javascript_include_tag "#{current_theme}/frontend" %>
     <%= yield(:javascript) if content_for?(:javascript) %>
 
   </body>
