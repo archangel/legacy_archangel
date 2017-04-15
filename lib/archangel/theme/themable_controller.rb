@@ -62,23 +62,7 @@ module Archangel
       private
 
       def theme_name_identifier(theme)
-        case theme
-        when String then theme
-        when Proc then theme.call(@controller).to_s
-        when Symbol then theme_name_symbol_identifier(theme)
-        else
-          raise ArgumentError,
-                "String, Proc, or Symbol, expected for `theme'; you passed " +
-                theme.inspect
-        end
-      end
-
-      def theme_name_symbol_identifier(theme)
-        if @controller.respond_to?(theme, true)
-          @controller.send(theme).to_s
-        else
-          theme.to_s
-        end
+        @controller.send(theme).to_s
       end
     end
   end
