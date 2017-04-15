@@ -65,9 +65,11 @@ module Archangel
 
       return nil if item.menuable.nil?
 
-      return Archangel.routes.root_path if check_homepage?
+      routes = Archangel.routes
 
-      Archangel.routes.frontend_page_path(item.menuable.path)
+      return routes.root_path if check_homepage?
+
+      routes.frontend_page_path(item.menuable.path)
     end
 
     def build_options
@@ -81,7 +83,9 @@ module Archangel
     def build_highlights_on
       return false if item.url =~ URI.regexp
 
-      return Regexp.new(item.highlights_on) unless item.highlights_on.blank?
+      highlight_on = item.highlights_on
+
+      return Regexp.new(highlight_on) unless highlight_on.blank?
 
       build_menuable_highlights_on
     end

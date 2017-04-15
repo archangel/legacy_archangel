@@ -5,25 +5,27 @@ require "highline/import"
 
 def prompt_for_admin_email
   ENV.fetch("ADMIN_EMAIL") do
-    ask("Email address:  ") { |q| q.default = "archangel@example.com" }
+    ask("Email address:  ") do |question|
+      question.default = "archangel@example.com"
+    end
   end
 end
 
 def prompt_for_admin_name
   ENV.fetch("ADMIN_NAME") do
-    ask("Name:  ") { |q| q.default = "Archangel User" }
+    ask("Name:  ") { |question| question.default = "Archangel User" }
   end
 end
 
 def prompt_for_admin_password
   ENV.fetch("ADMIN_PASWORD") do
-    ask("Password:  ") { |q| q.echo = "*" }
+    ask("Password:  ") { |question| question.echo = "*" }
   end
 end
 
 def prompt_for_admin_username
   ENV.fetch("ADMIN_USERNAME") do
-    ask("Username:  ") { |q| q.default = "administrator" }
+    ask("Username:  ") { |question| question.default = "administrator" }
   end
 end
 

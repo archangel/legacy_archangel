@@ -23,7 +23,7 @@ module Archangel
                      file_size: {
                        greater_than_or_equal_to: 2.bytes,
                        less_than_or_equal_to:
-                         Archangel.configuration.attachment_maximum_file_size
+                         Archangel.config.attachment_maximum_file_size
                      }
 
     # Default scope
@@ -34,8 +34,10 @@ module Archangel
     def save_asset_attributes
       return unless file.present? && file_changed?
 
-      self.content_type = file.file.content_type
-      self.file_size = file.file.size
+      asset_object = file.file
+
+      self.content_type = asset_object.content_type
+      self.file_size = asset_object.size
     end
   end
 end

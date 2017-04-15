@@ -37,8 +37,10 @@ module Archangel
       # @return [String] time HTML element for post date
       #
       def posted_at(post)
-        post_date = post.published_at.strftime("%B %e, %Y at %l:%M %p")
-        post_datetime = post.published_at.strftime("%FT%T%:z")
+        published_at = post.published_at
+
+        post_date = published_at.strftime("%B %e, %Y at %l:%M %p")
+        post_datetime = published_at.strftime("%FT%T%:z")
 
         content_tag(:time, post_date, pubdate: "", datetime: post_datetime)
       end
@@ -53,7 +55,7 @@ module Archangel
       # @return [String] link to post
       #
       def post_path(post)
-        full_path = "#{Archangel.configuration.posts_path}/#{post.path}"
+        full_path = "#{Archangel.config.posts_path}/#{post.path}"
 
         archangel.frontend_page_path(full_path)
       end

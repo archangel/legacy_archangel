@@ -36,11 +36,11 @@ module Archangel
 
         context "with non-image file" do
           before do
-            Archangel.configuration.attachment_white_list.insert(0, "txt")
+            Archangel.config.attachment_white_list.insert(0, "txt")
           end
 
           after do
-            Archangel.configuration.attachment_white_list.delete_at(0)
+            Archangel.config.attachment_white_list.delete_at(0)
           end
 
           it "builds url using default image" do

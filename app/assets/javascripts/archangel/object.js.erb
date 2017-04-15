@@ -55,6 +55,10 @@ var Archangel = (function(object) {
     return '<%= Archangel.configuration.auth_path %>';
   }
 
+  function frontendScope() {
+    return '<%= Archangel.configuration.frontend_path %>';
+  }
+
   // Translations
   object.translation = {};
 
@@ -103,6 +107,11 @@ var Archangel = (function(object) {
     return object.pathFor([authScope(), path], args);
   };
 
+  // Archangel frontend route path
+  object.frontendPathFor = function(path, args) {
+    return object.pathFor([frontendScope(), path], args);
+  };
+
   // Routes
   object.route = {
     home_path: object.rootPath(),
@@ -114,7 +123,7 @@ var Archangel = (function(object) {
       root_path: object.authPath()
     },
     page_path: function(path) {
-      return this.pathFor(path);
+      return object.frontendPathFor(path);
     }
   };
 

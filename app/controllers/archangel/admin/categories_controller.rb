@@ -241,9 +241,9 @@ module Archangel
       def set_autocomplete_categories
         query = params.fetch(:q, "").to_s.strip
 
-        @q = Archangel::Category.ransack(description_or_name_cont: query)
+        @query = Archangel::Category.ransack(description_or_name_cont: query)
 
-        @categories = @q.result(distinct: true).order(:name).limit(25)
+        @categories = @query.result(distinct: true).order(:name).limit(25)
 
         authorize @categories
       end

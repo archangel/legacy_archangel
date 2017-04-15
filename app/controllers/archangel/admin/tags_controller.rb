@@ -88,9 +88,9 @@ module Archangel
       def set_autocomplete_tags
         query = params.fetch(:q, "").to_s.strip
 
-        @q = Archangel::Tag.ransack(description_or_name_cont: query)
+        @query = Archangel::Tag.ransack(description_or_name_cont: query)
 
-        @tags = @q.result(distinct: true).order(:name).limit(25)
+        @tags = @query.result(distinct: true).order(:name).limit(25)
 
         authorize @tags
       end

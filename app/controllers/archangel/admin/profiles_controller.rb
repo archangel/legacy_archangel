@@ -23,7 +23,7 @@ module Archangel
       end
 
       def update
-        empty_password_params! if profile_params[:password].blank?
+        empty_password_params if profile_params[:password].blank?
 
         successfully_updated = if needs_password?(@profile, profile_params)
                                  @profile.update profile_params
@@ -31,7 +31,7 @@ module Archangel
                                  @profile.update_without_password profile_params
                                end
 
-        reauth_current_user(successfully_updated)
+        reauth_current_user if successfully_updated
 
         respond_with @profile, location: -> { admin_profile_path }
       end
@@ -58,7 +58,7 @@ module Archangel
         params.require(:profile).permit(permitted_attributes)
       end
 
-      def empty_password_params!
+      def empty_password_params
         profile_params.delete(:password)
         profile_params.delete(:password_confirmation)
       end
@@ -67,8 +67,8 @@ module Archangel
         params[:password].present?
       end
 
-      def reauth_current_user(successful)
-        bypass_sign_in(@profile) if successful
+      def reauth_current_user
+        bypass_sign_in(@profile)
       end
     end
   end

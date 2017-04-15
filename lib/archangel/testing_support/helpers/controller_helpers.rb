@@ -53,7 +53,9 @@ module Archangel
       private
 
       def process_archangel_action(action, method = :get, *args)
-        params = args.first.blank? ? {} : args.first
+        first_arg = args.first
+
+        params = first_arg.blank? ? {} : first_arg
 
         params[:method] = method
 
@@ -61,7 +63,9 @@ module Archangel
       end
 
       def process_archangel_xhr_action(action, method = :get, *args)
-        params = args.first.blank? ? {} : args.first
+        first_arg = args.first
+
+        params = first_arg.blank? ? {} : first_arg
 
         params.merge!(
           method: method,

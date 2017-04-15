@@ -198,8 +198,8 @@ module Archangel
         @user = Archangel::User.new
 
         if action_name.to_sym == :create
-          @user = Archangel::User.invite!(user_params) do |u|
-            u.skip_invitation = true
+          @user = Archangel::User.invite!(user_params) do |user|
+            user.skip_invitation = true
           end
         end
 

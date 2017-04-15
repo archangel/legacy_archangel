@@ -35,6 +35,7 @@ module Archangel
           format.html do
             respond_with @asset, location: -> { admin_assets_path }
           end
+
           format.json do
             render json: { success: true, file: @asset.file.url }
           end

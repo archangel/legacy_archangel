@@ -29,7 +29,7 @@
 
           <ul class="nav nav-pills">
             <% post.categories.each do |category| %>
-              <li><%= link_to(category.name, posts_category_path(category.slug), { title: category.description }) %></li>
+              <li><%= link_to(category.name, frontend_posts_category_path(category.slug), { title: category.description }) %></li>
             <% end %>
           </ul>
         </div>
@@ -41,7 +41,7 @@
 
           <ul class="nav nav-pills">
             <% post.tags.each do |tag| %>
-              <li><%= link_to(tag.name, posts_tag_path(tag.slug), { title: tag.description }) %></li>
+              <li><%= link_to(tag.name, frontend_posts_tag_path(tag.slug), { title: tag.description }) %></li>
             <% end %>
           </ul>
         </div>
