@@ -54,7 +54,7 @@ module Archangel
         end
 
         def theme_path
-          "app/themes/#{theme_name}/assets"
+          "app/themes/#{theme_name}"
         end
 
         def say_quietly(message)
