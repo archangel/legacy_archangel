@@ -63,7 +63,7 @@ module Archangel
     # @return [Boolean] if action is an edit action
     #
     def edit_action?
-      [:edit, :update].include?(action)
+      %i[edit update].include?(action)
     end
 
     # Controller action as the index action.
@@ -98,7 +98,7 @@ module Archangel
     # @return [Boolean] if action is a new action
     #
     def new_action?
-      [:new, :create].include?(action)
+      %i[new create].include?(action)
     end
 
     # Controller action as a restful action
@@ -139,19 +139,19 @@ module Archangel
     protected
 
     def collection_actions
-      [:index]
+      %i[index]
     end
 
     def member_actions
-      [:show, :edit, :update, :destroy]
+      %i[show edit update destroy]
     end
 
     def restful_actions
-      [:index, :show, :new, :create, :edit, :update, :destroy]
+      %i[index show new create edit update destroy]
     end
 
     def save_actions
-      [:create, :update, :destroy]
+      %i[create update destroy]
     end
   end
 end

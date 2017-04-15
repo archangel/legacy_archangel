@@ -8,10 +8,10 @@ module Archangel
     # @since 0.0.1
     #
     class TagsController < AdminController
-      before_action :set_tags, only: [:index]
-      before_action :set_new_tag, only: [:create, :new]
-      before_action :set_tag, only: [:destroy, :edit, :show, :update]
-      before_action :set_autocomplete_tags, only: [:autocomplete]
+      before_action :set_tags, only: %i[index]
+      before_action :set_new_tag, only: %i[create new]
+      before_action :set_tag, only: %i[destroy edit show update]
+      before_action :set_autocomplete_tags, only: %i[autocomplete]
 
       helper Archangel::Admin::TagsHelper
 
@@ -56,9 +56,7 @@ module Archangel
       protected
 
       def permitted_attributes
-        [
-          :description, :name, :slug
-        ]
+        %i[description name slug]
       end
 
       def tag_params

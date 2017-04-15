@@ -1,4 +1,6 @@
-$:.push File.expand_path("../lib", __FILE__)
+# frozen_string_literal: true
+
+$LOAD_PATH.push File.expand_path("../lib", __FILE__)
 
 require "archangel/version"
 
@@ -13,7 +15,7 @@ Gem::Specification.new do |s|
   s.description = "Description of Archangel."
   s.license     = "MIT"
 
-  s.files       = `git ls-files`.split($\)
+  s.files       = `git ls-files`.split($OUTPUT_RECORD_SEPARATOR)
 
   s.required_ruby_version = ">= 2.2.2"
 

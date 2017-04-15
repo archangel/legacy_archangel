@@ -15,6 +15,7 @@ Metrics/BlockLength:
   Exclude:
     - '**/*.rake'
     - 'config/routes.rb'
+    - 'archangel.gemspec'
     - 'lib/archangel/testing_support/**/*.rb'
     - 'spec/**/*.rb'
 

@@ -22,7 +22,7 @@ module Archangel
           it "should write common directories" do
             expect(
               glob_directories_in(extension_path)
-            ).to eq %w(app bin config lib spec)
+            ).to eq %w[app bin config lib spec]
           end
 
           it "should write common files" do

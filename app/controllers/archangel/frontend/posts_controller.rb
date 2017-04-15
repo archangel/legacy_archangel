@@ -8,11 +8,11 @@ module Archangel
     # @since 0.0.1
     #
     class PostsController < FrontendController
-      before_action :set_posts, only: [:index]
-      before_action :set_post, only: [:show]
-      before_action :set_post_pager, only: [:show]
-      before_action :set_category_posts, only: [:category]
-      before_action :set_tag_posts, only: [:tag]
+      before_action :set_posts, only: %i[index]
+      before_action :set_post, only: %i[show]
+      before_action :set_post_pager, only: %i[show]
+      before_action :set_category_posts, only: %i[category]
+      before_action :set_tag_posts, only: %i[tag]
 
       helper Archangel::Frontend::PostsHelper
 
