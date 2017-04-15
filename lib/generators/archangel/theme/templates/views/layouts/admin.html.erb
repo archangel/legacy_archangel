@@ -16,7 +16,7 @@
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script>
     <![endif]-->
 
-    <%= stylesheet_link_tag "default/admin", media: "all" %>
+    <%= stylesheet_link_tag "#{current_theme}/admin", media: "all" %>
     <%= yield(:stylesheet) if content_for?(:stylesheet) %>
   </head>
   <body>
@@ -39,10 +39,8 @@
       </main>
     </div>
 
-    <%= javascript_include_tag "default/admin" %>
+    <%= javascript_include_tag "#{current_theme}/admin" %>
     <%= yield(:javascript) if content_for?(:javascript) %>
-
-    <%#= render "archangel/layouts/default/admin/translations" %>
 
   </body>
 </html>
