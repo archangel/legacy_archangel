@@ -41,7 +41,7 @@ require "archangel/version"
 module Archangel
   THEME_DIRECTORIES = [Archangel::Engine.root, Rails.root].freeze
   THEMES = Dir["app/themes/*/"].map { |d| File.basename(d) }.freeze
-  THEME_DEFAULT = "default".freeze
+  THEME_DEFAULT = "default".to_s.freeze
 
   class << self
     attr_accessor :configuration
