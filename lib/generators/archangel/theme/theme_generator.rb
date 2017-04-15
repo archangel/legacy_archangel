@@ -29,7 +29,7 @@ module Archangel
       def copy_theme_template
         say_quietly "Creating theme..."
 
-        empty_directory "#{theme_path}"
+        empty_directory theme_path
 
         directory "assets", "#{theme_path}/assets"
         directory "views", "#{theme_path}/views"
