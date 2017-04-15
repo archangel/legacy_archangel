@@ -29,13 +29,12 @@ module Archangel
       def copy_theme_template
         say_quietly "Creating theme..."
 
-        empty_directory "app/themes/#{theme_name}"
+        empty_directory "#{theme_path}"
 
-        directory "assets", "app/themes/#{theme_name}/assets"
-        directory "views", "app/themes/#{theme_name}/views"
+        directory "assets", "#{theme_path}/assets"
+        directory "views", "#{theme_path}/views"
 
-        template "config/locales/en.yml",
-                 "app/themes/#{theme_name}/config/locales/en.yml"
+        template "config/locales/en.yml", "#{theme_path}/config/locales/en.yml"
       end
 
       def banner
@@ -52,6 +51,10 @@ module Archangel
           theme = options[:theme_name] || "unknown theme"
 
           @theme_name = theme.parameterize(separator: "_")
+        end
+
+        def theme_path
+          "app/themes/#{theme_name}/assets"
         end
 
         def say_quietly(message)
