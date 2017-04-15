@@ -6,16 +6,16 @@ var Archangel = (function(object) {
 
         for (p in obj) {
           if (obj.hasOwnProperty(p)) {
-            var k = prefix ? prefix + "[" + p + "]" : p,
+            var k = prefix ? prefix + '[' + p + ']' : p,
                 v = obj[p];
 
-            str.push((v !== null && typeof v === "object") ?
+            str.push((v !== null && typeof v === 'object') ?
               serialize(v, k) :
-              encodeURIComponent(k) + "=" + encodeURIComponent(v));
+              encodeURIComponent(k) + '=' + encodeURIComponent(v));
           }
         }
 
-        return str.join("&");
+        return str.join('&');
       },
       pathBuilder = function(path) {
         var new_path = [];
@@ -29,30 +29,30 @@ var Archangel = (function(object) {
                        return [
                          resource,
                          path[resource]
-                       ].join("/");
+                       ].join('/');
                      });
         // String
         } else if (path.constructor === String) {
           new_path = [path];
         }
 
-        final_path = new_path.filter(Boolean).join("/").toLowerCase();
+        final_path = new_path.filter(Boolean).join('/').toLowerCase();
 
         return final_path;
       };
 
   function mountScope() {
-    var mount = "<%= Rails.application.routes.url_helpers.archangel_path %>";
+    var mount = '<%= Rails.application.routes.url_helpers.archangel_path %>';
 
-    return mount.replace(/\/$/, "");
+    return mount.replace(/\/$/, '');
   }
 
   function adminScope() {
-    return "<%= Archangel.configuration.admin_path %>";
+    return '<%= Archangel.configuration.admin_path %>';
   }
 
   function authScope() {
-    return "<%= Archangel.configuration.auth_path %>";
+    return '<%= Archangel.configuration.auth_path %>';
   }
 
   // Translations
@@ -87,10 +87,10 @@ var Archangel = (function(object) {
 
     // Query string
     if (options.length !== 0) {
-      final_path = final_path + "?" + options;
+      final_path = final_path + '?' + options;
     }
 
-    return "/" + final_path;
+    return '/' + final_path;
   };
 
   // Archangel admin route path

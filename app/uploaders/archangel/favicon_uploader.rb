@@ -15,7 +15,7 @@ module Archangel
     # @return [String] path to logo file
     #
     def default_path
-      "archangel/resources/" + [version_name, "favicon.ico"].compact.join("_")
+      "archangel/" + [version_name, "favicon.ico"].compact.join("_")
     end
 
     # Uploaded favicon file name

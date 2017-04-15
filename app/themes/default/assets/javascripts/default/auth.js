@@ -1,7 +1,7 @@
 // Default Archangel auth theme
 //
-// Archangel common theme variables
-//= require archangel/common/objects
+// Archangel common theme scripts
+//= require archangel/object
 //
 // External assets
 //= require jquery2

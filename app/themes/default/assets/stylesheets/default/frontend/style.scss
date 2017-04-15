@@ -1,15 +1,15 @@
-// Variables
-@import 'archangel/common/variables';
+// Theme variables
+@import '../variables';
 
 // Boostrap
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-// Select2
-@import 'archangel/common/resources/select2';
+// External
+@import 'default/shared/external/select2';
 
 // Common theme
-@import 'archangel/common/theme';
+@import 'default/shared/theme';
 
 // Layout
 @import 'default/frontend/header';

@@ -26,7 +26,7 @@ module Archangel
           expect(assigns(:post)).to eq(post)
 
           expect(post.feature.url).to(
-            include("/assets/archangel/resources/feature")
+            include("/assets/archangel/feature")
           )
         end
       end

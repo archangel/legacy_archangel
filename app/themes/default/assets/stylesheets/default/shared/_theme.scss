@@ -1,22 +1,22 @@
-@import 'archangel/common/theme/rtl';
-@import 'archangel/common/theme/form';
-@import 'archangel/common/theme/heading';
+@import 'default/shared/theme/rtl';
+@import 'default/shared/theme/form';
+@import 'default/shared/theme/heading';
 
 // Bootstrap extensions
-@import 'archangel/common/theme/bootstrap/extend/block';
-@import 'archangel/common/theme/bootstrap/extend/font';
-@import 'archangel/common/theme/bootstrap/extend/img';
+@import 'default/shared/theme/bootstrap/extend/block';
+@import 'default/shared/theme/bootstrap/extend/font';
+@import 'default/shared/theme/bootstrap/extend/img';
 
 // Bootstrap overrides
-@import 'archangel/common/theme/bootstrap/override/container';
-@import 'archangel/common/theme/bootstrap/override/page-header';
-@import 'archangel/common/theme/bootstrap/override/wrapper';
+@import 'default/shared/theme/bootstrap/override/container';
+@import 'default/shared/theme/bootstrap/override/page-header';
+@import 'default/shared/theme/bootstrap/override/wrapper';
 
 // Theme
-@import 'archangel/common/theme/common/page-wrapper';
+@import 'default/shared/theme/common/page-wrapper';
 
 // Print
-@import 'archangel/common/theme/print';
+@import 'default/shared/theme/print';
 
 
 // Navbar =====================================================================

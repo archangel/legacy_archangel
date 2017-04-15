@@ -82,6 +82,10 @@ module Archangel
       where(homepage: true)
     }
 
+    def homepage?
+      homepage
+    end
+
     protected
 
     def unique_slug_per_level
@@ -127,7 +131,7 @@ module Archangel
     def parse_keywords(keywords)
       JSON.parse(keywords)
     rescue
-      keywords.to_s.split(",")
+      keywords.to_s.split(", ")
     end
   end
 end

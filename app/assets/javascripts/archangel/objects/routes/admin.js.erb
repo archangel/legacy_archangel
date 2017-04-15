@@ -1,0 +1,85 @@
+(function(object) {
+
+  var mergeRecursive = function(obj1, obj2) {
+        for (var p in obj2) {
+          try {
+            if (obj2[p].constructor == Object) {
+              obj1[p] = mergeRecursive(obj1[p], obj2[p]);
+            } else {
+              obj1[p] = obj2[p];
+            }
+          } catch(e) {
+            obj1[p] = obj2[p];
+          }
+        }
+
+        return obj1;
+      };
+
+  object.route.admin = mergeRecursive(object.route.admin, {
+    // Assets
+    assets_path: object.adminPathFor('assets'),
+    new_asset_path: object.adminPathFor('assets/new'),
+    asset_path: function(id) {
+      return object.adminPathFor('assets/' + id);
+    },
+    edit_asset_path: function(id) {
+      return object.adminPathFor('assets/' + id + '/edit');
+    },
+    // Categories
+    categories_path: object.adminPathFor('categories'),
+    new_category_path: object.adminPathFor('categories/new'),
+    category_path: function(slug) {
+      return object.adminPathFor('categories/' + slug);
+    },
+    edit_category_path: function(slug) {
+      return object.adminPathFor('categories/' + slug + '/edit');
+    },
+    autocomplete_categories_path: function(term) {
+      return object.adminPathFor(
+        'categories/autocomplete?q[term]=' + term + '&q[_type]=query'
+      );
+    },
+    // Pages
+    pages_path: object.adminPathFor('pages'),
+    new_page_path: object.adminPathFor('pages/new'),
+    page_path: function(path) {
+      return object.adminPathFor('pages/' + path);
+    },
+    edit_page_path: function(path) {
+      return object.adminPathFor('pages/' + path + '/edit');
+    },
+    // Tags
+    tags_path: object.adminPathFor('tags'),
+    new_tag_path: object.adminPathFor('tags/new'),
+    tag_path: function(slug) {
+      return object.adminPathFor('tags/' + slug);
+    },
+    edit_tag_path: function(slug) {
+      return object.adminPathFor('tags/' + slug + '/edit');
+    },
+    autocomplete_tags_path: function(term) {
+      return object.adminPathFor(
+        'tags/autocomplete?q[term]=' + term + '&q[_type]=query'
+      );
+    },
+    // Users
+    users_path: object.adminPathFor('users'),
+    new_user_path: object.adminPathFor('users/new'),
+    user_path: function(username) {
+      return object.adminPathFor('users/' + username);
+    },
+    edit_user_path: function(username) {
+      return object.adminPathFor('users/' + username + '/edit');
+    },
+    // Profile
+    profile_path: object.adminPathFor('profile'),
+    edit_profile_path: object.adminPathFor('profile/edit'),
+    // Site
+    site_path: object.adminPathFor('site'),
+    edit_site_path: object.adminPathFor('site/edit')
+  });
+
+  return object;
+
+}(Archangel || {}));
