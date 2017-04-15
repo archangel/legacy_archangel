@@ -68,8 +68,8 @@ module Archangel
         when Symbol then theme_name_symbol_identifier(theme)
         else
           raise ArgumentError,
-            "String, Proc, or Symbol, expected for `theme'; " \
-            "you passed #{theme.inspect}"
+                "String, Proc, or Symbol, expected for `theme'; you passed " +
+                theme.inspect
         end
       end
 

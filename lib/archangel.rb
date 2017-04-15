@@ -39,6 +39,7 @@ require "archangel/theme/themable_controller"
 require "archangel/version"
 
 module Archangel
+  THEME_DIRECTORIES = [Archangel::Engine.root, Rails.root].freeze
   THEMES = Dir["app/themes/*/"].map { |d| File.basename(d) }.freeze
   THEME_DEFAULT = "default".freeze
 
