@@ -69,7 +69,7 @@ module Archangel
 
       def glob_directories_in(extension_path)
         Dir.glob("#{extension_path}/*")
-           .select { |file| !File.file?(file) }
+           .reject { |file| File.file?(file) }
            .map { |file| File.basename(file) }
       end
 
