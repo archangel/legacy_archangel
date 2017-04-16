@@ -35,6 +35,15 @@ Style/DotPosition:
 Style/FrozenStringLiteralComment:
   EnforcedStyle: always
 
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    '%i': '[]'
+    '%I': '[]'
+    '%r': '{}'
+    '%w': '[]'
+    '%W': '[]'
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
