@@ -52,35 +52,35 @@ module Archangel
     default_scope { order(published_at: :desc) }
 
     # Scope
-    scope :published, lambda {
+    scope :published, (lambda {
       where.not(published_at: nil).where("published_at <= ?", Time.now)
-    }
+    })
 
-    scope :unpublished, lambda {
+    scope :unpublished, (lambda {
       where("published_at IS NULL OR published_at > ?", Time.now)
-    }
+    })
 
-    scope :in_year, lambda { |year|
+    scope :in_year, (lambda { |year|
       unless year.nil?
         where("cast(strftime('%Y', published_at) as int) = ?", year)
       end
-    }
+    })
 
-    scope :in_month, lambda { |month|
+    scope :in_month, (lambda { |month|
       unless month.nil?
         where("cast(strftime('%m', published_at) as int) = ?", month)
       end
-    }
+    })
 
-    scope :in_year_and_month, ->(year, month) { in_month(month).in_year(year) }
+    scope :in_year_and_month, (lambda { |year, month|
+      in_month(month).in_year(year)
+    })
 
-    scope :published_this_month, lambda {
+    scope :published_this_month, (lambda {
       where(published_at: Time.now.beginning_of_month..Time.now)
-    }
+    })
 
-    scope :homepage, lambda {
-      where(homepage: true)
-    }
+    scope :homepage, (-> { where(homepage: true) })
 
     protected
 

@@ -8,9 +8,9 @@ module Archangel
     # @since 0.0.1
     #
     class MenusController < AdminController
-      before_action :set_menus, only: [:index]
-      before_action :set_new_menu, only: [:create, :new]
-      before_action :set_menu, only: [:destroy, :edit, :show, :update]
+      before_action :set_menus, only: %i[index]
+      before_action :set_new_menu, only: %i[create new]
+      before_action :set_menu, only: %i[destroy edit show update]
 
       helper Archangel::Admin::MenusHelper
 
@@ -54,11 +54,10 @@ module Archangel
         [
           :attr_class, :attr_id, :name, :selected_class, :slug,
 
-          menu_items_attributes: [
-            :id, :_destroy,
-            :attr_class, :attr_id, :highlights_on, :label, :link_attr_class,
-            :menuable_id, :menuable_type, :method, :parent_id, :position,
-            :target, :url
+          menu_items_attributes: %i[
+            id _destroy
+            attr_class attr_id highlights_on label link_attr_class menuable_id
+            menuable_type method parent_id position target url
           ]
         ]
       end

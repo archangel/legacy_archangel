@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryGirl.define do
-  factory :user, aliases: [:author, :uploader], class: Archangel::User do
+  factory :user, aliases: %i[author uploader], class: Archangel::User do
     sequence(:name) { |n| "User #{n}" }
     sequence(:username) { |n| "username#{n}" }
     sequence(:email) { |n| "user#{n}@example.com" }

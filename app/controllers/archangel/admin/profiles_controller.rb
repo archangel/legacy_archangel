@@ -45,9 +45,7 @@ module Archangel
       protected
 
       def permitted_attributes
-        [
-          :avatar, :email, :name, :password, :remove_avatar, :username
-        ]
+        %i[avatar email name password remove_avatar username]
       end
 
       def set_profile

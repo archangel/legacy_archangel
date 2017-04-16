@@ -18,9 +18,9 @@ module Archangel
                               desc: "Type of database to use in dummy app. " \
                                     "Default: sqlite"
 
-      PASSTHROUGH_OPTIONS = [
-        :skip_active_record, :skip_javascript, :database, :javascript, :quiet,
-        :pretend, :force, :skip
+      PASSTHROUGH_OPTIONS = %i[
+        skip_active_record skip_javascript database javascript quiet pretend
+        force skip
       ].freeze
 
       def self.source_paths

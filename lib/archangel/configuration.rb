@@ -17,11 +17,11 @@ module Archangel
       @admin_path = "admin"
       @application = "archangel"
       @attachment_maximum_file_size = 2.megabytes
-      @attachment_white_list = %w(gif jpeg jpg png)
+      @attachment_white_list = %w[gif jpeg jpg png]
       @auth_path = "account"
       @frontend_path = ""
       @image_maximum_file_size = 2.megabytes
-      @image_white_list = %w(gif jpeg jpg png)
+      @image_white_list = %w[gif jpeg jpg png]
       @posts_path = "posts"
     end
 
