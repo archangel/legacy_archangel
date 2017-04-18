@@ -67,11 +67,13 @@ en:
         slug: Slug
         title: Title
       archangel/site:
+        favicon: Favicon
         logo: Logo
         meta_description: META Description
         meta_keywords: META Keywords
         name: Name
         remove_logo: Remove Logo
+        theme: Theme
       archangel/tag:
         description: Description
         name: Name

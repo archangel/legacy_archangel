@@ -24,7 +24,7 @@ module Archangel
     # @return [String] path to feature file
     #
     def default_path
-      "archangel/resources/" + [version_name, "feature.jpg"].compact.join("_")
+      "archangel/" + [version_name, "feature.jpg"].compact.join("_")
     end
 
     # Uploaded feature file name

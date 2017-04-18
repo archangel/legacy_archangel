@@ -48,6 +48,22 @@ bundle exec rails g archangel:install --seed
 
 Seed data can be created separately by running `rake db:seed`
 
+## Themes
+
+In your application, generate a theme named `foobar`
+
+```
+bundle exec rails g archangel:theme --theme-name=foobar
+```
+
+In your application, generate a theme named `foo_bar`
+
+```
+bundle exec rails g archangel:theme --theme-name="foo bar"
+```
+
+If you do not pass a `theme-name` flag, it will generate a new theme with the name "unknown theme"
+
 ## Updating
 
 Subsequent updates can be done by bumping the version in your Gemfile then adding the new migrations

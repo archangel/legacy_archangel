@@ -8,6 +8,7 @@ module Archangel
   #
   class Site < ApplicationRecord
     # Uploader
+    mount_uploader :favicon, Archangel::FaviconUploader
     mount_uploader :logo, Archangel::LogoUploader
 
     # Callbacks
@@ -20,10 +21,14 @@ module Archangel
       less_than_or_equal_to: Archangel.config.image_maximum_file_size
     }
     validates :name, presence: true
+    validates :theme, presence: true, inclusion: { in: Archangel.themes }
 
     # Scope
     def self.current
-      first_or_create { |site| site.name = Archangel.t(:archangel) }
+      first_or_create do |site|
+        site.name = Archangel.t(:archangel)
+        site.theme = Archangel::THEME_DEFAULT
+      end
     end
 
     protected

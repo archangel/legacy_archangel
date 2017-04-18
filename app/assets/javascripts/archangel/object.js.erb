@@ -1,0 +1,132 @@
+var Archangel = (function(object) {
+
+  var serialize = function(obj, prefix) {
+        var p,
+            str = [];
+
+        for (p in obj) {
+          if (obj.hasOwnProperty(p)) {
+            var k = prefix ? prefix + '[' + p + ']' : p,
+                v = obj[p];
+
+            str.push((v !== null && typeof v === 'object') ?
+              serialize(v, k) :
+              encodeURIComponent(k) + '=' + encodeURIComponent(v));
+          }
+        }
+
+        return str.join('&');
+      },
+      pathBuilder = function(path) {
+        var new_path = [];
+
+        // Array to string
+        if (path.constructor === Array) {
+          new_path = path.map(function(segment) { return segment; });
+        // Object to string
+        } else if (path.constructor === Object) {
+          new_path = Object.keys(path).map(function(resource) {
+                       return [
+                         resource,
+                         path[resource]
+                       ].join('/');
+                     });
+        // String
+        } else if (path.constructor === String) {
+          new_path = [path];
+        }
+
+        final_path = new_path.filter(Boolean).join('/').toLowerCase();
+
+        return final_path;
+      };
+
+  function mountScope() {
+    var mount = '<%= Rails.application.routes.url_helpers.archangel_path %>';
+
+    return mount.replace(/\/$/, '');
+  }
+
+  function adminScope() {
+    return '<%= Archangel.configuration.admin_path %>';
+  }
+
+  function authScope() {
+    return '<%= Archangel.configuration.auth_path %>';
+  }
+
+  function frontendScope() {
+    return '<%= Archangel.configuration.frontend_path %>';
+  }
+
+  // Translations
+  object.translation = {};
+
+  // Where the Rails engine is mounted
+  object.mountedAt = function() {
+    return mountScope();
+  };
+
+  // Archangel root path
+  object.rootPath = function() {
+    return pathBuilder(mountScope());
+  };
+
+  // Archangel admin root path
+  object.adminPath = function() {
+    return pathBuilder([mountScope(), adminScope()]);
+  };
+
+  // Archangel auth root path
+  object.authPath = function() {
+    return pathBuilder([mountScope(), authScope()]);
+  };
+
+  // Archangel route path
+  object.pathFor = function(path, args) {
+    var final_path,
+        options = serialize(args || {});
+
+    final_path = pathBuilder(path);
+
+    // Query string
+    if (options.length !== 0) {
+      final_path = final_path + '?' + options;
+    }
+
+    return '/' + final_path;
+  };
+
+  // Archangel admin route path
+  object.adminPathFor = function(path, args) {
+    return object.pathFor([adminScope(), path], args);
+  };
+
+  // Archangel auth route path
+  object.authPathFor = function(path, args) {
+    return object.pathFor([authScope(), path], args);
+  };
+
+  // Archangel frontend route path
+  object.frontendPathFor = function(path, args) {
+    return object.pathFor([frontendScope(), path], args);
+  };
+
+  // Routes
+  object.route = {
+    home_path: object.rootPath(),
+    root_path: object.rootPath(),
+    admin: {
+      root_path: object.adminPath()
+    },
+    auth: {
+      root_path: object.authPath()
+    },
+    page_path: function(path) {
+      return object.frontendPathFor(path);
+    }
+  };
+
+  return object;
+
+}(Archangel || {}));

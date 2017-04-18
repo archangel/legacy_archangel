@@ -1,0 +1,70 @@
+//========================================
+// Sidebar
+//========================================
+
+#sidebar {
+  background-color: $navbar-default-bg;
+  -moz-box-flex: 0;
+  -ms-box-flex: 0;
+  -webkit-box-flex: 0;
+  box-flex: 0;
+  padding: 15px 0;
+
+  @media (min-width: $screen-sm-min) {
+    min-height: 100%;
+  }
+
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    width: 60px;
+  }
+
+  @media (min-width: $screen-md-min) {
+    width: 220px;
+  }
+
+  .nav {
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      text-align: center;
+    }
+
+    > li {
+      &.active {
+        background: $brand-primary;
+        border-left: 4px solid $brand-success;
+
+        > a {
+          color: $white;
+        }
+      }
+
+      > a {
+        color: #a7b1c2;
+
+        &:hover {
+          background: $navbar-default-bg;
+          color: $white;
+        }
+      }
+    }
+
+    li {
+      a {
+        span {
+          margin-left: 15px;
+
+          @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .brand-logo {
+    margin: 15px 5px;
+  }
+
+  .brand-name {
+    color: $white;
+  }
+}

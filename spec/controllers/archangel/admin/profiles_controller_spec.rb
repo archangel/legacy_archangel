@@ -24,7 +24,7 @@ module Archangel
           archangel_get :show
 
           expect(profile.avatar.url).to(
-            include("/assets/archangel/resources/avatar")
+            include("/assets/archangel/avatar")
           )
         end
       end

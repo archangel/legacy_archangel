@@ -77,6 +77,10 @@ en:
       admin: Admin
       editor: Editor
     search: Search
+    theme:
+      default:
+        author: Archangel
+        name: Archangel Default Theme
     titles:
       list_section: "%{section}"
       show_section: "%{section}"

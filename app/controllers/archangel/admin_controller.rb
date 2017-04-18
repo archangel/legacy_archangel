@@ -18,8 +18,8 @@ module Archangel
 
     protected
 
-    def theme_resolver
-      "archangel/layouts/#{site_theme}/admin"
+    def layout_from_theme
+      "admin"
     end
 
     def navigation_items

@@ -35,9 +35,14 @@ require "archangel/menu_methods"
 require "archangel/renderer/bootstrap"
 require "archangel/roles"
 require "archangel/settings"
+require "archangel/theme/themable_controller"
 require "archangel/version"
 
 module Archangel
+  THEME_DIRECTORIES = [Archangel::Engine.root, Rails.root].freeze
+  THEMES = Dir["app/themes/*/"].map { |d| File.basename(d) }.freeze
+  THEME_DEFAULT = "default".to_s.freeze
+
   class << self
     attr_accessor :configuration
 
@@ -52,6 +57,10 @@ module Archangel
 
     def routes
       Archangel::Engine.routes.url_helpers
+    end
+
+    def themes
+      [Archangel::THEME_DEFAULT] + Archangel::THEMES
     end
   end
 end

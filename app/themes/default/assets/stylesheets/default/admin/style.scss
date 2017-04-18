@@ -1,0 +1,29 @@
+// Theme variables
+@import '../variables';
+
+// Boostrap
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+// External
+@import 'default/shared/external/select2';
+@import 'default/shared/external/trumbowyg';
+
+// Common theme
+@import 'default/shared/theme';
+
+// Layout
+@import 'default/admin/header';
+@import 'default/admin/sidebar';
+@import 'default/admin/footer';
+
+// Sections
+@import 'default/admin/sections/assets';
+@import 'default/admin/sections/categories';
+@import 'default/admin/sections/dashboards';
+@import 'default/admin/sections/menus';
+@import 'default/admin/sections/pages';
+@import 'default/admin/sections/profiles';
+@import 'default/admin/sections/sites';
+@import 'default/admin/sections/tags';
+@import 'default/admin/sections/users';
