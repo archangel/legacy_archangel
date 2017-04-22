@@ -30,7 +30,7 @@ Metrics/ModuleLength:
   Enabled: false
 
 Style/Documentation:
-  Enabled: false
+  Enabled: true
 
 Style/DotPosition:
   EnforcedStyle: leading
