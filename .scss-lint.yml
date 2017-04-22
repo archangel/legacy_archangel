@@ -3,6 +3,9 @@ scss_files:
   - 'app/assets/stylesheets/**/*.scss'
 
 exclude:
+  - 'coverage/**/*.css'
+  - 'doc/**/*.css'
+  - 'spec/dummy/**/*.css'
   - 'vendor/assets/stylesheets/**'
 
 linters:

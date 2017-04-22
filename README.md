@@ -187,7 +187,7 @@ eslint ./app/assets/javascripts
 [scss-lint](https://github.com/brigade/scss-lint) is a SCSS style analyzer.
 
 ```
-scss-lint
+scss-lint .
 ```
 
 ### Brakeman
