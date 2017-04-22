@@ -52,17 +52,17 @@ module Archangel
     default_scope { order(published_at: :desc) }
 
     # Scope
-    scope :published, (lambda {
+    scope :published, (lambda do
       where.not(published_at: nil).where("published_at <= ?", Time.now)
-    })
+    end)
 
-    scope :unpublished, (lambda {
+    scope :unpublished, (lambda do
       where("published_at IS NULL OR published_at > ?", Time.now)
-    })
+    end)
 
-    scope :published_this_month, (lambda {
+    scope :published_this_month, (lambda do
       where(published_at: Time.now.beginning_of_month..Time.now)
-    })
+    end)
 
     scope :homepage, (-> { where(homepage: true) })
 

@@ -48,42 +48,42 @@ module Archangel
     # Scope
     scope :published, (-> { where("published_at <= ?", Time.now) })
 
-    scope :unpublished, (lambda {
+    scope :unpublished, (lambda do
       where("published_at IS NULL OR published_at > ?", Time.now)
-    })
+    end)
 
-    scope :in_year, (lambda { |year|
+    scope :in_year, (lambda do |year|
       unless year.nil?
         where("cast(strftime('%Y', published_at) as int) = ?", year)
       end
-    })
+    end)
 
-    scope :in_month, (lambda { |month|
+    scope :in_month, (lambda do |month|
       unless month.nil?
         where("cast(strftime('%m', published_at) as int) = ?", month)
       end
-    })
+    end)
 
-    scope :in_year_and_month, (lambda { |year, month|
+    scope :in_year_and_month, (lambda do |year, month|
       in_month(month).in_year(year)
-    })
+    end)
 
-    scope :with_category, (lambda { |category|
+    scope :with_category, (lambda do |category|
       joins(:categories).where("archangel_categories.slug = ?", category)
-    })
+    end)
 
     scope :with_tag, (lambda { |tag|
       joins(:tags).where("archangel_tags.slug = ?", tag)
     })
 
     def next
-      return nil unless published_at
+      return nil unless published_at.present?
 
       self.class.where("published_at > ?", published_at).first
     end
 
     def previous
-      return nil unless published_at
+      return nil unless published_at.present?
 
       self.class.where("published_at < ?", published_at).last
     end
