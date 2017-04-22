@@ -87,5 +87,25 @@ module Archangel
         expect(Post.in_year_and_month(2015, 11).first).to eq(post)
       end
     end
+
+    context "#published?" do
+      it "is published" do
+        post = build(:post)
+
+        expect(post.published?).to be_truthy
+      end
+
+      it "is published for the future" do
+        post = build(:post, published_at: 1.week.from_now)
+
+        expect(post.published?).to be_truthy
+      end
+
+      it "is not published" do
+        post = build(:post, :unpublished)
+
+        expect(post.published?).to be_falsey
+      end
+    end
   end
 end

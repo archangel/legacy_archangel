@@ -70,6 +70,10 @@ module Archangel
       homepage
     end
 
+    def published?
+      published_at.present?
+    end
+
     protected
 
     def unique_slug_per_level

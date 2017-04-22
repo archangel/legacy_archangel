@@ -79,5 +79,39 @@ module Archangel
         expect(Page.published_this_month).to eq([current])
       end
     end
+
+    context "#homepage?" do
+      it "is the homepage" do
+        page = build(:page, :homepage)
+
+        expect(page.homepage?).to be_truthy
+      end
+
+      it "is not the homepage" do
+        page = build(:page)
+
+        expect(page.homepage?).to be_falsey
+      end
+    end
+
+    context "#published?" do
+      it "is published" do
+        page = build(:page)
+
+        expect(page.published?).to be_truthy
+      end
+
+      it "is published for the future" do
+        page = build(:page, published_at: 1.week.from_now)
+
+        expect(page.published?).to be_truthy
+      end
+
+      it "is not published" do
+        page = build(:page, :unpublished)
+
+        expect(page.published?).to be_falsey
+      end
+    end
   end
 end

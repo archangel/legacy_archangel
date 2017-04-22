@@ -77,15 +77,19 @@ module Archangel
     })
 
     def next
-      return nil unless published_at.present?
+      return nil unless published_at?
 
       self.class.where("published_at > ?", published_at).first
     end
 
     def previous
-      return nil unless published_at.present?
+      return nil unless published_at?
 
       self.class.where("published_at < ?", published_at).last
+    end
+
+    def published?
+      published_at.present?
     end
 
     protected
@@ -101,8 +105,8 @@ module Archangel
     end
 
     def build_path_before_save
-      year = published_at ? published_at.year : nil
-      month = published_at ? format("%02d", published_at.month) : nil
+      year = published? ? published_at.year : nil
+      month = published? ? format("%02d", published_at.month) : nil
 
       self.path = [year, month, slug].compact.join("/")
     end
