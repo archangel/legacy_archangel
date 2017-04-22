@@ -18,9 +18,9 @@ module Archangel
                               desc: "Type of database to use in dummy app. " \
                                     "Default: sqlite"
 
-      PASSTHROUGH_OPTIONS = [
-        :skip_active_record, :skip_javascript, :database, :javascript, :quiet,
-        :pretend, :force, :skip
+      PASSTHROUGH_OPTIONS = %i[
+        skip_active_record skip_javascript database javascript quiet pretend
+        force skip
       ].freeze
 
       def self.source_paths
@@ -59,7 +59,7 @@ module Archangel
         @lib_name = options[:lib_name]
         @database = options[:database]
 
-        %w(config/database.yml).each do |tpl|
+        %w[config/database.yml].each do |tpl|
           template tpl, "#{dummy_path}/#{tpl}", force: true
         end
       end
@@ -77,8 +77,8 @@ module Archangel
 
       def dummy_cleanup
         inside dummy_path do
-          %w(.gitignore db/seeds.rb Gemfile lib/tasks public/robots.txt spec
-             test vendor).each { |path| remove_file path }
+          %w[.gitignore db/seeds.rb Gemfile lib/tasks public/robots.txt spec
+             test vendor].each { |path| remove_file path }
         end
       end
 

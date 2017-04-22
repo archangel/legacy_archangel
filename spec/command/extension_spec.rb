@@ -22,7 +22,7 @@ module Archangel
           it "should write common directories" do
             expect(
               glob_directories_in(extension_path)
-            ).to eq %w(app bin config lib spec)
+            ).to eq %w[app bin config lib spec]
           end
 
           it "should write common files" do
@@ -69,7 +69,7 @@ module Archangel
 
       def glob_directories_in(extension_path)
         Dir.glob("#{extension_path}/*")
-           .select { |file| !File.file?(file) }
+           .reject { |file| File.file?(file) }
            .map { |file| File.basename(file) }
       end
 

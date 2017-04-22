@@ -46,44 +46,50 @@ module Archangel
     default_scope { order(published_at: :desc, id: :desc) }
 
     # Scope
-    scope :published, -> { where("published_at <= ?", Time.now) }
+    scope :published, (-> { where("published_at <= ?", Time.now) })
 
-    scope :unpublished, lambda {
+    scope :unpublished, (lambda do
       where("published_at IS NULL OR published_at > ?", Time.now)
-    }
+    end)
 
-    scope :in_year, lambda { |year|
+    scope :in_year, (lambda do |year|
       unless year.nil?
         where("cast(strftime('%Y', published_at) as int) = ?", year)
       end
-    }
+    end)
 
-    scope :in_month, lambda { |month|
+    scope :in_month, (lambda do |month|
       unless month.nil?
         where("cast(strftime('%m', published_at) as int) = ?", month)
       end
-    }
+    end)
 
-    scope :in_year_and_month, ->(year, month) { in_month(month).in_year(year) }
+    scope :in_year_and_month, (lambda do |year, month|
+      in_month(month).in_year(year)
+    end)
 
-    scope :with_category, lambda { |category|
+    scope :with_category, (lambda do |category|
       joins(:categories).where("archangel_categories.slug = ?", category)
-    }
+    end)
 
-    scope :with_tag, lambda { |tag|
+    scope :with_tag, (lambda { |tag|
       joins(:tags).where("archangel_tags.slug = ?", tag)
-    }
+    })
 
     def next
-      return nil unless published_at
+      return nil unless published_at?
 
       self.class.where("published_at > ?", published_at).first
     end
 
     def previous
-      return nil unless published_at
+      return nil unless published_at?
 
       self.class.where("published_at < ?", published_at).last
+    end
+
+    def published?
+      published_at.present?
     end
 
     protected
@@ -99,8 +105,8 @@ module Archangel
     end
 
     def build_path_before_save
-      year = published_at ? published_at.year : nil
-      month = published_at ? format("%02d", published_at.month) : nil
+      year = published? ? published_at.year : nil
+      month = published? ? format("%02d", published_at.month) : nil
 
       self.path = [year, month, slug].compact.join("/")
     end

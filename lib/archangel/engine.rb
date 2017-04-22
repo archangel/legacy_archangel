@@ -18,7 +18,7 @@ module Archangel
 
     initializer "archangel.environment",
                 before: :load_config_initializers do |app|
-      app.config.archangel = Settings.new(config: %w(archangel))
+      app.config.archangel = Settings.new(config: %w[archangel])
     end
 
     initializer "archangel.load_locales" do |app|

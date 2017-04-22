@@ -117,13 +117,13 @@ Archangel::Engine.routes.draw do
     # PATCH  /admin/profile
     # PUT    /admin/profile
     # DELETE /admin/profile
-    resource :profile, except: [:new, :create]
+    resource :profile, except: %i[create new]
 
     # GET   /admin/site/edit
     # GET   /admin/site
     # PATCH /admin/site
     # PUT   /admin/site
-    resource :site, only: [:show, :edit, :update]
+    resource :site, only: %i[edit show update]
 
     # GET    /admin/tags
     # GET    /admin/tags/page/[PAGE]

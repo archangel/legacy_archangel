@@ -3,7 +3,7 @@
 module Archangel
   # Available languages
   #
-  LANGUAGES = %w(en).freeze
+  LANGUAGES = %w[en].freeze
 
   # Default language
   #

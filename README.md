@@ -11,8 +11,8 @@ This project rocks and uses MIT-LICENSE.
 
 ## Requirements
 
-- Ruby >= 2.2.2
-- Rails >= 5.0
+-   Ruby >= 2.2.2
+-   Rails >= 5.0
 
 ## Deploying to Heroku
 
@@ -187,7 +187,7 @@ eslint ./app/assets/javascripts
 [scss-lint](https://github.com/brigade/scss-lint) is a SCSS style analyzer.
 
 ```
-scss-lint
+scss-lint .
 ```
 
 ### Brakeman
@@ -200,8 +200,8 @@ brakeman
 
 ## Contributing
 
-1. Fork it ( https://github.com/archangel/archangel/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+1.  Fork it ([https://github.com/archangel/archangel/fork](https://github.com/archangel/archangel/fork))
+2.  Create your feature branch (`git checkout -b my-new-feature`)
+3.  Commit your changes (`git commit -am 'Add some feature'`)
+4.  Push to the branch (`git push origin my-new-feature`)
+5.  Create a new Pull Request

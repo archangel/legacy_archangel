@@ -22,14 +22,14 @@ module Archangel
 
         empty_directory file_name
 
-        %w(app bin config lib spec).each do |dir|
+        %w[app bin config lib spec].each do |dir|
           directory dir, "#{file_name}/#{dir}"
         end
 
         template "extension.gemspec", "#{file_name}/#{file_name}.gemspec"
 
-        %w(.editorconfig .gitignore .rspec .rubocop.yml Gemfile MIT-LICENSE
-           Rakefile README.md).each do |tpl|
+        %w[.editorconfig .gitignore .rspec .rubocop.yml Gemfile MIT-LICENSE
+           Rakefile README.md].each do |tpl|
           template tpl, "#{file_name}/#{tpl}"
         end
       end
