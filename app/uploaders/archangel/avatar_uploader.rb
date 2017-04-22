@@ -32,7 +32,7 @@ module Archangel
     # @return [String] path to avatar file
     #
     def default_path
-      "archangel/resources/" + [version_name, "avatar.jpg"].compact.join("_")
+      "archangel/" + [version_name, "avatar.jpg"].compact.join("_")
     end
 
     # Uploaded avatar file name

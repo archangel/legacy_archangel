@@ -3,7 +3,7 @@
 module Archangel
   # Available menu item methods
   #
-  MENU_METHODS = %w(DELETE GET POST PUT).freeze
+  MENU_METHODS = %w[DELETE GET POST PUT].freeze
 
   # Default menu item method
   #

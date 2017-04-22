@@ -32,7 +32,8 @@ module Archangel
 
     default_scope { order(position: :asc) }
 
-    scope :children, -> { where(parent_id: id) }
+    # Scope
+    scope :children, (-> { where(parent_id: id) })
 
     protected
 

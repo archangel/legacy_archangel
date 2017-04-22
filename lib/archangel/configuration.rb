@@ -95,14 +95,16 @@ module Archangel
     attr_reader :posts_path
 
     def initialize
+      max_file_size = 2.megabytes
+
       @admin_path = "admin"
       @application = "archangel"
-      @attachment_maximum_file_size = 2.megabytes
-      @attachment_white_list = %w(gif jpeg jpg png)
+      @attachment_maximum_file_size = max_file_size
+      @attachment_white_list = %w[gif jpeg jpg png]
       @auth_path = "account"
       @frontend_path = ""
-      @image_maximum_file_size = 2.megabytes
-      @image_white_list = %w(gif jpeg jpg png)
+      @image_maximum_file_size = max_file_size
+      @image_white_list = %w[gif jpeg jpg png]
       @posts_path = "posts"
     end
 

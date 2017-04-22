@@ -1,0 +1,5 @@
+en:
+  archangel:
+    theme:
+      <%= theme_name %>:
+        name: <%= theme_name %>

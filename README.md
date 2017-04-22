@@ -12,8 +12,8 @@ This project rocks and uses MIT-LICENSE.
 
 ## Requirements
 
-- Ruby >= 2.2.2
-- Rails >= 5.0
+-   Ruby >= 2.2.2
+-   Rails >= 5.0
 
 ## Deploying to Heroku
 
@@ -48,6 +48,22 @@ bundle exec rails g archangel:install --seed
 ```
 
 Seed data can be created separately by running `rake db:seed`
+
+## Themes
+
+In your application, generate a theme named `foobar`
+
+```
+bundle exec rails g archangel:theme --theme-name=foobar
+```
+
+In your application, generate a theme named `foo_bar`
+
+```
+bundle exec rails g archangel:theme --theme-name="foo bar"
+```
+
+If you do not pass a `theme-name` flag, it will generate a new theme with the name "unknown theme"
 
 ## Updating
 
@@ -174,7 +190,7 @@ eslint ./app/assets/javascripts
 [scss-lint](https://github.com/brigade/scss-lint) is a SCSS style analyzer.
 
 ```
-scss-lint
+scss-lint .
 ```
 
 ### Brakeman
@@ -187,8 +203,8 @@ brakeman
 
 ## Contributing
 
-1. Fork it ( https://github.com/archangel/archangel/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+1.  Fork it ([https://github.com/archangel/archangel/fork](https://github.com/archangel/archangel/fork))
+2.  Create your feature branch (`git checkout -b my-new-feature`)
+3.  Commit your changes (`git commit -am 'Add some feature'`)
+4.  Push to the branch (`git push origin my-new-feature`)
+5.  Create a new Pull Request

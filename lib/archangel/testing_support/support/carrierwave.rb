@@ -27,3 +27,11 @@ end
 def uploader_test_text
   Archangel::Engine.root + "lib/archangel/testing_support/fixtures/text.txt"
 end
+
+# PNG file to be used for testing favicon file uploads
+#
+# @return [String] path to favicon file
+#
+def uploader_test_favicon
+  Archangel::Engine.root + "lib/archangel/testing_support/fixtures/favicon.png"
+end

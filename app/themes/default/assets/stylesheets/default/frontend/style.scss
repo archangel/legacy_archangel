@@ -1,0 +1,16 @@
+// Theme variables
+@import '../variables';
+
+// Boostrap
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+// External
+@import 'default/shared/external/select2';
+
+// Common theme
+@import 'default/shared/theme';
+
+// Layout
+@import 'default/frontend/header';
+@import 'default/frontend/footer';

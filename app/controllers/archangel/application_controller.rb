@@ -10,6 +10,7 @@ module Archangel
   #
   class ApplicationController < ActionController::Base
     include Archangel::ActionableConcern
+    include Archangel::ThemableConcern
 
     protect_from_forgery with: :exception
 
@@ -23,7 +24,7 @@ module Archangel
 
     before_action :set_locale
 
-    layout :theme_resolver
+    theme :theme_resolver
 
     respond_to :html, :json
     responders :flash, :http_cache
@@ -71,17 +72,19 @@ module Archangel
     #   }
     #
     def current_site
-      @site ||= Archangel::Site.current
+      @current_site ||= Archangel::Site.current
     end
 
     protected
 
-    def site_theme
-      "default"
+    def theme_resolver
+      theme = current_site.theme
+
+      Archangel::THEMES.include?(theme) ? theme : Archangel::THEME_DEFAULT
     end
 
-    def theme_resolver
-      "archangel/layouts/#{site_theme}/frontend"
+    def layout_from_theme
+      "frontend"
     end
 
     def per_page

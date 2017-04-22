@@ -8,9 +8,9 @@ module Archangel
     # @since 0.0.1
     #
     class PagesController < AdminController
-      before_action :set_pages, only: [:index]
-      before_action :set_new_page, only: [:create, :new]
-      before_action :set_page, only: [:destroy, :edit, :show, :update]
+      before_action :set_pages, only: %i[index]
+      before_action :set_new_page, only: %i[create new]
+      before_action :set_page, only: %i[destroy edit show update]
 
       helper Archangel::Admin::PagesHelper
 

@@ -50,7 +50,7 @@ module Archangel
     protected
 
     def image_formats
-      %w(image/jpg image/jpeg image/png image/gif)
+      %w[image/jpg image/jpeg image/png image/gif]
     end
   end
 end

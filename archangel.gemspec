@@ -1,4 +1,6 @@
-$:.push File.expand_path("../lib", __FILE__)
+# frozen_string_literal: true
+
+$LOAD_PATH.push File.expand_path("../lib", __FILE__)
 
 require "archangel/version"
 
@@ -13,7 +15,7 @@ Gem::Specification.new do |s|
   s.description = "Description of Archangel."
   s.license     = "MIT"
 
-  s.files       = `git ls-files`.split($\)
+  s.files       = `git ls-files`.split($ORS)
 
   s.required_ruby_version = ">= 2.2.2"
 
@@ -36,14 +38,14 @@ Gem::Specification.new do |s|
   s.add_dependency "highline", "~> 1.7.8"
   s.add_dependency "kaminari", "~> 1.0.1"
   s.add_dependency "local_time", "~> 1.0.3"
-  s.add_dependency "mini_magick", "~> 4.6.1"
+  s.add_dependency "mini_magick", "~> 4.7.0"
   s.add_dependency "momentjs-rails", "~> 2.17.1"
-  s.add_dependency "paranoia", "~> 2.2.1"
+  s.add_dependency "paranoia", "~> 2.3.0"
   s.add_dependency "pundit", "~> 1.1.0"
   s.add_dependency "ransack", "~> 1.8.2"
   s.add_dependency "responders", "~> 2.3.0"
   s.add_dependency "select2-rails", "~> 4.0.3"
-  s.add_dependency "simple-navigation", "~> 4.0.4"
+  s.add_dependency "simple-navigation", "~> 4.0.5"
   s.add_dependency "simple_form", "~> 3.4.0"
   s.add_dependency "validates", "~> 1.0.0"
 end

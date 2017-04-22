@@ -118,7 +118,8 @@ module Archangel
 
       def permitted_attributes
         [
-          :locale, :logo, :meta_description, :name, :remove_logo,
+          :favicon, :locale, :logo, :meta_description, :name, :remove_favicon,
+          :remove_logo, :theme,
           meta_keywords: []
         ]
       end

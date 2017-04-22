@@ -36,7 +36,7 @@ module Archangel
       def create_assets
         say_quietly "Copying Archangel vendor assets..."
 
-        %w(admin auth frontend).each do |section|
+        %w[admin auth frontend].each do |section|
           copy_file "vendor/assets/javascripts/archangel/#{section}.js"
           copy_file "vendor/assets/stylesheets/archangel/#{section}.css"
         end
@@ -51,7 +51,7 @@ module Archangel
       def add_initializers
         say_quietly "Copying initializers..."
 
-        %w(archangel carrierwave devise).each do |initializer|
+        %w[archangel carrierwave devise].each do |initializer|
           template "config/initializers/#{initializer}.rb"
         end
       end
@@ -140,7 +140,7 @@ Archangel::Engine.load_seed
 
       no_tasks do
         def rake_seed_options
-          fields = %w(admin_email admin_name admin_password admin_username)
+          fields = %w[admin_email admin_name admin_password admin_username]
 
           [].tap do |collector|
             fields.each do |field|

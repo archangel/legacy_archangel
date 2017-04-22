@@ -26,7 +26,7 @@ module Archangel
     # @return [String] path to logo file
     #
     def default_path
-      "archangel/resources/" + [version_name, "logo.png"].compact.join("_")
+      "archangel/" + [version_name, "logo.png"].compact.join("_")
     end
 
     # Uploaded logo file name

@@ -3,7 +3,7 @@
 module Archangel
   # Available roles
   #
-  ROLES = %w(admin editor).freeze
+  ROLES = %w[admin editor].freeze
 
   # Default role
   #

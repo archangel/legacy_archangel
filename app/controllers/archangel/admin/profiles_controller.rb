@@ -128,12 +128,12 @@ module Archangel
       #   }
       #
       def update
-        empty_password_params if profile_params[:password].blank?
+        empty_password_params if password_blank?
 
-        successfully_updated = if needs_password?(@profile, profile_params)
-                                 @profile.update profile_params
-                               else
+        successfully_updated = if password_blank?
                                  @profile.update_without_password profile_params
+                               else
+                                 @profile.update profile_params
                                end
 
         reauth_current_user if successfully_updated
@@ -161,9 +161,7 @@ module Archangel
       protected
 
       def permitted_attributes
-        [
-          :avatar, :email, :name, :password, :remove_avatar, :username
-        ]
+        %i[avatar email name password remove_avatar username]
       end
 
       def set_profile
@@ -179,12 +177,12 @@ module Archangel
         profile_params.delete(:password_confirmation)
       end
 
-      def needs_password?(_profile, params)
-        params[:password].present?
-      end
-
       def reauth_current_user
         bypass_sign_in(@profile)
+      end
+
+      def password_blank?
+        profile_params[:password].blank?
       end
     end
   end

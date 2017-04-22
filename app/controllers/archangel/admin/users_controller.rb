@@ -8,9 +8,9 @@ module Archangel
     # @since 0.0.1
     #
     class UsersController < AdminController
-      before_action :set_users, only: [:index]
-      before_action :set_new_user, only: [:create, :new]
-      before_action :set_user, only: [:destroy, :edit, :show, :update]
+      before_action :set_users, only: %i[index]
+      before_action :set_new_user, only: %i[create new]
+      before_action :set_user, only: %i[destroy edit show update]
 
       helper Archangel::Admin::UsersHelper
 
@@ -297,9 +297,7 @@ module Archangel
       protected
 
       def permitted_attributes
-        [
-          :email, :name, :remove_avatar, :role, :username
-        ]
+        %i[email name remove_avatar role username]
       end
 
       def set_users

@@ -47,7 +47,7 @@ module Archangel
             asset = create(:asset, :text_file)
 
             expect(asset.file.mini.url).to(
-              match(%r{/assets/archangel/resources/mini_asset(.*).png})
+              match(%r{/assets/archangel/mini_asset(.*).png})
             )
           end
         end

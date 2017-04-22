@@ -5,6 +5,7 @@ require "simplecov"
 SimpleCov.start :rails do
   add_filter "dummy_generator.rb"
   add_filter "install_generator.rb"
+  add_filter "theme_generator.rb"
   add_filter "version.rb"
   add_filter "lib/archangel/testing_support"
 

@@ -8,10 +8,10 @@ module Archangel
     # @since 0.0.1
     #
     class CategoriesController < AdminController
-      before_action :set_categories, only: [:index]
-      before_action :set_new_category, only: [:create, :new]
-      before_action :set_category, only: [:destroy, :edit, :show, :update]
-      before_action :set_autocomplete_categories, only: [:autocomplete]
+      before_action :set_categories, only: %i[index]
+      before_action :set_new_category, only: %i[create new]
+      before_action :set_category, only: %i[destroy edit show update]
+      before_action :set_autocomplete_categories, only: %i[autocomplete]
 
       helper Archangel::Admin::CategoriesHelper
 
@@ -222,9 +222,7 @@ module Archangel
       protected
 
       def permitted_attributes
-        [
-          :description, :name, :slug
-        ]
+        %i[description name slug]
       end
 
       def category_params

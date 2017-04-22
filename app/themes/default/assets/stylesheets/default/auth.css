@@ -1,0 +1,14 @@
+/**
+ * Default Archangel auth theme
+ *
+ *= require_self
+ *
+ * Third party libraries
+ *= require font-awesome
+ *
+ * Third-party Archangel assets (from the vendor directory)
+ *= require archangel/auth
+ *
+ * Archangel section theme styles
+ *= require default/auth/style
+ */

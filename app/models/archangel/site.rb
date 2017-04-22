@@ -7,6 +7,8 @@ module Archangel
   # @since 0.0.1
   #
   class Site < ApplicationRecord
+    # Uploader
+    mount_uploader :favicon, Archangel::FaviconUploader
     mount_uploader :logo, Archangel::LogoUploader
 
     before_save :stringify_meta_keywords
@@ -17,6 +19,7 @@ module Archangel
       less_than_or_equal_to: Archangel.config.image_maximum_file_size
     }
     validates :name, presence: true
+    validates :theme, presence: true, inclusion: { in: Archangel.themes }
 
     # Current site
     #
@@ -28,7 +31,10 @@ module Archangel
     #                  next post based on published_at
     #
     def self.current
-      first_or_create { |site| site.name = Archangel.t(:archangel) }
+      first_or_create do |site|
+        site.name = Archangel.t(:archangel)
+        site.theme = Archangel::THEME_DEFAULT
+      end
     end
 
     protected

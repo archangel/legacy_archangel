@@ -8,9 +8,9 @@ module Archangel
     # @since 0.0.1
     #
     class AssetsController < AdminController
-      before_action :set_assets, only: [:index]
-      before_action :set_new_asset, only: [:create, :new]
-      before_action :set_asset, only: [:destroy, :edit, :show, :update]
+      before_action :set_assets, only: %i[index]
+      before_action :set_new_asset, only: %i[create new]
+      before_action :set_asset, only: %i[destroy edit show update]
 
       helper Archangel::Admin::AssetsHelper
 
@@ -247,9 +247,7 @@ module Archangel
       protected
 
       def permitted_attributes
-        [
-          :description, :file, :title
-        ]
+        %i[description file title]
       end
 
       def asset_xhr_params

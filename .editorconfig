@@ -12,8 +12,8 @@ indent_size = 2
 [*.rb]
 max_line_length = 80
 
-[*.{css,coffee,sass,scss,js}]
+[*.{css,css.erb,coffee,js,js.erb,sass,scss}]
 max_line_length = 120
 
-[*.{md,json,yml}]
+[*.{json,md,yml}]
 insert_final_newline = false

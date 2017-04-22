@@ -13,12 +13,12 @@ module Archangel
 
     protected
 
-    def theme_resolver
-      "archangel/layouts/#{site_theme}/auth"
+    def layout_from_theme
+      "auth"
     end
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :username])
+      devise_parameter_sanitizer.permit(:sign_up, keys: %i[name username])
     end
   end
 end

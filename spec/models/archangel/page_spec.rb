@@ -70,25 +70,6 @@ module Archangel
         expect(Page.unpublished.first).to eq(page)
       end
 
-      it ".in_year returns all where published_at is in year" do
-        page = create(:page, published_at: "2015-01-01 00:00:00")
-
-        expect(Page.in_year(2015).first).to eq(page)
-      end
-
-      it ".in_month returns all where published_at is in month" do
-        page = create(:page, published_at: "2015-01-01 00:00:00")
-
-        expect(Page.in_month(1).first).to eq(page)
-      end
-
-      it ".in_year_and_month returns all where published_at is " \
-        "in year and month" do
-        page = create(:page, published_at: "2015-11-24 00:00:00")
-
-        expect(Page.in_year_and_month(2015, 11).first).to eq(page)
-      end
-
       it ".published_this_month returns all where published_at is " \
         "this month and year" do
         current = create(:page, published_at: Time.current)
@@ -96,6 +77,40 @@ module Archangel
         create(:page, published_at: Time.current - 1.month)
 
         expect(Page.published_this_month).to eq([current])
+      end
+    end
+
+    context "#homepage?" do
+      it "is the homepage" do
+        page = build(:page, :homepage)
+
+        expect(page.homepage?).to be_truthy
+      end
+
+      it "is not the homepage" do
+        page = build(:page)
+
+        expect(page.homepage?).to be_falsey
+      end
+    end
+
+    context "#published?" do
+      it "is published" do
+        page = build(:page)
+
+        expect(page.published?).to be_truthy
+      end
+
+      it "is published for the future" do
+        page = build(:page, published_at: 1.week.from_now)
+
+        expect(page.published?).to be_truthy
+      end
+
+      it "is not published" do
+        page = build(:page, :unpublished)
+
+        expect(page.published?).to be_falsey
       end
     end
   end

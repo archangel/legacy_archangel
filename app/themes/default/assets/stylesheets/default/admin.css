@@ -1,0 +1,19 @@
+/**
+ * Default Archangel admin theme
+ *
+ *= require_self
+ *
+ * Third party libraries
+ *= require bootstrap-datetimepicker
+ *= require font-awesome
+ *= require hamburgers/hamburgers
+ *= require select2
+ *= require select2-bootstrap
+ *= require trumbowyg/trumbowyg
+ *
+ * Third-party Archangel assets (from the vendor directory)
+ *= require archangel/admin
+ *
+ * Archangel section theme styles
+ *= require default/admin/style
+ */
