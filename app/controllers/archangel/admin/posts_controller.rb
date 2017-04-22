@@ -8,9 +8,9 @@ module Archangel
     # @since 0.0.1
     #
     class PostsController < AdminController
-      before_action :set_posts, only: [:index]
-      before_action :set_new_post, only: [:create, :new]
-      before_action :set_post, only: [:destroy, :edit, :show, :update]
+      before_action :set_posts, only: %i[index]
+      before_action :set_new_post, only: %i[create new]
+      before_action :set_post, only: %i[destroy edit show update]
 
       helper Archangel::Admin::PostsHelper
 

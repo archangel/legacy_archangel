@@ -46,7 +46,7 @@ module Archangel
     end
 
     def children
-      items.reject { |item| !item.parent_id.nil? }
+      items.select { |item| item.parent_id.blank? }
     end
 
     private

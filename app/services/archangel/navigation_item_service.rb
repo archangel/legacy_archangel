@@ -117,7 +117,7 @@ module Archangel
     end
 
     def build_children
-      items.reject { |itm| itm.parent_id != item.id }
+      items.select { |itm| itm.parent_id == item.id }
     end
 
     def check_homepage?

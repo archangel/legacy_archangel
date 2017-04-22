@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
 gemspec
@@ -12,8 +14,7 @@ end
 
 group :development, :test do
   gem "pry-byebug", "~> 3.4.2"
-  gem "sqlite3", ">= 1.3.0",
-    platforms: [:ruby, :mswin, :mswin64, :mingw, :x64_mingw]
+  gem "sqlite3", ">= 1.3.0", platforms: %i[ruby mswin mswin64 mingw x64_mingw]
 end
 
 group :test do

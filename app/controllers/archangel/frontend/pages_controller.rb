@@ -25,7 +25,7 @@ module Archangel
       def set_page
         page_path = params.fetch(:path, nil)
 
-        @page = page_path.nil? ? find_homepage : find_page(page_path)
+        @page = page_path.blank? ? find_homepage : find_page(page_path)
       end
 
       def redirect_to_homepage?
