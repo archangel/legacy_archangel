@@ -97,6 +97,8 @@ bundle exec rspec spec --fail-fast
 
 ## Documentation
 
+[Online documentation is available](http://www.rubydoc.info/github/archangel/archangel/master)
+
 [Yard](https://github.com/lsegal/yard) is used to generate documentation.
 
 ```
