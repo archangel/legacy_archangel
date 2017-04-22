@@ -3,10 +3,10 @@ source "https://rubygems.org"
 gemspec
 
 group :development do
-  gem "brakeman", "~> 3.5.0"
-  gem "reek", "~> 4.5.6"
-  gem "rubocop", "~> 0.47.1"
-  gem "scss_lint", "~> 0.52.0"
+  gem "brakeman", "~> 3.6.1"
+  gem "reek", "~> 4.6.1"
+  gem "rubocop", "~> 0.48.1"
+  gem "scss_lint", "~> 0.53.0"
   gem "yard", "~> 0.9.8"
 end
 
@@ -18,7 +18,7 @@ end
 
 group :test do
   gem "capybara", "~> 2.13.0"
-  gem "coveralls", "~> 0.8.19"
+  gem "coveralls", "~> 0.8.20"
   gem "database_cleaner", "~> 1.5.3"
   gem "factory_girl_rails", "~> 4.8.0"
   gem "launchy", "~> 2.4.3"
@@ -27,5 +27,5 @@ group :test do
   gem "rspec-rails", "~> 3.5.2"
   gem "shoulda-callback-matchers", "~> 1.1.4"
   gem "shoulda-matchers", "~> 3.1.1"
-  gem "simplecov", "~> 0.12.0"
+  gem "simplecov", "~> 0.14.1"
 end
