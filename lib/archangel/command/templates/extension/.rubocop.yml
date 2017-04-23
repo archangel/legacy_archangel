@@ -1,26 +1,52 @@
+# https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 AllCops:
   Include:
-    - Rakefile
-    - config.ru
+    - '**/*.gemspec'
+    - '**/*.rake'
+    - '**/config.ru'
+    - '**/Gemfile'
+    - '**/Rakefile'
   Exclude:
-    - "bin/**/*"
-    - "db/migrate/**/*"
-    - "spec/dummy/**/*"
+    - 'bin/**/*'
+    - 'db/migrate/**/*'
+    - 'spec/dummy/**/*'
+    - 'vendor/**/*'
 
-LineLength:
+Metrics/BlockLength:
+  Exclude:
+    - '**/*.gemspec'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+
+Metrics/LineLength:
   Max: 80
 
-ModuleLength:
+Metrics/ModuleLength:
   Enabled: false
 
-Documentation:
-  Enabled: false
+Style/Documentation:
+  Enabled: true
 
-DotPosition:
+Style/DotPosition:
   EnforcedStyle: leading
 
-StringLiterals:
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    '%i': '[]'
+    '%I': '[]'
+    '%r': '{}'
+    '%w': '[]'
+    '%W': '[]'
+
+Style/StringLiterals:
   EnforcedStyle: double_quotes
 
-StringLiteralsInInterpolation:
+Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
+
+Style/SymbolArray:
+  EnforcedStyle: percent
