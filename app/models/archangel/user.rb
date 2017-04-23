@@ -9,22 +9,18 @@ module Archangel
   class User < ApplicationRecord
     acts_as_paranoid
 
-    # Callbacks
     before_validation :parameterize_username
 
     after_initialize :column_default
 
     after_destroy :column_reset
 
-    # Devise
     devise :database_authenticatable, :invitable, :recoverable, :registerable,
            :lockable, :rememberable, :trackable, :validatable, :confirmable,
            :timeoutable
 
-    # Uploader
     mount_uploader :avatar, Archangel::AvatarUploader
 
-    # Validation
     validates :avatar, file_size: {
       less_than_or_equal_to: Archangel.config.image_maximum_file_size
     }
@@ -39,6 +35,8 @@ module Archangel
     validates :role, presence: true, inclusion: { in: Archangel::ROLES }
     validates :username, presence: true, uniqueness: true
 
+    # Override column ActionPack uses for constructing the URL to this object
+    #
     def to_param
       username
     end

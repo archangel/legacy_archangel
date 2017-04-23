@@ -1,0 +1,22 @@
+# frozen_string_literal: true
+
+$LOAD_PATH.push File.expand_path("../lib", __FILE__)
+
+require "<%= file_name %>/version"
+
+Gem::Specification.new do |s|
+  s.platform    = Gem::Platform::RUBY
+  s.name        = "<%= file_name %>"
+  s.version     = <%= class_name %>::VERSION
+  s.authors     = ["Your Name"]
+  s.homepage    = "https://github.com/[your-github-handle]/<%= file_name %>"
+  s.summary     = "Summary of <%= class_name %>."
+  s.description = "Description of <%= class_name %>."
+  s.license     = "MIT"
+
+  s.files       = `git ls-files`.split($ORS)
+
+  s.required_ruby_version = ">= 2.2.2"
+
+  s.add_dependency "archangel", "~> <%= archangel_version %>"
+end

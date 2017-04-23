@@ -17,6 +17,11 @@ module Archangel
                            desc: "Extension name",
                            default: "unknown"
 
+      # Generate extension
+      #
+      # = Usage
+      #   bundle exec bin/archangel extension [extension_name]
+      #
       def generate
         extension_prefix "archangel_"
 
@@ -34,10 +39,16 @@ module Archangel
         end
       end
 
+      # Banner
+      #
+      # Say something nice
+      #
       def banner
         puts "*" * 80
-        puts "Your extension has been generated with a gemspec dependency " \
-             "on Archangel #{archangel_version}."
+        puts "  Your extension has been generated with a gemspec dependency on"
+        puts "  Archangel #{archangel_version}."
+        puts ""
+        puts "  You look lovely today by the way."
         puts "*" * 80
       end
 

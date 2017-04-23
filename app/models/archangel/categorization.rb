@@ -7,7 +7,6 @@ module Archangel
   # @since 0.0.1
   #
   class Categorization < ApplicationRecord
-    # Associations
     belongs_to :category
     belongs_to :categorizable, polymorphic: true
 

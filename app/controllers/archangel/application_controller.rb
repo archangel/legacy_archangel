@@ -32,10 +32,45 @@ module Archangel
     helper_method :current_navigation
     helper_method :current_site
 
+    # Navigation for current page
+    #
+    # = Example
+    #  <%= current_navigation %> #=> proc
+    #
     def current_navigation
       @current_navigation ||= navigation_items
     end
 
+    # Current site
+    #
+    # = Example
+    #  <%= current_site %> #=> object
+    #
+    # = Response
+    #   {
+    #     "id": 123,
+    #     "name": "Site Name",
+    #     "locale": "en",
+    #     "logo": {
+    #       "url": "/path/to/logo.jpg",
+    #       "medium": {
+    #         "url": "/path/to/medium_logo.jpg"
+    #       },
+    #       "thumb": {
+    #         "url": "/path/to/thumb_logo.jpg"
+    #       },
+    #       "mini": {
+    #         "url": "/path/to/mini_logo.jpg"
+    #       }
+    #     },
+    #     "meta_keywords": "site, keywords",
+    #     "meta_description": "Site description",
+    #     "created_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+    #     "updated_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+    #     "theme": "default",
+    #     "favicon": null
+    #   }
+    #
     def current_site
       @current_site ||= Archangel::Site.current
     end

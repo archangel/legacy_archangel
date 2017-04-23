@@ -9,7 +9,6 @@ module Archangel
   class Post < ApplicationRecord
     acts_as_paranoid
 
-    # Callbacks
     before_validation :parameterize_slug
 
     before_save :stringify_meta_keywords
@@ -17,10 +16,8 @@ module Archangel
 
     after_destroy :column_reset
 
-    # Uploader
     mount_uploader :feature, Archangel::FeatureUploader
 
-    # Validation
     validates :author_id, presence: true
     validates :content, presence: true, allow_blank: true
     validates :path, uniqueness: true
@@ -28,7 +25,6 @@ module Archangel
     validates :slug, presence: true
     validates :title, presence: true
 
-    # Associations
     belongs_to :author, class_name: Archangel::User
 
     has_many :categorizations, as: :categorizable
@@ -36,13 +32,11 @@ module Archangel
     has_many :taggings, as: :taggable
     has_many :tags, through: :taggings
 
-    # Nested attributes
     accepts_nested_attributes_for :categories, reject_if: :all_blank,
                                                allow_destroy: true
     accepts_nested_attributes_for :tags, reject_if: :all_blank,
                                          allow_destroy: true
 
-    # Default scope
     default_scope { order(published_at: :desc, id: :desc) }
 
     # Scope
@@ -76,12 +70,32 @@ module Archangel
       joins(:tags).where("archangel_tags.slug = ?", tag)
     })
 
+    # Next post
+    #
+    # Next post based on current posts publication date
+    #
+    # = Example
+    #   "<% next = @post.next %>" #=> Archangel::Post
+    #
+    # @return [Object] next post
+    #                  next post based on published_at
+    #
     def next
       return nil unless published_at?
 
       self.class.where("published_at > ?", published_at).first
     end
 
+    # Previous post
+    #
+    # Previous post based on current posts publication date
+    #
+    # = Example
+    #   "<% previous = @post.previous %>" #=> Archangel::Post
+    #
+    # @return [Object] previous post
+    #                  previous post based on published_at
+    #
     def previous
       return nil unless published_at?
 

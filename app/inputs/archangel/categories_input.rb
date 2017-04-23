@@ -7,6 +7,13 @@ module Archangel
   # @since 0.0.1
   #
   class CategoriesInput < SimpleForm::Inputs::CollectionSelectInput
+    # Input field options
+    #
+    # Simple Form options for field.
+    #   Sets `include_blank` to `false`
+    #   Sets `multiple` to `false`
+    #   Sets `selected` to an array of selected category for the resource
+    #
     def input_options
       super.tap do |options|
         options[:include_blank] = false

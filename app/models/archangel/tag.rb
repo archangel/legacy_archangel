@@ -9,24 +9,22 @@ module Archangel
   class Tag < ApplicationRecord
     acts_as_paranoid
 
-    # Callbacks
     before_validation :parameterize_slug
 
     after_destroy :column_reset
 
-    # Validation
     validates :name, presence: true
     validates :slug, presence: true, uniqueness: true
 
-    # Associations
     has_many :taggings
     has_many :pages, through: :taggings,
                      source: :taggable,
                      source_type: "Archangel::Page"
 
-    # Default scope
     default_scope { order(name: :asc) }
 
+    # Override column used for constructing the URL to this object
+    #
     def to_param
       slug
     end

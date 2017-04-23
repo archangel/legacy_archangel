@@ -16,18 +16,138 @@ module Archangel
 
       respond_to :json
 
+      # List of all pages
+      #
+      # = Request
+      #   GET /admin/pages
+      #   GET /admin/pages/page/:page
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Params
+      #   [Integer] page - the page number
+      #
+      # = Response
+      #   [
+      #     {
+      #       "id": 123,
+      #       "title": "Asset title",
+      #       "description": "Asset description",
+      #       "file": {
+      #         "url": "/path/to/uploaded/file.jpg",
+      #         "thumb": {
+      #           "url": "/path/to/uploaded/thumb_file.jpg"
+      #         },
+      #         "mini": {
+      #           "url": "/path/to/uploaded/mini_file.jpg"
+      #         }
+      #       },
+      #       "uploader_id": 123,
+      #       "assetable_id": null,
+      #       "assetable_type": null,
+      #       "file_size": 12345,
+      #       "content_type": "image/jpeg",
+      #       "created_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #       "updated_at": "YYYY-MM-DDTHH:MM:SS.MSZ"
+      #     },
+      #     ...
+      #   ]
+      #
       def index
         respond_with @assets
       end
 
+      # View an asset
+      #
+      # = Request
+      #   GET /admin/pages/:id
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Params
+      #   [Integer] id - the page ID
+      #
+      # = Response
+      #   {
+      #     "id": 123,
+      #     "title": "Asset title",
+      #     "description": "Asset description",
+      #     "file": {
+      #       "url": "/path/to/uploaded/file.jpg",
+      #       "thumb": {
+      #         "url": "/path/to/uploaded/thumb_file.jpg"
+      #       },
+      #       "mini": {
+      #         "url": "/path/to/uploaded/mini_file.jpg"
+      #       }
+      #     },
+      #     "uploader_id": 123,
+      #     "assetable_id": null,
+      #     "assetable_type": null,
+      #     "file_size": 12345,
+      #     "content_type": "image/jpeg",
+      #     "created_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #     "updated_at": "YYYY-MM-DDTHH:MM:SS.MSZ"
+      #   }
+      #
       def show
         respond_with @asset
       end
 
+      # New asset
+      #
+      # = Request
+      #   GET /admin/pages/new
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Response
+      #   {
+      #     "id": null,
+      #     "title": null,
+      #     "description": null,
+      #     "file": {
+      #       "url": "/path/to/uploaded/default_file.jpg",
+      #       "thumb": {
+      #         "url": "/path/to/uploaded/thumb_default_file.jpg"
+      #       },
+      #       "mini": {
+      #         "url": "/path/to/uploaded/mini_default_file.jpg"
+      #       }
+      #     },
+      #     "uploader_id": null,
+      #     "assetable_id": null,
+      #     "assetable_type": null,
+      #     "file_size": null,
+      #     "content_type": null,
+      #     "created_at": null,
+      #     "updated_at": null
+      #   }
+      #
       def new
         respond_with @asset
       end
 
+      # Create a new asset
+      #
+      # = Request
+      #   POST /admin/assets
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Request
+      #   {
+      #     "asset": {
+      #       "title": "Asset title",
+      #       "description": "Asset description",
+      #       "file": "local/path/to/file.jpg"
+      #     }
+      #   }
+      #
       def create
         @asset.save
 
@@ -42,16 +162,82 @@ module Archangel
         end
       end
 
+      # Edit an asset
+      #
+      # = Request
+      #   GET /admin/assets/:id/edit
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Params
+      #   [Integer] id - the asset ID
+      #
+      # = Response
+      #   {
+      #     "id": 123,
+      #     "title": "Asset title",
+      #     "description": "Asset description",
+      #     "file": {
+      #       "url": "/path/to/uploaded/file.jpg",
+      #       "thumb": {
+      #         "url": "/path/to/uploaded/thumb_file.jpg"
+      #       },
+      #       "mini": {
+      #         "url": "/path/to/uploaded/mini_file.jpg"
+      #       }
+      #     },
+      #     "uploader_id": 123,
+      #     "assetable_id": null,
+      #     "assetable_type": null,
+      #     "file_size": 12345,
+      #     "content_type": "image/jpeg",
+      #     "created_at": "YYYY-MM-DDTHH:MM:SS.MSZ",
+      #     "updated_at": "YYYY-MM-DDTHH:MM:SS.MSZ"
+      #   }
+      #
       def edit
         respond_with @asset
       end
 
+      # Update an asset
+      #
+      # = Request
+      #   PATCH /admin/assets/:id
+      #   PUT   /admin/assets/:id
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Params
+      #   [Integer] id - the asset ID
+      #
+      # = Request
+      #   {
+      #     "asset": {
+      #       "title": "Updated asset title",
+      #       "description": "Updated asset description",
+      #       "file": "local/path/to/file.jpg"
+      #     }
+      #   }
+      #
       def update
         @asset.update(asset_params)
 
         respond_with @asset, location: -> { admin_assets_path }
       end
 
+      # Destroy an asset
+      #
+      # = Request
+      #   DELETE /admin/assets/:id
+      #
+      # = Formats
+      #   HTML, JSON
+      #
+      # = Params
+      #   [Integer] id - the asset ID
+      #
       def destroy
         @asset.destroy
 
