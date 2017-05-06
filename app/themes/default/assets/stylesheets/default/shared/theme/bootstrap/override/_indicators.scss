@@ -1,0 +1,21 @@
+// Indicators =================================================================
+
+.close {
+  color: $white;
+  opacity: .4;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $white;
+    opacity: 1;
+  }
+}
+
+.alert {
+
+  .alert-link {
+    color: $white;
+    text-decoration: underline;
+  }
+}
