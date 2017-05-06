@@ -1,15 +1,16 @@
 /**
- * Default Archangel frontend theme
+ * Archangel frontend `default` theme
  *
+ * Self
  *= require_self
  *
  * Third party libraries
  *= require font-awesome
  *= require hamburgers/hamburgers
  *
- * Third-party Archangel assets (from the vendor directory)
+ * Third-party Archangel assets (from the application vendor directory)
  *= require archangel/frontend
  *
- * Archangel section theme styles
- *= require default/frontend/style
+ * Theme styles
+ *= require default/frontend/all
  */

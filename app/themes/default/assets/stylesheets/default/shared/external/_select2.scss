@@ -1,6 +1,4 @@
-$select2-theme-name: 'bootstrap';
-
-.select2-container--#{$select2-theme-name} {
+.select2-container--bootstrap {
   .select2-selection {
     background-color: $input-bg;
     border: 2px solid $input-border;

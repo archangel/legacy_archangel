@@ -5,12 +5,11 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-// External
+// Third party overrides
 @import 'default/shared/external/select2';
 
-// Common theme
+// Common theme styles
 @import 'default/shared/theme';
 
 // Layout
-@import 'default/auth/header';
-@import 'default/auth/footer';
+@import 'layouts/*';

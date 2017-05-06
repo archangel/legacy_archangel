@@ -1,0 +1,15 @@
+// Theme variables
+@import '../variables';
+
+// Boostrap
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+// Third party overrides
+@import 'default/shared/external/select2';
+
+// Common theme styles
+@import 'default/shared/theme';
+
+// Layout
+@import 'layouts/*';

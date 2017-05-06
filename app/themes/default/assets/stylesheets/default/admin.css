@@ -1,6 +1,7 @@
 /**
- * Default Archangel admin theme
+ * Archangel admin `default` theme
  *
+ * Self
  *= require_self
  *
  * Third party libraries
@@ -11,9 +12,9 @@
  *= require select2-bootstrap
  *= require trumbowyg/trumbowyg
  *
- * Third-party Archangel assets (from the vendor directory)
+ * Third-party Archangel assets (from the application vendor directory)
  *= require archangel/admin
  *
- * Archangel section theme styles
- *= require default/admin/style
+ * Theme styles
+ *= require default/admin/all
  */

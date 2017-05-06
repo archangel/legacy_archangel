@@ -1,11 +1,14 @@
-// Default Archangel admin theme
+// Archangel admin `default` theme
+//
+// Self
+//= require_self
 //
 // Archangel common theme scripts
 //= require archangel/object
 //= require archangel/objects/translations/datetimepicker
 //= require archangel/objects/routes/admin
 //
-// External assets
+// Third party libraries
 //= require jquery2
 //= require jquery_ujs
 //= require bootstrap
@@ -21,15 +24,15 @@
 //= require trumbowyg/plugins/preformatted/trumbowyg.preformatted
 //= require trumbowyg/plugins/upload/trumbowyg.upload
 //
-// Third-party Archangel assets (from the vendor directory)
-//= require archangel/admin
-//
-// Internal assets
+// Archangel libraries
 //= require archangel/bootstrap/datetimepicker
 //= require archangel/select2/categories
 //= require archangel/select2/meta_keywords
 //= require archangel/select2/tags
 //= require archangel/trumbowyg
 //
-// Archangel section theme scripts
+// Third-party Archangel assets (from the vendor directory)
+//= require archangel/frontend
+//
+// Theme scripts
 // n/a
