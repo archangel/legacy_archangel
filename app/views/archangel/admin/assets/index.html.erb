@@ -1,6 +1,6 @@
 <div class="row wrapper page-header">
   <div class="col-lg-12">
-    <h2>Asset List</h2>
+    <h2><%= Archangel.t(:index_resource, resource: @assets.model_name.human.titleize) %></h2>
 
     <%= render "buttons" %>
   </div>
@@ -16,9 +16,9 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>File</th>
-              <th>Title</th>
-              <th class="actions text-right">Actions</th>
+              <th><%= Archangel.t(:file) %></th>
+              <th><%= Archangel.t(:title) %></th>
+              <th class="actions text-right"><%= Archangel.t(:actions) %></th>
             </tr>
           </thead>
 
@@ -28,9 +28,9 @@
                 <td><%= image_tag(asset.file.mini.url) %></td>
                 <td><%= asset.title %></td>
                 <td class="actions text-right">
-                  <%= link_to(fa_icon("folder-open", text: "Show"), admin_asset_path(asset), class: "btn btn-info btn-sm") %>
-                  <%= link_to(fa_icon("pencil", text: "Edit"), edit_admin_asset_path(asset), class: "btn btn-success btn-sm") %>
-                  <%= link_to(fa_icon("times", text: "Destroy"), admin_asset_path(asset), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: Archangel.t(:are_you_sure) }) %>
+                  <%= link_to(fa_icon("folder-open", text: Archangel.t(:show)), admin_asset_path(asset), class: "btn btn-info btn-sm") %>
+                  <%= link_to(fa_icon("pencil", text: Archangel.t(:edit)), edit_admin_asset_path(asset), class: "btn btn-success btn-sm") %>
+                  <%= link_to(fa_icon("times", text: Archangel.t(:destroy)), admin_asset_path(asset), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: Archangel.t(:are_you_sure) }) %>
                 </td>
               </tr>
             <% end %>

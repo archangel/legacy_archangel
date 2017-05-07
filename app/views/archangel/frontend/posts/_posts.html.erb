@@ -9,13 +9,13 @@
         <h2><a href="<%= post_path(post) %>"><%= post.title %></a></h2>
 
         <span class="text-muted">
-          <%= Archangel.t("posts.posted_on") %> <%= posted_at(post) %>
+          <%= Archangel.t(:posted_on) %> <%= posted_at(post) %>
         </span>
       </div>
 
       <div class="article-posted text-center">
         <p>
-          <%= Archangel.t("posts.posted_by") %> <%= author_link(post) %>
+          <%= Archangel.t(:posted_by) %> <%= author_link(post) %>
         </p>
       </div>
 
@@ -25,7 +25,7 @@
 
       <% if post.categories.any? %>
         <div class="article-categories">
-          <h5>Categories:</h5>
+          <h5><%= Archangel.t(:categories) %>:</h5>
 
           <ul class="nav nav-pills">
             <% post.categories.each do |category| %>
@@ -37,7 +37,7 @@
 
       <% if post.tags.any? %>
         <div class="article-tags">
-          <h5>Tags:</h5>
+          <h5><%= Archangel.t(:tags) %>:</h5>
 
           <ul class="nav nav-pills">
             <% post.tags.each do |tag| %>

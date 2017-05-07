@@ -1,6 +1,6 @@
 <div class="row wrapper page-header">
   <div class="col-lg-12">
-    <h2>Site</h2>
+    <h2><%= Archangel.t(:show_resource, resource: @site.model_name.human.titleize) %></h2>
 
     <%= render "buttons" %>
   </div>
@@ -11,27 +11,27 @@
     <%= image_tag(@site.logo.thumb.url, alt: @site.name) %>
 
     <p>
-      <strong>Name:</strong>
+      <strong><%= Archangel.t(:name) %>:</strong>
       <%= @site.name %>
     </p>
 
     <p>
-      <strong>Theme:</strong>
+      <strong><%= Archangel.t(:theme) %>:</strong>
       <%= @site.theme %>
     </p>
 
     <p>
-      <strong>Locale:</strong>
+      <strong><%= Archangel.t(:locale) %>:</strong>
       <%= @site.locale %>
     </p>
 
     <p>
-      <strong>META Keywords:</strong>
+      <strong><%= Archangel.t(:meta_keywords) %>:</strong>
       <%= @site.meta_keywords %>
     </p>
 
     <p>
-      <strong>META Description:</strong>
+      <strong><%= Archangel.t(:meta_description) %>:</strong>
       <%= @site.meta_description %>
     </p>
   </div>

@@ -1,6 +1,6 @@
 <div class="row wrapper page-header">
   <div class="col-lg-12">
-    <h2>Dashboard</h2>
+    <h2><%= Archangel.t(:show_resource, resource: Archangel.t(:dashboard)) %></h2>
 
     <%= render "buttons" %>
   </div>
@@ -9,7 +9,7 @@
 <div class="dashboard-show panel panel-default">
   <div class="panel-body">
     <p>
-      Dashboard
+      <%= Archangel.t(:dashboard) %>
     </p>
   </div>
 </div>

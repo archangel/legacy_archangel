@@ -1,6 +1,6 @@
 <div class="row wrapper page-header">
   <div class="col-lg-12">
-    <h2>User</h2>
+    <h2><%= Archangel.t(:show_resource, resource: @user.model_name.human.titleize) %></h2>
 
     <%= render "buttons" %>
   </div>
@@ -11,17 +11,17 @@
     <%= image_tag(@user.avatar.thumb.url, alt: @user.username) %>
 
     <p>
-      <strong>Name:</strong>
+      <strong><%= Archangel.t(:name) %>:</strong>
       <%= @user.name %>
     </p>
 
     <p>
-      <strong>Userame:</strong>
+      <strong><%= Archangel.t(:username) %>:</strong>
       <%= @user.username %>
     </p>
 
     <p>
-      <strong>Email:</strong>
+      <strong><%= Archangel.t(:email) %>:</strong>
       <%= @user.email %>
     </p>
   </div>

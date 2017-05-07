@@ -8,7 +8,7 @@
     <%= f.input :attr_class %>
     <%= f.input :selected_class %>
 
-    <h3>Menu Items</h3>
+    <h3><%= Archangel.t(:menu_items) %></h3>
 
     <div class="sub-menu-items">
       <%= f.simple_fields_for :menu_items do |menu_item| %>
@@ -16,7 +16,7 @@
       <% end %>
 
       <div class="links">
-        <%= link_to_add_association "add menu item", f, :menu_items %>
+        <%= link_to_add_association Archangel.t(:add_menu_item), f, :menu_items %>
       </div>
     </div>
   </div>

@@ -75,7 +75,7 @@ module Archangel
     def unique_slug_per_level
       return if unique_slug_per_level?
 
-      errors.add(:slug, Archangel.t("errors.duplicate_slug"))
+      errors.add(:slug, Archangel.t(:duplicate_slug, scope: :errors))
     end
 
     def parameterize_slug

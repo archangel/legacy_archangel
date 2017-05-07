@@ -1,13 +1,13 @@
 <ul class="nav nav-pills">
   <% if member_action? || new_action? %>
-    <li><%= link_to(fa_icon("arrow-left", text: "Back"), admin_pages_path) %></li>
+    <li><%= link_to(fa_icon("arrow-left", text: Archangel.t(:back)), admin_pages_path) %></li>
   <% end %>
 
   <% if collection_action? || show_action? || edit_action? %>
-    <li><%= link_to(fa_icon("plus", text: "New"), new_admin_page_path) %></li>
+    <li><%= link_to(fa_icon("plus", text: Archangel.t(:new)), new_admin_page_path) %></li>
   <% end %>
 
   <% if show_action? %>
-    <li><%= link_to(fa_icon("check", text: "Edit"), edit_admin_page_path(@page)) %></li>
+    <li><%= link_to(fa_icon("check", text: Archangel.t(:edit)), edit_admin_page_path(@page)) %></li>
   <% end %>
 </ul>

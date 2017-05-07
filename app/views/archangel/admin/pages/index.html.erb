@@ -1,6 +1,6 @@
 <div class="row wrapper page-header">
   <div class="col-lg-12">
-    <h2>Page List</h2>
+    <h2><%= Archangel.t(:index_resource, resource: @pages.model_name.human.titleize) %></h2>
 
     <%= render "buttons" %>
   </div>
@@ -16,10 +16,10 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Title</th>
-              <th>Permalink</th>
-              <th>Author</th>
-              <th class="actions text-right">Actions</th>
+              <th><%= Archangel.t(:title) %></th>
+              <th><%= Archangel.t(:permalink) %></th>
+              <th><%= Archangel.t(:author) %></th>
+              <th class="actions text-right"><%= Archangel.t(:actions) %></th>
             </tr>
           </thead>
 
@@ -30,9 +30,9 @@
                 <td><%= page.path %></td>
                 <td><%= author_link(page.author) %></td>
                 <td class="actions text-right">
-                  <%= link_to(fa_icon("folder-open", text: "Show"), admin_page_path(page), class: "btn btn-info btn-sm") %>
-                  <%= link_to(fa_icon("pencil", text: "Edit"), edit_admin_page_path(page), class: "btn btn-success btn-sm") %>
-                  <%= link_to(fa_icon("times", text: "Destroy"), admin_page_path(page), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: Archangel.t(:are_you_sure) }) %>
+                  <%= link_to(fa_icon("folder-open", text: Archangel.t(:show)), admin_page_path(page), class: "btn btn-info btn-sm") %>
+                  <%= link_to(fa_icon("pencil", text: Archangel.t(:edit)), edit_admin_page_path(page), class: "btn btn-success btn-sm") %>
+                  <%= link_to(fa_icon("times", text: Archangel.t(:destroy)), admin_page_path(page), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: Archangel.t(:are_you_sure) }) %>
                 </td>
               </tr>
             <% end %>

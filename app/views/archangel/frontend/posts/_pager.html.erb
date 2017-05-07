@@ -1,15 +1,15 @@
 <nav>
   <ul class="pager">
     <% if @post.previous.present? %>
-      <li class="previous"><a href="<%= post_path(@post.previous) %>" title="<%= @post.previous.title %>"><span aria-hidden="true">&larr;</span> Previous</a></li>
+      <li class="previous"><a href="<%= post_path(@post.previous) %>" title="<%= @post.previous.title %>"><span aria-hidden="true">&larr;</span> <%= Archangel.t(:previous) %></a></li>
     <% else %>
-      <li class="previous disabled"><a href="<%= post_path(@post) %>"><span aria-hidden="true">&larr;</span> Previous</a></li>
+      <li class="previous disabled"><a href="<%= post_path(@post) %>"><span aria-hidden="true">&larr;</span> <%= Archangel.t(:previous) %></a></li>
     <% end %>
 
     <% if @post.next.present? %>
-      <li class="next"><a href="<%= post_path(@post.next) %>" title="<%= @post.next.title %>">Next <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="<%= post_path(@post.next) %>" title="<%= @post.next.title %>"><%= Archangel.t(:next) %> <span aria-hidden="true">&rarr;</span></a></li>
     <% else %>
-      <li class="next disabled"><a href="<%= post_path(@post) %>">Next <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="<%= post_path(@post) %>"><%= Archangel.t(:next) %> <span aria-hidden="true">&rarr;</span></a></li>
     <% end %>
   </ul>
 </nav>

@@ -1,33 +1,18 @@
 en:
   archangel:
+    actions: Actions
+    add_menu_item: Add Menu Item
     are_you_sure: Are you sure?
     archangel: Archangel
-    auth:
-      are_you_sure: Are you sure?
-      back: Back
-      button:
-        cancel_my_account: Cancel my account
-        change_my_password: Change my password
-        resend_confirmation_instructions: Resend confirmation instructions
-        resend_unlock_instructions: Resend unlock instructions
-        send_me_reset_password_instructions: Send me reset password instructions
-        sign_in: Sign in
-        update: Update
-      cancel_my_account: Cancel my account
-      change_my_password: Change my password
-      confirm_new_password: Confirm new password
-      currently_waiting_confirmation_for_resource: "Currently waiting confirmation for: %{resource}"
-      edit_resource: Edit %{resource}
-      forgot_your_password: Forgot your password?
-      leave_blank_if_you_dont_want_to_change_it: leave blank if you don't want to change it
-      new_password: New password
-      resend_confirmation_instructions: Resend confirmation instructions
-      resend_unlock_instructions: Resend unlock instructions
-      remember_me: Remember me
-      sign_in: Sign in
-      unhappy: Unhappy?
-      we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
-    built_with: Built with love using
+    assets: Assets
+    author: Author
+    back: Back
+    built_with: Built with love using %{archangel}
+    categories: Categories
+    class_attribute: Class Attribute
+    content: Content
+    content_type: Content Type
+    dashboard: Dashboard
     datetimepicker:
       clear: Clear selection
       close: Close the picker
@@ -49,43 +34,56 @@ en:
       time_format: "%H:%M"
       time_format_js: HH:mm
       today: Go to today
+    description: Description
+    destroy: Destroy
+    edit: Edit
+    edit_resource: Edit %{resource}
+    email: Email
     errors:
       duplicate_slug: cannot have the same slug for this level
-    languages:
-      en: English
+    file: File
+    file_size: File Size
+    home: Home
+    id_attribute: ID Attribute
+    index_resource: "%{resource} Listing"
+    locale: Locale
     login: Log In
     logout: Log out
-    menu:
-      assets: Assets
-      dashboard: Dashboard
-      categories: Categories
-      home: Home
-      menus: Menus
-      pages: Pages
-      posts: Posts
-      profile: Profile
-      site: Site
-      tags: Tags
-      users: Users
+    menu_items: Menu Items
+    menus: Menus
+    meta_description: META Description
+    meta_keywords: META Keywords
+    name: Name
+    new: New
+    new_resource: New %{resource}
+    next: Next
     no_resources: No %{resource} found.
-    placeholder_users: Name or username contains
-    placeholder_pages: Title or body contains
-    posts:
-      posted_by: by
-      posted_on: Posted on
+    pages: Pages
+    path: Path
+    permalink: Permalink
+    posted_on: Posted on
+    posted_by: Posted by
+    posts: Posts
+    posts_in_category: Posts in category
+    posts_tagged: Posts tagged
+    previous: Previous
+    profile: Profile
+    remove_menu_item: Remove Menu Item
     roles:
       admin: Admin
       editor: Editor
-    search: Search
-    theme:
-      default:
-        author: Archangel
-        name: Archangel Default Theme
-    titles:
-      list_section: "%{section}"
-      show_section: "%{section}"
-      new_section: New %{section}
-      edit_section: "%{section}"
+    selected_class: Selected Class
+    show: Show
+    show_resource: "%{resource}"
+    site: Site
+    slug: Slug
+    tags: Tags
+    theme: Theme
+    title: Title
+    toggle_navigation: Toggle navigation
     top_level: Top Level
     unknown: Unknown
+    uploader: Uploader
+    username: Username
+    users: Users
     welcome: Welcome to %{site}

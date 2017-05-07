@@ -1,0 +1,27 @@
+en:
+  archangel:
+    auth:
+      are_you_sure: Are you sure?
+      back: Back
+      button:
+        cancel_my_account: Cancel my account
+        change_my_password: Change my password
+        resend_confirmation_instructions: Resend confirmation instructions
+        resend_unlock_instructions: Resend unlock instructions
+        send_me_reset_password_instructions: Send me reset password instructions
+        sign_in: Sign in
+        update: Update
+      cancel_my_account: Cancel my account
+      change_my_password: Change my password
+      confirm_new_password: Confirm new password
+      currently_waiting_confirmation_for_resource: "Currently waiting confirmation for: %{resource}"
+      edit_resource: Edit %{resource}
+      forgot_your_password: Forgot your password?
+      leave_blank_if_you_dont_want_to_change_it: leave blank if you don't want to change it
+      new_password: New password
+      resend_confirmation_instructions: Resend confirmation instructions
+      resend_unlock_instructions: Resend unlock instructions
+      remember_me: Remember me
+      sign_in: Sign in
+      unhappy: Unhappy?
+      we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes

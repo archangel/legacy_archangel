@@ -1,6 +1,6 @@
 <div class="row wrapper page-header">
   <div class="col-lg-12">
-    <h2>Asset</h2>
+    <h2><%= Archangel.t(:show_resource, resource: @asset.model_name.human.titleize) %></h2>
 
     <%= render "buttons" %>
   </div>
@@ -9,17 +9,17 @@
 <div class="assets-show panel panel-default">
   <div class="panel-body">
     <p>
-      <strong>Title:</strong>
+      <strong><%= Archangel.t(:title) %>:</strong>
       <%= @asset.title %>
     </p>
 
     <p>
-      <strong>Description:</strong>
+      <strong><%= Archangel.t(:description) %>:</strong>
       <%= @asset.description %>
     </p>
 
     <p>
-      <strong>File:</strong>
+      <strong><%= Archangel.t(:file) %>:</strong>
       <%= @asset.file %>
 
       <div>
@@ -28,17 +28,17 @@
     </p>
 
     <p>
-      <strong>Uploader:</strong>
+      <strong><%= Archangel.t(:uploader) %>:</strong>
       <%= @asset.uploader_id %>
     </p>
 
     <p>
-      <strong>File Size:</strong>
+      <strong><%= Archangel.t(:file_size) %>:</strong>
       <%= number_to_human_size(@asset.file_size) %>
     </p>
 
     <p>
-      <strong>Content Type:</strong>
+      <strong><%= Archangel.t(:content_type) %>:</strong>
       <%= @asset.content_type %>
     </p>
   </div>
