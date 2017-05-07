@@ -19,7 +19,7 @@ module Archangel
                      file_size: {
                        greater_than_or_equal_to: 2.bytes,
                        less_than_or_equal_to:
-                         Archangel.config.attachment_maximum_file_size
+                         Archangel.config.asset_maximum_file_size
                      }
 
     default_scope { order(created_at: :desc) }

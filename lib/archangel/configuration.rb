@@ -36,9 +36,9 @@ module Archangel
     # Maximum file size of attachments. Default is `2.megabytes`
     #
     # = Options
-    #   [Integer] attachment_maximum_file_size maximum file size
+    #   [Integer] asset_maximum_file_size maximum file size
     #
-    attr_reader :attachment_maximum_file_size
+    attr_reader :asset_maximum_file_size
 
     # Attachment whitelist
     #
@@ -99,7 +99,7 @@ module Archangel
 
       @admin_path = "admin"
       @application = "archangel"
-      @attachment_maximum_file_size = max_file_size
+      @asset_maximum_file_size = max_file_size
       @attachment_white_list = %w[gif jpeg jpg png]
       @auth_path = "account"
       @frontend_path = ""

@@ -17,9 +17,9 @@ Archangel.configure do |config|
   # Default is "archangel"
   # config.application = "archangel"
 
-  # Maximum file size of attachments for upload.
+  # Maximum file size of assets for upload.
   # Default is 2.megabytes
-  # config.attachment_maximum_file_size = 2.megabytes
+  # config.asset_maximum_file_size = 2.megabytes
 
   # File upload extensions of attachments for upload.
   # Default is %w(jpg jpeg gif png)

@@ -50,7 +50,11 @@ module Archangel
     protected
 
     def image_formats
-      %w[image/jpg image/jpeg image/png image/gif]
+      %w[image/gif image/jpeg image/jpg image/png]
+    end
+
+    def image_format?(new_file)
+      image_formats.include?(new_file.content_type)
     end
   end
 end

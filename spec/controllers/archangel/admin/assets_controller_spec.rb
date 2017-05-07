@@ -29,9 +29,7 @@ module Archangel
         it "builds url using uploaded image" do
           asset = create(:asset)
 
-          expect(asset.file.mini.url).to(
-            include("/uploads/archangel/asset/file/#{asset.id}/mini_image.gif")
-          )
+          expect(asset.file.mini.url).to include("/assets/archangel/mini_asset")
         end
 
         context "with non-image file" do

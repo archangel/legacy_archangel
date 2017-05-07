@@ -5,7 +5,7 @@ require "rails_helper"
 module Archangel
   RSpec.describe Configuration, type: :library do
     it "has integer values" do
-      expect(Archangel.config.attachment_maximum_file_size).to(
+      expect(Archangel.config.asset_maximum_file_size).to(
         be_a_kind_of(Integer)
       )
     end

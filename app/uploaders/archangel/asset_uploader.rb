@@ -23,18 +23,12 @@ module Archangel
       Archangel.config.attachment_white_list
     end
 
-    # Path to default logo file
+    # Path to default avatar file
     #
-    # @return [String] path to logo file
+    # @return [String] path to avatar file
     #
     def default_path
       "archangel/" + [version_name, "asset.png"].compact.join("_")
-    end
-
-    protected
-
-    def image_format?(new_file)
-      image_formats.include?(new_file.content_type)
     end
   end
 end
