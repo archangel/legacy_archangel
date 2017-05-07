@@ -18,14 +18,14 @@ group :development, :test do
 end
 
 group :test do
-  gem "capybara", "~> 2.13.0"
+  gem "capybara", "~> 2.14.0"
   gem "coveralls", "~> 0.8.20"
-  gem "database_cleaner", "~> 1.5.3"
+  gem "database_cleaner", "~> 1.6.0"
   gem "factory_girl_rails", "~> 4.8.0"
   gem "launchy", "~> 2.4.3"
-  gem "poltergeist", "~> 1.14.0"
+  gem "poltergeist", "~> 1.15.0"
   gem "rails-controller-testing", "~> 1.0.1"
-  gem "rspec-rails", "~> 3.5.2"
+  gem "rspec-rails", "~> 3.6.0"
   gem "shoulda-callback-matchers", "~> 1.1.4"
   gem "shoulda-matchers", "~> 3.1.1"
   gem "simplecov", "~> 0.14.1"
