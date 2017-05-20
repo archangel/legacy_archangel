@@ -34,9 +34,10 @@ module Archangel
         "glyphicon",
         "glyphicon-#{name}",
         options.delete(:class)
-      ]
+      ].reject(&:blank?).flatten
       text = options.delete(:text)
-      icon = content_tag(:span, nil, options.merge(class: classes))
+      icon = content_tag(:span, nil, options.merge(class: classes,
+                                                   aria: { hidden: true }))
       Private.icon_join(icon, text)
     end
 

@@ -13,7 +13,7 @@ module Archangel
     end
 
     it "includes group icon" do
-      assert_select "i.glyphicon.glyphicon-calendar", count: 1
+      assert_select "span.glyphicon.glyphicon-calendar", count: 1
     end
   end
 end
