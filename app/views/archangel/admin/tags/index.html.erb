@@ -1,5 +1,5 @@
-<div class="row wrapper page-header">
-  <div class="col-lg-12">
+<div class="page-header panel panel-default">
+  <div class="panel-body">
     <h2><%= Archangel.t(:index_resource, resource: @tags.model_name.human.titleize) %></h2>
 
     <%= render "buttons" %>
@@ -8,17 +8,17 @@
 
 <div class="tags-index panel panel-default">
   <div class="panel-body">
-    <% if @tags.any? %>
+    <% if @tags.size %>
 
       <%= paginate @tags %>
 
       <div class="table-responsive">
-        <table class="table table-stripedr">
+        <table class="table table-hover table-bordered table-striped">
           <thead>
             <tr>
-              <th><%= Archangel.t(:name) %></th>
-              <th><%= Archangel.t(:slug) %></th>
-              <th class="actions text-right"><%= Archangel.t(:actions) %></th>
+              <th scope="col"><%= Archangel.t(:name) %></th>
+              <th scope="col"><%= Archangel.t(:slug) %></th>
+              <th class="actions text-right" scope="col"><%= Archangel.t(:actions) %></th>
             </tr>
           </thead>
 
@@ -28,9 +28,10 @@
                 <td><%= link_to(tag.name, admin_tag_path(tag)) %></td>
                 <td><%= tag.slug %></td>
                 <td class="actions text-right">
-                  <%= link_to(fa_icon("folder-open", text: Archangel.t(:show)), admin_tag_path(tag), class: "btn btn-info btn-sm") %>
-                  <%= link_to(fa_icon("pencil", text: Archangel.t(:edit)), edit_admin_tag_path(tag), class: "btn btn-success btn-sm") %>
-                  <%= link_to(fa_icon("times", text: Archangel.t(:destroy)), admin_tag_path(tag), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: Archangel.t(:are_you_sure) }) %>
+                  <%= link_to(glyphicon_icon("info-sign", text: Archangel.t(:show)), admin_tag_path(tag), class: "btn btn-info btn-sm") %>
+                  <%= link_to(glyphicon_icon("ok-sign", text: Archangel.t(:edit)), edit_admin_tag_path(tag), class: "btn btn-warning btn-sm") %>
+                  <%= link_to(glyphicon_icon("remove-sign", text: Archangel.t(:destroy)), admin_tag_path(tag), class: "btn btn-danger btn-sm",
+                                                            method: :delete, data: { confirm: Archangel.t(:are_you_sure) }) %>
                 </td>
               </tr>
             <% end %>
@@ -42,11 +43,9 @@
 
     <% else %>
 
-    <div class="no-resources col-lg-12">
-      <p>
+      <p class="no-resources">
         <%= Archangel.t(:no_resources, resource: @tags.model_name.human.pluralize.downcase) %>
       </p>
-    </div>
 
     <% end %>
   </div>

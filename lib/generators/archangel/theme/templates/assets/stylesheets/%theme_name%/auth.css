@@ -4,7 +4,7 @@
  *= require_self
  *
  * Third party libraries
- *= require font-awesome
+ * n/a
  *
  * Third-party Archangel assets (from the vendor directory)
  *= require archangel/auth

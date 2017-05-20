@@ -34,7 +34,6 @@ Gem::Specification.new do |s|
   s.add_dependency "devise", "~> 4.2.1"
   s.add_dependency "devise_invitable", "~> 1.7.1"
   s.add_dependency "file_validators", "~> 2.1.0"
-  s.add_dependency "font-awesome-rails", "~> 4.7.0"
   s.add_dependency "highline", "~> 1.7.8"
   s.add_dependency "kaminari", "~> 1.0.1"
   s.add_dependency "local_time", "~> 1.0.3"

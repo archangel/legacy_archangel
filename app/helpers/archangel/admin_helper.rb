@@ -7,8 +7,6 @@ module Archangel
   # @since 0.0.1
   #
   module AdminHelper
-    include FontAwesome::Rails::IconHelper
-
     # Author link
     #
     # The current logged in user will link to the profile. All others will link

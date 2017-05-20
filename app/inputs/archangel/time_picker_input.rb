@@ -14,8 +14,8 @@ module Archangel
     #
     def input(_wrapper_options)
       template.content_tag(:div, class: "input-group") do
-        template.concat @builder.text_field(attribute_name, input_html_options)
         template.concat calendar_addon
+        template.concat @builder.text_field(attribute_name, input_html_options)
       end
     end
 
@@ -37,7 +37,7 @@ module Archangel
     end
 
     def icon_calendar
-      "<i class='glyphicon glyphicon-timestamp'></i>".html_safe
+      "<span class='glyphicon glyphicon-timestamp'></span>".html_safe
     end
   end
 end

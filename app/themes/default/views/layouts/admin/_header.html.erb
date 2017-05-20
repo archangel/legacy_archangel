@@ -18,7 +18,7 @@
 
     <ul class="list-inline text-right">
       <li><%= link_to(current_user.name, admin_profile_path) %></li>
-      <li><%= link_to(fa_icon("sign-out", text: Archangel.t(:logout)), destroy_user_session_path, method: :delete) %></li>
+      <li><%= link_to(glyphicon_icon("off", text: Archangel.t(:logout)), destroy_user_session_path, method: :delete) %></li>
     </ul>
   </div>
 </header>

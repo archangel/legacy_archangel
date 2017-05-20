@@ -6,6 +6,7 @@ en:
     archangel: Archangel
     assets: Assets
     author: Author
+    avatar: Avatar
     back: Back
     built_with: Built with love using %{archangel}
     categories: Categories
@@ -49,6 +50,7 @@ en:
     locale: Locale
     login: Log In
     logout: Log out
+    lt_ie: "You are using an <strong>outdated</strong> browser. Please <a href='https://browsehappy.com/'>upgrade your browser</a> to improve your experience."
     menu_items: Menu Items
     menus: Menus
     meta_description: META Description

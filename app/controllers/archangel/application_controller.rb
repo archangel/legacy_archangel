@@ -14,8 +14,9 @@ module Archangel
 
     protect_from_forgery with: :exception
 
-    helper Archangel::FlashHelper
     helper Archangel::ApplicationHelper
+    helper Archangel::FlashHelper
+    helper Archangel::GlyphiconHelper
 
     rescue_from ActionController::UnknownController,
                 AbstractController::ActionNotFound,
