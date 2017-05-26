@@ -1,11 +1,11 @@
-<div class="page-header">
-  <h1><%= Archangel.t(:posts_in_category) %> `<%= @category.name %>`</h1>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h2><%= Archangel.t(:posts_in_category, category: @category.name) %></h2>
+  </div>
 </div>
 
 <div class="panel panel-default">
   <div class="panel-body">
-
     <%= render "posts" %>
-
   </div>
 </div>

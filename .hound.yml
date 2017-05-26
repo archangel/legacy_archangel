@@ -6,7 +6,7 @@ eslint:
 # https://github.com/jshint/jshint
 jshint:
   enabled: true
-#   config_file: .jshintrc
+  config_file: .jshintrc
 
 # # https://github.com/bbatsov/rubocop
 ruby:

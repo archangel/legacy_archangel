@@ -65,9 +65,10 @@ en:
     permalink: Permalink
     posted_on: Posted on
     posted_by: Posted by
+    post: Post
     posts: Posts
-    posts_in_category: Posts in category
-    posts_tagged: Posts tagged
+    posts_in_category: "Posts in Category `%{category}`"
+    posts_tagged: "Posts Tagged `%{tag}`"
     previous: Previous
     profile: Profile
     remove_menu_item: Remove Menu Item
