@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "active_link_to"
 require "acts_as_list"
 require "acts_as_tree"
 require "bootstrap-sass"
@@ -44,7 +45,7 @@ require "archangel/version"
 #
 module Archangel
   THEME_DIRECTORIES = [Archangel::Engine.root, Rails.root].freeze
-  THEMES = Dir["app/themes/*/"].map { |d| File.basename(d) }.freeze
+  THEMES = Dir["app/themes/*/"].map { |dir| File.basename(dir) }.freeze
   THEME_DEFAULT = "default".to_s.freeze
 
   class << self

@@ -1,0 +1,29 @@
+<ul id="sidebar-menu" class="nav hidden-xs">
+  <li>
+    <%= active_link_to(Archangel.t(:dashboard), admin_root_path, active: :exclusive) %>
+  </li>
+  <li>
+    <%= active_link_to(Archangel.t(:pages), admin_pages_path, active: :inclusive) %>
+  </li>
+  <li>
+    <%= active_link_to(Archangel.t(:posts), admin_posts_path, active: :inclusive) %>
+  </li>
+  <li>
+    <%= active_link_to(Archangel.t(:categories), admin_categories_path, active: :inclusive) %>
+  </li>
+  <li>
+    <%= active_link_to(Archangel.t(:tags), admin_tags_path, active: :inclusive) %>
+  </li>
+  <li>
+    <%= active_link_to(Archangel.t(:users), admin_users_path, active: :inclusive) %>
+  </li>
+  <li>
+    <%= active_link_to(Archangel.t(:menus), admin_menus_path, active: :inclusive) %>
+  </li>
+  <li>
+    <%= active_link_to(Archangel.t(:assets), admin_assets_path, active: :inclusive) %>
+  </li>
+  <li>
+    <%= active_link_to(Archangel.t(:site), admin_site_path, active: :inclusive) %>
+  </li>
+</ul>

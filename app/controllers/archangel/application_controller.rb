@@ -30,17 +30,7 @@ module Archangel
     respond_to :html, :json
     responders :flash, :http_cache
 
-    helper_method :current_navigation
     helper_method :current_site
-
-    # Navigation for current page
-    #
-    # = Example
-    #  <%= current_navigation %> #=> proc
-    #
-    def current_navigation
-      @current_navigation ||= navigation_items
-    end
 
     # Current site
     #
@@ -100,10 +90,6 @@ module Archangel
       locale = session[:locale].to_s.strip.to_sym
 
       I18n.locale = locale_for(locale)
-    end
-
-    def navigation_items
-      nil
     end
 
     def render_404(exception)

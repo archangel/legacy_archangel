@@ -28,17 +28,14 @@
     }
 
     > li {
-      &.active {
-        background: $brand-primary;
-        border-left: 4px solid $brand-success;
-
-        > a {
-          color: $white;
-        }
-      }
-
       > a {
         color: #a7b1c2;
+
+        &.active {
+          background: $brand-primary;
+          border-left: 4px solid $brand-success;
+          color: $white;
+        }
 
         &:hover {
           background: $navbar-default-bg;

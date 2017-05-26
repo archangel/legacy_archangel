@@ -2,6 +2,11 @@
 
 module Archangel
   module Renderer
+    # Bootstrap renderer
+    #
+    # @author dfreerksen
+    # @since 0.0.1
+    #
     class Bootstrap < SimpleNavigation::Renderer::Base
       def render(item_container)
         return "" if skip_if_empty? && item_container.empty?
@@ -38,8 +43,7 @@ module Archangel
       def list_content(item_container)
         item_container.items.inject([]) do |list, item|
           li_options = item.html_options.reject { |k, _v| k == :link }
-          icon = li_options.delete(:icon)
-          li_content = tag_for(item, icon)
+          li_content = tag_for(item)
 
           if include_sub_navigation?(item)
             li_content << render_sub_navigation_for(item)
@@ -49,18 +53,14 @@ module Archangel
         end.join
       end
 
-      def tag_for(item, icon = nil)
-        item_name = list_item_name(item.name, icon)
+      def tag_for(item)
+        item_name = list_item_name(item.name)
 
         list_item_link(item, item_name)
       end
 
-      def list_item_name(item_name, icon = nil)
-        unless icon.nil?
-          icon = content_tag(:i, "", class: [icon].flatten.compact.join(" "))
-        end
-
-        [icon, content_tag(:span, item_name)].compact.join(" ")
+      def list_item_name(item_name)
+        content_tag(:span, item_name)
       end
 
       def list_item_link(item, item_name)
