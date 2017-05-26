@@ -201,6 +201,22 @@ scss-lint .
 brakeman
 ```
 
+### rails_best_practices
+
+[rails_best_practices](https://github.com/flyerhzm/rails_best_practices) is a code metric tool to check the quality of Rails code.
+
+Output to console
+
+```
+rails_best_practices .
+```
+
+Output to HTML file (`rails_best_practices_output.html`)
+
+```
+rails_best_practices -f html .
+```
+
 ## Contributing
 
 1.  Fork it ([https://github.com/archangel/archangel/fork](https://github.com/archangel/archangel/fork))
