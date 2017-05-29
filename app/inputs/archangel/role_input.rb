@@ -34,9 +34,7 @@ module Archangel
 
     def role_options
       [].tap do |obj|
-        Archangel::ROLES.each do |role|
-          obj << [Archangel.t("roles.#{role}"), role]
-        end
+        Archangel::ROLES.each { |role| obj << [Archangel.t(role), role] }
       end
     end
   end

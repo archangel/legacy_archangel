@@ -1,0 +1,18 @@
+//========================================
+// Page Display
+//========================================
+
+.page-display {
+  background-color: $tinted;
+  -webkit-box-orient: horizontal;
+  box-orient: horizontal;
+  display: -webkit-box;
+  display: box;
+  height: 100%;
+
+  &.sidebar-open {
+    .page-sidebar {
+      margin-left: 0;
+    }
+  }
+}

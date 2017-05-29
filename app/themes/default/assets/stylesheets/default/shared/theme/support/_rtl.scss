@@ -2,22 +2,22 @@
 // RTL Support
 //========================================
 
-*[dir="ltr"] {
+*[dir='ltr'] {
   direction: ltr;
   unicode-bidi: embed;
 }
 
-*[dir="rtl"] {
+*[dir='rtl'] {
   direction: rtl;
   unicode-bidi: embed;
 }
 
-bdo[dir="ltr"] {
+bdo[dir='ltr'] {
   direction: ltr;
   unicode-bidi: bidi-override;
 }
 
-bdo[dir="rtl"] {
+bdo[dir='rtl'] {
   direction: rtl;
   unicode-bidi: bidi-override;
 }

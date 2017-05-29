@@ -6,14 +6,14 @@
 @import 'bootstrap';
 
 // Third party overrides
-@import 'default/shared/external/select2';
-@import 'default/shared/external/trumbowyg';
+@import '../shared/external/select2';
+@import '../shared/external/trumbowyg';
 
 // Common theme styles
-@import 'default/shared/common';
+@import '../shared/common';
 
 // Layout
-@import 'layouts/*';
+@import 'layout/*';
 
 // Sections
 @import 'sections/*';

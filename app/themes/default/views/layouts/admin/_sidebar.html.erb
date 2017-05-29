@@ -1,15 +1,5 @@
 <nav class="navbar-default" role="navigation">
-  <div class="sidebar-collapse">
-    <div class="nav-header">
-      <div class="brand-logo text-center">
-        <a href="<%= admin_root_path %>"><img alt="<%= current_site.name %>" class="img-center img-responsive" src="<%= current_site.logo_url(:thumb) %>" /></a>
-      </div>
-
-      <h2 class="brand-name text-center visible-md visible-lg">
-        <%= current_site.name %>
-      </h2>
-    </div>
-
+  <div data-spy="affix" data-offset-top="0">
     <%= render "archangel/shared/admin/navigation" %>
   </div>
 </nav>

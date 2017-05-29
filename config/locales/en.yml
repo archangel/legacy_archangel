@@ -2,6 +2,7 @@ en:
   archangel:
     actions: Actions
     add_menu_item: Add Menu Item
+    admin: Admin
     are_you_sure: Are you sure?
     archangel: Archangel
     assets: Assets
@@ -37,11 +38,11 @@ en:
       today: Go to today
     description: Description
     destroy: Destroy
+    duplicate_slug: cannot have the same slug for this level
     edit: Edit
     edit_resource: Edit %{resource}
+    editor: Editor
     email: Email
-    errors:
-      duplicate_slug: cannot have the same slug for this level
     file: File
     file_size: File Size
     home: Home
@@ -72,9 +73,6 @@ en:
     previous: Previous
     profile: Profile
     remove_menu_item: Remove Menu Item
-    roles:
-      admin: Admin
-      editor: Editor
     selected_class: Selected Class
     show: Show
     show_resource: "%{resource}"

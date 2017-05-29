@@ -6,10 +6,10 @@
 @import 'bootstrap';
 
 // Third party overrides
-@import 'default/shared/external/select2';
+@import '../shared/external/select2';
 
 // Common theme styles
-@import 'default/shared/common';
+@import '../shared/common';
 
 // Layout
-@import 'layouts/*';
+@import 'layout/*';

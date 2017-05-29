@@ -20,7 +20,7 @@ module Archangel
       @record = record
     end
 
-    # Check if current use has access to :index route
+    # Check if current user has access to :index route
     #
     # @return [Boolean] has access to route
     #
@@ -28,7 +28,7 @@ module Archangel
       true
     end
 
-    # Check if current use has access to :show route
+    # Check if current user has access to :show route
     #
     # @return [Boolean] has access to route
     #
@@ -36,7 +36,7 @@ module Archangel
       scope.where(id: record.id).exists?
     end
 
-    # Check if current use has access to :create route
+    # Check if current user has access to :create route
     #
     # @return [Boolean] has access to route
     #
@@ -44,7 +44,7 @@ module Archangel
       true
     end
 
-    # Check if current use has access to :new route
+    # Check if current user has access to :new route
     #
     # @return [Boolean] has access to route
     #
@@ -52,7 +52,7 @@ module Archangel
       create?
     end
 
-    # Check if current use has access to :update route
+    # Check if current user has access to :update route
     #
     # @return [Boolean] has access to route
     #
@@ -60,7 +60,7 @@ module Archangel
       true
     end
 
-    # Check if current use has access to :edit route
+    # Check if current user has access to :edit route
     #
     # @return [Boolean] has access to route
     #
@@ -68,7 +68,7 @@ module Archangel
       update?
     end
 
-    # Check if current use has access to :destroy route
+    # Check if current user has access to :destroy route
     #
     # @return [Boolean] has access to route
     #

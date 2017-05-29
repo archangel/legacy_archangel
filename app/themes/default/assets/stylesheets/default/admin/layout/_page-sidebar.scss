@@ -1,0 +1,24 @@
+//========================================
+// Page Sidebar
+//========================================
+
+.page-sidebar {
+  -webkit-box-flex: 0;
+  box-flex: 0;
+  height: 100%;
+  margin-left: ($sidebar-width * -1);
+  overflow: hidden;
+  transition: all .5s ease;
+  width: $sidebar-width;
+
+  li a {
+    &.active {
+      background-color: $black;
+      color: $white;
+    }
+  }
+
+  .affix {
+    width: $sidebar-width;
+  }
+}

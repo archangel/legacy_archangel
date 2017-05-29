@@ -1,7 +1,11 @@
 {
   "globals": {
+    "$": true,
     "Archangel": true,
-    "$": true
+    "document": true,
+    "jQuery": true,
+    "localStorage": true,
+    "window": true
   },
   "env": {
     "browser": true,

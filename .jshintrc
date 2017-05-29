@@ -1,6 +1,11 @@
 {
   "globals": {
-    "Archangel": true
+    "$": true,
+    "Archangel": true,
+    "document": true,
+    "jQuery": true,
+    "localStorage": true,
+    "window": true
   },
   "boss": true,
   "curly": true,

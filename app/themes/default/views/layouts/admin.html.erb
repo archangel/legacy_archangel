@@ -25,22 +25,22 @@
       <%= render "archangel/shared/lt_ie" %>
     <![endif]-->
 
-    <div id="wrapper">
-      <aside id="sidebar">
-        <%= render "layouts/admin/sidebar" %>
-      </aside>
+    <div class="page-wrapper">
+      <%= render "layouts/admin/header" %>
 
-      <main id="page-wrapper" role="main">
-        <%= render "layouts/admin/header" %>
+      <section class="page-display sidebar-open">
+        <aside class="page-sidebar">
+          <%= render "layouts/admin/sidebar" %>
+        </aside>
 
-        <section class="container-fluid">
+        <main class="page-content" role="main">
           <%= render "archangel/shared/flash_messages" %>
 
           <%= yield %>
-        </section>
+        </main>
+      </section>
 
-        <%= render "layouts/admin/footer" %>
-      </main>
+      <%= render "layouts/admin/footer" %>
     </div>
 
     <%= javascript_include_tag "#{current_theme}/admin" %>

@@ -35,4 +35,4 @@
 //= require archangel/frontend
 //
 // Theme scripts
-// n/a
+//= require default/admin/menu
