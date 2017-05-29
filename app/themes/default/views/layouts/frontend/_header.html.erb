@@ -1,4 +1,4 @@
-<header id="header" class="navbar navbar-default">
+<header class="page-header">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
 
-      <%= link_to(image_tag(current_site.logo.mini.url, alt: ""), root_path, class: "navbar-brand") %>
+      <%= link_to(image_tag(current_site.logo.mini.url, alt: current_site.name), root_path, class: "navbar-brand") %>
     </div>
 
     <div class="collapse navbar-collapse">

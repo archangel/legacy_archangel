@@ -25,16 +25,18 @@
       <%= render "archangel/shared/lt_ie" %>
     <![endif]-->
 
-    <div id="wrapper" class="container">
-      <main id="page-wrapper" role="main">
-        <%= render "archangel/shared/flash_messages" %>
+    <div class="page-wrapper">
+      <%= render "layouts/auth/header" %>
 
-        <%= render "layouts/auth/header" %>
+      <section class="page-display sidebar-open">
+        <main class="page-content" role="main">
+          <%= render "archangel/shared/flash_messages" %>
 
-        <%= yield %>
+          <%= yield %>
+        </main>
+      </section>
 
-        <%= render "layouts/auth/footer" %>
-      </main>
+      <%= render "layouts/auth/footer" %>
     </div>
 
     <%= javascript_include_tag "#{current_theme}/auth" %>

@@ -27,16 +27,18 @@
       <%= render "archangel/shared/lt_ie" %>
     <![endif]-->
 
-    <div id="wrapper">
-      <main id="page-wrapper" role="main">
-        <%= render "layouts/frontend/header" %>
+    <div class="page-wrapper">
+      <%= render "layouts/frontend/header" %>
 
-        <%= render "archangel/shared/flash_messages" %>
+      <section class="page-display">
+        <main class="page-content" role="main">
+          <%= render "archangel/shared/flash_messages" %>
 
-        <%= yield %>
+          <%= yield %>
+        </main>
+      </section>
 
-        <%= render "layouts/frontend/footer" %>
-      </main>
+      <%= render "layouts/frontend/footer" %>
     </div>
 
     <%= javascript_include_tag "#{current_theme}/frontend" %>
