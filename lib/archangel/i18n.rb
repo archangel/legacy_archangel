@@ -16,7 +16,7 @@ module Archangel
     #     archangel:
     #       foo: Bar
     #       hello:
-    #         word: Hello World
+    #         world: Hello World
     #
     # = I18n Example
     #   "<%= I18n.t("archangel.foo") %>" #=> "Bar"
