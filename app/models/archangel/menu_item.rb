@@ -20,8 +20,8 @@ module Archangel
                        inclusion: { in: Archangel::MENU_METHODS }
 
     belongs_to :menu
-    belongs_to :menuable, polymorphic: true
-    belongs_to :parent, class_name: Archangel::MenuItem
+    belongs_to :menuable, polymorphic: true, optional: true
+    belongs_to :parent, class_name: "Archangel::MenuItem", optional: true
 
     has_many :menu_items, foreign_key: :parent_id,
                           source: :parent,
@@ -32,7 +32,6 @@ module Archangel
 
     default_scope { order(position: :asc) }
 
-    # Scope
     scope :children, (-> { where(parent_id: id) })
 
     protected

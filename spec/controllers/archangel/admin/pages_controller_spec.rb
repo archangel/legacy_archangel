@@ -52,7 +52,7 @@ module Archangel
               title: "New Page",
               slug: "new-page",
               content: "Page content",
-              author_id: create(:user),
+              author_id: create(:user).id,
               published_at: Time.current
             }
           end

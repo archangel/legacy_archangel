@@ -25,7 +25,7 @@ module Archangel
     validates :slug, presence: true
     validates :title, presence: true
 
-    belongs_to :author, class_name: Archangel::User
+    belongs_to :author, class_name: "Archangel::User"
 
     has_many :categorizations, as: :categorizable
     has_many :categories, through: :categorizations
@@ -39,7 +39,6 @@ module Archangel
 
     default_scope { order(published_at: :desc, id: :desc) }
 
-    # Scope
     scope :published, (-> { where("published_at <= ?", Time.now) })
 
     scope :unpublished, (lambda do

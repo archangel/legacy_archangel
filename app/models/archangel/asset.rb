@@ -11,9 +11,9 @@ module Archangel
 
     mount_uploader :file, Archangel::AssetUploader
 
-    belongs_to :page
-    belongs_to :assetable, polymorphic: true
-    belongs_to :uploader, class_name: Archangel::User
+    belongs_to :assetable, polymorphic: true, optional: true
+    belongs_to :page, optional: true
+    belongs_to :uploader, class_name: "Archangel::User"
 
     validates :file, presence: true,
                      file_size: {

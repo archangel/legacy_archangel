@@ -36,11 +36,13 @@ RSpec.feature "User links", type: :feature do
     end
   end
 
-  describe "without valid User" do
+  describe "with invalid User" do
     before { stub_authorization! }
 
     it "does not show author name, does not link to author" do
-      create(:page, author_id: 1234)
+      author = create(:user)
+      create(:page, author: author)
+      author.destroy!
 
       visit archangel.admin_pages_path
 

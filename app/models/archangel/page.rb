@@ -30,8 +30,8 @@ module Archangel
 
     validate :unique_slug_per_level
 
-    belongs_to :author, class_name: Archangel::User
-    belongs_to :assetable, polymorphic: true
+    belongs_to :author, class_name: "Archangel::User"
+    belongs_to :assetable, polymorphic: true, optional: true
 
     has_many :assets, as: :assetable
     has_many :categorizations, as: :categorizable
@@ -39,7 +39,6 @@ module Archangel
     has_many :taggings, as: :taggable
     has_many :tags, through: :taggings
 
-    # Nested attributes
     accepts_nested_attributes_for :categories, reject_if: :all_blank,
                                                allow_destroy: true
     accepts_nested_attributes_for :tags, reject_if: :all_blank,
@@ -47,7 +46,6 @@ module Archangel
 
     default_scope { order(published_at: :desc) }
 
-    # Scope
     scope :published, (lambda do
       where.not(published_at: nil).where("published_at <= ?", Time.now)
     end)
