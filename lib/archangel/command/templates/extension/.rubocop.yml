@@ -12,6 +12,9 @@ AllCops:
     - 'spec/dummy/**/*'
     - 'vendor/**/*'
 
+Layout/DotPosition:
+  EnforcedStyle: leading
+
 Metrics/BlockLength:
   Exclude:
     - '**/*.gemspec'
@@ -26,9 +29,6 @@ Metrics/ModuleLength:
 
 Style/Documentation:
   Enabled: true
-
-Style/DotPosition:
-  EnforcedStyle: leading
 
 Style/FrozenStringLiteralComment:
   EnforcedStyle: always
