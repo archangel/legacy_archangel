@@ -66,9 +66,9 @@ module Archangel
       joins(:categories).where("archangel_categories.slug = ?", category)
     end)
 
-    scope :with_tag, (lambda { |tag|
+    scope :with_tag, (lambda do |tag|
       joins(:tags).where("archangel_tags.slug = ?", tag)
-    })
+    end)
 
     # Next post
     #
