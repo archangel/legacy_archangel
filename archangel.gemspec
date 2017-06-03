@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.2.2"
 
   s.add_dependency "jquery-rails", ">= 4.1.0"
-  s.add_dependency "rails", ">= 5.0", "< 5.1"
+  s.add_dependency "rails", ">= 5.0.0"
   s.add_dependency "sass-rails", ">= 5.0.0"
   s.add_dependency "uglifier", ">= 2.7"
 
@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.add_dependency "carrierwave", "~> 1.1.0"
   s.add_dependency "cocoon", "~> 1.2.9"
   s.add_dependency "date_validator", "~> 0.9.0"
-  s.add_dependency "devise", "~> 4.2.1"
+  s.add_dependency "devise", "~> 4.3.0"
   s.add_dependency "devise_invitable", "~> 1.7.1"
   s.add_dependency "file_validators", "~> 2.1.0"
   s.add_dependency "highline", "~> 1.7.8"
@@ -46,6 +46,6 @@ Gem::Specification.new do |s|
   s.add_dependency "responders", "~> 2.4.0"
   s.add_dependency "select2-rails", "~> 4.0.3"
   s.add_dependency "simple-navigation", "~> 4.0.5"
-  s.add_dependency "simple_form", "~> 3.4.0"
+  s.add_dependency "simple_form", "~> 3.5.0"
   s.add_dependency "validates", "~> 1.0.0"
 end
