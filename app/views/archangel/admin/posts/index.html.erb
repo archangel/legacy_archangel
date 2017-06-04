@@ -8,7 +8,7 @@
 
 <div class="posts-index panel panel-default">
   <div class="panel-body">
-    <% if @posts.size %>
+    <% if @posts.present? %>
 
       <%= paginate @posts %>
 

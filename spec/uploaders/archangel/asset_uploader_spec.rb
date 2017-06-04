@@ -43,7 +43,7 @@ module Archangel
 
     context "with non-image file" do
       before do
-        Archangel.config.attachment_white_list.insert(0, "txt")
+        Archangel.config.asset_white_list.insert(0, "txt")
 
         Archangel::AssetUploader.enable_processing = true
 
@@ -51,7 +51,7 @@ module Archangel
       end
 
       after do
-        Archangel.config.attachment_white_list.delete_at(0)
+        Archangel.config.asset_white_list.delete_at(0)
 
         Archangel::AssetUploader.enable_processing = false
 

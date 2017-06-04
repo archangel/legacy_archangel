@@ -14,8 +14,8 @@ module Archangel
       expect(Archangel.config.application).to be_a_kind_of(String)
     end
 
-    it "has string values" do
-      expect(Archangel.config.attachment_white_list).to be_a_kind_of(Array)
+    it "has array of values" do
+      expect(Archangel.config.asset_white_list).to be_a_kind_of(Array)
     end
 
     describe "#missing_method" do

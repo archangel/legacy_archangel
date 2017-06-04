@@ -8,7 +8,7 @@
 
 <div class="tags-index panel panel-default">
   <div class="panel-body">
-    <% if @tags.size %>
+    <% if @tags.present? %>
 
       <%= paginate @tags %>
 

@@ -15,12 +15,12 @@ module Archangel
       process resize_to_fit: [48, 48]
     end
 
-    # File extension whitelist
+    # Asset file extension whitelist
     #
     # @return [Array] file extension whitelist
     #
     def extension_whitelist
-      Archangel.config.attachment_white_list
+      Archangel.config.asset_white_list
     end
 
     # Path to default avatar file

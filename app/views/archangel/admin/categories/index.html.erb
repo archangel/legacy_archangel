@@ -8,7 +8,7 @@
 
 <div class="categories-index panel panel-default">
   <div class="panel-body">
-    <% if @categories.size %>
+    <% if @categories.present? %>
 
       <%= paginate @categories %>
 

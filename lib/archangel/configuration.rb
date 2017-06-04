@@ -31,23 +31,23 @@ module Archangel
     #
     attr_reader :application
 
-    # Attachment maximum file size
+    # Asset maximum file size
     #
-    # Maximum file size of attachments. Default is `2.megabytes`
+    # Maximum file size of assets. Default is `2.megabytes`
     #
     # = Options
     #   [Integer] asset_maximum_file_size maximum file size
     #
     attr_reader :asset_maximum_file_size
 
-    # Attachment whitelist
+    # Asset file extension whitelist
     #
-    # Attachment file extension whitelist. Default is `%w(gif jpeg jpg png)`
+    # Asset file extension whitelist. Default is `%w(gif jpeg jpg png)`
     #
     # = Options
-    #   [Array] image_white_list image file extensions
+    #   [Array] asset_white_list file extensions whitelist
     #
-    attr_reader :attachment_white_list
+    attr_reader :asset_white_list
 
     # Auth path
     #
@@ -100,7 +100,7 @@ module Archangel
       @admin_path = "admin"
       @application = "archangel"
       @asset_maximum_file_size = max_file_size
-      @attachment_white_list = %w[gif jpeg jpg png]
+      @asset_white_list = %w[gif jpeg jpg png]
       @auth_path = "account"
       @frontend_path = ""
       @image_maximum_file_size = max_file_size

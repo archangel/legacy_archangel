@@ -8,7 +8,7 @@
 
 <div class="assets-index panel panel-default">
   <div class="panel-body">
-    <% if @assets.size %>
+    <% if @assets.present? %>
 
       <%= paginate @assets %>
 
