@@ -1,8 +1,8 @@
-<% if @posts.any? %>
+<% if posts.present? %>
 
-  <%= paginate @posts %>
+  <%= paginate posts %>
 
-  <% @posts.each do |post| %>
+  <% posts.each do |post| %>
 
     <article id="article_<%= post.id %>" class="article">
       <div class="article-title text-center">
@@ -54,13 +54,13 @@
 
   <% end %>
 
-  <%= paginate @posts %>
+  <%= paginate posts %>
 
 <% else %>
 
   <div class="no-resources">
     <p>
-      <%= Archangel.t(:no_resources, resource: @posts.model_name.human.pluralize) %>
+      <%= Archangel.t(:no_resources, resource: posts.model_name.human.pluralize) %>
     </p>
   </div>
 

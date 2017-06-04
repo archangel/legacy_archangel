@@ -6,7 +6,7 @@
 
 <div class="panel panel-default">
   <div class="panel-body">
-    <%= render "pager" %>
+    <%= render "pager", post: @post %>
 
     <article id="article_<%= @post.id %>" class="article">
       <div class="article-title text-center">
@@ -56,6 +56,6 @@
       </div>
     </article>
 
-    <%= render "pager" %>
+    <%= render "pager", post: @post %>
   </div>
 </div>
