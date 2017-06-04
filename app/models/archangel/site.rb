@@ -19,7 +19,9 @@ module Archangel
       less_than_or_equal_to: Archangel.config.image_maximum_file_size
     }
     validates :name, presence: true
-    validates :theme, presence: true, inclusion: { in: Archangel.themes }
+    validates :theme, presence: true,
+                      inclusion: { in: Archangel.themes },
+                      allow_blank: true
 
     # Current site
     #

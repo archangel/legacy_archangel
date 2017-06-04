@@ -6,7 +6,7 @@ class CreateArchangelPages < ActiveRecord::Migration[5.0]
       t.integer :parent_id
       t.string :path
       t.string :slug
-      t.boolean :homepage, default: 0, null: false
+      t.boolean :homepage, default: false
       t.text :content, default: ""
       t.string :meta_keywords
       t.string :meta_description
