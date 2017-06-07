@@ -15,9 +15,9 @@ module Archangel
 
     after_destroy :column_reset
 
-    devise :database_authenticatable, :invitable, :recoverable, :registerable,
-           :lockable, :rememberable, :trackable, :validatable, :confirmable,
-           :timeoutable
+    devise :confirmable, :database_authenticatable, :invitable, :lockable,
+           :recoverable, :registerable, :rememberable, :timeoutable, :trackable,
+           :validatable
 
     mount_uploader :avatar, Archangel::AvatarUploader
 

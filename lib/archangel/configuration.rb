@@ -22,6 +22,14 @@ module Archangel
     #
     attr_reader :admin_path
 
+    # Allow registration
+    #
+    # Allow registration. Default is `false`
+    #
+    # = Option allow_registration sallow registration paths
+    #
+    attr_reader :allow_registration
+
     # Application name
     #
     # Short name. Default is "archangel"
@@ -96,15 +104,17 @@ module Archangel
 
     def initialize
       max_file_size = 2.megabytes
+      image_file_whitelist = %w[gif jpeg jpg png]
 
       @admin_path = "admin"
+      @allow_registration = false
       @application = "archangel"
       @asset_maximum_file_size = max_file_size
-      @asset_white_list = %w[gif jpeg jpg png]
+      @asset_white_list = image_file_whitelist
       @auth_path = "account"
       @frontend_path = ""
       @image_maximum_file_size = max_file_size
-      @image_white_list = %w[gif jpeg jpg png]
+      @image_white_list = image_file_whitelist
       @posts_path = "posts"
     end
 

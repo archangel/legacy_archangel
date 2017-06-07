@@ -36,6 +36,9 @@ Archangel::Engine.routes.draw do
   devise_for :users,
              module: :devise,
              class_name: "Archangel::User",
+             controllers: {
+               registrations: "archangel/auth/registrations"
+             },
              path: "",
              path_prefix: Archangel.config.auth_path,
              skip: [:omniauth_callbacks],

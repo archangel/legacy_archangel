@@ -3,8 +3,18 @@
 require "rails_helper"
 
 RSpec.feature "Account login page", type: :feature do
-  describe "when on registration page" do
+  describe "when registration is disabled" do
+    it "returns a 404" do
+      visit archangel.new_user_registration_path
+
+      expect(page.status_code).to eq 404
+    end
+  end
+
+  describe "when registration is enabled" do
     it "has additional form fields" do
+      allow(Archangel.config).to receive(:allow_registration) { true }
+
       visit archangel.new_user_registration_path
 
       expect(page).to have_text "Name"

@@ -92,12 +92,12 @@ module Archangel
       I18n.locale = locale_for(locale)
     end
 
-    def render_404(exception)
+    def render_404(exception = nil)
       render_error("archangel/errors/error_404", :not_found, exception)
     end
 
-    def render_error(path, status, exception)
-      log_error(exception)
+    def render_error(path, status, exception = nil)
+      log_error(exception) unless exception.blank?
 
       respond_to do |format|
         format.html { render(template: path, status: status) }
