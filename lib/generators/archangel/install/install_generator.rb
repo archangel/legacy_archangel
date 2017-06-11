@@ -116,16 +116,10 @@ Archangel::Engine.load_seed
       def insert_routes
         say_quietly "Adding Archangel routes..."
 
-        insert_into_file File.join("config", "routes.rb"),
-                         after: "Rails.application.routes.draw do\n" do
-          <<-ROUTES
-  # This mounts Archangel's routes at the root of your application. If you
-  # would like to change where the engine is mounted, simply change the :at
-  # option to reflect your needs.
-  mount Archangel::Engine, at: "/#{options[:route_path]}"
-
-            ROUTES
-        end
+        route "# This mounts Archangel's routes at the root of your application.
+  # If you would like to change where the engine is mounted, simply change
+  # the :at option to reflect your needs.
+  mount Archangel::Engine, at: \"/#{options[:route_path]}\"\n"
 
         say_quietly "Your application's config/routes.rb has been updated."
       end
