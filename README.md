@@ -12,7 +12,7 @@ This project rocks and uses MIT-LICENSE.
 
 ## Requirements
 
--   Ruby >= 2.2.2
+-   Ruby >= 2.2.3
 -   Rails >= 5.0
 
 ## Deploying to Heroku
