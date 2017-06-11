@@ -199,7 +199,7 @@ module Archangel
         @posts = Archangel::Post.published
                                 .in_year(params[:year] || nil)
                                 .in_month(params[:month] || nil)
-                                .page(params[:page])
+                                .page(page_num)
                                 .per(per_page)
       end
 
@@ -213,7 +213,7 @@ module Archangel
         @category = Archangel::Category.find_by!(slug: category_slug)
         @posts = Archangel::Post.published
                                 .with_category(category_slug)
-                                .page(params[:page])
+                                .page(page_num)
                                 .per(per_page)
       end
 
@@ -223,7 +223,7 @@ module Archangel
         @tag = Archangel::Tag.find_by!(slug: tag_slug)
         @posts = Archangel::Post.published
                                 .with_tag(tag_slug)
-                                .page(params[:page])
+                                .page(page_num)
                                 .per(per_page)
       end
 

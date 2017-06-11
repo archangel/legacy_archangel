@@ -283,7 +283,7 @@ module Archangel
       end
 
       def set_posts
-        @posts = Archangel::Post.page(params[:page]).per(per_page)
+        @posts = Archangel::Post.page(page_num).per(per_page)
 
         authorize @posts
       end

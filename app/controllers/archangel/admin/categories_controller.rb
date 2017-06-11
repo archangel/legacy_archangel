@@ -230,7 +230,7 @@ module Archangel
       end
 
       def set_categories
-        @categories = Archangel::Category.page(params[:page]).per(per_page)
+        @categories = Archangel::Category.page(page_num).per(per_page)
 
         authorize @categories
       end
@@ -254,7 +254,7 @@ module Archangel
 
         @query = Archangel::Category.ransack(description_or_name_cont: query)
 
-        @categories = @query.result(distinct: true).order(:name).limit(25)
+        @categories = @query.result(distinct: true).limit(per_page)
 
         authorize @categories
       end

@@ -23,12 +23,16 @@ module Archangel
         end
 
         it "assigns all posts as @posts with custom pagination" do
-          archangel_get :index, params: {
-            limit: 2
-          }
+          archangel_get :index, params: { per: 2 }
 
-          expect(assigns(:posts).count).to eq(2)
+          expect(assigns(:posts).size).to eq(2)
           expect(assigns(:posts)).to eq(posts[1, 2].reverse)
+        end
+
+        it "assigns all posts as @posts with second set" do
+          archangel_get :index, params: { page: 2, per: 2 }
+
+          expect(assigns(:posts).size).to eq(1)
         end
 
         it "assigns all posts for year as @posts" do

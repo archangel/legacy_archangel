@@ -302,7 +302,7 @@ module Archangel
 
       def set_users
         @users = Archangel::User.where.not(id: current_user.id)
-                                .page(params[:page])
+                                .page(page_num)
                                 .per(per_page)
 
         authorize @users

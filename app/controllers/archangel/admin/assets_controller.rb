@@ -262,7 +262,7 @@ module Archangel
       end
 
       def set_assets
-        @assets = Archangel::Asset.page(params[:page]).per(per_page)
+        @assets = Archangel::Asset.page(page_num).per(per_page)
 
         authorize @assets
       end

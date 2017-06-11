@@ -242,7 +242,7 @@ module Archangel
       end
 
       def set_pages
-        @pages = Archangel::Page.page(params[:page]).per(per_page)
+        @pages = Archangel::Page.page(page_num).per(per_page)
 
         authorize @pages
       end

@@ -230,7 +230,7 @@ module Archangel
       end
 
       def set_tags
-        @tags = Archangel::Tag.page(params[:page]).per(per_page)
+        @tags = Archangel::Tag.page(page_num).per(per_page)
 
         authorize @tags
       end
@@ -254,7 +254,7 @@ module Archangel
 
         @query = Archangel::Tag.ransack(description_or_name_cont: query)
 
-        @tags = @query.result(distinct: true).order(:name).limit(25)
+        @tags = @query.result(distinct: true).limit(per_page)
 
         authorize @tags
       end

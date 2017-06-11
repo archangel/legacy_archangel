@@ -10,6 +10,7 @@ module Archangel
   #
   class ApplicationController < ActionController::Base
     include Archangel::ActionableConcern
+    include Archangel::PaginatableConcern
     include Archangel::ThemableConcern
 
     protect_from_forgery with: :exception
@@ -76,14 +77,6 @@ module Archangel
 
     def layout_from_theme
       "frontend"
-    end
-
-    def per_page
-      params.fetch(:limit, per_page_default)
-    end
-
-    def per_page_default
-      Kaminari.config.default_per_page
     end
 
     def set_locale
