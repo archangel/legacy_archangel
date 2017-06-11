@@ -6,6 +6,7 @@ gemspec
 
 group :development do
   gem "brakeman", "~> 3.6.1"
+  gem "listen", "~> 3.1.5"
   gem "rails_best_practices", "~> 1.18.1"
   gem "reek", "~> 4.7.0"
   gem "rubocop", "~> 0.49.1"

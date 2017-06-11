@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "rails/generators"
 require "rails/generators/rails/app/app_generator"
 require "active_support/core_ext/hash"
 
@@ -14,20 +15,15 @@ module Archangel
       desc "Creates blank Rails application, installs Archangel"
 
       class_option :lib_name, default: "", desc: "Library name"
-      class_option :database, default: "",
-                              desc: "Type of database to use in dummy app. " \
-                                    "Default: sqlite"
+      class_option :database, default: "sqlite",
+                              desc: "Type of database to use in dummy app."
+
+      source_root File.expand_path("../templates", __FILE__)
 
       PASSTHROUGH_OPTIONS = %i[
         skip_active_record skip_javascript database javascript quiet pretend
         force skip
       ].freeze
-
-      def self.source_paths
-        paths = superclass.source_paths
-        paths << File.expand_path("../templates", __FILE__)
-        paths.flatten
-      end
 
       def prevent_application_dummy
         return unless Rails.respond_to?(:root) && !Rails.root.nil?
