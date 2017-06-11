@@ -6,7 +6,7 @@ rescue LoadError
   puts "You must `gem install bundler` and `bundle install` to run rake tasks"
 end
 
-Dir.glob("./lib/tasks/**/*_tasks.rake").each { |r| load r }
+Dir.glob("./lib/tasks/**/*_task.rake").each { |task| load task }
 
 Bundler::GemHelper.install_tasks
 
