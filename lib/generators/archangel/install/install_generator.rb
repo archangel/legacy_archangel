@@ -51,9 +51,15 @@ module Archangel
       def add_initializers
         say_quietly "Copying initializers..."
 
-        %w[archangel carrierwave devise].each do |initializer|
-          template "config/initializers/#{initializer}.rb"
+        %w[carrierwave devise].each do |filename|
+          template "config/initializers/#{filename}.rb"
         end
+      end
+
+      def add_configuration
+        say_quietly "Copying configuration..."
+
+        %w[archangel].each { |filename| template "config/#{filename}.yml" }
       end
 
       def create_local_seeds_file

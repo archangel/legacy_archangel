@@ -29,7 +29,7 @@ require "validates"
 require "uglifier"
 
 require "archangel/engine"
-require "archangel/configuration"
+require "archangel/config"
 require "archangel/i18n"
 require "archangel/languages"
 require "archangel/menu_methods"
@@ -50,31 +50,18 @@ module Archangel
   THEME_DEFAULT = "default".to_s.freeze
 
   class << self
-    attr_accessor :configuration
-
-    # Set Archangel configs
-    #
-    # Used in initializer to set configurations
-    #
-    # = Example
-    #   Archangel.configure do |config|
-    #     config.auth_path = "auth"
-    #   end
-    #
-    def configure
-      yield configuration
-    end
+    attr_reader :config
 
     # Archangel configs
     #
     # = Example
-    #  <% Archangel.contiguration.application %> #=> "archangel"
     #  <% Archangel.contig.application %> #=> "archangel"
+    #  <% Archangel.contiguration.application %> #=> "archangel"
     #
-    def configuration
-      @configuration ||= Configuration.new
+    def config
+      @config ||= Config.new
     end
-    alias config configuration
+    alias configuration config
 
     # Archangel routes
     #
@@ -86,6 +73,11 @@ module Archangel
       Archangel::Engine.routes.url_helpers
     end
 
+    # Archangel themes
+    #
+    # = Example
+    #  <% Archangel.themes %> #=> %i[default]
+    #
     def themes
       [Archangel::THEME_DEFAULT] + Archangel::THEMES
     end

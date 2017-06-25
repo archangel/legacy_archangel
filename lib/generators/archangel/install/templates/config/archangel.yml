@@ -1,0 +1,33 @@
+# Admin root path.
+# Default is "admin"
+#
+admin_path: "admin"
+
+# Auth root path.
+# Default is "account"
+#
+auth_path: "account"
+
+# Posts root path.
+# Default is "posts"
+#
+posts_path: "posts"
+
+# Application name.
+# Default is "archangel"
+#
+application: "archangel"
+
+# Maximum file size of for asset uploads.
+# Default is 2.megabytes
+#
+asset_maximum_file_size: 2.megabytes
+
+# File extension whitelist of asset uploads.
+# Default is ['jpg', 'jpeg', 'gif', 'png']
+#
+asset_white_list:
+  - gif
+  - jpg
+  - jpeg
+  - png
