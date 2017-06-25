@@ -10,7 +10,7 @@ group :development do
   gem "rails_best_practices", "~> 1.18.1"
   gem "reek", "~> 4.7.0"
   gem "rubocop", "~> 0.49.1"
-  gem "scss_lint", "~> 0.53.0"
+  gem "scss_lint", "~> 0.54.0"
   gem "yard", "~> 0.9.9"
 end
 
