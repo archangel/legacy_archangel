@@ -17,7 +17,7 @@
 
     <p>
       <strong><%= Archangel.t(:permalink) %>:</strong>
-      <%= @post.path %>
+      <%= frontend_post_path(@post.path.split("/").first, @post.path.split("/").second, @post.path.split("/").last) %>
     </p>
 
     <p>

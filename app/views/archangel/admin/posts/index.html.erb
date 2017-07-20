@@ -27,7 +27,7 @@
             <% @posts.each do |post| %>
               <tr>
                 <td><%= post.title %></td>
-                <td><%= post.path %></td>
+                <td><%= frontend_post_path(post.path.split("/").first, post.path.split("/").second, post.path.split("/").last) %></td>
                 <td><%= author_link(post.author) %></td>
                 <td class="actions text-right">
                   <%= link_to(glyphicon_icon("info-sign", text: Archangel.t(:show)), admin_post_path(post), class: "btn btn-info btn-sm") %>
